@@ -146,6 +146,28 @@
       margin-bottom: 56px;
     }
 
+    .hero p.hero-sub { margin-bottom: 16px; }
+
+    .hero-proof {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      margin-bottom: 56px;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 4px var(--teal-dim);
+      flex-shrink: 0;
+    }
+
     .divider {
       width: 1px;
       height: 48px;
@@ -170,6 +192,8 @@
       color: var(--muted);
       margin-bottom: 32px;
     }
+
+    .feature-group + .feature-group { margin-top: 56px; }
 
     .grid {
       display: grid;
@@ -398,7 +422,8 @@
     <img class="logo" src="./assets/loot_green.png" alt="Loot" />
     <div class="nav-right">
       <a href="./founding-member.html" class="nav-link">Founding Member</a>
-      <span class="badge">Em breve</span>
+      <a href="https://app.lootdeep.com" class="nav-link">Entrar →</a>
+      <span class="badge">No ar</span>
     </div>
   </nav>
 
@@ -407,37 +432,45 @@
     <img class="hero-logo" src="./assets/loot_green.png" alt="Loot" />
     <p class="tagline">Run Deep</p>
     <h1>A velha folha de Excel<br /><strong>acabou.</strong></h1>
-    <p>Gestão financeira, sessões, analytics e performance para times de poker profissional — tudo em um só lugar.</p>
+    <p class="hero-sub">Gestão financeira, sessões, analytics e performance para times de poker profissional — tudo em um só lugar.</p>
+    <div class="hero-proof"><span class="live-dot"></span>No ar — em produção com um time profissional desde junho de 2026.</div>
     <div class="divider"></div>
   </section>
 
   <!-- FEATURES -->
   <section class="features">
-    <p class="features-label">O que está chegando</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Gestão</h3>
-        <p>Hierarquia de acesso com papéis definidos. Cadastro centralizado e rastreável.</p>
+    <div class="feature-group">
+      <p class="features-label">No ar hoje</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Gestão</h3>
+          <p>Hierarquia de acesso com papéis definidos. Cadastro centralizado e rastreável.</p>
+        </div>
+        <div class="card">
+          <h3>Transações</h3>
+          <p>Ciclo completo de movimentações financeiras com comprovantes e auditoria.</p>
+        </div>
+        <div class="card">
+          <h3>Sessões</h3>
+          <p>Registro diário com cálculo automático de makeup, resultado líquido e extrato instantâneo.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Transações</h3>
-        <p>Ciclo completo de movimentações financeiras com comprovantes e auditoria.</p>
-      </div>
-      <div class="card">
-        <h3>Sessões</h3>
-        <p>Registro diário com cálculo automático de makeup, resultado líquido e extrato instantâneo.</p>
-      </div>
-      <div class="card">
-        <h3>Torneios</h3>
-        <p>Import do Sharkscope para todo o time. Conversão de moedas e correção automática de dados.</p>
-      </div>
-      <div class="card">
-        <h3>Performance</h3>
-        <p>Algoritmo de análise por ABI, ROI por formato e Score de Performance configurável.</p>
-      </div>
-      <div class="card">
-        <h3>Schedule +EV</h3>
-        <p>Sugestão inteligente dos torneios mais lucrativos para o perfil de cada jogador.</p>
+    </div>
+    <div class="feature-group">
+      <p class="features-label">Em breve</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Torneios</h3>
+          <p>Import do Sharkscope para todo o time. Conversão de moedas e correção automática de dados.</p>
+        </div>
+        <div class="card">
+          <h3>Performance</h3>
+          <p>Algoritmo de análise por ABI, ROI por formato e Score de Performance configurável.</p>
+        </div>
+        <div class="card">
+          <h3>Schedule +EV</h3>
+          <p>Sugestão inteligente dos torneios mais lucrativos para o perfil de cada jogador.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -457,7 +490,7 @@
   <!-- BOTTOM -->
   <section class="bottom">
     <h2>Decisões baseadas em dados,<br /><span>não em intuição.</span></h2>
-    <p>lootdeep.com — em breve</p>
+    <p>lootdeep.com</p>
   </section>
 
   <!-- FOOTER -->
