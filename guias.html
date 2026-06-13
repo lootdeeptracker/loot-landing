@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guias — Loot</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="./assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #262E3A;
+      --bg-card:   #2E3848;
+      --border:    rgba(255,255,255,0.07);
+      --teal:      #3CBCBC;
+      --teal-dim:  rgba(60,188,188,0.12);
+      --text:      #F0F4F8;
+      --muted:     rgba(240,244,248,0.45);
+      --radius:    12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      background: rgba(38,46,58,0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav img.logo { height: 28px; width: auto; }
+
+    nav .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav .nav-link:hover { color: var(--text); }
+
+    /* MAIN */
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 120px 24px 80px;
+    }
+
+    .page-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 48px;
+    }
+
+    .page-title strong { font-weight: 600; }
+
+    /* GUIDE CARD */
+    .guide {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    }
+
+    .guide-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .guide ol {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .guide ol li {
+      counter-increment: steps;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .guide ol li::before {
+      content: counter(steps);
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--teal-dim);
+      border: 1px solid rgba(60,188,188,0.25);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .guide-cta {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .guide-cta strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .guide-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 24px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer img { height: 18px; opacity: 0.5; }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer a {
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--teal); }
+
+    footer span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      nav { padding: 16px 24px; }
+      footer { padding: 20px 24px; flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 420px) {
+      nav .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="./index.html">
+      <img class="logo" src="./assets/loot_green.png" alt="Loot" />
+    </a>
+    <div class="nav-right">
+      <a href="https://app.lootdeep.com" class="nav-link">Entrar →</a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+    <p class="page-label">Documentação</p>
+    <h1 class="page-title">Importação<br /><strong>de dados</strong></h1>
+
+    <!-- SHARKSCOPE -->
+    <div class="guide">
+      <p class="guide-title">Importar torneios do SharkScope</p>
+      <ol>
+        <li>Selecione "Pesquisa Básica" ou "Pesquisa Avançada" para filtrar por período.</li>
+        <li>Selecione seu grupo de jogadores (Player Group).</li>
+        <li>Clique no nome do jogador na tabela e abra a aba "Torneios".</li>
+        <li>Clique em "Baixar todos como CSV", logo acima da lista.</li>
+      </ol>
+      <div class="guide-cta">
+        Faça o upload do arquivo em <strong>Importar CSV</strong> no Loot.
+      </div>
+    </div>
+
+    <!-- GG FIXER -->
+    <div class="guide">
+      <p class="guide-title">Importar dados para o GG Fixer</p>
+      <ol>
+        <li>Abra o app da GG Poker.</li>
+        <li>Acesse o PokerCraft e vá para "My Tournaments".</li>
+        <li>Selecione o período e clique em "SHOW".</li>
+        <li>Baixe o "Game Summaries" (botão verde).</li>
+      </ol>
+      <div class="guide-cta">
+        Faça o upload dos arquivos .zip em <strong>GG Fixer</strong> no Loot. O Loot corrige em massa os erros que o SharkScope traz nos torneios da GG Poker.
+        <p class="guide-note">Você pode enviar vários arquivos de uma vez.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="./assets/loot_green.png" alt="Loot" />
+    <div class="footer-right">
+      <a href="mailto:contato@lootdeep.com">contato@lootdeep.com</a>
+      <span>© 2026 Loot Analytics</span>
+    </div>
+  </footer>
+
+</body>
+</html>
