@@ -3,16 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loot — Run Deep</title>
+
+  <title>Loot — Run Deep · Gestão e analytics para times de poker</title>
   <meta name="description" content="Gestão financeira e analytics para times de poker profissional. Tudo em um só lugar, com inteligência aplicada." />
-  <meta property="og:title" content="Loot — Run Deep" />
-  <meta property="og:description" content="Gestão financeira e analytics para times de poker profissional." />
-  <meta property="og:image" content="./assets/loot_green.png" />
+  <link rel="canonical" href="https://www.lootdeep.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Loot Analytics" />
+  <meta name="theme-color" content="#262E3A" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Loot" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://www.lootdeep.com/" />
+  <meta property="og:title" content="Loot — Gestão e analytics para times de poker" />
+  <meta property="og:description" content="Gestão financeira e analytics para times de poker profissional. Tudo em um só lugar, com inteligência aplicada." />
+  <meta property="og:image" content="https://www.lootdeep.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Loot — gestão e analytics para times de poker" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Loot — Gestão e analytics para times de poker" />
+  <meta name="twitter:description" content="Gestão financeira e analytics para times de poker profissional. Tudo em um só lugar." />
+  <meta name="twitter:image" content="https://www.lootdeep.com/assets/og-image.png" />
+
   <link rel="icon" type="image/png" href="./assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Loot DeepTracker",
+    "url": "https://www.lootdeep.com/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "inLanguage": "pt-BR",
+    "description": "Gestão financeira e analytics para times de poker profissional: bankroll, sessões, torneios, stats de jogo e performance.",
+    "image": "https://www.lootdeep.com/assets/og-image.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Loot Analytics",
+      "url": "https://www.lootdeep.com/",
+      "logo": "https://www.lootdeep.com/assets/loot_green.png",
+      "email": "contato@lootdeep.com",
+      "sameAs": ["https://www.instagram.com/loot.deep/"]
+    }
+  }
+  </script>
+
+  <!-- Limpa parametros de rastreio (utm/fbclid) da barra de endereco, apos o analytics ler -->
+  <script>
+    (function () {
+      function clean() {
+        try {
+          var u = new URL(window.location.href);
+          var junk = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid','gclid','gbraid','wbraid','igshid','mc_cid','mc_eid'];
+          var changed = false;
+          junk.forEach(function (p) { if (u.searchParams.has(p)) { u.searchParams.delete(p); changed = true; } });
+          if (changed) {
+            var q = u.searchParams.toString();
+            history.replaceState(null, '', u.pathname + (q ? '?' + q : '') + u.hash);
+          }
+        } catch (e) {}
+      }
+      window.addEventListener('load', function () { setTimeout(clean, 600); });
+    })();
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
