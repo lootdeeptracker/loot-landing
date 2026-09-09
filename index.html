@@ -39,7 +39,7 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Loot DeepTracker",
+    "name": "Loot DeepAnalytics",
     "url": "https://www.lootdeep.com/",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
@@ -573,6 +573,37 @@
       <span>© 2026 Loot Analytics</span>
     </div>
   </footer>
+
+  <!-- Eventos de engajamento (tempo + scroll) para o Vercel Web Analytics -->
+  <script>
+    (function () {
+      if (!window.va) return;
+      var fired = {};
+      function once(name) { if (!fired[name]) { fired[name] = true; window.va('event', { name: name }); } }
+      var engaged = false;
+      function engage() { if (!engaged) { engaged = true; once('engajado'); } }
+
+      // tempo na pagina
+      setTimeout(function () { once('tempo_15s'); engage(); }, 15000);
+      setTimeout(function () { once('tempo_30s'); }, 30000);
+      setTimeout(function () { once('tempo_60s'); }, 60000);
+
+      // profundidade de scroll
+      function scrollPct() {
+        var d = document.documentElement, b = document.body;
+        var st = d.scrollTop || b.scrollTop || 0;
+        var sh = (d.scrollHeight || b.scrollHeight) - d.clientHeight;
+        return sh > 0 ? (st / sh) * 100 : 0;
+      }
+      function onScroll() {
+        var p = scrollPct();
+        if (p >= 50) { once('scroll_50'); engage(); }
+        if (p >= 90) { once('scroll_90'); }
+        if (fired['scroll_50'] && fired['scroll_90']) window.removeEventListener('scroll', onScroll);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
