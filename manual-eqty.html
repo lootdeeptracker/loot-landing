@@ -36,8 +36,6 @@
     .page-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
     .page-title { font-size: clamp(30px, 5vw, 46px); font-weight: 300; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 8px; }
     .page-title strong { font-weight: 600; }
-    .page-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-      color: var(--teal); border: 1px solid rgba(60,188,188,.4); border-radius: 5px; padding: 2px 8px; vertical-align: middle; margin-left: 8px; }
 
     .lead { font-size: 18px; font-weight: 300; color: var(--muted); margin: 22px 0 8px; }
     .lead strong { color: var(--text); font-weight: 600; }
@@ -105,10 +103,10 @@
 
   <main>
     <p class="page-label">Documentação</p>
-    <h1 class="page-title">Eq&amp;ty<span class="page-badge">Beta</span></h1>
+    <h1 class="page-title">Eq&amp;ty</h1>
 
     <article>
-      <p class="lead"><strong>Streets</strong> roda a sua mão contra o range do vilão street a street, com o range dele encolhendo conforme você marca com o que ele segue. O outro modo é <strong>All-in pré-flop</strong>, até 6 jogadores.</p>
+      <p class="lead"><strong>Streets</strong> roda a sua mão contra o range do vilão street a street, com o range dele encolhendo conforme você marca com o que ele segue. A conta começa no pré-flop, antes de qualquer board. O outro modo é <strong>All-in pré-flop</strong>, até 6 jogadores.</p>
 
       <p>Monte a sua mão, pinte o range dele no grid ou cole a notação, escolha o board. O número sai sozinho, não tem botão de calcular.</p>
 
@@ -134,8 +132,10 @@
       <figure><img src="./assets/eqty/07-continuation-filter.png" alt="O filtro do flop" /><figcaption>O filtro do flop</figcaption></figure>
 
       <h2>Exato e estimado</h2>
-      <p>Heads-up com board o número é exato, sem margem: os 1.081 runouts entram todos na conta.</p>
-      <p>Multiway e all-in pré-flop são amostrados. O multiway mostra a margem no painel; no all-in ela é de uns 0,3 ponto. <strong>Recalcular</strong> sorteia de novo e o valor anda meio ponto.</p>
+      <p>O painel diz qual dos dois você está lendo, e isso muda com a street escolhida.</p>
+      <pre><code>1.081 runouts · exato    heads-up com board: todos os runouts na conta
+120.000 mãos             pré-flop, multiway e all-in: amostragem</code></pre>
+      <p>Heads-up com board o número é fechado, sem margem. Pré-flop, multiway e all-in pré-flop são amostrados: o multiway mostra a margem no painel, e no all-in ela é de uns 0,3 ponto. <strong>Recalcular</strong> sorteia de novo e o valor anda meio ponto.</p>
       <p>Não decida nada por 0,2 ou 0,3 ponto entre dois números estimados.</p>
 
       <figure><img src="./assets/eqty/11-allin-multiway.png" alt="All-in pré-flop com três jogadores" /><figcaption>All-in pré-flop, três jogadores</figcaption></figure>
@@ -156,7 +156,7 @@ B          board
 Ctrl+Z     desfaz no range
 Del        limpa o range do vilão ativo</code></pre>
 
-      <div class="note">Em beta. Número estranho, confira range e filtro. Se persistir, use o <strong>Feedback</strong> do Loot.</div>
+      <div class="note">Número estranho: confira o range e os filtros. Se persistir, use o <strong>Feedback</strong> do Loot.</div>
     </article>
 
     <!-- MANUAL COMPLETO (opcional) -->
@@ -171,12 +171,12 @@ Del        limpa o range do vilão ativo</code></pre>
       </summary>
       <div class="full-body">
 
-        <p class="lead" style="font-size:16px;margin-top:16px">O Eq&amp;ty calcula quanto a sua mão ganha contra o que o vilão pode ter, street a street. Ele aparece no menu do Loot para jogador e para coach. O manual segue a ordem de uma análise; as mãos, os ranges e os cenários são exemplos.</p>
+        <p class="lead" style="font-size:16px;margin-top:16px">O Eq&amp;ty calcula quanto a sua mão ganha contra o que o vilão pode ter, street a street. Ele aparece no menu do Loot para jogador e para coach. O manual segue a ordem de uma análise; as mãos, os ranges e os cenários são exemplos. O <strong>?</strong> logo abaixo do <strong>Reset</strong>, no canto de cima da tela, abre este manual numa aba nova, sem mexer no que está na tela.</p>
 
         <h2>1. O que o Eq&amp;ty responde, e o que ele não responde</h2>
         <h3>Ele responde</h3>
         <ul>
-          <li><strong>Streets.</strong> Quanto a sua mão ganha contra o range do vilão no flop, no turn e no river. E quanto ganha contra a parte do range que continua na mão, depois que você diz com o que ele segue.</li>
+          <li><strong>Streets.</strong> Quanto a sua mão ganha contra o range do vilão antes do flop, no flop, no turn e no river. E quanto ganha contra a parte do range que continua na mão, depois que você diz com o que ele segue.</li>
           <li><strong>All-in pré-flop.</strong> Num all-in antes do flop, com 2 a 6 jogadores, a fatia do pote de cada range.</li>
         </ul>
         <h3>Ele não responde</h3>
@@ -189,13 +189,14 @@ Del        limpa o range do vilão ativo</code></pre>
         </ul>
 
         <h2>2. Sua primeira análise, em 4 passos</h2>
-        <p>A tela abre no modo <strong>Streets</strong>, vazia. Nada é calculado até você informar a sua mão, o flop e o range de pelo menos um vilão.</p>
+        <p>A tela abre no modo <strong>Streets</strong>, vazia. Nada é calculado até você informar a sua mão e o range de pelo menos um vilão. Com os dois, sai a equity pré-flop; com o flop, saem as streets.</p>
         <h3>Passo 1: suas cartas</h3>
         <p>Clique num dos dois espaços de <strong>Sua mão</strong>, ou aperte <strong>H</strong>. Escolha as duas cartas e clique em <strong>Usar</strong>.</p>
         <h3>Passo 2: o range do vilão</h3>
         <p>Com a barra do topo em <strong>Range</strong>, monte o range dele no grid. Clique numa mão para marcar; arraste para marcar várias. Se você já tem o range escrito, cole no campo <strong>Cole o range</strong> e clique em <strong>Aplicar</strong>.</p>
         <p>O range usado neste manual é <code>AA-44, AKs-A2s, KQs-K7s, QJs-Q8s, JTs-J9s, T9s, AKo-A9o, KQo-KTo, QJo-QTo, JTo</code>.</p>
         <p>Embaixo do grid, a linha <strong>range</strong> diz quantos combos ele tem e que fatia isso é de todas as mãos possíveis: no exemplo, <strong>258 de 1.225 · 21,1%</strong>. As mãos que usam as suas cartas já saem da conta, e o painel da direita avisa quanto: <strong>Suas cartas tiram 40 combos do range dele</strong>.</p>
+        <p>Com a sua mão e o range, o painel <strong>Sua equity</strong> já mostra a linha <strong>PRÉ-FLOP</strong>: <strong>44,7% contra tudo que ele pode ter</strong>, a sua equity antes do flop. O topo do painel diz <strong>120.000 mãos</strong> porque o pré-flop é estimado (seção 5), e o número é o mesmo do <strong>All-in pré-flop</strong> para a mesma mão e o mesmo range. O degrau <strong>Range</strong> da barra do topo mostra os mesmos 258 combos: <strong>Range 258</strong>.</p>
         <h3>Passo 3: o flop</h3>
         <p>Clique num espaço do <strong>Board</strong>, ou aperte <strong>B</strong>, e escolha as três cartas do flop de uma vez. Como o range já está montado, a barra vai sozinha para <strong>Flop</strong> quando você clica em <strong>Usar</strong>.</p>
         <h3>Passo 4: o número</h3>
@@ -205,6 +206,7 @@ Del        limpa o range do vilão ativo</code></pre>
           <li><strong>219 combos</strong> é o tamanho desse range no flop, já sem as mãos que usam as suas cartas ou as do board.</li>
           <li><strong>win</strong> é a parte em que você ganha sozinho; <strong>tie</strong> é a parte em que empata.</li>
           <li><strong>1.081 runouts · exato</strong> diz que o número é exato: todas as combinações de turn e river entraram na conta.</li>
+          <li><strong>PRÉ-FLOP</strong> continua acima de <strong>FLOP</strong>, com o número de antes do flop.</li>
         </ul>
         <p>O grid ganha cor. Cada mão mostra a sua equity contra ela, do vermelho (<strong>Vilão ganha</strong>) ao verde (<strong>Hero ganha</strong>). Passe o mouse numa mão para ver, embaixo do grid, a sua equity contra ela e o que ela é naquele board.</p>
 
@@ -232,7 +234,7 @@ Del        limpa o range do vilão ativo</code></pre>
           <li><strong>Notação:</strong> cole no campo e clique em <strong>Aplicar</strong>. Aceita <code>77+</code>, <code>A2s+</code>, <code>KQo</code>, intervalos como <code>AKs-A2s</code>, combos exatos como <code>AcQc</code> e frequência como <code>AKs:50</code>. Se algum pedaço não for lido, a tela diz qual e não aplica nada.</li>
           <li><strong>Top:</strong> a barra marca as mãos mais fortes pré-flop, até a porcentagem que você escolher.</li>
           <li><strong>Atalhos de preenchimento:</strong> Todos, Pares, Suited, Broadway e Limpar.</li>
-          <li><strong>Freq:</strong> é a frequência com que o vilão tem a mão. Freq 50% quer dizer que ele tem aquela mão metade das vezes. O número em Freq, ao lado da barra Top, vale para as mãos que você marcar dali em diante. A célula com Freq abaixo de 100 ganha um ponto âmbar.</li>
+          <li><strong>Freq:</strong> é a frequência com que o vilão tem a mão. Freq 50% quer dizer que ele tem aquela mão metade das vezes. O número em <strong>Freq ao marcar</strong>, ao lado da barra Top, vale para as mãos que você marcar dali em diante. A célula com Freq abaixo de 100 ganha um ponto âmbar.</li>
           <li><strong>Um combo só:</strong> clique com o botão direito numa mão para abrir os naipes. Cada botão é um combo. O campo Freq dessa janela muda na hora a frequência dos combos acesos daquela mão.</li>
           <li><strong>Desfazer:</strong> Ctrl+Z. Del limpa o range do vilão ativo.</li>
           <li><strong>Mais de um vilão:</strong> + vilão acrescenta outro, até 3. Cada vilão tem o seu range e os seus filtros.</li>
@@ -269,10 +271,12 @@ Del        limpa o range do vilão ativo</code></pre>
         <p>Quando o dinheiro entra antes do flop: shove e call de stack curto, com 2 a 6 jogadores. Aqui não existe board nem filtro. É range contra range.</p>
         <h3>Como usar</h3>
         <p>Clique em <strong>All-in pré-flop</strong>, no topo da tela; para voltar, clique em <strong>Streets</strong>. Em cada linha, digite o range e aperte Enter. A primeira linha é o <strong>Hero</strong>, e ela aceita uma mão exata, como <code>AcQc</code>, ou um range. <strong>+ jogador</strong> acrescenta jogadores, até 6. O número de cada um aparece sozinho, e as fatias da mesa somam 100%.</p>
-        <p>Para marcar um range no grid, clique em <strong>grid</strong> na linha do jogador. A janela tem o mesmo grid, a barra Top, a Freq e os atalhos de preenchimento da seção 4.</p>
+        <p>Para marcar um range no grid, clique em <strong>grid</strong> na linha do jogador. A janela tem o mesmo grid, a barra Top, a <strong>Freq ao marcar</strong> e os atalhos de preenchimento da seção 4.</p>
         <h3>Por que a margem existe</h3>
         <p>Sem board, contar todas as combinações de cinco cartas para cada par de mãos levaria tempo demais. O Eq&amp;ty sorteia mãos: 120.000 com até 3 jogadores e 80.000 com 4 a 6. O quadro mostra quantas mãos entraram na conta.</p>
-        <p>Por isso o número tem margem, mesmo sem aparecer na tela. Nas nossas medições, cada fatia fica a até cerca de 0,3 ponto do valor exato, em 95 de cada 100 contas. <strong>Recalcular</strong> sorteia de novo, e o número pode andar uns 0,5 ponto entre uma conta e outra. Na prática: não decida por uma diferença de 0,2 ou 0,3 ponto.</p>
+        <p>Por isso o número tem margem, mesmo sem aparecer na tela. Nas nossas medições, cada fatia fica a até cerca de 0,3 ponto do valor exato, em 95 de cada 100 contas. A mesma mesa dá sempre o mesmo número na primeira conta. <strong>Recalcular</strong> sorteia de novo, e o número pode andar uns 0,5 ponto entre uma conta e outra: AcQc contra o range largo de exemplo ficou entre 60,9% e 61,3% na primeira conta e nos 9 Recalcular seguintes.</p>
+        <p>A linha <strong>PRÉ-FLOP</strong> do Streets faz a mesma conta: para a mesma mão e os mesmos ranges, os dois modos dão o mesmo número na primeira conta. O Streets não tem Recalcular; depois de um Recalcular no All-in, os dois podem ficar a uns 0,5 ponto um do outro.</p>
+        <p>Na prática: não decida por uma diferença de 0,2 ou 0,3 ponto entre dois números do all-in.</p>
 
         <h2>6. Salvar, reabrir e Reset</h2>
         <h3>Salvar</h3>
@@ -305,10 +309,10 @@ Del        limpa o range do vilão ativo</code></pre>
           <li><strong>As categorias seguem regras fixas.</strong> Duas mãos da mesma categoria podem ter equities bem diferentes. Confira a mão no grid quando a diferença importar.</li>
           <li><strong>Freq é frequência.</strong> Freq 50% diz com que frequência o vilão tem a mão. Ela não mede a importância da mão.</li>
           <li><strong>Com 2 ou 3 vilões, o número é estimado.</strong> O painel mostra quantas mãos foram sorteadas e a margem, troca tie por split e mostra a sua equity contra cada vilão sozinho. O grid deixa de mostrar a equity mão a mão. O máximo é 3 vilões.</li>
-          <li><strong>O all-in pré-flop também é estimado,</strong> com margem de cerca de 0,3 ponto (seção 5).</li>
+          <li><strong>O pré-flop também é estimado,</strong> no All-in e na linha PRÉ-FLOP do Streets, com margem de cerca de 0,3 ponto (seção 5).</li>
           <li><strong>Só as suas cartas e o board saem do baralho.</strong> No Streets, não dá para tirar as cartas de quem largou a mão.</li>
           <li><strong>Nada de torneio nem de mesa entra na conta.</strong> Não entram ICM, tamanho de stack, side pot, posição ou rake.</li>
-          <li><strong>O Eq&amp;ty está em beta.</strong> Se um número parecer errado, confira o range e os filtros. Se continuar estranho, avise pelo botão <strong>Feedback</strong> do Loot.</li>
+          <li><strong>Se um número parecer errado,</strong> confira o range e os filtros. Se continuar estranho, avise pelo botão <strong>Feedback</strong> do Loot.</li>
         </ul>
 
       </div>
@@ -317,7 +321,7 @@ Del        limpa o range do vilão ativo</code></pre>
 
   <footer>
     <img src="./assets/loot_green.png" alt="Loot" />
-    <span>© 2026 Loot Analytics · Eq&amp;ty em beta</span>
+    <span>© 2026 Loot Analytics</span>
   </footer>
 
 </body>
