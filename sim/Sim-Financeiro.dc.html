@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Sim Financeiro</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&amp;family=Pathway+Gothic+One&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>[data-sim="financeiro"] .lpt-mask{-webkit-mask:url(/sim/img/lpt-branco.png) center / contain no-repeat;mask:url(/sim/img/lpt-branco.png) center / contain no-repeat}[data-sim="financeiro"]{margin:0;background:#050506}[data-sim="financeiro"] a{color:inherit}[data-sim="financeiro"] .cs-card{border-radius:10px;background:linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%);border:1px solid rgba(255,255,255,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 12px 28px -18px rgba(0,0,0,.95)}[data-sim="financeiro"] .cs-row:hover{background:rgba(255,255,255,.03)}[data-sim="financeiro"] .cs-disp{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dtrack);color:#F3F4F5 !important}[data-sim="financeiro"] .cs-rot{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dlt);color:#8E939A}[data-sim="financeiro"] .cs-rot::before{content:'';display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:var(--time);transform:skewX(-24deg);opacity:var(--marca)}[data-sim="financeiro"] .cs-hl{color:#F3F4F5 !important;background-image:linear-gradient(rgba(232,233,234,.35),rgba(232,233,234,.35));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;padding-bottom:1px}[data-sim="financeiro"] .mv .cs-fade{animation:csFade_financeiro .6s cubic-bezier(.2,0,0,1) both}[data-sim="financeiro"] .mv .cs-f2{animation-delay:.08s}[data-sim="financeiro"] .mv .cs-f3{animation-delay:.16s}[data-sim="financeiro"] .mv .cs-f4{animation-delay:.24s}[data-sim="financeiro"] .mv .cs-f5{animation-delay:.32s}[data-sim="financeiro"] .mv .cs-bar{transform-origin:0 50%;animation:csGrow_financeiro .8s cubic-bezier(.2,0,0,1) .3s both}[data-sim="financeiro"] .mv .cs-hl{background-size:0% 1px;animation:csHl_financeiro .6s ease-out .8s forwards}[data-sim="financeiro"] .mv .cs-luz{animation:csLuz_financeiro 1.6s ease-out both}[data-sim="financeiro"] .mv .v5-faixa{animation:csFaixa_financeiro .9s cubic-bezier(.2,0,0,1) .2s both}
+@keyframes csFade_financeiro{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes csGrow_financeiro{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes csHl_financeiro{to{background-size:100% 1px}}
+@keyframes csLuz_financeiro{from{opacity:0}to{opacity:1}}
+@keyframes csFaixa_financeiro{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}[data-sim="financeiro"] .v6n span[style*="tabular-nums"]{font-weight:560}[data-sim="financeiro"] .cs-disp.t-pos{color:#D9EEF0 !important}[data-sim="financeiro"] .cs-disp.t-neg{color:#F2DCD8 !important}[data-sim="financeiro"] .cs-disp.t-amb{color:#EBCB86 !important}[data-sim="financeiro"] .cs-nav{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;height:28px;padding:0 10px;border:0;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;color:#A4A8AF;text-align:left;cursor:pointer;box-sizing:border-box}[data-sim="financeiro"] .cs-nav:hover{background:rgba(255,255,255,.04);color:#E8E9EA}[data-sim="financeiro"] .cs-nav.on{color:#EDEEF0;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}[data-sim="financeiro"] .cs-nav.on::before{content:'';position:absolute;left:-8px;top:6px;bottom:6px;width:3px;border-radius:2px;background:var(--time)}[data-sim="financeiro"] .nvt{display:flex;align-items:center;gap:10px;min-width:0}[data-sim="financeiro"] .beta{display:inline-flex;align-items:center;height:15px;padding:0 5px;border-radius:4px;font-size:8.5px;font-weight:600;letter-spacing:.06em;color:#D6B461;border:1px solid rgba(214,180,97,.34);background:rgba(214,180,97,.07)}[data-sim="financeiro"] .sech{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:500;color:#5B5F66;padding:4px 10px}[data-sim="financeiro"] .fbtn{display:flex;align-items:center;justify-content:center;gap:8px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;font-family:inherit;font-size:12px;color:#A4A8AF;cursor:pointer}[data-sim="financeiro"] .fbtn:hover{background:rgba(255,255,255,.04);color:#E8E9EA}[data-sim="financeiro"] .fbtn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="financeiro"] .ib{position:relative;width:36px;height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;padding:0}[data-sim="financeiro"] .ib.lit{background:linear-gradient(180deg,#1A1B1E,#111214)}[data-sim="financeiro"] .ib svg, [data-sim="financeiro"] .bcta svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-sim="financeiro"] .bcta{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px 0 13px;border-radius:9px;border:0;background:#3DCC70;color:#FFFFFF;font-family:inherit;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}[data-sim="financeiro"] .vdiv{width:1px;height:24px;background:rgba(255,255,255,.08);margin:0 6px;flex-shrink:0}[data-sim="financeiro"] .col>*{flex-shrink:0}[data-sim="financeiro"] .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}[data-sim="financeiro"] .cd{padding:18px 20px;display:flex;flex-direction:column;min-width:0}[data-sim="financeiro"] .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;height:20px;flex-shrink:0;white-space:nowrap}[data-sim="financeiro"] .hd>.cs-rot{flex-shrink:0;font-size:calc(13px * var(--ds))}[data-sim="financeiro"] .meta{font-size:12px;color:#5A5F66;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}[data-sim="financeiro"] .big{font-size:calc(42px * var(--ds));line-height:1;font-variant-numeric:tabular-nums;margin-top:14px;white-space:nowrap}[data-sim="financeiro"] .lk{margin-top:auto;padding-top:14px;font-size:12px;color:#8E939A;text-decoration:none;white-space:nowrap}[data-sim="financeiro"] .det{padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#80858C;line-height:1.45}[data-sim="financeiro"] .ln{display:flex;justify-content:space-between;align-items:center;gap:12px}[data-sim="financeiro"] .ln.bt{padding-top:8px;border-top:1px solid rgba(255,255,255,.05)}[data-sim="financeiro"] .num{font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="financeiro"] .lst{margin-top:8px;display:flex;flex-direction:column}[data-sim="financeiro"] .lr{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.05);min-width:0}[data-sim="financeiro"] .lr.cp{padding:9px 0}[data-sim="financeiro"] .lb{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:6px}[data-sim="financeiro"] .l1{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:#D5D7DA}[data-sim="financeiro"] .l1>span:first-child{min-width:0;line-height:1.35}[data-sim="financeiro"] .l2{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;font-size:11px;color:#5A5F66;min-height:12px;line-height:1.35}[data-sim="financeiro"] .dim{color:#5A5F66}[data-sim="financeiro"] .vz{flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-size:13px;color:#8E939A;padding:16px 0}[data-sim="financeiro"] .bar-h{position:relative;height:6px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}[data-sim="financeiro"] .bar-h>i{position:absolute;top:0;bottom:0;left:0;border-radius:2px}[data-sim="financeiro"] .leit1{margin:0;font-size:21px;line-height:1.45;letter-spacing:-0.01em;color:#F3F4F5}[data-sim="financeiro"] .ii{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:999px;border:1px solid rgba(255,255,255,.18);font-size:9px;font-style:normal;color:#8E939A;flex-shrink:0;cursor:default;font-weight:600}[data-sim="financeiro"] .seg{display:flex;padding:3px;border-radius:11px;background:#0B0C0E;box-shadow:inset 0 1px 3px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.04)}[data-sim="financeiro"] .seg>button{height:28px;padding:0 12px;border-radius:8px;border:0;font-family:inherit;font-size:12px;white-space:nowrap;background:transparent;color:#8E939A;cursor:pointer}[data-sim="financeiro"] .seg>button.on{background:linear-gradient(180deg,#1D2023,#16181B);color:#F3F4F5;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 2px 6px rgba(0,0,0,.5)}[data-sim="financeiro"] .lgs{display:flex;align-items:center;gap:3px}[data-sim="financeiro"] .av{display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:600;color:#D5D7DA;background:linear-gradient(160deg,#222428,#131417)}[data-sim="financeiro"] .av.lgm{width:20px;height:20px;border-radius:4px;font-size:7.5px;letter-spacing:.02em;border:1px solid rgba(255,255,255,.1);box-sizing:border-box}[data-sim="financeiro"] /* data-lg-css */
+.av:not(.av-p)[data-lg="WN"]{background:#131417 url(/sim/img/rede-WN.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="GG"]{background:#fff url(/sim/img/rede-GG.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="PS"]{background:#131417 url(/sim/img/rede-PS.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="CP"]{background:#fff url(/sim/img/rede-CP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="IP"]{background:#fff url(/sim/img/rede-IP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="WP"]{background:#fff url(/sim/img/rede-WP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="88"]{background:#131417 url(/sim/img/rede-88.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="CH"]{background:#fff url(/sim/img/rede-CH.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="WPN"]{background:#fff url(/sim/img/rede-WPN.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="PP"]{background:#131417 url(/sim/img/rede-PP.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="LX"]{background:#fff url(/sim/img/rede-LX.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="SK"]{background:#fff url(/sim/img/rede-SK.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] .av:not(.av-p)[data-lg="RV"]{background:#fff url(/sim/img/rede-RV.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="financeiro"] /* fim-lg */
+@keyframes simPan_financeiro{0%,18%{transform:translateY(0)}88%,100%{transform:translateY(var(--pan))}}@keyframes cronPulse_financeiro{0%,100%{opacity:1}50%{opacity:.35}}
+</style>
+</helmet>
+<div data-sim="financeiro">
+<div class="{{mvCls}}" style="width: 1440px; height: 2090px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: {{marcaOp}}; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: {{dCase}}; --dvar: {{dVar}}; --dtrack: {{dTrack}}; --dlt: {{dLt}}; --dw: {{dW}}; position: relative; overflow: clip">
+  <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
+
+  <aside style="position: sticky; top: 0; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 12px; box-sizing: border-box">
+    <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; bottom: 70px; width: 200px; height: 330px"></div>
+    <div style="display: flex; flex-direction: column; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
+      <div style="display: flex; align-items: center; gap: 12px">
+        <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
+          <img src="/sim/img/lpt.png" alt="Loot Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+          <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.02; white-space: nowrap">Loot Poker</span>
+          <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.02">Team</span>
+        </div>
+      </div>
+    </div>
+    <sc-for list="{{secoes}}" as="sec" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 1px; position: relative">
+        <div class="sech"><span>{{sec.nome}}</span><span style="{{sec.chev}}">›</span></div>
+        <sc-for list="{{sec.itens}}" as="it" hint-placeholder-count="9">
+          <button type="button" class="{{it.cls}}" onClick="{{it.go}}"><span class="nvt"><svg viewBox="0 0 24 24" aria-hidden="true" style="{{it.ic}}"><path d="{{it.icd}}"></path></svg><span>{{it.nome}}</span></span><span class="beta" style="{{it.betaSt}}">BETA</span></button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 40px; width: 120px; height: 90px; overflow: hidden; pointer-events: none; opacity: {{faixaOp}}">
+      <div style="position: absolute; left: 30px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .55"></div>
+      <div style="position: absolute; left: 48px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .35"></div>
+      <div style="position: absolute; left: 66px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .18"></div>
+    </div>
+    <div style="flex-grow: 1"></div>
+    <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 6px 10px">
+      <button type="button" class="fbtn"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"></path></svg>Feedback</button>
+      <button type="button" class="fbtn"><svg viewBox="0 0 24 24"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"></path></svg>Ajuda</button>
+    </div>
+    <div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 8px">
+      <img src="/sim/img/loot.png" alt="Loot" style="height: 11px; width: auto; opacity: .7">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 10px; color: #4A4E55">v3.0.1</span>
+    </div>
+  </aside>
+
+  <main style="position: relative; flex-grow: 1; min-width: 0; display: flex; flex-direction: column; {{panSt}}">
+    <header style="height: 60px; flex-shrink: 0; padding: 0 28px; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <button type="button" class="ib" aria-label="Recolher menu"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"></rect><path d="M9.5 4.5v15M15.5 10l-2 2 2 2"></path></svg></button>
+        <h1 class="cs-disp" style="margin: 0; font-size: calc(22px * var(--ds)); line-height: 1">Financeiro</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button type="button" class="ib" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M20 20l-4.2-4.2"></path></svg></button>
+        <button type="button" class="bcta"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Custo</button>
+        <button type="button" class="ib" aria-label="Carteiras"><svg viewBox="0 0 24 24"><path d="M5 7.5V6.8A1.8 1.8 0 0 1 6.8 5H16v2.5"></path><rect x="4" y="7.5" width="16" height="11.5" rx="2.5"></rect><path d="M15.5 13.2h1.5"></path></svg></button>
+        <button type="button" class="ib" aria-label="Atualizar"><svg viewBox="0 0 24 24"><path d="M19.5 10.5A7.5 7.5 0 0 0 6.2 7.2L4.5 9M4.5 4.5V9H9M4.5 13.5a7.5 7.5 0 0 0 13.3 3.3l1.7-1.8M19.5 19.5V15H15"></path></svg></button>
+        <div class="vdiv"></div>
+        <button type="button" aria-label="Sessão em andamento" style="height: 36px; padding: 0 12px 0 10px; border-radius: 9px; border: 1px solid rgba(82,192,199,.35); background: linear-gradient(180deg,#0A0A0B,#08090A); display: inline-flex; align-items: center; gap: 10px; color: #F3F4F5; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,.07); font-family: inherit">
+          <span style="animation: cronPulse_financeiro 1.6s ease-in-out infinite; width: 7px; height: 7px; border-radius: 999px; background: #52C0C7"></span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.04em; font-variant-numeric: tabular-nums">{{cron}}</span>
+          <span style="font-size: 11px; color: #80858C; border-left: 1px solid rgba(255,255,255,.08); padding-left: 10px">sessão</span>
+        </button>
+        <button type="button" class="ib" aria-label="Caça-nicks"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"></circle><path d="M3.5 19c.8-3.2 3.4-5 6.5-5 1.2 0 2.3.3 3.2.8"></path><circle cx="17" cy="16" r="3"></circle><path d="M19.2 18.2 21 20"></path></svg></button>
+        <button type="button" class="ib" aria-label="Calendário do time"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"></path></svg></button>
+        <button type="button" class="ib lit" aria-label="Mensagens"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></button>
+        <button type="button" class="ib lit" aria-label="Notificações"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg></button>
+        <div class="vdiv"></div>
+        <span style="font-size: 13px; color: #A4A8AF; letter-spacing: .02em; padding: 0 4px; white-space: nowrap">RIVERKID</span>
+      </div>
+    </header>
+    <div style="height: 1px; margin: 0 28px; background: linear-gradient(90deg, {{corTime}} 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,.04) 100%); opacity: {{marcaOp}}"></div>
+
+    <div class="col" style="flex-grow: 1; min-height: 0; padding: 18px 28px 28px; display: flex; flex-direction: column; gap: 12px">
+
+      <section class="cs-card cs-fade cd" style="gap: 12px; min-height: 158px; box-sizing: border-box">
+        <div class="hd"><span class="cs-rot">Leitura · Financeiro</span></div>
+        <p class="leit1">O time gerou <span class="cs-hl">+$362.480,00</span> nas mesas em 2026 e ficou com +$161.300,00, depois de $19.940,00 em custos. <span style="color: #8E939A">O makeup dos jogadores soma −$18.940,00, o equivalente a 10,2% do capital.</span></p>
+      </section>
+
+      <section class="g2">
+        <div class="cs-card cs-fade cs-f2 cd">
+          <div class="hd"><span class="cs-rot">P&amp;L do Time</span><span class="meta">2026</span></div>
+          <span class="big cs-disp t-pos">+$161.300,00</span>
+          <div class="det">
+            <span class="ln bt"><span>Profit do Time · gerado nas mesas</span><span class="num" style="color: #8E939A">+$362.480,00</span></span>
+          </div>
+          <div class="det">
+            <span class="ln bt"><span style="color: #C9CCD0">Receita do Time</span><span class="num" style="color: #F3F4F5">+$181.240,00</span></span>
+            <span class="ln"><span>Custos · lançados em 2026</span><span class="num" style="color: #C9CCD0">−$19.940,00</span></span>
+          </div>
+        </div>
+        <div class="cs-card cs-fade cs-f2 cd">
+          <div class="hd"><span class="cs-rot">Capital total</span></div>
+          <span class="big cs-disp">$186.400,00</span>
+          <div class="det">
+            <span class="ln bt"><span style="display: flex; align-items: center; gap: 6px">6.657 buy-ins · ABI do time $28,00 <span class="ii" aria-label="Usa o ABI de cada jogador nos últimos 90 dias.">i</span></span></span>
+            <span class="ln"><span>Disponível para saque</span><span class="num" style="color: #F3F4F5">$38.200,00</span></span>
+          </div>
+          <a href="#" class="lk">ver onde está →</a>
+        </div>
+      </section>
+
+      <section class="g2">
+        <div class="cs-card cs-fade cs-f3 cd">
+          <div class="hd"><span class="cs-rot">Dívidas a receber</span><span class="meta">dos jogadores</span></div>
+          <span class="big cs-disp t-amb">$4.500,00</span>
+          <a href="#" class="lk">ver as dívidas →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f3 cd">
+          <div class="hd"><span class="cs-rot">Exposição contábil</span></div>
+          <span style="font-size: 12px; color: #8E939A; margin-top: 14px">Makeup agregado</span>
+          <span class="big cs-disp t-neg" style="margin-top: 8px">−$18.940,00</span>
+          <div class="det">
+            <span class="ln bt"><span>Makeup × capital</span><span class="num" style="color: #F3F4F5">10,2%</span></span>
+          </div>
+          <div class="det" style="padding-top: 4px; gap: 4px">
+            <span>Receita do Time acumulada</span>
+            <span class="ln"><span class="num" style="color: #52C0C7">+$181.240,00</span><a href="#" style="color: #8E939A; text-decoration: none">por jogador →</a></span>
+          </div>
+          <a href="#" class="lk">makeup por jogador →</a>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f4 cd">
+        <div class="hd" style="height: 34px"><span class="cs-rot">Fluxos do período</span>
+          <div class="seg"><button type="button" class="on">Este mês</button><button type="button">30 dias</button><button type="button">90 dias</button><button type="button">Personalizado</button></div>
+        </div>
+        <span class="meta" style="margin-top: 6px">01/09 → 25/09</span>
+        <div class="lst">
+          <sc-for list="{{fluxos}}" as="f" hint-placeholder-count="4">
+            <div class="lr cs-row"><div class="lb">
+              <div class="l1"><span>{{f.nome}} <span class="dim">›</span></span><span class="num" style="color: #F3F4F5">{{f.valor}}</span></div>
+              <div class="l2"><span>{{f.sub}}</span><span class="num" style="{{f.varSt}}">{{f.pct}}</span></div>
+            </div></div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f4 cd">
+        <div class="hd"><span class="cs-rot">Capital do time</span><span class="meta">patrimônio operacional em USD</span></div>
+        <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="ln" style="font-size: 13px; color: #D5D7DA"><span>Carteiras</span><span class="num" style="color: #F3F4F5">$142.300,00</span></span>
+            <div class="bar-h"><i class="cs-bar" style="width: 76.3%; background: #C9CCD0"></i></div>
+            <span class="lgs"><span class="av lgm" data-lg="SK">SK</span><span class="av lgm" data-lg="LX">LX</span><span class="av lgm">USDT</span><span class="av lgm">NT</span></span>
+            <span class="ln" style="font-size: 11px; color: #5A5F66"><span>5.082 buy-ins a distribuir · Skrill $48.210,00 · Luxon $31.904,00 · Crypto (USDT) $37.420,00 · Neteller $24.766,00</span><a href="#" style="color: #8E939A; text-decoration: none; white-space: nowrap">saldo por carteira →</a></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span class="ln" style="font-size: 13px; color: #D5D7DA"><span>Saldos nas redes</span><span class="num" style="color: #F3F4F5">$44.100,00</span></span>
+            <div class="bar-h"><i class="cs-bar" style="width: 23.7%; background: #8E939A"></i></div>
+            <span class="lgs"><span class="av lgm" data-lg="GG">GG</span><span class="av lgm" data-lg="PS">PS</span><span class="av lgm" data-lg="WN">WN</span><span class="av lgm" data-lg="WPN">WPN</span><span class="av lgm" data-lg="88">88</span><span class="av lgm" data-lg="IP">IP</span></span>
+            <span class="ln" style="font-size: 11px; color: #5A5F66"><span>1.575 buy-ins em jogo · 6 redes · USD <span style="color: #C9CCD0">$44.100,00</span></span><a href="#" style="color: #8E939A; text-decoration: none; white-space: nowrap">ver por rede →</a></span>
+          </div>
+        </div>
+        <div class="det">
+          <span class="ln bt" style="font-size: 13px; color: #C9CCD0"><span>Devoluções pendentes <a href="#" style="color: #8E939A; text-decoration: none; margin-left: 6px; font-size: 12px">ver →</a></span><span class="num" style="color: #D9A441">$1.850,00</span></span>
+        </div>
+      </section>
+
+      <section class="g2">
+        <div class="cs-card cs-fade cs-f5 cd">
+          <div class="hd"><span class="cs-rot">Custos · ano</span><span class="meta">2026</span></div>
+          <span class="big cs-disp">$19.940,00</span>
+          <div class="det">
+            <span class="ln bt"><span>Setembro · 4 lançamentos</span><span class="num" style="color: #C9CCD0">$2.180,00</span></span>
+          </div>
+          <a href="#" class="lk">lançar custo →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f5 cd">
+          <div class="hd"><span class="cs-rot">Próximos pagamentos</span><span class="meta">30 dias</span></div>
+          <div class="lst">
+            <sc-for list="{{pagamentos}}" as="pg" hint-placeholder-count="4">
+              <div class="lr cp cs-row"><div class="lb">
+                <div class="l1"><span>{{pg.nome}} <span class="dim" style="font-size: 11px; margin-left: 6px">{{pg.quando}}</span></span><span class="num" style="color: #F3F4F5">{{pg.valor}}</span></div>
+              </div></div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f5 cd">
+        <div class="hd"><span class="cs-rot">Atalhos</span></div>
+        <div class="lst">
+          <sc-for list="{{atalhos}}" as="at" hint-placeholder-count="3">
+            <div class="lr cs-row"><div class="lb">
+              <div class="l1"><span style="color: #F3F4F5; font-weight: 500">{{at.nome}}</span><span class="num" style="color: #8E939A">→</span></div>
+              <div class="l2"><span>{{at.sub}}</span></div>
+            </div></div>
+          </sc-for>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f5 cd" style="flex-grow: 1; min-height: 127px; box-sizing: border-box">
+        <div class="hd"><span class="cs-rot">Dinheiro perdido</span><span class="meta">o que o time deu como perdido em 2026, e o que voltou</span></div>
+        <div class="vz"><span>Nenhuma perda declarada em 2026.</span></div>
+      </section>
+
+    </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onNav":{"editor":null},"tour":{"editor":null},"pan":{"editor":null},"$preview":{"width":1440,"height":2090}}'>
+class Component extends DCLogic {
+  _rv0() {
+    var self = this;
+    var cor = '#3EBBC3';
+    var CY = '#52C0C7', CO = '#E0766E';
+    function nav(id) { return function () { self.props.onNav && self.props.onNav(id); }; }
+    function nada() {}
+    var NAV = [
+      { nome: 'Líder', aberta: true, itens: [['Time', 'time'], ['Gestão', 'gestao'], ['Financeiro', 'financeiro'], ['Coaches'], ['Jogadores'], ['Transações'], ['Performance', null, 1], ['Torneios'], ['Grades', null, 1], ['Config.']] },
+      { nome: 'Coach', aberta: false, itens: [] },
+      { nome: 'Jogador', aberta: true, itens: [['Dashboard', 'dashboard'], ['Minha Folha', 'folha'], ['Schedule', 'schedule', 1], ['Stats', 'stats', 1], ['Eq&ty'], ['Hands'], ['Performance', 'performance', 1], ['Torneios'], ['Transações']] }
+    ];
+    var ATIVO = 'Líder:Financeiro';
+    var ICP = {
+      'Time': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
+      'Gestão': 'M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4',
+      'Financeiro': 'M12 3v18M16.5 7.5c-.8-1.3-2.4-2-4.5-2-2.6 0-4.3 1.3-4.3 3.1 0 4.4 9 2.4 9 6.8 0 1.9-1.9 3.1-4.7 3.1-2.2 0-3.9-.8-4.8-2.2',
+      'Coaches': 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
+      'Jogadores': 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5',
+      'Transações': 'M4 8h14l-4-4M20 16H6l4 4',
+      'Performance': 'M3 17l6-6 4 4 8-8M15 7h6v6',
+      'Torneios': 'M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20.5h7',
+      'Grades': 'M4 5h16v15H4zM4 10h16M9 5v15M15 5v15',
+      'Config.': 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      'Dashboard': 'M3.5 3.5h7v9h-7zM13.5 3.5h7v5h-7zM13.5 11.5h7v9h-7zM3.5 15.5h7v5h-7z',
+      'Minha Folha': 'M6 3.5h9l3 3v14H6zM9 11h6M9 15h6',
+      'Schedule': 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 3',
+      'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+      'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3'
+    };
+    function ICD(n) { return ICP[n] || 'M12 12h0'; }
+    function ICO(n) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }
+    var secoes = NAV.map(function (s) {
+      return {
+        nome: s.nome,
+        chev: 'display: inline-block; font-size: 13px; line-height: 1; color: #5B5F66; transform: rotate(' + (s.aberta ? '90deg' : '0deg') + ')',
+        itens: s.itens.map(function (it) {
+          var at = (s.nome + ':' + it[0]) === ATIVO;
+          return {
+            nome: it[0],
+            ic: ICO(it[0]), icd: ICD(it[0]),
+            cls: 'cs-nav' + (at ? ' on' : ''),
+            go: it[1] ? nav(it[1]) : nada,
+            betaSt: it[2] ? '' : 'display: none'
+          };
+        })
+      };
+    });
+    function vr(v) { return 'width: auto; color: ' + (v.charAt(0) === '+' ? CY : CO); }
+    var fluxos = [
+      { nome: 'Reloads', valor: '$22.450,00', sub: 'capital enviado às contas · agosto $19.800,00', pct: '+13,4%' },
+      { nome: 'Devoluções', valor: '$18.920,00', sub: 'capital que voltou por saque · agosto $21.340,00', pct: '−11,3%' },
+      { nome: 'Splits pro time', valor: '$15.310,00', sub: 'parte do time nos saques do período · agosto $16.240,00', pct: '−5,7%' },
+      { nome: 'Profit do período', valor: '+$40.120,00', sub: 'bruto nas folhas, antes do split · agosto +$43.870,00', pct: '−8,5%' }
+    ].map(function (f) { f.varSt = vr(f.pct); return f; });
+    var pagamentos = [
+      { nome: 'Coach · Daniel Moraes', quando: '01/10 · mensal', valor: '$900,00' },
+      { nome: 'Coach · Lia Sampaio', quando: '01/10 · mensal', valor: '$750,00' },
+      { nome: 'Servidores e VPN', quando: '10/10 · mensal', valor: '$350,00' },
+      { nome: 'Assinaturas de software', quando: '15/10 · mensal', valor: '$180,00' }
+    ];
+    var atalhos = [
+      { nome: 'Visão estratégica', sub: 'margem por nível e ponto de equilíbrio' },
+      { nome: 'Sociedade', sub: 'participação e conta de cada sócio' },
+      { nome: 'Análise financeira', sub: 'curva do capital e exposição em makeup' }
+    ];
+    return {
+      mvCls: 'mv v6n',
+      corTime: cor,
+      marcaOp: 0.9,
+      faixaOp: 1,
+      fDisp: "'Pathway Gothic One', sans-serif",
+      dScale: 1.32,
+      dCase: 'uppercase',
+      dVar: 'normal',
+      dTrack: '0.03em',
+      dLt: '0.09em',
+      dW: 400,
+      luz: 'rgba(62,187,195,0.110)',
+      secoes: secoes,
+      fluxos: fluxos,
+      pagamentos: pagamentos,
+      atalhos: atalhos
+    };
+  }
+  renderVals() {
+    var o = this._rv0() || {};
+    var g = typeof window !== 'undefined' ? window : {};
+    if (!g.__lootSessaoT0) g.__lootSessaoT0 = Date.now();
+    var seg = 3734 + Math.floor((Date.now() - g.__lootSessaoT0) / 1000);
+    var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+    o.cron = p2(Math.floor(seg / 3600)) + ':' + p2(Math.floor(seg / 60) % 60) + ':' + p2(seg % 60);
+    var pan = Math.max(0, Number(this.props.pan) || 0);
+    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : '';
+    return o;
+  }
+  componentDidMount() {
+    if (this._cdm0) this._cdm0();
+    var self = this;
+    this.__relogio = setInterval(function () { self.forceUpdate(); }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.__relogio);
+    if (this._cwu0) this._cwu0();
+  }
+}
+</script>
+</body>
+</html>

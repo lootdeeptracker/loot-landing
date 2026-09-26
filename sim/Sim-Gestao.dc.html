@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Gestão · simulador</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&amp;family=Pathway+Gothic+One&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>[data-sim="gestao"] .lpt-mask{-webkit-mask:url(/sim/img/lpt-branco.png) center / contain no-repeat;mask:url(/sim/img/lpt-branco.png) center / contain no-repeat}[data-sim="gestao"]{margin:0;background:#050506}[data-sim="gestao"] a{color:inherit}[data-sim="gestao"] .cs-card{border-radius:10px;background:linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%);border:1px solid rgba(255,255,255,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 12px 28px -18px rgba(0,0,0,.95);box-sizing:border-box}[data-sim="gestao"] .cs-row:hover{background:rgba(255,255,255,.03)}[data-sim="gestao"] .cs-nav:hover{background:rgba(255,255,255,.04);color:#E8E9EA}[data-sim="gestao"] .cs-disp{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dtrack);color:var(--dc,#F3F4F5) !important}[data-sim="gestao"] .cs-rot{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dlt);color:#8E939A}[data-sim="gestao"] .cs-rot::before{content:'';display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:var(--time);transform:skewX(-24deg);opacity:var(--marca)}[data-sim="gestao"] .cs-hl{color:#F3F4F5 !important;background-image:linear-gradient(rgba(232,233,234,.35),rgba(232,233,234,.35));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;padding-bottom:1px}[data-sim="gestao"] .mv .cs-fade{animation:csFade_gestao .6s cubic-bezier(.2,0,0,1) both}[data-sim="gestao"] .mv .cs-f2{animation-delay:.08s}[data-sim="gestao"] .mv .cs-f3{animation-delay:.16s}[data-sim="gestao"] .mv .cs-f4{animation-delay:.24s}[data-sim="gestao"] .mv .cs-hl{background-size:0% 1px;animation:csHl_gestao .6s ease-out .8s forwards}[data-sim="gestao"] .mv .cs-luz{animation:csLuz_gestao 1.6s ease-out both}[data-sim="gestao"] .mv .v5-faixa{animation:csFaixa_gestao .9s cubic-bezier(.2,0,0,1) .2s both}
+@keyframes csFade_gestao{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes csHl_gestao{to{background-size:100% 1px}}
+@keyframes csLuz_gestao{from{opacity:0}to{opacity:1}}
+@keyframes csFaixa_gestao{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes vivoPulse_gestao{0%{box-shadow:0 0 0 0 rgba(52,210,123,.6)}70%{box-shadow:0 0 0 7px rgba(52,210,123,0)}100%{box-shadow:0 0 0 0 rgba(52,210,123,0)}}[data-sim="gestao"] .vivo{display:inline-block;width:8px;height:8px;border-radius:999px;background:#34D27B;flex-shrink:0;animation:vivoPulse_gestao 1.6s ease-out infinite}[data-sim="gestao"] .v6n span[style*="tabular-nums"]{font-weight:560}[data-sim="gestao"] .col>*{flex-shrink:0}[data-sim="gestao"] .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}[data-sim="gestao"] .cd{padding:18px 20px;display:flex;flex-direction:column;min-width:0}[data-sim="gestao"] .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;height:20px;flex-shrink:0;white-space:nowrap}[data-sim="gestao"] .hd>.cs-rot{flex-shrink:0}[data-sim="gestao"] .meta{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:#5A5F66;white-space:nowrap;min-width:0;overflow:hidden}[data-sim="gestao"] .meta>i{width:6px;height:6px;border-radius:2px;flex-shrink:0}[data-sim="gestao"] .sh{display:flex;justify-content:space-between;align-items:center;height:34px}[data-sim="gestao"] .shl{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#80858C}[data-sim="gestao"] .big{font-size:calc(42px * var(--ds));line-height:1;font-variant-numeric:tabular-nums;margin-top:12px;white-space:nowrap}[data-sim="gestao"] .lk{margin-top:auto;padding-top:14px;font-size:12px;color:#8E939A;text-decoration:none;white-space:nowrap}[data-sim="gestao"] .det{padding-top:12px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#8E939A;line-height:1.45}[data-sim="gestao"] .dl{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05);font-size:12px;color:#8E939A}[data-sim="gestao"] .num{font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="gestao"] .av{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.04em;color:#D5D7DA;background:linear-gradient(160deg,#222428,#131417);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)}[data-sim="gestao"] .av-p{border-radius:8px;clip-path:none;background:#15161A;border:1px solid rgba(255,255,255,.12);box-sizing:border-box}[data-sim="gestao"] .wl{width:18px;height:18px;border-radius:50%;clip-path:none;margin-left:-5px;box-shadow:0 0 0 2px #0C0D0E;font-size:9px;color:#fff}[data-sim="gestao"] .wl:first-child{margin-left:0}[data-sim="gestao"] .ii{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:999px;border:1px solid rgba(255,255,255,.18);font-size:9px;font-style:normal;color:#8E939A;flex-shrink:0;cursor:default;font-family:Inter,sans-serif}[data-sim="gestao"] .chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:6px;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#8E939A;white-space:nowrap}[data-sim="gestao"] .tg{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 6px;border-radius:5px;font-size:11px;border:1px solid rgba(255,255,255,.14);color:#C9CCD0;white-space:nowrap;font-variant-numeric:tabular-nums;flex-shrink:0}[data-sim="gestao"] .tg svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}[data-sim="gestao"] .tg.neg{color:#E0766E;border-color:rgba(224,118,110,.4);background:rgba(224,118,110,.08)}[data-sim="gestao"] .tg.off{color:#6A6F76;border-color:rgba(255,255,255,.1);font-size:10px;letter-spacing:.04em}[data-sim="gestao"] .debtb{display:inline-flex;align-items:center;justify-content:center;width:24px;height:20px;border-radius:5px;border:1px solid rgba(224,118,110,.4);background:rgba(224,118,110,.08);color:#E0766E;flex-shrink:0;box-sizing:border-box}[data-sim="gestao"] .debtb svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="gestao"] .btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#141517,#0A0B0C);color:#F3F4F5;font-family:inherit;font-size:13px;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer}[data-sim="gestao"] .btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="gestao"] .ib{position:relative;width:34px;height:34px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;flex-shrink:0;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;padding:0}[data-sim="gestao"] .ib svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-sim="gestao"] .ib.add{background:#34C77B;border-color:#34C77B;color:#FFFFFF;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}[data-sim="gestao"] .ib.add svg{stroke-width:2.2}[data-sim="gestao"] .ib.sm{width:28px;height:28px;border-radius:7px}[data-sim="gestao"] .ib.sm svg{width:14px;height:14px}[data-sim="gestao"] .vsep{width:1px;height:24px;background:rgba(255,255,255,.08);margin:0 6px;flex-shrink:0}[data-sim="gestao"] .inp{height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#0A0B0C;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px;font-size:13px;color:#C9CCD0;white-space:nowrap;overflow:hidden;box-sizing:border-box}[data-sim="gestao"] .inp svg{width:15px;height:15px;fill:none;stroke:#6A6F76;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}[data-sim="gestao"] .inp .lb{color:#8E939A}[data-sim="gestao"] .inp b{color:#F3F4F5;font-weight:500}[data-sim="gestao"] .cbox{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.015);min-width:0}[data-sim="gestao"] .cbox>.lb{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12px;color:#8E939A;white-space:nowrap;height:18px}[data-sim="gestao"] .cbox>.lb>span{display:inline-flex;align-items:center;gap:6px}[data-sim="gestao"] .cbox>.vl{font-size:calc(24px * var(--ds));line-height:1;white-space:nowrap}[data-sim="gestao"] .cbox>small{font-size:11px;color:#5A5F66;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}[data-sim="gestao"] .tbl{display:flex;flex-direction:column;margin-top:8px}[data-sim="gestao"] .trw{display:grid;grid-template-columns:minmax(0,1fr) 124px 124px 112px 64px 150px 104px;gap:16px;align-items:center;height:52px;box-sizing:border-box;border-top:1px solid rgba(255,255,255,.05);font-size:13px;padding:0 4px}[data-sim="gestao"] .trw.th{height:30px;border-top:0;font-size:11px;color:#5A5F66}[data-sim="gestao"] .trw>*{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}[data-sim="gestao"] .r{text-align:right;font-variant-numeric:tabular-nums}[data-sim="gestao"] .pj{display:flex;align-items:center;gap:10px;min-width:0}[data-sim="gestao"] .pj .nk{font-weight:500;color:#F3F4F5;overflow:hidden;text-overflow:ellipsis}[data-sim="gestao"] .pj .sl{margin-left:auto;display:inline-flex;gap:6px;align-items:center;padding-right:8px}[data-sim="gestao"] .acs{display:flex;justify-content:flex-end;gap:6px}[data-sim="gestao"] .ac{width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;padding:0;cursor:pointer;box-sizing:border-box}[data-sim="gestao"] .ac svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}[data-sim="gestao"] /* data-lg-css */
+.av:not(.av-p)[data-lg="WN"]{background:#131417 url(/sim/img/rede-WN.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="GG"]{background:#fff url(/sim/img/rede-GG.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="PS"]{background:#131417 url(/sim/img/rede-PS.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="CP"]{background:#fff url(/sim/img/rede-CP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="IP"]{background:#fff url(/sim/img/rede-IP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="WP"]{background:#fff url(/sim/img/rede-WP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="88"]{background:#131417 url(/sim/img/rede-88.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="CH"]{background:#fff url(/sim/img/rede-CH.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="WPN"]{background:#fff url(/sim/img/rede-WPN.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="PP"]{background:#131417 url(/sim/img/rede-PP.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="LX"]{background:#fff url(/sim/img/rede-LX.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="SK"]{background:#fff url(/sim/img/rede-SK.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] .av:not(.av-p)[data-lg="RV"]{background:#fff url(/sim/img/rede-RV.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="gestao"] /* fim-lg */
+@keyframes simPan_gestao{0%,18%{transform:translateY(0)}88%,100%{transform:translateY(var(--pan))}}@keyframes cronPulse_gestao{0%,100%{opacity:1}50%{opacity:.35}}
+</style>
+</helmet>
+<div data-sim="gestao">
+<div class="{{mvCls}}" style="width: 1440px; height: 1692px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: {{marcaOp}}; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: {{dCase}}; --dvar: {{dVar}}; --dtrack: {{dTrack}}; --dlt: {{dLt}}; --dw: {{dW}}; position: relative; overflow: clip">
+  <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
+
+  <aside style="position: sticky; top: 0; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 12px; box-sizing: border-box">
+    <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; bottom: 70px; width: 200px; height: 330px"></div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
+      <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
+        <img src="/sim/img/lpt.png" alt="Loot Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.02; white-space: nowrap">Loot Poker</span>
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.02">Team</span>
+      </div>
+    </div>
+    <sc-for list="{{secoes}}" as="sec" hint-placeholder-count="3">
+      <div style="position: relative; display: flex; flex-direction: column; gap: 1px">
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; font-weight: 500; color: #5B5F66; padding: 4px 10px; height: 20px">
+          <span>{{sec.nome}}</span>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{sec.chev}}"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <sc-for list="{{sec.itens}}" as="it" hint-placeholder-count="10">
+          <button type="button" class="cs-nav" onClick="{{it.go}}" style="{{it.estilo}}"><span style="{{it.ind}}"></span><span style="display: flex; align-items: center; gap: 10px; min-width: 0"><svg viewBox="0 0 24 24" aria-hidden="true" style="{{it.ic}}"><path d="{{it.icd}}"></path></svg><span>{{it.nome}}</span></span><sc-if value="{{it.beta}}" hint-placeholder-val="{{true}}"><span style="display: inline-flex; align-items: center; height: 14px; padding: 0 5px; border-radius: 4px; border: 1px solid rgba(217,164,65,.35); background: rgba(217,164,65,.06); color: #D9A441; font-size: 8px; font-weight: 600; letter-spacing: .06em">BETA</span></sc-if></button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 40px; width: 120px; height: 90px; overflow: hidden; pointer-events: none; opacity: {{faixaOp}}">
+      <div style="position: absolute; left: 30px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .55"></div>
+      <div style="position: absolute; left: 48px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .35"></div>
+      <div style="position: absolute; left: 66px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .18"></div>
+    </div>
+    <div style="flex-grow: 1"></div>
+    <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 6px 10px">
+      <button type="button" class="cs-nav" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,.06); background: #060607; font-family: inherit; font-size: 12px; color: #A4A8AF; cursor: pointer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Feedback</button>
+      <button type="button" class="cs-nav" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,.06); background: #060607; font-family: inherit; font-size: 12px; color: #A4A8AF; cursor: pointer"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"></path></svg>Ajuda</button>
+    </div>
+    <div style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 8px">
+      <img src="/sim/img/loot.png" alt="Loot" style="height: 11px; width: auto; opacity: .7">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 10px; color: #4A4E55">v3.0.1</span>
+    </div>
+  </aside>
+
+  <main style="position: relative; flex-grow: 1; min-width: 0; display: flex; flex-direction: column; {{panSt}}">
+    <header style="height: 60px; flex-shrink: 0; padding: 0 28px; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <button type="button" class="ib" aria-label="Recolher menu"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"></rect><path d="M9.5 4.5v15"></path><path d="M15.5 10l-2 2 2 2"></path></svg></button>
+        <h1 class="cs-disp" style="margin: 0; font-size: calc(22px * var(--ds)); line-height: 1">Gestão</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button type="button" class="ib" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg></button>
+        <button type="button" class="ib" aria-label="Execução"><svg viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="16" rx="2"></rect><path d="M9 3.5h6v3H9z"></path><path d="M9 11h6M9 15h4"></path></svg></button>
+        <button type="button" class="ib" aria-label="Saldos por rede"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3.5 12h17M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path></svg></button>
+        <button type="button" class="ib add" aria-label="Nova transação"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg></button>
+        <div class="vsep"></div>
+        <button type="button" aria-label="Sessão em andamento" style="height: 36px; padding: 0 12px 0 10px; border-radius: 9px; border: 1px solid rgba(82,192,199,.35); background: linear-gradient(180deg,#0A0A0B,#08090A); display: inline-flex; align-items: center; gap: 10px; color: #F3F4F5; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,.07); font-family: inherit">
+          <span style="animation: cronPulse_gestao 1.6s ease-in-out infinite; width: 7px; height: 7px; border-radius: 999px; background: #52C0C7"></span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.04em; font-variant-numeric: tabular-nums">{{cron}}</span>
+          <span style="font-size: 11px; color: #80858C; border-left: 1px solid rgba(255,255,255,.08); padding-left: 10px">sessão</span>
+        </button>
+        <button type="button" class="ib" aria-label="Caça-nicks"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"></circle><path d="M3.5 19c.8-3.2 3.4-5 6.5-5 1.2 0 2.3.3 3.2.8"></path><circle cx="17" cy="16" r="3"></circle><path d="M19.2 18.2 21 20"></path></svg></button>
+        <button type="button" class="ib" aria-label="Calendário do time"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></button>
+        <button type="button" class="ib" aria-label="Mensagens"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></button>
+        <button type="button" class="ib" aria-label="Notificações"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg></button>
+        <div class="vsep"></div>
+        <span style="font-size: 13px; color: #C9CCD0; letter-spacing: .04em; white-space: nowrap; padding-left: 4px">RIVERKID</span>
+      </div>
+    </header>
+    <div style="height: 1px; margin: 0 28px; background: linear-gradient(90deg, {{corTime}} 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,.04) 100%); opacity: {{marcaOp}}"></div>
+
+    <div class="col" style="flex-grow: 1; min-height: 0; padding: 18px 28px 28px; display: flex; flex-direction: column; gap: 12px">
+
+      <section class="cs-card cs-fade cd" style="height: 150px; gap: 10px">
+        <div class="hd">
+          <span style="display: flex; align-items: center; gap: 12px"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">{{leit.rot}}</span><span style="font-size: 11px; color: #5A5F66">{{leit.pos}}</span></span>
+          <span style="display: flex; gap: 8px">
+            <button type="button" class="ib sm" aria-label="Leitura anterior" onClick="{{prevLeit}}"><svg viewBox="0 0 24 24"><path d="M14.5 6l-6 6 6 6"></path></svg></button>
+            <button type="button" class="ib sm" aria-label="Próxima leitura" onClick="{{nextLeit}}"><svg viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6"></path></svg></button>
+          </span>
+        </div>
+        <p style="margin: 6px 0 0; font-size: 19px; line-height: 1.45; letter-spacing: -0.01em; color: #EDEEF0">{{leit.pre}}<span class="cs-hl">{{leit.hl}}</span>{{leit.txt}}<span style="color: #8E939A">{{leit.extra}}</span></p>
+        <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; height: 16px">
+          <span style="display: flex; gap: 5px; align-items: center">
+            <sc-for list="{{dots}}" as="d" hint-placeholder-count="3"><span style="{{d.st}}"></span></sc-for>
+          </span>
+          <a href="#" style="font-size: 12px; color: #8E939A; text-decoration: none">{{leit.lk}}</a>
+        </div>
+      </section>
+
+      <div class="sh">
+        <span class="shl">Visão operacional</span>
+        <div style="display: flex; padding: 3px; border-radius: 11px; background: #0B0C0E; box-shadow: inset 0 1px 3px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.04)">
+          <button type="button" onClick="{{escMeus}}" style="{{escA}}">Meus jogadores</button>
+          <button type="button" onClick="{{escTodos}}" style="{{escB}}">Todos</button>
+        </div>
+      </div>
+
+      <section class="g4">
+        <div class="cs-card cs-fade cs-f2 cd" style="height: 200px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Reload</span><span class="meta"><i style="background: #E0766E"></i>abaixo do mínimo</span></div>
+          <span class="big cs-disp">3</span>
+          <div class="det"><span class="dl"><span>Solicitados</span><span class="num" style="color: #F3F4F5">3</span></span></div>
+          <a href="#" class="lk">ver quem →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f2 cd" style="height: 200px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Devolução</span><span class="meta"><i style="background: #52C0C7"></i>saldo acima do alerta</span></div>
+          <span class="big cs-disp">1</span>
+          <div class="det"><span class="dl"><span>Solicitadas</span><span class="num" style="color: #F3F4F5">1</span></span></div>
+          <a href="#" class="lk">ver quem →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f3 cd" style="height: 200px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Reset</span><span class="meta"><i style="background: #52C0C7"></i>acima do reset mínimo</span></div>
+          <span class="big cs-disp">2</span>
+          <div class="det"><span class="dl"><span>RiverKid e mtt.lobo prontos para reset.</span></span></div>
+          <a href="#" class="lk">ver quem →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f3 cd" style="height: 200px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Em aberto</span><span class="meta"><i style="background: #6A6F76"></i>qualquer estágio</span></div>
+          <span class="big cs-disp">6</span>
+          <div class="det"><span class="dl"><span>Transações com algum passo por fazer.</span></span></div>
+          <a href="#" class="lk">ver as 6 →</a>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f3" style="height: 140px; padding: 18px 20px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+        <div class="cbox">
+          <span class="lb"><span>Disponível<span class="ii" aria-label="Soma do excedente sacável das contas, com a parte do time no makeup quando o jogador atinge o reset mínimo.">i</span></span></span>
+          <span class="vl cs-disp">$38.200,00</span>
+          <small>sacável agora</small>
+        </div>
+        <div class="cbox">
+          <span class="lb"><span>Carteiras</span><span style="display: inline-flex"><span class="av wl" data-lg="SK">SK</span><span class="av wl" data-lg="LX">LX</span><span class="av wl" style="background: #26A17B">₮</span><span class="av wl" style="background: #5E9E2F">N</span></span></span>
+          <span class="vl cs-disp">$142.300,00</span>
+          <small>4 ativas · por carteira →</small>
+        </div>
+        <div class="cbox">
+          <span class="lb"><span>Atrasados<span class="ii" aria-label="Transações com algum passo parado há 2 dias ou mais.">i</span></span></span>
+          <span class="vl cs-disp" style="--dc: #D9A441">2</span>
+          <small>transações paradas há 2+ dias ›</small>
+        </div>
+        <div class="cbox">
+          <span class="lb"><span>Ausentes<span class="ii" aria-label="Jogadores sem folha registrada há 7 dias ou mais.">i</span></span></span>
+          <span class="vl cs-disp">1</span>
+          <small>sem folha há 7+ dias ›</small>
+        </div>
+        <div class="cbox">
+          <span class="lb"><span>Repasse<span class="ii" aria-label="Valores que o time ainda tem a repassar aos jogadores.">i</span></span></span>
+          <span class="vl cs-disp" style="--dc: #5A5F66">0</span>
+          <small>Nenhum repasse pendente agora.</small>
+        </div>
+      </section>
+
+      <section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+        <div class="cs-card cs-fade cs-f3 cd" style="height: 240px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Alerta de makeup</span><span class="meta">limiar 100 buy-ins</span></div>
+          <span style="display: flex; align-items: baseline; gap: 10px"><span class="big cs-disp">2</span><span style="font-size: 13px; color: #8E939A">acima do limiar</span></span>
+          <span style="display: flex; gap: 6px; margin-top: 10px"><span class="chip" style="border-color: rgba(224,118,110,.45); color: #E0766E">Vermelho <b style="color: #E0766E; font-weight: 500">2</b></span></span>
+          <div class="det"><span style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span>Trilha gravada até</span><span style="display: inline-flex; align-items: center; gap: 8px"><span style="display: inline-flex; align-items: center; gap: 5px; color: #D9A441"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l9 16H3z"></path><path d="M12 10v4M12 17h0"></path></svg>há 1 dia</span><span class="num" style="color: #F3F4F5; font-weight: 600">24/09</span></span></span></div>
+          <a href="#" class="lk">ver quem e o múltiplo →</a>
+        </div>
+        <div class="cs-card cs-fade cs-f3 cd" style="height: 240px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Coerência folha × torneios</span><span class="tg off">BETA</span></div>
+          <span style="display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: #EDEEF0">O time ainda não definiu o limiar.<span class="ii" aria-label="Diferença máxima aceita entre o resultado da folha e o dos torneios importados.">i</span></span>
+          <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center">
+            <button type="button" class="btn"><svg viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4"></path></svg>Definir limiar</button>
+            <a href="#" style="font-size: 12px; color: #8E939A; text-decoration: none">abrir →</a>
+          </div>
+        </div>
+        <div class="cs-card cs-fade cs-f3 cd" style="height: 240px">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Infrações de buy-in</span></div>
+          <span style="display: flex; align-items: baseline; gap: 10px"><span class="big cs-disp">2</span><span style="font-size: 13px; color: #8E939A">a resolver</span></span>
+          <div class="det" style="padding-top: 14px">
+            <span class="dl"><span>Abaixo do mínimo</span><span class="num" style="color: #F3F4F5; font-weight: 600">2</span></span>
+            <span class="dl"><span>Multa</span><span class="num" style="color: #F3F4F5; font-weight: 600">50%</span></span>
+          </div>
+          <a href="#" class="lk">ver infrações →</a>
+        </div>
+      </section>
+
+      <section class="cs-card cs-fade cs-f4 cd" style="flex-grow: 1">
+        <div class="hd" style="height: 34px">
+          <span class="cs-rot" style="font-size: calc(13px * var(--ds))">Jogadores</span>
+          <span style="display: flex; gap: 8px; align-items: center">
+            <span class="inp" style="width: 220px"><span style="color: #5A5F66">Nome ou nick</span><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg></span>
+            <span class="inp" style="width: 160px"><span style="display: inline-flex; gap: 8px"><span class="lb">Nível</span><b>Todos</b></span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+            <span class="inp" style="width: 190px"><span style="display: inline-flex; gap: 8px"><span class="lb">Ordem</span><b>Jogando agora</b></span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </span>
+        </div>
+        <div class="tbl">
+          <div class="trw th"><span>Jogador</span><span class="r">Saldo</span><span class="r">Makeup</span><span class="r">Buy-in</span><span class="r">ABI</span><span>Último registro</span><span class="r">Em aberto</span></div>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+            <div class="trw cs-row">
+              <span class="pj">
+                <span class="av av-p">{{r.ini}}</span>
+                <span class="nk">{{r.nick}}</span>
+                <span class="sl">
+                  <sc-for list="{{r.selos}}" as="s" hint-placeholder-count="2">
+                    <sc-if value="{{s.mk}}" hint-placeholder-val="{{true}}"><span class="tg neg" aria-label="{{s.lbl}}">{{s.txt}}<svg viewBox="0 0 24 24"><path d="M3 3l18 18"></path><path d="M10.6 6.2A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a15 15 0 0 1-2.6 3.2"></path><path d="M6.6 7.6C4.3 9.2 3 12 3 12s4 6 9 6a8.7 8.7 0 0 0 4-.9"></path><path d="M9.9 10a3 3 0 0 0 4.2 4.2"></path></svg></span></sc-if>
+                    <sc-if value="{{s.db}}" hint-placeholder-val="{{true}}"><span class="debtb" aria-label="{{s.lbl}}"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="10" rx="2"></rect><circle cx="12" cy="12" r="2"></circle></svg></span></sc-if>
+                  </sc-for>
+                </span>
+              </span>
+              <span class="r" style="color: #F3F4F5">{{r.saldo}}</span>
+              <span class="r" style="{{r.mkSt}}">{{r.mk}}</span>
+              <span class="r" style="{{r.biSt}}">{{r.bi}}</span>
+              <span class="r" style="color: #C9CCD0">{{r.abi}}</span>
+              <span>
+                <sc-if value="{{r.live}}" hint-placeholder-val="{{true}}"><span style="display: inline-flex; align-items: center; gap: 9px; color: #34D27B"><span class="vivo" aria-label="Em sessão agora"></span>jogando agora</span></sc-if>
+                <sc-if value="{{r.off}}" hint-placeholder-val="{{false}}"><span style="{{r.ultSt}}">{{r.ult}}</span></sc-if>
+              </span>
+              <span class="acs">
+                <sc-for list="{{r.acoes}}" as="a" hint-placeholder-count="1">
+                  <button type="button" class="ac" aria-label="{{a.lbl}}" style="{{a.st}}"><svg viewBox="0 0 24 24"><path d="{{a.d}}"></path></svg></button>
+                </sc-for>
+              </span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top: auto; padding-top: 12px; font-size: 12px; color: #5A5F66; height: 16px; line-height: 16px">12 no total · 11 ativos · por jogando agora</div>
+      </section>
+
+    </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onNav":{"editor":null},"tour":{"editor":null},"pan":{"editor":null},"$preview":{"width":1440,"height":1692}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { li: 1, esc: 0 }; }
+  _rv0() {
+    var self = this;
+    var COR = '#3EBBC3';
+    var CY = '#52C0C7', CO = '#E0766E', AM = '#D9A441';
+    var DP = { f: "'Pathway Gothic One', sans-serif", s: 1.32, c: 'uppercase', v: 'normal', t: '0.03em', lt: '0.09em', w: 400 };
+
+    function br(v) { var s = Math.abs(v).toFixed(2).split('.'); s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.'); return s.join(','); }
+    function usd(v) { return (v < 0 ? '−$' : '$') + br(v); }
+    function nav(id) { return function () { if (self.props.onNav) self.props.onNav(id); }; }
+    function noop() {}
+
+    var NAV = [
+      { nome: 'Líder', aberto: true, itens: [
+        { n: 'Time', id: 'time' }, { n: 'Gestão', id: 'gestao' }, { n: 'Financeiro', id: 'financeiro' }, { n: 'Coaches' }, { n: 'Jogadores' },
+        { n: 'Transações' }, { n: 'Performance', beta: true }, { n: 'Torneios' }, { n: 'Grades', beta: true }, { n: 'Config.' }
+      ] },
+      { nome: 'Coach', aberto: false, itens: [] },
+      { nome: 'Jogador', aberto: true, itens: [
+        { n: 'Dashboard', id: 'dashboard' }, { n: 'Minha Folha', id: 'folha' }, { n: 'Schedule', id: 'schedule', beta: true }, { n: 'Stats', id: 'stats', beta: true },
+        { n: 'Eq&ty' }, { n: 'Hands' }, { n: 'Performance', id: 'performance', beta: true }, { n: 'Torneios' }, { n: 'Transações' }
+      ] }
+    ];
+    var ICP = {
+      'Time': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
+      'Gestão': 'M3.5 3.5h7v7h-7zM13.5 3.5h7v7h-7zM3.5 13.5h7v7h-7zM13.5 13.5h7v7h-7z',
+      'Financeiro': 'M12 3v18M16.5 7.5c0-1.9-2-3-4.5-3s-4.5 1.2-4.5 3.2c0 4.3 9 2.3 9 6.6 0 2-2 3.2-4.5 3.2s-4.5-1.1-4.5-3',
+      'Coaches': 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
+      'Jogadores': 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5',
+      'Transações': 'M4 8h14l-4-4M20 16H6l4 4',
+      'Performance': 'M3 17l6-6 4 4 8-8M15 7h6v6',
+      'Torneios': 'M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20.5h7',
+      'Grades': 'M4 5.5h16v14H4zM4 10h16M8 3.5v4M16 3.5v4M12 13v4M10 15h4',
+      'Config.': 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      'Dashboard': 'M3.5 3.5h7v9h-7zM13.5 3.5h7v5h-7zM13.5 11.5h7v9h-7zM3.5 15.5h7v5h-7z',
+      'Minha Folha': 'M6 3.5h9l3 3v14H6zM9 11h6M9 15h6',
+      'Schedule': 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 3',
+      'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+      'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3'
+    };
+    function ICD(n) { return ICP[n] || 'M12 12h0'; }
+    function ICO(n) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }
+    var ATIVO = 'Líder:Gestão';
+    var secoes = NAV.map(function (s) {
+      return {
+        nome: s.nome,
+        chev: 'flex-shrink: 0; transition: transform .2s; transform: rotate(' + (s.aberto ? 90 : 0) + 'deg)',
+        itens: s.itens.map(function (it) {
+          var at = (s.nome + ':' + it.n) === ATIVO;
+          return {
+            nome: it.n, ic: ICO(it.n), icd: ICD(it.n), beta: !!it.beta,
+            go: it.id ? nav(it.id) : noop,
+            ind: at ? 'position: absolute; left: -5px; top: 6.5px; width: 3px; height: 16px; border-radius: 0 2px 2px 0; background: ' + COR : 'display: none',
+            estilo: 'position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 29px; padding: 0 10px; border: 0; border-radius: 8px; font-family: inherit; font-size: 13px; text-align: left; cursor: pointer; ' + (at ? 'color: #EDEEF0; background: rgba(255,255,255,.07); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);' : 'color: #A4A8AF; background: transparent;')
+          };
+        })
+      };
+    });
+
+    var LEIT = [
+      { tema: 'Operação', pre: 'Há ', hl: '6 transações', txt: ' em aberto, 2 delas paradas há mais de 2 dias.', extra: ' 3 reloads e 1 devolução esperam decisão.', lk: 'abrir execução →' },
+      { tema: 'Makeup', pre: '', hl: '2 jogadores', txt: ' estão acima do limiar de makeup, de 100 buy-ins.', extra: '', lk: 'ver quem e o múltiplo →' },
+      { tema: 'Folha', pre: '', hl: '1 jogador', txt: ' está sem folha há 7 dias ou mais.', extra: ' Pedrão.', lk: 'ver quem →' }
+    ];
+    var li = ((this.state.li % 3) + 3) % 3;
+    var L = LEIT[li];
+    var dots = LEIT.map(function (x, i) {
+      return { st: 'display: block; height: 3px; border-radius: 2px; transition: width .2s; ' + (i === li ? 'width: 18px; background: #F3F4F5' : 'width: 5px; background: rgba(255,255,255,.18)') };
+    });
+
+    var escOn = 'height: 28px; padding: 0 12px; border-radius: 8px; border: 0; font-family: inherit; font-size: 12px; white-space: nowrap; cursor: pointer; background: linear-gradient(180deg,#1D2023,#16181B); color: #F3F4F5; box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 2px 6px rgba(0,0,0,.5)';
+    var escOff = 'height: 28px; padding: 0 12px; border-radius: 8px; border: 0; font-family: inherit; font-size: 12px; white-space: nowrap; cursor: pointer; background: transparent; color: #8E939A';
+
+    var BI = { Black: '$10–$215', Blue: '$5–$109', Green: '$3–$55', Red: '$1–$22' };
+    // nick, iniciais, nível, saldo, makeup, abi, último registro, cor do último, ao vivo, selos, ações
+    var P = [
+      { nk: 'RiverKid', ini: 'RK', lv: 'Black', sd: 18940, mk: 2310.40, abi: '54,3', live: true, ac: ['reset'] },
+      { nk: 'mtt.lobo', ini: 'ML', lv: 'Black', sd: 15210, mk: 1105.20, abi: '48,1', live: true, ac: ['reset'] },
+      { nk: 'zeca.ev', ini: 'ZE', lv: 'Red', sd: 2150, mk: -860, abi: '11,3', ult: 'hoje · há 2h', uc: CY },
+      { nk: 'Joaquim.P', ini: 'JP', lv: 'Green', sd: 4880, mk: -420, abi: '18,5', ult: 'hoje · há 6h', uc: CY },
+      { nk: 'Bia.MTT', ini: 'BM', lv: 'Blue', sd: 7420, mk: -640, abi: '27,2', ult: 'ontem · há 2h', uc: CY },
+      { nk: 'Tamires', ini: 'TC', lv: 'Green', sd: 3940, mk: 0, abi: '15,1', ult: 'ontem · há 4h', uc: CY },
+      { nk: 'nutsbr', ini: 'NB', lv: 'Blue', sd: 9870, mk: 0, abi: '33,4', ult: 'ontem · há 5h', uc: CY, ac: ['dev'] },
+      { nk: 'OtavioGG', ini: 'OG', lv: 'Blue', sd: 6940, mk: -5120, abi: '26,4', ult: 'ontem · há 7h', uc: CY, mult: '1,9×', ac: ['reload'] },
+      { nk: 'Kaio77', ini: 'KR', lv: 'Green', sd: 6105, mk: -1980, abi: '22,0', ult: 'ontem · há 9h', uc: CY, ac: ['reload'] },
+      { nk: 'fishhook', ini: 'DF', lv: 'Blue', sd: 8310, mk: -3240, abi: '30,2', ult: '2 dias', uc: AM, div: 1500 },
+      { nk: 'Malu_88', ini: 'MF', lv: 'Green', sd: 3020, mk: -6780, abi: '14,2', ult: '3 dias', uc: AM, mult: '2,6×', div: 3000, ac: ['reload'] },
+      { nk: 'Pedrão', ini: 'PS', lv: 'Red', sd: 1210, mk: 0, abi: '9,0', ult: '7 dias+', uc: AM }
+    ];
+    var AC = {
+      reload: { lbl: 'Reload solicitado', d: 'M17 7L7 17M7 9v8h8', st: 'color: #E0766E; border: 1px solid rgba(224,118,110,.45); background: rgba(224,118,110,.08)' },
+      dev: { lbl: 'Devolução solicitada', d: 'M7 17L17 7M9 7h8v8', st: 'color: #52C0C7; border: 1px solid rgba(82,192,199,.45); background: rgba(82,192,199,.08)' },
+      reset: { lbl: 'Pronto para reset', d: 'M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4', st: 'color: #34D27B; border: 1px solid rgba(52,210,123,.4); background: rgba(52,210,123,.07)' }
+    };
+    var rows = P.map(function (p) {
+      var selos = [];
+      if (p.mult) selos.push({ mk: true, db: false, txt: p.mult, lbl: 'Makeup em ' + p.mult + ' o limiar de 100 buy-ins. Só o time vê.' });
+      if (p.div) selos.push({ mk: false, db: true, txt: '', lbl: 'Dívida ativa de ' + usd(p.div) });
+      return {
+        nick: p.nk, ini: p.ini, selos: selos,
+        saldo: usd(p.sd),
+        mk: usd(p.mk), mkSt: 'color: ' + (p.mk > 0 ? CY : p.mk < 0 ? CO : '#F3F4F5'),
+        bi: BI[p.lv], biSt: 'color: #C9CCD0',
+        abi: p.abi,
+        live: !!p.live, off: !p.live,
+        ult: p.ult || '', ultSt: 'color: ' + (p.uc || '#8E939A'),
+        acoes: (p.ac || []).map(function (k) { return AC[k]; })
+      };
+    });
+
+    return {
+      mvCls: 'mv v6n',
+      corTime: COR, marcaOp: 0.9, faixaOp: 1,
+      fDisp: DP.f, dScale: DP.s, dCase: DP.c, dVar: DP.v, dTrack: DP.t, dLt: DP.lt, dW: DP.w,
+      luz: 'rgba(62,187,195,0.110)',
+      secoes: secoes,
+      leit: { rot: 'Leitura · ' + L.tema, pos: (li + 1) + ' de 3', pre: L.pre, hl: L.hl, txt: L.txt, extra: L.extra, lk: L.lk },
+      dots: dots,
+      prevLeit: function () { self.setState({ li: self.state.li + 2 }); },
+      nextLeit: function () { self.setState({ li: self.state.li + 1 }); },
+      escA: this.state.esc === 0 ? escOn : escOff,
+      escB: this.state.esc === 1 ? escOn : escOff,
+      escMeus: function () { self.setState({ esc: 0 }); },
+      escTodos: function () { self.setState({ esc: 1 }); },
+      rows: rows
+    };
+  }
+  renderVals() {
+    var o = this._rv0() || {};
+    var g = typeof window !== 'undefined' ? window : {};
+    if (!g.__lootSessaoT0) g.__lootSessaoT0 = Date.now();
+    var seg = 3734 + Math.floor((Date.now() - g.__lootSessaoT0) / 1000);
+    var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+    o.cron = p2(Math.floor(seg / 3600)) + ':' + p2(Math.floor(seg / 60) % 60) + ':' + p2(seg % 60);
+    var pan = Math.max(0, Number(this.props.pan) || 0);
+    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : '';
+    return o;
+  }
+  componentDidMount() {
+    if (this._cdm0) this._cdm0();
+    var self = this;
+    this.__relogio = setInterval(function () { self.forceUpdate(); }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.__relogio);
+    if (this._cwu0) this._cwu0();
+  }
+}
+</script>
+</body>
+</html>

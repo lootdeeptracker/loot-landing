@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Simulador do Loot</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&amp;family=Pathway+Gothic+One&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+[data-host] .janela{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:#050506;box-shadow:0 40px 120px -40px rgba(62,187,195,.25),0 30px 80px -30px rgba(0,0,0,1)}
+[data-host] .barra{height:38px;display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:1px solid rgba(255,255,255,.06);background:#0B0C0D}
+[data-host] .bola{width:10px;height:10px;border-radius:99px;background:rgba(255,255,255,.1)}
+[data-host] .url{height:22px;padding:0 12px;border-radius:6px;background:rgba(255,255,255,.04);display:inline-flex;align-items:center;gap:7px;font-family:'Geist Mono',monospace;font-size:11px;color:#80858C}
+[data-host] .area{position:relative;overflow:hidden}
+[data-host] .simvp{position:absolute;inset:0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent;animation:hostIn .45s cubic-bezier(.2,0,0,1) both}
+[data-host] .simb{width:1440px}
+[data-host] .fade{position:absolute;left:0;right:0;bottom:0;height:80px;pointer-events:none;background:linear-gradient(180deg,rgba(5,5,6,0),rgba(5,5,6,.8))}
+[data-host] .controles{display:flex;align-items:center;gap:22px;margin-top:18px;flex-wrap:wrap}
+[data-host] .grupo{display:flex;align-items:center;gap:6px}
+[data-host] .rot{font-family:'Pathway Gothic One',sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#8E939A;font-size:13px;white-space:nowrap;margin-right:4px}
+[data-host] .rot::before{content:'';display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:#3EBBC3;transform:skewX(-24deg)}
+[data-host] .schip{flex-shrink:0;position:relative;overflow:hidden;height:30px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#8E939A;font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;white-space:nowrap}
+[data-host] .schip:hover{color:#E8E9EA;border-color:rgba(255,255,255,.22)}
+[data-host] .schip.ativo{color:#F3F4F5;border-color:rgba(62,187,195,.55);background:rgba(62,187,195,.08)}
+[data-host] .prog{position:absolute;left:0;bottom:0;height:2px;width:100%;background:#3EBBC3;transform-origin:left center;animation:hostProg 7s linear both}
+[data-host] .tour{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:9px;border:1px solid rgba(255,255,255,.12);background:transparent;color:#C9CCD0;font-family:'Inter',sans-serif;font-size:13px;cursor:pointer;margin-left:auto}
+[data-host] .legenda{margin:16px 0 0;font-size:16px;color:#A4A8AF;line-height:1.5}
+[data-host] .legenda b{color:#F3F4F5;font-weight:500}
+[data-host] .dica{color:#5A5F66}
+@keyframes hostIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes hostProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (max-width:760px){
+  [data-host] .controles{gap:14px}
+  [data-host] .grupo{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}
+  [data-host] .tour{margin-left:0}
+  [data-host] .legenda{font-size:14px}
+  [data-host] .barra{height:28px;padding:0 10px}
+  [data-host] .bola{width:7px;height:7px}
+}
+@media (prefers-reduced-motion:reduce){[data-host] .simvp,[data-host] .prog{animation:none}}
+</style>
+</helmet>
+<div data-host="" style="font-family: 'Inter', sans-serif; color: #EDEEF0">
+  <div class="janela">
+    <div class="barra">
+      <span class="bola"></span><span class="bola"></span><span class="bola"></span>
+      <span style="flex-grow: 1; display: flex; justify-content: center"><span class="url"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round"><path d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"></path></svg>app.lootdeep.com</span></span>
+      <span style="width: 46px"></span>
+    </div>
+    <div class="area" style="height: {{vpH}}px">
+      <sc-if value="{{isTime}}" hint-placeholder-val="{{true}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Time" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.time}}" hint-size="1440px,2335px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isGestao}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Gestao" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.gestao}}" hint-size="1440px,1692px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isFin}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Financeiro" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.financeiro}}" hint-size="1440px,2090px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isDash}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Dashboard" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.dashboard}}" hint-size="1440px,2162px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isFolha}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Folha" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.folha}}" hint-size="1440px,1112px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isStats}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Stats" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.stats}}" hint-size="1440px,3351px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isSched}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Schedule" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.schedule}}" hint-size="1440px,1984px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isPerf}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Performance" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.performance}}" hint-size="1440px,4385px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{auto}}" hint-placeholder-val="{{true}}">
+        <div class="fade"></div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div class="controles">
+    <div class="grupo"><span class="rot">Líder</span>
+      <sc-for list="{{chipsLider}}" as="c" hint-placeholder-count="3">
+        <button type="button" class="{{c.cls}}" onClick="{{c.pick}}">{{c.rot}}<sc-if value="{{c.prog}}" hint-placeholder-val="{{false}}"><span class="prog"></span></sc-if></button>
+      </sc-for>
+    </div>
+    <div class="grupo"><span class="rot">Jogador</span>
+      <sc-for list="{{chipsJogador}}" as="c" hint-placeholder-count="5">
+        <button type="button" class="{{c.cls}}" onClick="{{c.pick}}">{{c.rot}}<sc-if value="{{c.prog}}" hint-placeholder-val="{{false}}"><span class="prog"></span></sc-if></button>
+      </sc-for>
+    </div>
+    <button type="button" class="tour" onClick="{{alternarTour}}"><span style="width: 7px; height: 7px; border-radius: 99px; background: {{tourCor}}"></span>{{tourTxt}}</button>
+  </div>
+  <p class="legenda"><b>{{capT}}</b> {{capD}} <span class="dica">{{dica}}</span></p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tela: 'time', auto: true, w: 1150 };
+    this.ordem = ['time', 'gestao', 'financeiro', 'dashboard', 'folha', 'stats', 'schedule', 'performance'];
+  }
+  componentDidMount() {
+    var self = this;
+    this.medir = function () { self.setState({ w: Math.max(280, document.documentElement.clientWidth) }); };
+    this.medir();
+    window.addEventListener('resize', this.medir);
+    var reduzir = false;
+    try { reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduzir) this.setState({ auto: false });
+    else this.iniciarTour();
+    this.avisarAltura();
+  }
+  componentDidUpdate() { this.avisarAltura(); }
+  componentWillUnmount() { clearInterval(this.tour); window.removeEventListener('resize', this.medir); }
+  avisarAltura() {
+    var alt = document.documentElement.scrollHeight;
+    if (alt !== this.ultimaAltura && window.parent !== window) {
+      this.ultimaAltura = alt;
+      window.parent.postMessage({ lootSim: 'altura', valor: alt }, '*');
+    }
+  }
+  avisarTela(t) {
+    if (window.parent !== window) window.parent.postMessage({ lootSim: 'tela', valor: t }, '*');
+  }
+  iniciarTour() {
+    clearInterval(this.tour);
+    this.tour = setInterval(() => {
+      if (!this.state.auto) return;
+      var i = this.ordem.indexOf(this.state.tela);
+      this.setState({ tela: this.ordem[(i + 1) % this.ordem.length] });
+    }, 7000);
+  }
+  ir(t) {
+    if (this.ordem.indexOf(t) < 0) return;
+    clearInterval(this.tour);
+    this.setState({ tela: t, auto: false });
+    this.avisarTela(t);
+  }
+  renderVals() {
+    var s = this.state;
+    var self = this;
+    var largura = s.w - 2;
+    var z = largura / 1440;
+    var vpH = Math.round(largura * 760 / 1150);
+    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    var pan = {};
+    Object.keys(ALT).forEach(function (k) { pan[k] = Math.round(Math.max(0, Math.min(701, ALT[k] - 952))); });
+    var ROT = { time: 'Time', gestao: 'Gestão', financeiro: 'Financeiro', dashboard: 'Dashboard', folha: 'Minha Folha', stats: 'Stats', schedule: 'Schedule', performance: 'Performance' };
+    var CAP = {
+      time: ['Time.', 'A performance agregada do time numa visão executiva.'],
+      gestao: ['Gestão.', 'Reload, devolução, reset e makeup: decida o que mover agora.'],
+      financeiro: ['Financeiro.', 'P&L, capital total e carteiras num lugar só.'],
+      dashboard: ['Dashboard do jogador.', 'Profit, makeup, dívida ativa e win rate do mês, com o histórico de performance.'],
+      folha: ['Minha Folha.', 'O resultado de cada dia no calendário, com makeup e o P&L acumulado.'],
+      stats: ['Stats de jogo.', 'Score por área e evolução mês a mês, calculado pelo Loot.'],
+      schedule: ['Schedule.', 'A grade certa para o perfil de cada jogador, com tiers de A a D.'],
+      performance: ['Performance.', 'Onde cada jogador ganha ou perde, sem a distorção da variância.']
+    };
+    var chip = function (id) {
+      var on = s.tela === id;
+      return { rot: ROT[id], cls: on ? 'schip ativo' : 'schip', prog: on && s.auto, pick: function () { self.ir(id); } };
+    };
+    return {
+      isTime: s.tela === 'time', isGestao: s.tela === 'gestao', isFin: s.tela === 'financeiro', isPerf: s.tela === 'performance',
+      isDash: s.tela === 'dashboard', isFolha: s.tela === 'folha', isStats: s.tela === 'stats', isSched: s.tela === 'schedule',
+      auto: s.auto, z: z.toFixed(5), vpH: vpH, pan: pan,
+      nav: function (id) { self.ir(id); },
+      vpSt: s.auto ? 'overflow: hidden' : 'overflow-y: auto; overscroll-behavior: contain',
+      chipsLider: ['time', 'gestao', 'financeiro'].map(chip),
+      chipsJogador: ['dashboard', 'folha', 'stats', 'schedule', 'performance'].map(chip),
+      capT: CAP[s.tela][0], capD: CAP[s.tela][1],
+      dica: s.auto ? '' : (s.w < 760 ? 'Role dentro da tela para ver mais.' : 'Role dentro da tela e use o menu lateral para navegar.'),
+      tourTxt: s.auto ? 'Tour automático' : 'Retomar o tour', tourCor: s.auto ? '#34D399' : '#5A5F66',
+      alternarTour: function () {
+        if (s.auto) { clearInterval(self.tour); self.setState({ auto: false }); }
+        else { self.setState({ auto: true }); self.iniciarTour(); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Simulador do Loot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>html,body{margin:0;background:#050506;color:#EDEEF0;overflow:hidden}</style>
+</head>
+<body>
+<div id="sim"></div>
+<script src="/sim/preact.min.js"></script>
+<script src="/sim/dc.js"></script>
+<script>
+window.DC_BASE = '/sim/';
+DC.montar('Simulador', document.getElementById('sim'));
+DC.preCarregar(['Sim-Time', 'Sim-Gestao', 'Sim-Financeiro', 'Sim-Dashboard', 'Sim-Folha', 'Sim-Stats', 'Sim-Schedule', 'Sim-Performance']);
+</script>
+</body>
+</html>

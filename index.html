@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://www.lootdeep.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Loot Analytics" />
-  <meta name="theme-color" content="#14181F" />
+  <meta name="theme-color" content="#050506" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -32,7 +32,7 @@
   <link rel="icon" type="image/png" href="./assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -61,492 +61,467 @@
   <script defer src="/_vercel/insights/script.js"></script>
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --bg: #14181F; --bg-2: #10141A;
-      --panel: #232B37; --panel-2: #2B3442; --navy: #262E3A;
-      --teal: #3CBCBC; --teal-dim: rgba(60,188,188,.10);
-      --text: #EEF3F8; --muted: rgba(238,243,248,.55); --dim: rgba(238,243,248,.40); --muted-2: rgba(238,243,248,.34);
-      --border: rgba(255,255,255,.07); --border-2: rgba(255,255,255,.10);
-      --radius: 14px; --mark: #F5C451;
+      --bg: #050506; --tx: #EDEEF0; --tx-1: #F3F4F5; --mut: #8E939A; --mut-2: #A4A8AF; --dim: #5A5F66;
+      --time: #3EBBC3; --pos: #52C0C7; --neg: #E0766E; --amb: #D9A441;
+      --borda: rgba(255,255,255,.06);
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif;
-      font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    body { margin: 0; background: var(--bg); color: var(--tx); font-family: 'Inter', system-ui, sans-serif; font-feature-settings: 'cv11', 'ss01'; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; width: 100%; }
-    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--teal); }
+    img { display: block; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .dp { font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .02em; font-weight: 400; }
+    .mono { font-family: 'Geist Mono', monospace; }
+    .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .apagado { color: var(--dim); }
+    .rot { font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--mut); font-size: 13px; white-space: nowrap; }
+    .rot::before { content: ''; display: inline-block; width: 10px; height: 3px; margin-right: 8px; vertical-align: middle; background: var(--time); transform: skewX(-24deg); }
+    .card { border-radius: 10px; background: linear-gradient(180deg, #101112 0%, #0A0A0B 18%, #08090A 100%); border: 1px solid rgba(255,255,255,.075); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), inset 0 -1px 0 rgba(0,0,0,.6), 0 12px 28px -18px rgba(0,0,0,.95); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 10px; font-size: 15px; font-weight: 500; border: 1px solid transparent; transition: background .2s, border-color .2s; }
+    .btn-pri { background: var(--time); color: #041416; }
+    .btn-pri:hover { background: #5CCBD2; }
+    .btn-gh { border-color: rgba(255,255,255,.14); color: #E8E9EA; background: rgba(255,255,255,.02); }
+    .btn-gh:hover { border-color: rgba(255,255,255,.3); }
+    .lnk { color: var(--mut-2); font-size: 14px; transition: color .2s; }
+    .lnk:hover { color: var(--tx-1); }
+    .glow { position: absolute; pointer-events: none; border-radius: 50%; filter: blur(40px); }
 
-    body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .025;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-    body > * { position: relative; z-index: 1; }
+    /* nav */
+    .nav { position: sticky; top: 0; z-index: 20; height: 64px; background: rgba(5,5,6,.6); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.05); }
+    .nav .wrap { height: 64px; display: flex; align-items: center; gap: 32px; }
+    .nav-links { display: flex; gap: 26px; flex-grow: 1; }
+    .nav .btn { height: 36px; padding: 0 16px; font-size: 14px; }
 
-    /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center;
-      justify-content: space-between; padding: 16px 32px; background: rgba(20,24,31,.72);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
-    nav img.logo { height: 26px; display: block; }
-    .nav-right { display: flex; align-items: center; gap: 18px; }
-    .nav-link { font-size: 13px; font-weight: 500; color: var(--muted); transition: color .2s; }
-    .nav-link:hover { color: var(--text); }
-    .badge { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--teal);
-      border: 1px solid rgba(60,188,188,.35); padding: 4px 11px; border-radius: 100px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
-      padding: 10px 18px; border-radius: 9px; transition: opacity .2s, background .2s, transform .15s; white-space: nowrap; cursor: pointer; }
-    .btn-teal { background: var(--teal); color: #0f1c22; }
-    .btn-teal:hover { opacity: .9; }
-    .btn-ghost { border: 1px solid rgba(60,188,188,.4); color: var(--teal); }
-    .btn-ghost:hover { background: var(--teal-dim); }
+    /* hero */
+    .hero { position: relative; padding: 112px 0 56px; }
+    .hero .wrap { display: flex; flex-direction: column; gap: 22px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--mut); }
+    .eyebrow .mono { letter-spacing: .12em; color: var(--time); }
+    .eyebrow i { width: 1px; height: 12px; background: rgba(255,255,255,.14); }
+    h1 { margin: 0; font-size: clamp(46px, 12.5vw, 96px); line-height: .95; color: var(--tx-1); }
+    .hero p { margin: 0; max-width: 520px; font-size: 19px; line-height: 1.5; color: var(--mut-2); }
 
-    /* ── HERO ── */
-    .hero { padding: 150px 0 40px; text-align: center; position: relative; }
-    .hero::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 620px; max-width: 100%; background: radial-gradient(circle, rgba(60,188,188,.11) 0%, transparent 66%); pointer-events: none; }
-    .hero .eyebrow { display: inline-block; margin-bottom: 24px; }
-    .hero h1 { font-size: clamp(38px, 6.4vw, 68px); font-weight: 600; letter-spacing: -.03em; line-height: 1.04;
-      max-width: 860px; margin: 0 auto 22px; }
-    .hero h1 .dim { color: var(--dim); font-weight: 600; }
-    .hero .sub { font-size: clamp(16px, 2.1vw, 20px); font-weight: 300; color: var(--muted); max-width: 560px; margin: 0 auto 34px; }
-    .hero-cta { display: flex; gap: 13px; justify-content: center; flex-wrap: wrap; }
+    /* simulador */
+    .produto { position: relative; }
+    .produto iframe { display: block; width: 100%; border: 0; background: transparent; height: calc((min(100vw, 1200px) - 48px) * 760 / 1150 + 150px); }
 
-    /* ── APP WINDOW (prints reais + hotspots na sidebar) ── */
-    .stage { position: relative; padding: 60px 0 30px; }
-    .app-glow { position: absolute; top: 8%; left: 50%; transform: translateX(-50%); width: 80%; height: 70%;
-      background: radial-gradient(ellipse at center, rgba(60,188,188,.16), transparent 65%); filter: blur(30px); pointer-events: none; }
-    .browser { position: relative; max-width: 1080px; margin: 0 auto; border-radius: 14px; overflow: hidden;
-      border: 1px solid var(--border-2); background: #0B0E13;
-      box-shadow: 0 60px 140px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.02) inset; }
-    .browser-bar { display: flex; align-items: center; gap: 14px; padding: 10px 14px; background: #0A0D12; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .browser-dots { display: flex; gap: 6px; }
-    .browser-dots span { width: 11px; height: 11px; border-radius: 50%; background: #2d3742; }
-    .browser-url { flex: 1; max-width: 340px; margin: 0 auto; text-align: center; font-size: 11.5px; color: var(--muted-2);
-      background: #12161d; border: 1px solid rgba(255,255,255,.05); border-radius: 7px; padding: 4px 12px; }
-    .screen { position: relative; }
-    .screen .sizer { display: block; width: 100%; height: auto; visibility: hidden; }
-    .screen .view { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; opacity: 0; transition: opacity .35s ease; }
-    .screen .view.active { opacity: 1; }
-    /* hotspots invisiveis sobre os itens da sidebar */
-    .hotspots { position: absolute; inset: 0; }
-    .hot { position: absolute; left: 0.6%; width: 11.4%; height: 3.2%; background: transparent; border: 0;
-      cursor: pointer; border-radius: 5px; transition: background .15s, box-shadow .15s; }
-    .hot:hover { background: rgba(60,188,188,.16); box-shadow: inset 0 0 0 1px rgba(60,188,188,.45); }
-    .screen-missing { position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center;
-      gap: 8px; text-align: center; padding: 24px; background: #0B0E13; color: var(--mark); font-size: 14px; }
-    .screen-missing.show { display: flex; }
-    .screen-missing code { color: var(--text); background: rgba(255,255,255,.06); padding: 2px 7px; border-radius: 5px; font-size: 13px; }
-    .stage-cap { max-width: 720px; margin: 22px auto 0; text-align: center; min-height: 46px; padding: 0 24px; }
-    #cap { font-size: 16px; font-weight: 300; color: var(--muted); }
-    #cap b { color: var(--text); font-weight: 500; }
-    .stage-hint { text-align: center; margin-top: 8px; font-size: 12.5px; color: var(--muted-2); }
+    /* statement */
+    .statement { padding: 170px 0 60px; }
+    .statement p { margin: 0; max-width: 980px; font-size: clamp(28px, 4vw, 44px); line-height: 1.18; letter-spacing: -.02em; font-weight: 500; color: var(--tx-1); }
 
-    /* ── SECTIONS ── */
-    section.block { padding: 96px 0; }
-    .bg-2 { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .statement { text-align: center; }
-    .statement h2 { font-size: clamp(28px, 4.6vw, 52px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; max-width: 900px; margin: 0 auto; }
-    .statement h2 .dim { color: var(--dim); }
-    .statement p { color: var(--muted); font-weight: 300; margin-top: 20px; font-size: 18px; }
+    /* pilares */
+    .pilares { padding: 40px 0 120px; }
+    .pilares-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--borda); }
+    .pilar { padding: 28px 28px 0; display: flex; flex-direction: column; gap: 14px; border-right: 1px solid var(--borda); }
+    .pilar:first-child { padding-left: 0; }
+    .pilar:last-child { padding-right: 0; border-right: 0; }
+    .pilar svg { width: 100%; height: 240px; }
+    .pilar h3 { margin: 0; font-size: 16px; font-weight: 500; color: var(--tx-1); }
+    .pilar p { margin: 0; font-size: 14px; line-height: 1.55; color: var(--mut); }
+    .ln { fill: none; stroke: rgba(232,233,234,.55); stroke-width: 1; }
+    .ln2 { fill: none; stroke: rgba(232,233,234,.22); stroke-width: 1; }
 
-    /* ── FEATURE ROWS ── */
-    .feature { display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center; }
-    .feature + .feature { margin-top: 120px; }
-    .feature.reverse .f-text { order: 2; }
-    .feature.reverse .f-media { order: 1; }
-    .f-text .eyebrow { display: block; margin-bottom: 16px; }
-    .f-text h3 { font-size: clamp(24px, 3vw, 34px); font-weight: 600; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 16px; }
-    .f-text h3 .dim { color: var(--dim); }
-    .f-text p { color: var(--muted); font-weight: 300; font-size: 16.5px; max-width: 440px; margin-bottom: 22px; }
-    .f-media { position: relative; }
-    .f-media .frame-glow { position: absolute; inset: -6% -4%; background: radial-gradient(ellipse at center, rgba(60,188,188,.14), transparent 68%); filter: blur(26px); pointer-events: none; }
-    .frame { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-2);
-      background: #0c1116; box-shadow: 0 40px 90px -35px rgba(0,0,0,.85); min-height: 120px; }
-    .frame img { display: block; width: 100%; height: auto; }
+    /* recursos */
+    .recursos { padding: 40px 0; }
+    .recursos-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .recurso { padding: 30px; display: flex; flex-direction: column; gap: 12px; min-height: 420px; }
+    .recurso .etiqueta { font-family: 'Geist Mono', monospace; font-size: 11px; color: #4A4E55; letter-spacing: .06em; }
+    .recurso h3 { margin: 0; font-size: 26px; line-height: 1.2; letter-spacing: -.01em; font-weight: 500; }
+    .recurso p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--mut); }
+    .recurso .visual { margin-top: auto; }
+    .barras { display: flex; align-items: flex-end; gap: 14px; height: 150px; border-bottom: 1px solid rgba(255,255,255,.07); }
+    .barras span { flex: 1 1 0; border-radius: 4px 4px 0 0; background: linear-gradient(180deg, rgba(62,187,195,.7), rgba(62,187,195,.12)); transform-origin: center bottom; animation: lv 4.8s cubic-bezier(.4,0,.2,1) infinite; }
+    .barras-rot { display: flex; gap: 14px; font-size: 11px; color: var(--dim); margin-top: 8px; }
+    .barras-rot span { flex: 1 1 0; text-align: center; }
+    .carteira { display: flex; align-items: center; gap: 14px; height: 38px; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .carteira .n { width: 110px; white-space: nowrap; }
+    .carteira .trilho { flex-grow: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.06); overflow: hidden; }
+    .carteira .trilho span { display: block; height: 3px; background: var(--time); transform-origin: left center; }
+    .carteira .v { width: 90px; text-align: right; }
+    .dias { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; }
+    .dias span { height: 26px; border-radius: 5px; animation: ce 5s ease-in-out infinite; }
+    .jogador { min-width: 0; padding: 16px; display: flex; align-items: center; gap: 14px; position: relative; overflow: hidden; }
+    .jogador::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--time); }
+    .av { width: 44px; height: 44px; border-radius: 12px; background: #15161A; border: 1px solid rgba(255,255,255,.12); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; color: #D5D7DA; flex-shrink: 0; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding: 0 9px; border-radius: 6px; border: 1px solid rgba(255,255,255,.1); font-size: 12px; color: var(--mut); white-space: nowrap; }
+    .chip b { color: var(--tx-1); font-weight: 500; }
+    .grade-linha { display: flex; align-items: center; gap: 12px; height: 38px; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .grade-linha .h { width: 44px; font-size: 12px; color: var(--mut-2); }
+    .grade-linha .t { flex-grow: 1; }
+    .tier { width: 24px; height: 20px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+    .grade-linha .roi { width: 60px; text-align: right; }
 
-    /* ── PRA QUEM ── */
-    .who { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .who-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 32px; transition: border-color .22s, transform .22s; }
-    .who-card:hover { border-color: rgba(60,188,188,.32); transform: translateY(-3px); }
-    .who-card .tag { font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); }
-    .who-card h4 { font-size: 21px; font-weight: 600; letter-spacing: -.01em; margin: 12px 0 12px; }
-    .who-card p { color: var(--muted); font-weight: 300; font-size: 15.5px; }
+    /* para quem */
+    .para-quem { padding: 130px 0 60px; }
+    .para-quem h2 { margin: 0 0 40px; font-size: clamp(40px, 6vw, 64px); line-height: 1; color: var(--tx-1); }
+    .lados { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .lado { padding: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .lado h3 { margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -.01em; }
+    .lado p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--mut); }
 
-    /* ── DEPOIMENTO ── */
-    .quote { text-align: center; max-width: 860px; margin: 0 auto; }
-    .quote blockquote { font-size: clamp(22px, 3.2vw, 34px); font-weight: 300; letter-spacing: -.02em; line-height: 1.32; }
-    .quote blockquote .hl { color: var(--teal); font-weight: 500; }
-    .quote .cite { margin-top: 26px; color: var(--muted); font-size: 15px; }
-    .quote .cite b { color: var(--text); font-weight: 500; }
+    /* depoimento */
+    .depoimento { padding: 80px 0 60px; }
+    .depo { position: relative; overflow: hidden; border-radius: 16px; padding: 56px 60px; background: linear-gradient(135deg, #3EBBC3 0%, #2A8F96 100%); color: #041416; display: flex; flex-direction: column; gap: 30px; }
+    .depo svg { position: absolute; right: -40px; top: -40px; width: 360px; height: 360px; opacity: .14; }
+    .depo blockquote { margin: 0; max-width: 860px; font-size: clamp(21px, 2.6vw, 30px); line-height: 1.35; letter-spacing: -.015em; font-weight: 500; position: relative; }
+    .depo figcaption { display: flex; align-items: center; gap: 14px; position: relative; }
+    .depo .ini { width: 40px; height: 40px; border-radius: 11px; background: rgba(4,20,22,.12); display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
 
-    /* ── FINAL CTA ── */
-    .final { text-align: center; position: relative; overflow: hidden; }
-    .final::before { content: ''; position: absolute; bottom: -180px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 500px; max-width: 100%; background: radial-gradient(circle at bottom, rgba(60,188,188,.14), transparent 66%); pointer-events: none; }
-    .final h2 { font-size: clamp(30px, 5vw, 54px); font-weight: 600; letter-spacing: -.03em; line-height: 1.08; margin-bottom: 18px; }
-    .final h2 .dim { color: var(--dim); }
-    .final p { color: var(--muted); font-weight: 300; margin-bottom: 34px; font-size: 18px; }
+    /* cta */
+    .cta { padding: 150px 0 140px; text-align: center; }
+    .cta .wrap { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+    .cta h2 { margin: 0; font-size: clamp(46px, 7vw, 84px); line-height: .98; color: var(--tx-1); }
+    .cta p { margin: 0; font-size: 18px; color: var(--mut-2); }
+    .cta-botoes { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
-    /* ── FOOTER ── */
-    footer { border-top: 1px solid var(--border); padding: 26px 32px; display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 14px; }
-    footer img { height: 18px; opacity: .5; }
-    .foot-right { display: flex; align-items: center; gap: 20px; }
-    footer a, footer span { font-size: 12px; color: var(--muted); }
-    footer a:hover { color: var(--teal); }
-    .ig-icon { display: flex; align-items: center; gap: 6px; }
-    .ig-icon svg { width: 14px; height: 14px; fill: currentColor; }
-    .foot-tag { color: var(--muted-2); }
+    /* rodapé */
+    footer { border-top: 1px solid var(--borda); }
+    footer .wrap { padding-top: 40px; padding-bottom: 56px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+    .rodape-marca { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .rodape-marca span { font-size: 13px; color: var(--dim); }
+    .rodape-cols { display: flex; gap: 64px; font-size: 13px; }
+    .rodape-cols div { display: flex; flex-direction: column; gap: 10px; }
+    .rodape-cols strong { color: var(--tx-1); font-weight: 400; }
+    .rodape-cols .lnk { font-size: 13px; }
 
-    @media (max-width: 860px) {
-      .feature, .who { grid-template-columns: 1fr; gap: 32px; }
-      .feature + .feature { margin-top: 72px; }
-      .feature.reverse .f-text { order: 1; } .feature.reverse .f-media { order: 2; }
+    @keyframes lv { 0% { transform: scaleY(.15); } 35%, 75% { transform: scaleY(1); } 100% { transform: scaleY(.15); } }
+    @keyframes ld { 0% { stroke-dashoffset: 1; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
+    @keyframes ce { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+    .loopdraw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ld 5s cubic-bezier(.4,0,.2,1) infinite; }
+
+    @media (max-width: 960px) {
+      .pilares-grade { grid-template-columns: minmax(0, 1fr); border-top: 0; }
+      .pilar, .pilar:first-child, .pilar:last-child { padding: 28px 0; border-right: 0; border-top: 1px solid var(--borda); }
+      .pilar svg { height: 200px; }
+      .recursos-grade, .lados { grid-template-columns: minmax(0, 1fr); }
+      .recurso { min-height: 0; }
+      .recurso .visual { margin-top: 18px; }
+      footer .wrap { flex-direction: column; }
     }
-    @media (max-width: 720px) {
-      nav { padding: 13px 18px; }
-      .nav-link.hide-sm { display: none; }
-      section.block { padding: 64px 0; }
-      .hero { padding: 116px 0 30px; }
-      .stage { padding: 40px 0 20px; }
-      .feature + .feature { margin-top: 64px; }
-      .browser-url { max-width: 200px; }
-      footer { flex-direction: column; align-items: flex-start; }
+    @media (max-width: 760px) {
+      .wrap { padding: 0 16px; }
+      .nav-links, .nav .lnk { display: none; }
+      .nav .wrap { justify-content: space-between; }
+      .hero { padding: 72px 0 40px; }
+      .hero p { font-size: 17px; }
+      .produto iframe { height: calc((100vw - 32px) * 760 / 1150 + 190px); }
+      .statement { padding: 110px 0 40px; }
+      .pilares { padding: 20px 0 80px; }
+      .recurso { padding: 24px; }
+      .recurso h3 { font-size: 22px; }
+      .para-quem { padding: 90px 0 40px; }
+      .lado { padding: 24px; }
+      .depo { padding: 36px 26px; }
+      .cta { padding: 110px 0 100px; }
+      .rodape-cols { flex-direction: column; gap: 28px; }
     }
-    @media (max-width: 480px) {
-      nav { padding: 12px 16px; }
-      .badge { display: none; }
-      nav .btn { padding: 9px 14px; font-size: 12.5px; }
-      .nav-right { gap: 12px; }
-      .hero { padding: 104px 0 24px; }
-      .hero h1 { font-size: 33px; letter-spacing: -.02em; }
-      .hero .sub { font-size: 16px; }
-      .wrap { padding: 0 18px; }
-      .f-text h3 { font-size: 24px; }
-      .statement h2 { font-size: 28px; }
-      .final h2 { font-size: 30px; }
-      .who-card { padding: 28px 22px; }
-      .quote blockquote { font-size: 22px; }
-      .hero-cta .btn { flex: 1; justify-content: center; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .barras span, .dias span, .loopdraw { animation: none; }
+      .loopdraw { stroke-dashoffset: 0; }
     }
   </style>
 </head>
 <body>
+  <div class="glow" style="left: 50%; top: 420px; width: min(1100px, 100vw); height: 520px; transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(62,187,195,.16), rgba(62,187,195,0) 70%)"></div>
 
-  <nav>
-    <a href="#top" aria-label="Loot"><img class="logo" src="./assets/loot_green.png" alt="Loot" /></a>
-    <div class="nav-right">
-      <a href="#produto" class="nav-link hide-sm">Produto</a>
-      <a href="https://app.lootdeep.com" class="nav-link hide-sm" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a>
-      <a href="https://wa.me/5512988098957?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Loot." target="_blank" rel="noopener" class="btn btn-teal" onclick="window.va&&window.va('event',{name:'cta_whatsapp'})">Falar com a gente</a>
+  <nav class="nav" aria-label="Principal">
+    <div class="wrap">
+      <a href="#top" aria-label="Loot, início"><img src="./assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="#produto">Produto</a>
+        <a class="lnk" href="#recursos">Recursos</a>
+        <a class="lnk" href="#times">Para quem</a>
+        <a class="lnk" href="#depoimento">Depoimento</a>
+      </div>
+      <a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a>
+      <a class="btn btn-pri" href="https://wa.me/5512988098957?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Loot." target="_blank" rel="noopener" onclick="window.va&&window.va('event',{name:'cta_whatsapp'})">Falar com a gente</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="wrap" data-anim="hero">
-      <span class="eyebrow">Run Deep</span>
-      <h1>Gestão e dados.<br /><span class="dim">Tudo num lugar só.</span></h1>
-      <p class="sub">Data Science para times de poker. Menos achismo, mais decisão baseada em dados.</p>
-      <div class="hero-cta">
-        <a href="https://app.lootdeep.com" class="btn btn-teal" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar no Loot →</a>
-        <a href="#produto" class="btn btn-ghost">Ver por dentro</a>
+  <main>
+    <header id="top" class="hero">
+      <div class="wrap" data-hero>
+        <span class="eyebrow"><span class="mono">RUN DEEP</span><i></i><a href="#produto" class="lnk" style="font-size: 13px">Novo · Loot 3.0 <span class="apagado">→</span></a></span>
+        <h1 class="dp">Gestão e dados.<br /><span class="apagado">Tudo num lugar só.</span></h1>
+        <p>Data Science para times de poker. Menos achismo, mais decisão baseada em dados.</p>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- APP WINDOW / PRINTS REAIS + HOTSPOTS -->
-  <section class="stage" id="produto">
-    <div class="app-glow" aria-hidden="true"></div>
-    <div class="wrap" data-anim="stage">
-      <div class="browser">
-        <div class="browser-bar">
-          <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-url">app.lootdeep.com</div>
-          <div style="width:56px"></div>
-        </div>
-        <div class="screen" id="screen">
-          <img class="sizer" src="./assets/app-time.png" alt="" aria-hidden="true"
-               onerror="document.getElementById('screenMissing').classList.add('show')" />
-          <img class="view active" data-view="time" src="./assets/app-time.png" alt="Visão do time no Loot" />
-          <img class="view" data-view="gestao" src="./assets/app-gestao.png" alt="Gestão no Loot" />
-          <img class="view" data-view="financeiro" src="./assets/app-financeiro.png" alt="Financeiro no Loot" />
-          <img class="view" data-view="coaches" src="./assets/app-coaches.png" alt="Coaches no Loot" />
-          <img class="view" data-view="jogadores" src="./assets/app-jogadores.png" alt="Jogadores no Loot" />
-          <img class="view" data-view="transacoes" src="./assets/app-transacoes.png" alt="Transações no Loot" />
-          <img class="view" data-view="performance" src="./assets/app-performance.png" alt="Performance no Loot" />
-          <img class="view" data-view="torneios" src="./assets/app-torneios.png" alt="Torneios no Loot" />
-          <img class="view" data-view="grades" src="./assets/app-grades.png" alt="Grades no Loot" />
-          <img class="view" data-view="config" src="./assets/app-config.png" alt="Configurações no Loot" />
-          <img class="view" data-view="dashboard" src="./assets/app-dash-player.png" alt="Dashboard do jogador no Loot" />
-          <img class="view" data-view="folha" src="./assets/app-folha.png" alt="Minha Folha no Loot" />
-          <img class="view" data-view="schedule" src="./assets/app-schedule.png" alt="Schedule no Loot" />
-          <img class="view" data-view="stats" src="./assets/app-stats.png" alt="Stats de jogo no Loot" />
+    <section id="produto" class="produto" aria-label="Simulador do Loot">
+      <div class="wrap" data-stage>
+        <iframe id="simulador" src="./sim/" title="Simulador navegável do Loot com dados de um time fictício" loading="eager"></iframe>
+      </div>
+    </section>
 
-          <!-- hotspots: menu inteiro exposto (LIDER + JOGADOR), uma camada so -->
-          <div class="hotspots" id="hotspots">
-            <button class="hot" data-view="time"        title="Time"        style="top:12.9%"></button>
-            <button class="hot" data-view="gestao"      title="Gestão"      style="top:16.7%"></button>
-            <button class="hot" data-view="financeiro"  title="Financeiro"  style="top:20.3%"></button>
-            <button class="hot" data-view="coaches"     title="Coaches"     style="top:24.1%"></button>
-            <button class="hot" data-view="jogadores"   title="Jogadores"   style="top:27.7%"></button>
-            <button class="hot" data-view="transacoes"  title="Transações"  style="top:31.5%"></button>
-            <button class="hot" data-view="performance" title="Performance" style="top:35.1%"></button>
-            <button class="hot" data-view="torneios"    title="Torneios"    style="top:38.8%"></button>
-            <button class="hot" data-view="grades"      title="Grades"      style="top:42.5%"></button>
-            <button class="hot" data-view="config"      title="Config."     style="top:46.3%"></button>
-            <button class="hot" data-view="dashboard"   title="Dashboard"             style="top:59.3%"></button>
-            <button class="hot" data-view="folha"       title="Minha Folha"           style="top:62.9%"></button>
-            <button class="hot" data-view="schedule"    title="Schedule"              style="top:66.5%"></button>
-            <button class="hot" data-view="stats"       title="Stats"                 style="top:70.3%"></button>
-            <button class="hot" data-view="performance" title="Performance (jogador)" style="top:74.0%"></button>
-            <button class="hot" data-view="torneios"    title="Torneios (jogador)"    style="top:77.7%"></button>
-            <button class="hot" data-view="transacoes"  title="Transações (jogador)"  style="top:81.3%"></button>
+    <section class="statement">
+      <div class="wrap">
+        <p data-reveal>Dados centralizados, cruzados e consolidados. <span class="apagado">A operação inteira num lugar só: jogadores, coaches e gestão.</span></p>
+      </div>
+    </section>
+
+    <section class="pilares">
+      <div class="wrap">
+        <div class="pilares-grade" data-reveal-grupo>
+          <div class="pilar">
+            <svg viewBox="0 0 320 240" aria-hidden="true" data-parallax>
+              <path class="ln2" d="M160 170 L270 120 L160 70 L50 120 Z"></path>
+              <path class="ln2" d="M50 120 V136 L160 186 L270 136 V120"></path>
+              <path class="ln" d="M160 145 L270 95 L160 45 L50 95 Z"></path>
+              <path class="ln" d="M50 95 V111 L160 161 L270 111 V95"></path>
+              <path class="ln" d="M160 120 L270 70 L160 20 L50 70 Z" style="fill: rgba(62,187,195,.06); stroke: #3EBBC3"></path>
+              <path class="ln" d="M50 70 V86 L160 136 L270 86 V70"></path>
+              <path class="ln2" d="M100 70 L160 97 L220 70 M130 57 L190 84"></path>
+            </svg>
+            <h3>Centralizados</h3>
+            <p>Folha, transações, torneios e mãos entram no mesmo lugar. Ninguém mais junta planilha.</p>
           </div>
-
-          <div class="screen-missing" id="screenMissing">
-            <div>Salve os prints do app na pasta <code>assets/</code> com os nomes do chat.</div>
-            <div>Ex.: <code>app-time.png</code>, <code>app-financeiro.png</code>…</div>
+          <div class="pilar">
+            <svg viewBox="0 0 320 240" aria-hidden="true" data-parallax>
+              <path class="ln" d="M110 60 L160 37 L210 60 L160 83 Z M110 60 V120 L160 143 V83 M210 60 V120 L160 143"></path>
+              <path class="ln" d="M60 120 L110 97 L160 120 L110 143 Z M60 120 V180 L110 203 V143 M160 120 V180 L110 203"></path>
+              <path class="ln" d="M160 120 L210 97 L260 120 L210 143 Z M160 120 V180 L210 203 V143 M260 120 V180 L210 203" style="stroke: #3EBBC3; fill: rgba(62,187,195,.05)"></path>
+              <path class="ln2" d="M110 97 V60 M210 97 V60"></path>
+            </svg>
+            <h3>Cruzados</h3>
+            <p>O resultado da folha conversa com o torneio, e o torneio com a mão. Um número explica o outro.</p>
+          </div>
+          <div class="pilar">
+            <svg viewBox="0 0 320 240" aria-hidden="true" data-parallax>
+              <path class="ln2" d="M40 200 L180 130 L300 190 L160 260"></path>
+              <path class="ln" d="M70 185 V150 L84 143 V178 M98 171 V120 L112 113 V164 M126 157 V132 L140 125 V150 M154 143 V88 L168 81 V136 M182 129 V100 L196 93 V122"></path>
+              <path class="ln" d="M210 115 V40 L224 33 V108" style="stroke: #3EBBC3"></path>
+              <path class="ln2" d="M70 150 L84 157 M98 120 L112 127 M126 132 L140 139 M154 88 L168 95 M182 100 L196 107 M210 40 L224 47"></path>
+            </svg>
+            <h3>Consolidados</h3>
+            <p>Cada jogador, cada rede e cada moeda somam no número do time. Um só resultado, sem retrabalho.</p>
           </div>
         </div>
       </div>
-      <div class="stage-cap"><p id="cap"><b>Time.</b> A performance agregada do time numa visão executiva.</p></div>
-      <div class="stage-hint">Clique nos itens da sidebar para navegar</div>
-    </div>
-  </section>
+    </section>
 
-  <!-- STATEMENT -->
-  <section class="block statement bg-2">
-    <div class="wrap" data-reveal>
-      <h2>Dados centralizados, cruzados <span class="dim">e consolidados.</span></h2>
-      <p>A operação inteira num lugar só: jogadores, coaches e gestão.</p>
-    </div>
-  </section>
+    <section id="recursos" class="recursos">
+      <div class="wrap">
+        <div class="recursos-grade">
 
-  <!-- FEATURE ROWS -->
-  <section class="block">
-    <div class="wrap">
-      <div class="feature" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Performance</span>
-          <h3>Onde cada jogador ganha, <span class="dim">e onde a sorte engana.</span></h3>
-          <p>Análise profunda de cada jogador, com tendência de edge no tempo e detalhamento por combo. O resultado sem o ruído da variância.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-performance.png" alt="Performance no Loot" /></div>
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">PERFORMANCE</span>
+            <h3>Onde cada jogador ganha, e onde a variância engana.</h3>
+            <p>Análise profunda de cada jogador, com tendência de edge no tempo e detalhamento por combo. O resultado sem o ruído da variância.</p>
+            <svg class="visual" viewBox="0 0 520 160" aria-hidden="true" style="width: 100%; height: 160px">
+              <path d="M0 120 C 130 110, 260 95, 390 80 S 470 66, 520 60 L 520 140 C 390 142, 260 146, 130 150 L 0 152 Z" fill="rgba(232,233,234,.05)"></path>
+              <path class="loopdraw" pathLength="1" d="M4 146 C 60 138, 100 150, 160 126 S 260 112, 320 100 S 420 70, 516 40" fill="none" stroke="#52C0C7" stroke-width="2"></path>
+              <path d="M0 136H520" stroke="rgba(255,255,255,.07)" stroke-dasharray="3 5" fill="none"></path>
+            </svg>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">STATS DE JOGO</span>
+            <h3>O raio-x do jogo, calculado pelo Loot.</h3>
+            <p>Importe as hand histories de qualquer rede. O Loot calcula as stats com score por área e evolução mês a mês. Sem depender de tracker aberto.</p>
+            <div class="visual">
+              <div class="barras"><span style="height: 84%; animation-delay: 0.00s"></span><span style="height: 86%; animation-delay: 0.18s"></span><span style="height: 88%; animation-delay: 0.36s"></span><span style="height: 74%; animation-delay: 0.54s"></span><span style="height: 90%; animation-delay: 0.72s"></span></div>
+              <div class="barras-rot"><span>Pré-flop</span><span>Confronto</span><span>Pós · IP</span><span>Pós · OOP</span><span>Blind War</span></div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">FINANCEIRO</span>
+            <h3>O caixa do time sem abas soltas.</h3>
+            <p>P&amp;L, capital total, carteiras em USD e EUR, makeup e o fluxo do período. Resultado por dia registrado na folha de cada jogador.</p>
+            <div class="visual" id="carteiras"><div class="carteira" data-valor="48210"><span class="n">Skrill · USD</span><span class="trilho"><span style="width: 100.0%"></span></span><span class="v num">$48.210</span></div><div class="carteira" data-valor="37420"><span class="n">Crypto · USDT</span><span class="trilho"><span style="width: 77.6%"></span></span><span class="v num">$37.420</span></div><div class="carteira" data-valor="31904"><span class="n">Luxon · USD</span><span class="trilho"><span style="width: 66.2%"></span></span><span class="v num">$31.904</span></div><div class="carteira" data-valor="24766"><span class="n">Neteller · USD</span><span class="trilho"><span style="width: 51.4%"></span></span><span class="v num">$24.766</span></div></div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">MINHA FOLHA</span>
+            <h3>O resultado de cada dia, na folha do jogador.</h3>
+            <p>Cada sessão registrada no calendário, com profit do dia, makeup e o P&amp;L acumulado. O mês inteiro numa olhada.</p>
+            <div class="visual dias"><span style="background: rgba(82,192,199,0.225); animation-delay: 0.00s"></span><span style="background: rgba(224,118,110,0.210); animation-delay: 0.25s"></span><span style="background: rgba(82,192,199,0.348); animation-delay: 0.50s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 0.75s"></span><span style="background: rgba(82,192,199,0.432); animation-delay: 1.00s"></span><span style="background: rgba(224,118,110,0.290); animation-delay: 1.25s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 1.50s"></span><span style="background: rgba(82,192,199,0.550); animation-delay: 0.40s"></span><span style="background: rgba(82,192,199,0.165); animation-delay: 0.65s"></span><span style="background: rgba(224,118,110,0.430); animation-delay: 0.90s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 1.15s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 1.40s"></span><span style="background: rgba(82,192,199,0.305); animation-delay: 1.65s"></span><span style="background: rgba(82,192,199,0.210); animation-delay: 1.90s"></span><span style="background: rgba(224,118,110,0.165); animation-delay: 0.80s"></span><span style="background: rgba(82,192,199,0.415); animation-delay: 1.05s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 1.30s"></span><span style="background: rgba(224,118,110,0.325); animation-delay: 1.55s"></span><span style="background: rgba(82,192,199,0.340); animation-delay: 1.80s"></span><span style="background: rgba(82,192,199,0.158); animation-delay: 2.05s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 2.30s"></span><span style="background: rgba(224,118,110,0.250); animation-delay: 1.20s"></span><span style="background: rgba(82,192,199,0.280); animation-delay: 1.45s"></span><span style="background: rgba(82,192,199,0.142); animation-delay: 1.70s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 1.95s"></span><span style="background: rgba(255,255,255,.03); animation-delay: 2.20s"></span><span style="background: rgba(82,192,199,0.198); animation-delay: 2.45s"></span><span style="background: rgba(224,118,110,0.180); animation-delay: 2.70s"></span></div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">DASHBOARD DO JOGADOR</span>
+            <h3>A carreira do jogador, em um lugar só.</h3>
+            <p>Profit, makeup, dívida ativa e win rate do mês, com o histórico de performance. O que o jogador precisa ver sobre o próprio jogo.</p>
+            <div class="visual card jogador">
+              <span class="av">RK</span>
+              <span style="display: flex; flex-direction: column; gap: 6px; min-width: 0; flex-grow: 1"><span class="dp" style="font-size: 26px; line-height: 1">RiverKid</span><span style="display: flex; flex-wrap: wrap; gap: 6px"><span class="chip"><b>Black</b></span><span class="chip">Deal <b>50/50</b></span></span></span>
+              <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0"><span class="apagado" style="font-size: 11px">makeup</span><span class="dp num" style="font-size: 28px; line-height: 1; color: var(--pos)">+$2.310</span></span>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">SCHEDULE</span>
+            <h3>A grade certa para o perfil de cada um.</h3>
+            <p>Os torneios mais lucrativos para cada jogador, classificados por tier e montados pela leitura do próprio histórico.</p>
+            <div class="visual"><div class="grade-linha"><span class="h mono num">14:05</span><span class="t">Bounty Hunters $54</span><span class="tier" style="color: rgb(76,195,138); border: 1px solid rgba(76,195,138,.45); background: rgba(76,195,138,.12)">A</span><span class="roi num" style="color: var(--pos)">+41%</span></div><div class="grade-linha"><span class="h mono num">16:30</span><span class="t">Winamax Monster Stack $50</span><span class="tier" style="color: rgb(168,201,78); border: 1px solid rgba(168,201,78,.45); background: rgba(168,201,78,.12)">B</span><span class="roi num" style="color: var(--pos)">+26%</span></div><div class="grade-linha"><span class="h mono num">18:00</span><span class="t">WPN Nightly $33</span><span class="tier" style="color: rgb(232,135,58); border: 1px solid rgba(232,135,58,.45); background: rgba(232,135,58,.12)">C</span><span class="roi num" style="color: var(--pos)">+9%</span></div><div class="grade-linha"><span class="h mono num">21:10</span><span class="t">Daily Hyper $22</span><span class="tier" style="color: rgb(224,96,90); border: 1px solid rgba(224,96,90,.45); background: rgba(224,96,90,.12)">D</span><span class="roi num" style="color: var(--neg)">−4%</span></div></div>
+          </article>
+
         </div>
       </div>
+    </section>
 
-      <div class="feature reverse" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Stats de jogo</span>
-          <h3>O raio-x do jogo, <span class="dim">calculado pelo Loot.</span></h3>
-          <p>Importe as hand histories de qualquer sala. O Loot calcula as stats com score por área e evolução mês a mês. Sem depender de tracker aberto.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-stats.png" alt="Stats de jogo no Loot" /></div>
+    <section id="times" class="para-quem">
+      <div class="wrap">
+        <h2 class="dp" data-reveal>Feito para os dois lados do time.</h2>
+        <div class="lados" data-reveal-grupo>
+          <div class="card lado">
+            <span class="rot">Líder de time</span>
+            <h3>Gestão do time</h3>
+            <p>Saldo por jogador, makeup, dívidas, caça-scam, alerta de makeup, controle de infrações e permissões de buy-in. A visão consolidada de performance do time. O resultado do grupo sem depender de planilha.</p>
+          </div>
+          <div class="card lado">
+            <span class="rot">Jogador</span>
+            <h3>A carreira em dados</h3>
+            <p>Estatísticas de torneios, sessões, stats de jogo, calendário de eventos do time, tendência de edge no tempo e ferramentas de estudo. Onde você ganha, onde perde, e o que a variância está escondendo.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="feature" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Financeiro</span>
-          <h3>O caixa do time <span class="dim">sem abas soltas.</span></h3>
-          <p>P&amp;L, capital total, carteiras em USD e EUR, makeup e o fluxo do período. Resultado por dia registrado na folha de cada jogador.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-financeiro.png" alt="Financeiro no Loot" /></div>
-        </div>
+    <section id="depoimento" class="depoimento">
+      <div class="wrap">
+        <figure class="depo" data-reveal>
+          <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="60" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="30" fill="none" stroke="#041416" stroke-width="1"></circle></svg>
+          <blockquote>“Permite-nos tomar decisões mais informadas, baseadas em dados e não apenas em perceções. Mais do que mostrar números, o Loot ajuda a perceber o que fazer com esses números, e qual deve ser o próximo passo.”</blockquote>
+          <figcaption><span class="ini">JO</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">José Oliveira</span><span style="font-size: 13px; opacity: .75">sócio, BigHit Poker Team (Portugal)</span></span></figcaption>
+        </figure>
       </div>
+    </section>
 
-      <div class="feature reverse" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Minha Folha</span>
-          <h3>O resultado de cada dia, <span class="dim">na folha do jogador.</span></h3>
-          <p>Cada sessão registrada no calendário, com profit do dia, makeup e o P&amp;L acumulado. O mês inteiro numa olhada.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-folha.png" alt="Minha Folha no Loot" /></div>
+    <section class="cta">
+      <div class="wrap" data-reveal>
+        <h2 class="dp">Decisões baseadas em dados,<br /><span class="apagado">não em intuição.</span></h2>
+        <p>Traga teu time para o Loot.</p>
+        <div class="cta-botoes">
+          <a class="btn btn-pri" href="https://wa.me/5512988098957?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Loot." target="_blank" rel="noopener" onclick="window.va&&window.va('event',{name:'cta_whatsapp'})">Falar no WhatsApp →</a>
+          <a class="btn btn-gh" href="mailto:contato@lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_email'})">E-mail</a>
         </div>
       </div>
-
-      <div class="feature" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Dashboard do jogador</span>
-          <h3>A carreira do jogador, <span class="dim">em um lugar só.</span></h3>
-          <p>Profit, makeup, dívida ativa e win rate do mês, com o histórico de performance. O que o jogador precisa ver sobre o próprio jogo.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-dash-player.png" alt="Dashboard do jogador no Loot" /></div>
-        </div>
-      </div>
-
-      <div class="feature reverse" data-reveal>
-        <div class="f-text">
-          <span class="eyebrow">Schedule</span>
-          <h3>A grade certa <span class="dim">para o perfil de cada um.</span></h3>
-          <p>Os torneios mais lucrativos para cada jogador, classificados por tier e montados pela leitura do próprio histórico.</p>
-        </div>
-        <div class="f-media">
-          <div class="frame-glow" aria-hidden="true"></div>
-          <div class="frame"><img src="./assets/app-schedule.png" alt="Schedule no Loot" /></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRA QUEM -->
-  <section class="block">
-    <div class="wrap">
-      <div class="statement" style="margin-bottom:48px;" data-reveal>
-        <h2 style="font-size:clamp(24px,3.6vw,38px)">Feito para os dois lados <span class="dim">do time.</span></h2>
-      </div>
-      <div class="who" data-reveal>
-        <div class="who-card">
-          <span class="tag">Líder de time</span>
-          <h4>Gestão do time</h4>
-          <p>Saldo por jogador, makeup, dívidas, caça-scam, alerta de makeup, controle de infrações e permissões de buyin. A visão consolidada de performance do time. O resultado do grupo sem depender de planilha.</p>
-        </div>
-        <div class="who-card">
-          <span class="tag">Jogador</span>
-          <h4>A carreira em dados</h4>
-          <p>Estatísticas de torneios, sessões, stats de jogo, calendário de eventos do time, tendência de edge no tempo e ferramentas de estudo. Onde você ganha, onde perde, e o que a variância está escondendo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTO -->
-  <section class="block bg-2">
-    <div class="wrap" data-reveal>
-      <!-- logo da BigHit entra aqui quando chegar -->
-      <div class="quote">
-        <blockquote>“Permite-nos tomar decisões mais informadas, baseadas em dados e não apenas em perceções. <span class="hl">Mais do que mostrar números, o Loot ajuda a perceber o que fazer com esses números</span>, e qual deve ser o próximo passo.”</blockquote>
-        <div class="cite"><b>José Oliveira</b> · sócio, BigHit Poker Team (Portugal)</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL CTA -->
-  <section class="block final">
-    <div class="wrap" data-reveal>
-      <h2>Decisões baseadas em dados,<br /><span class="dim">não em intuição.</span></h2>
-      <p>Traga teu time para o Loot.</p>
-      <div class="hero-cta">
-        <a href="https://wa.me/5512988098957?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Loot." target="_blank" rel="noopener" class="btn btn-teal" onclick="window.va&&window.va('event',{name:'cta_whatsapp'})">Falar no WhatsApp →</a>
-        <a href="mailto:contato@lootdeep.com" class="btn btn-ghost" onclick="window.va&&window.va('event',{name:'cta_email'})">E-mail</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    <img src="./assets/loot_green.png" alt="Loot" />
-    <div class="foot-right">
-      <a href="mailto:contato@lootdeep.com">contato@lootdeep.com</a>
-      <a href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener" class="ig-icon">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        @loot.deep
-      </a>
-      <span class="foot-tag">Data science e gestão para times de poker</span>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="./assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science e gestão para times de poker</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Produto</strong><a class="lnk" href="#produto">Por dentro</a><a class="lnk" href="#recursos">Recursos</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a></div>
+        <div><strong>Manuais</strong><a class="lnk" href="./manual-jogador.html">Jogador</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a></div>
+        <div><strong>Contato</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
-    // limpa utm/fbclid da barra de endereco (apos analytics)
+    // limpa utm/fbclid da barra de endereço (depois do analytics)
     (function () {
-      function clean() {
+      function limpa() {
         try {
           var u = new URL(window.location.href);
-          var junk = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid','gclid','gbraid','wbraid','igshid','mc_cid','mc_eid'];
-          var ch = false;
-          junk.forEach(function (p) { if (u.searchParams.has(p)) { u.searchParams.delete(p); ch = true; } });
-          if (ch) { var q = u.searchParams.toString(); history.replaceState(null, '', u.pathname + (q ? '?' + q : '') + u.hash); }
+          var lixo = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','fbclid','gclid','gbraid','wbraid','igshid','mc_cid','mc_eid'];
+          var mudou = false;
+          lixo.forEach(function (p) { if (u.searchParams.has(p)) { u.searchParams.delete(p); mudou = true; } });
+          if (mudou) { var q = u.searchParams.toString(); history.replaceState(null, '', u.pathname + (q ? '?' + q : '') + u.hash); }
         } catch (e) {}
       }
-      window.addEventListener('load', function () { setTimeout(clean, 600); });
+      window.addEventListener('load', function () { setTimeout(limpa, 600); });
     })();
 
-    // navegacao: menu inteiro exposto, uma camada de hotspots
+    // simulador: altura do iframe e eventos de navegação
     (function () {
-      var CAPS = {
-        time: '<b>Time.</b> A performance agregada do time numa visão executiva.',
-        gestao: '<b>Gestão.</b> Reload, devolução, reset e makeup: decida o que mover agora.',
-        financeiro: '<b>Financeiro.</b> P&L, capital total e carteiras em USD e EUR num lugar só.',
-        coaches: '<b>Coaches.</b> Aulas, atribuições e o vínculo entre treino e evolução real.',
-        jogadores: '<b>Jogadores.</b> Tiers, saldos, salas e ABI de cada jogador do time.',
-        transacoes: '<b>Transações.</b> O ciclo completo de movimentações, com status e comprovante.',
-        performance: '<b>Performance.</b> Onde cada jogador ganha ou perde, sem a distorção da sorte.',
-        torneios: '<b>Torneios.</b> Volume, ROI, ITM e o destrinchamento das estatísticas.',
-        grades: '<b>Grades.</b> A grade do time montada pelo lobby, por jogador.',
-        config: '<b>Configurações.</b> Redes, moedas, níveis, carteiras e métricas do time.',
-        dashboard: '<b>Dashboard do jogador.</b> Profit, makeup, dívida ativa e win rate do mês, com o histórico de performance.',
-        folha: '<b>Minha Folha.</b> O resultado de cada dia no calendário, com makeup e o P&L acumulado.',
-        schedule: '<b>Schedule.</b> A grade certa para o perfil de cada jogador.',
-        stats: '<b>Stats de jogo.</b> Score por área e evolução mês a mês, calculado pelo Loot.'
-      };
-      var views = document.querySelectorAll('#screen .view');
-      var cap = document.getElementById('cap');
-      function show(v) {
-        var target = document.querySelector('#screen .view[data-view="' + v + '"]');
-        if (!target) return;
-        views.forEach(function (x) { x.classList.remove('active'); });
-        target.classList.add('active');
-        if (CAPS[v]) cap.innerHTML = CAPS[v];
-        if (window.va) window.va('event', { name: 'produto_view', view: v });
-      }
-      document.querySelectorAll('#hotspots .hot').forEach(function (h) {
-        h.addEventListener('click', function () { show(h.dataset.view); });
+      var sim = document.getElementById('simulador');
+      window.addEventListener('message', function (ev) {
+        if (!sim || ev.source !== sim.contentWindow || !ev.data || !ev.data.lootSim) return;
+        if (ev.data.lootSim === 'altura' && ev.data.valor > 0) sim.style.height = ev.data.valor + 'px';
+        if (ev.data.lootSim === 'tela' && window.va) window.va('event', { name: 'produto_view', view: String(ev.data.valor) });
       });
     })();
 
-    // eventos de engajamento (tempo + scroll)
+    // financeiro: valores das carteiras sobem e descem junto com as barras
+    (function () {
+      var raiz = document.getElementById('carteiras');
+      if (!raiz) return;
+      var linhas = [].slice.call(raiz.querySelectorAll('.carteira'));
+      var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var CICLO = 4800, PISO = 0.1;
+      function suave(x) { return x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+      function fator(ms) {
+        var p = ((ms % CICLO) + CICLO) % CICLO / CICLO;
+        if (p < .35) return PISO + (1 - PISO) * suave(p / .35);
+        if (p < .75) return 1;
+        return 1 - (1 - PISO) * suave((p - .75) / .25);
+      }
+      function pinta(t) {
+        linhas.forEach(function (l, i) {
+          var f = t < 0 ? 1 : fator(t - i * 140);
+          l.querySelector('.trilho span').style.transform = 'scaleX(' + f.toFixed(4) + ')';
+          l.querySelector('.v').textContent = '$' + Math.round(Number(l.dataset.valor) * f).toLocaleString('pt-BR');
+        });
+      }
+      if (reduzir) { pinta(-1); return; }
+      var visivel = false, t0 = null;
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) { visivel = es[0].isIntersecting; }).observe(raiz);
+      } else visivel = true;
+      function passo(t) {
+        if (t0 === null) t0 = t;
+        if (visivel) pinta(t - t0);
+        requestAnimationFrame(passo);
+      }
+      requestAnimationFrame(passo);
+    })();
+
+    // engajamento (tempo e rolagem)
     (function () {
       if (!window.va) return;
-      var fired = {};
-      function once(name) { if (!fired[name]) { fired[name] = true; window.va('event', { name: name }); } }
-      var engaged = false;
-      function engage() { if (!engaged) { engaged = true; once('engajado'); } }
-      setTimeout(function () { once('tempo_15s'); engage(); }, 15000);
-      setTimeout(function () { once('tempo_30s'); }, 30000);
-      setTimeout(function () { once('tempo_60s'); }, 60000);
-      function scrollPct() {
+      var feito = {};
+      function uma(nome) { if (!feito[nome]) { feito[nome] = true; window.va('event', { name: nome }); } }
+      var engajou = false;
+      function engaja() { if (!engajou) { engajou = true; uma('engajado'); } }
+      setTimeout(function () { uma('tempo_15s'); engaja(); }, 15000);
+      setTimeout(function () { uma('tempo_30s'); }, 30000);
+      setTimeout(function () { uma('tempo_60s'); }, 60000);
+      function pct() {
         var d = document.documentElement, b = document.body;
         var st = d.scrollTop || b.scrollTop || 0;
         var sh = (d.scrollHeight || b.scrollHeight) - d.clientHeight;
         return sh > 0 ? (st / sh) * 100 : 0;
       }
-      function onScroll() {
-        var p = scrollPct();
-        if (p >= 50) { once('scroll_50'); engage(); }
-        if (p >= 90) { once('scroll_90'); }
-        if (fired['scroll_50'] && fired['scroll_90']) window.removeEventListener('scroll', onScroll);
+      function rolou() {
+        var p = pct();
+        if (p >= 50) { uma('scroll_50'); engaja(); }
+        if (p >= 90) { uma('scroll_90'); }
+        if (feito['scroll_50'] && feito['scroll_90']) window.removeEventListener('scroll', rolou);
       }
-      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('scroll', rolou, { passive: true });
     })();
 
-    // animacoes (progressive enhancement)
+    // animações de entrada e de rolagem (leves; respeitam movimento reduzido)
     (function () {
       if (typeof gsap === 'undefined') return;
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduce) return;
+      var reduzir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduzir) return;
       try {
-        gsap.from('[data-anim="hero"] > *', { opacity: 0, y: 24, duration: .7, stagger: .09, ease: 'power2.out' });
-        gsap.from('[data-anim="stage"]', { opacity: 0, y: 44, duration: .9, delay: .2, ease: 'power2.out' });
-        if (typeof ScrollTrigger !== 'undefined') {
-          gsap.registerPlugin(ScrollTrigger);
-          document.querySelectorAll('[data-reveal]').forEach(function (el) {
-            gsap.from(el, { opacity: 0, y: 34, duration: .75, ease: 'power2.out',
-              scrollTrigger: { trigger: el, start: 'top 84%' } });
-          });
-          document.querySelectorAll('.f-media').forEach(function (el) {
-            gsap.to(el, { y: -22, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
-          });
-        }
+        gsap.from('[data-hero] > *', { opacity: 0, y: 24, duration: .7, stagger: .09, ease: 'power2.out' });
+        gsap.from('[data-stage]', { opacity: 0, y: 44, duration: .9, delay: .25, ease: 'power2.out' });
+        if (typeof ScrollTrigger === 'undefined') return;
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelectorAll('[data-reveal]').forEach(function (el) {
+          gsap.from(el, { opacity: 0, y: 32, duration: .8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+        });
+        document.querySelectorAll('[data-reveal-grupo]').forEach(function (g) {
+          gsap.from(g.children, { opacity: 0, y: 32, duration: .8, stagger: .12, ease: 'power2.out', scrollTrigger: { trigger: g, start: 'top 84%', once: true } });
+        });
+        document.querySelectorAll('[data-parallax]').forEach(function (el) {
+          gsap.to(el, { y: -18, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true } });
+        });
       } catch (e) {}
     })();
   </script>

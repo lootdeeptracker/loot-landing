@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Sim Schedule</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&amp;family=Saira+Extra+Condensed:wght@400;500;600&amp;family=Saira+Condensed:wght@400;500;600&amp;family=Antonio:wght@400;500;600&amp;family=Pathway+Gothic+One&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>[data-sim="schedule"] .lpt-mask{-webkit-mask:url(/sim/img/lpt-branco.png) center / contain no-repeat;mask:url(/sim/img/lpt-branco.png) center / contain no-repeat}[data-sim="schedule"]{margin:0;background:#050506}[data-sim="schedule"] a{color:inherit}[data-sim="schedule"] .cs-pontos{background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.3px);background-size:10px 10px}[data-sim="schedule"] .cs-grao{background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:3px 3px}[data-sim="schedule"] .cs-card, [data-sim="schedule"] .q-card{border-radius:10px;background:linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%);border:1px solid rgba(255,255,255,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 12px 28px -18px rgba(0,0,0,.95)}[data-sim="schedule"] .tc-grao .cs-card, [data-sim="schedule"] .tc-grao .q-card{background-image:radial-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%);background-size:3px 3px,100% 100%}[data-sim="schedule"] .tc-carbono .cs-card, [data-sim="schedule"] .tc-carbono .q-card{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0 2px,rgba(0,0,0,0) 2px 4px),repeating-linear-gradient(-45deg,rgba(0,0,0,.25) 0 2px,rgba(0,0,0,0) 2px 4px),linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%)}[data-sim="schedule"] .cs-row:hover, [data-sim="schedule"] .q-row:hover{background:rgba(255,255,255,.03)}[data-sim="schedule"] .cs-nav:hover{background:rgba(255,255,255,.04);color:#E8E9EA}[data-sim="schedule"] .cs-disp, [data-sim="schedule"] .q-disp{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dtrack);color:#E8E9EA !important}[data-sim="schedule"] .cs-rot, [data-sim="schedule"] .q-rot{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dlt);color:#9A9EA5}[data-sim="schedule"] .cs-rot::before, [data-sim="schedule"] .q-rot::before{content:'';display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:var(--time);transform:skewX(-24deg);opacity:var(--marca)}[data-sim="schedule"] .cs-hl{color:#E8E9EA !important;background-image:linear-gradient(rgba(232,233,234,.35),rgba(232,233,234,.35));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;padding-bottom:1px}[data-sim="schedule"] .mv .cs-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:csDraw_schedule 1.2s cubic-bezier(.3,0,.1,1) .3s forwards}[data-sim="schedule"] .mv .cs-fade, [data-sim="schedule"] .mv .q-in{animation:csFade_schedule .6s cubic-bezier(.2,0,0,1) both}[data-sim="schedule"] .mv .cs-f2, [data-sim="schedule"] .mv .q-d2{animation-delay:.08s}[data-sim="schedule"] .mv .cs-f3, [data-sim="schedule"] .mv .q-d3{animation-delay:.16s}[data-sim="schedule"] .mv .cs-f4, [data-sim="schedule"] .mv .q-d4{animation-delay:.24s}[data-sim="schedule"] .mv .cs-f5, [data-sim="schedule"] .mv .q-d5{animation-delay:.32s}[data-sim="schedule"] .mv .cs-bar, [data-sim="schedule"] .mv .q-bar{animation:csGrow_schedule .8s cubic-bezier(.2,0,0,1) .3s both}[data-sim="schedule"] .mv .cs-barv, [data-sim="schedule"] .mv .q-barv{animation:csGrowV_schedule .8s cubic-bezier(.2,0,0,1) .3s both}[data-sim="schedule"] .mv .cs-hl{background-size:0% 1px;animation:csHl_schedule .6s ease-out .8s forwards}[data-sim="schedule"] .mv .cs-seg{animation:csSeg_schedule .3s ease-out both}[data-sim="schedule"] .mv .cs-luz{animation:csLuz_schedule 1.6s ease-out both}[data-sim="schedule"] .mv .v5-faixa{animation:csFaixa_schedule .9s cubic-bezier(.2,0,0,1) .2s both}
+@keyframes csDraw_schedule{to{stroke-dashoffset:0}}
+@keyframes csFade_schedule{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes csGrow_schedule{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes csGrowV_schedule{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes csHl_schedule{to{background-size:100% 1px}}
+@keyframes csSeg_schedule{from{opacity:0}to{opacity:1}}
+@keyframes csLuz_schedule{from{opacity:0}to{opacity:1}}
+@keyframes csFaixa_schedule{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}[data-sim="schedule"] .v6n span[style*="tabular-nums"]{font-weight:560}[data-sim="schedule"] .cs-disp, [data-sim="schedule"] .q-disp{color:var(--dc,#F3F4F5) !important}[data-sim="schedule"] .cs-rot, [data-sim="schedule"] .q-rot{color:#8E939A}[data-sim="schedule"] .cs-disp.t-pos, [data-sim="schedule"] .kv .v.t-pos{color:#D9EEF0 !important}[data-sim="schedule"] .cs-disp.t-neg, [data-sim="schedule"] .kv .v.t-neg{color:#F2DCD8 !important}[data-sim="schedule"] .det .num[style*="#F3F4F5"], [data-sim="schedule"] .det .num[style*="243,244,245"]{color:#C9CCD0 !important}[data-sim="schedule"] .l1 .num[style*="#F3F4F5"]{color:#D5D7DA !important}[data-sim="schedule"] .det{color:#80858C}[data-sim="schedule"] .tipb{position:absolute;z-index:6;padding:7px 10px;border-radius:7px;background:#17191C;border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 24px -6px rgba(0,0,0,.8);font-size:12px;line-height:1.4;color:#C9CCD0;white-space:nowrap;font-weight:400;letter-spacing:0;text-transform:none;font-family:Inter,sans-serif;font-style:normal}[data-sim="schedule"] .tipb b{color:#F3F4F5;font-weight:500}[data-sim="schedule"] .debtb{display:inline-flex;align-items:center;justify-content:center;width:24px;height:18px;border-radius:5px;border:1px solid rgba(224,118,110,.4);background:rgba(224,118,110,.1);color:#E0766E;flex-shrink:0}[data-sim="schedule"] .debtb svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="schedule"] .frz{display:inline-flex;align-items:center;gap:4px;height:20px;padding:0 7px;border-radius:6px;border:1px solid rgba(160,196,226,.3);background:rgba(160,196,226,.07);color:#BCD3E6;font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap;font-family:Inter,sans-serif;letter-spacing:0;text-transform:none;flex-shrink:0}[data-sim="schedule"] .ii{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#8E939A;font-size:10px;font-weight:600;font-style:normal;font-family:Inter,sans-serif;flex-shrink:0;letter-spacing:0;text-transform:none;line-height:1}[data-sim="schedule"] .chv{color:#5A5F66;margin-left:10px}[data-sim="schedule"] .sel{display:inline-flex;align-items:center;height:18px;padding:0 6px;border-radius:5px;font-size:10px;white-space:nowrap;border:1px solid rgba(255,255,255,.14);color:#C9CCD0;flex-shrink:0}[data-sim="schedule"] .col>*{flex-shrink:0}[data-sim="schedule"] .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}[data-sim="schedule"] .s2{grid-column:span 2}[data-sim="schedule"] .s3{grid-column:span 3}[data-sim="schedule"] .s4{grid-column:span 4}[data-sim="schedule"] .cd{padding:18px 20px;display:flex;flex-direction:column;min-width:0}[data-sim="schedule"] .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;height:20px;flex-shrink:0;white-space:nowrap}[data-sim="schedule"] .hd>.cs-rot{flex-shrink:0}[data-sim="schedule"] .meta{font-size:12px;color:#5A5F66;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}[data-sim="schedule"] .sh{display:flex;justify-content:space-between;align-items:center;height:34px}[data-sim="schedule"] .shl{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#80858C}[data-sim="schedule"] .big{font-size:calc(42px * var(--ds));line-height:1;font-variant-numeric:tabular-nums;margin-top:14px;white-space:nowrap}[data-sim="schedule"] .lk{margin-top:auto;padding-top:14px;font-size:12px;color:#8E939A;text-decoration:none}[data-sim="schedule"] .det{padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#8E939A;line-height:1.45}[data-sim="schedule"] .lst{margin-top:8px;display:flex;flex-direction:column}[data-sim="schedule"] .lr{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.05);min-width:0}[data-sim="schedule"] .lb{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:6px}[data-sim="schedule"] .l1{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px}[data-sim="schedule"] .l1>span:first-child{min-width:0;line-height:1.35}[data-sim="schedule"] .num{font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="schedule"] .l2{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;font-size:11px;color:#5A5F66;min-height:12px;line-height:1.35}[data-sim="schedule"] .l2>span:first-child{min-width:0}[data-sim="schedule"] .slot{display:flex;align-items:center;gap:8px;width:96px;flex-shrink:0}[data-sim="schedule"] .trk{position:relative;width:44px;height:6px;flex-shrink:0}[data-sim="schedule"] .trk::before{content:'';position:absolute;left:0;right:0;top:2px;height:2px;border-radius:1px;background:rgba(255,255,255,.07)}[data-sim="schedule"] .trk>span{position:absolute;display:block}[data-sim="schedule"] .sl{width:44px;text-align:right;font-variant-numeric:tabular-nums;color:#8E939A}[data-sim="schedule"] .av{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.04em;color:#D5D7DA;background:linear-gradient(160deg,#222428,#131417);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)}[data-sim="schedule"] .av-p{border-radius:8px;clip-path:none;background:#15161A;border:1px solid rgba(255,255,255,.12)}[data-sim="schedule"] .av-c{width:34px;height:22px;border-radius:4px}[data-sim="schedule"] .vz{flex-grow:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;font-size:13px;color:#8E939A;padding:16px 0}[data-sim="schedule"] .vz a{font-size:12px;color:#F3F4F5;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}[data-sim="schedule"] .tag{font-size:10px;padding:1px 6px;border-radius:4px;color:#D9A441;border:1px solid rgba(217,164,65,.35)}[data-sim="schedule"] .ch{position:relative}[data-sim="schedule"] .ch svg.plot{position:absolute;inset:0;width:100%;height:100%;overflow:visible}[data-sim="schedule"] .yl{position:absolute;right:0;font-size:10px;color:#5A5F66;transform:translateY(-50%);font-variant-numeric:tabular-nums}[data-sim="schedule"] .xl{position:absolute;bottom:-18px;font-size:10px;color:#5A5F66;transform:translateX(-50%);white-space:nowrap}[data-sim="schedule"] .lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11px;color:#8E939A}[data-sim="schedule"] .lg>span{display:inline-flex;align-items:center;gap:6px}[data-sim="schedule"] .lg>span>i{width:12px;height:2px;border-radius:1px}[data-sim="schedule"] .g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}[data-sim="schedule"] .m .cd{padding:16px}[data-sim="schedule"] .m .big{font-size:calc(26px * var(--ds));margin-top:12px;white-space:nowrap;letter-spacing:-0.01em}[data-sim="schedule"] .m .kv{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}[data-sim="schedule"] .m .det{padding-top:12px}[data-sim="schedule"] .tab{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:#80858C;text-decoration:none;position:relative;padding-top:10px;flex:1}[data-sim="schedule"] .tab svg{width:20px;height:20px}[data-sim="schedule"] .ib{width:34px;height:34px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);flex-shrink:0}[data-sim="schedule"] .bdg{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#F3F4F5;color:#050506;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #050506}[data-sim="schedule"] .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}[data-sim="schedule"] .s3{grid-column:span 3}[data-sim="schedule"] .s4{grid-column:span 4}[data-sim="schedule"] .tbl{display:flex;flex-direction:column;margin-top:8px}[data-sim="schedule"] .trw{display:grid;gap:16px;align-items:center;min-height:44px;border-top:1px solid rgba(255,255,255,.05);font-size:13px}[data-sim="schedule"] .trw.th{min-height:28px;border-top:0;font-size:11px;color:#5A5F66}[data-sim="schedule"] .trw>*{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}[data-sim="schedule"] .r{text-align:right;font-variant-numeric:tabular-nums}[data-sim="schedule"] .dim{color:#5A5F66}[data-sim="schedule"] .mid{color:#8E939A}[data-sim="schedule"] .hi{color:#F3F4F5}[data-sim="schedule"] .chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:6px;border:1px solid rgba(255,255,255,.1);font-size:12px;color:#8E939A;white-space:nowrap}[data-sim="schedule"] .chip b{color:#F3F4F5;font-weight:500}[data-sim="schedule"] .chip.on{background:rgba(255,255,255,.07);color:#F3F4F5;border-color:rgba(255,255,255,.16)}[data-sim="schedule"] .tg{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:5px;font-size:11px;border:1px solid rgba(255,255,255,.14);color:#C9CCD0;white-space:nowrap}[data-sim="schedule"] .tg.pos{color:#52C0C7;border-color:rgba(82,192,199,.35)}[data-sim="schedule"] .tg.neg{color:#E0766E;border-color:rgba(224,118,110,.35)}[data-sim="schedule"] .tg.amb{color:#D9A441;border-color:rgba(217,164,65,.35)}[data-sim="schedule"] .tg.off{color:#5A5F66;border-color:rgba(255,255,255,.06)}[data-sim="schedule"] .btn{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);color:#F3F4F5;font-family:inherit;font-size:13px;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}[data-sim="schedule"] .btn.pri{background:#F3F4F5;color:#08090A;border-color:#F3F4F5;font-weight:500}[data-sim="schedule"] .fld{display:flex;flex-direction:column;gap:6px;min-width:0}[data-sim="schedule"] .fld>span{font-size:11px;color:#5A5F66}[data-sim="schedule"] .inp{height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#0A0B0C;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;font-size:13px;color:#C9CCD0;white-space:nowrap;overflow:hidden}[data-sim="schedule"] .av-w{width:34px;height:22px;border-radius:4px;clip-path:none;background:linear-gradient(160deg,#222428,#131417);border:1px solid rgba(255,255,255,.1)}[data-sim="schedule"] .cta{display:inline-flex;align-items:flex-start;justify-content:center;width:23px;height:30px;padding-top:2px;box-sizing:border-box;border-radius:3px;font-size:14px;line-height:1.1;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}[data-sim="schedule"] .cta small{font-size:9px;margin-left:1px;margin-top:1px;opacity:.95}[data-sim="schedule"] .bar-h{position:relative;height:6px;border-radius:2px;background:rgba(255,255,255,.06);overflow:hidden}[data-sim="schedule"] .bar-h>i{position:absolute;top:0;bottom:0;left:0;border-radius:2px}[data-sim="schedule"] .tabs{display:flex;gap:4px;border-bottom:1px solid rgba(255,255,255,.06)}[data-sim="schedule"] .tabs>span{padding:0 12px 10px;font-size:13px;color:#8E939A;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}[data-sim="schedule"] .tabs>span.on{color:#F3F4F5;border-bottom-color:#F3F4F5}[data-sim="schedule"] .kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}[data-sim="schedule"] .kv>div{display:flex;flex-direction:column;gap:6px;min-width:0}[data-sim="schedule"] .kv .k{font-size:11px;color:#5A5F66}[data-sim="schedule"] .kv .v{font-size:calc(22px * var(--ds));line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="schedule"] .leit1{margin:0;font-size:19px;line-height:1.45;letter-spacing:-0.01em}[data-sim="schedule"] .leit1 .cs-hl{color:#F3F4F5}[data-sim="schedule"] .pa{display:flex;align-items:center;gap:8px}[data-sim="schedule"] .pa .btn{height:36px}[data-sim="schedule"] .ib{position:relative;width:36px;height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;flex-shrink:0}[data-sim="schedule"] .ib svg, [data-sim="schedule"] .btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="schedule"] .cnt{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:rgba(255,255,255,.1);color:#F3F4F5;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums}[data-sim="schedule"] .tt{display:inline-flex;align-items:center;gap:7px;height:22px;padding:0 8px 0 7px;border-radius:6px;font-size:12px;color:#C9CCD0;white-space:nowrap;border:1px solid}[data-sim="schedule"] .tt>i{width:6px;height:6px;border-radius:2px;flex-shrink:0}[data-sim="schedule"] .sg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}[data-sim="schedule"] .sg>div{display:flex;flex-direction:column;gap:6px;padding:12px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.05);background:rgba(255,255,255,.012);min-width:0}[data-sim="schedule"] .sg>div>span:first-child{font-size:11px;color:#5A5F66}[data-sim="schedule"] .sg>div>b{font-weight:500;font-size:17px;font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="schedule"] .sg>div>small{font-size:11px;color:#5A5F66}[data-sim="schedule"] .stk{display:inline-flex}[data-sim="schedule"] .stk>.av{margin-left:-6px;box-shadow:0 0 0 2px #0A0B0C}[data-sim="schedule"] .stk>.av:first-child{margin-left:0}[data-sim="schedule"] .ch{position:relative}[data-sim="schedule"] .ch svg.plot{position:absolute;inset:0;width:100%;height:100%;overflow:visible}[data-sim="schedule"] .yl{position:absolute;right:0;font-size:10px;color:#5A5F66;transform:translateY(-50%);font-variant-numeric:tabular-nums}[data-sim="schedule"] .xl{position:absolute;bottom:-18px;font-size:10px;color:#5A5F66;transform:translateX(-50%);white-space:nowrap}[data-sim="schedule"] .lg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11px;color:#8E939A}[data-sim="schedule"] .lg>span{display:inline-flex;align-items:center;gap:6px}[data-sim="schedule"] .lg>span>i{width:12px;height:2px;border-radius:1px}[data-sim="schedule"] /* data-lg-css */
+.av:not(.av-p)[data-lg="WN"]{background:#131417 url(/sim/img/rede-WN.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="GG"]{background:#fff url(/sim/img/rede-GG.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="PS"]{background:#131417 url(/sim/img/rede-PS.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="CP"]{background:#fff url(/sim/img/rede-CP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="IP"]{background:#fff url(/sim/img/rede-IP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="WP"]{background:#fff url(/sim/img/rede-WP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="88"]{background:#131417 url(/sim/img/rede-88.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="CH"]{background:#fff url(/sim/img/rede-CH.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="WPN"]{background:#fff url(/sim/img/rede-WPN.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="PP"]{background:#131417 url(/sim/img/rede-PP.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="LX"]{background:#fff url(/sim/img/rede-LX.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="SK"]{background:#fff url(/sim/img/rede-SK.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av:not(.av-p)[data-lg="RV"]{background:#fff url(/sim/img/rede-RV.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="schedule"] .av-w{width:28px !important;height:28px !important;border-radius:50% !important;clip-path:none !important}[data-sim="schedule"] /* fim-lg */
+@keyframes simPan_schedule{0%,18%{transform:translateY(0)}88%,100%{transform:translateY(var(--pan))}}@keyframes cronPulse_schedule{0%,100%{opacity:1}50%{opacity:.35}}
+</style>
+<style>[data-sim="schedule"] .nvb{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;height:29px;padding:0 10px;border:0;border-radius:8px;background:transparent;font-family:inherit;font-size:13px;color:#A4A8AF;text-align:left;cursor:pointer;box-sizing:border-box}[data-sim="schedule"] .nvb.on{color:#EDEEF0;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}[data-sim="schedule"] .betab{display:inline-flex;align-items:center;height:14px;padding:0 5px;border-radius:4px;border:1px solid rgba(217,164,65,.45);background:rgba(217,164,65,.08);color:#D9A441;font-size:8px;font-weight:600;letter-spacing:.08em;line-height:1}[data-sim="schedule"] .hb{width:36px;height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;cursor:pointer;position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);flex-shrink:0;padding:0}[data-sim="schedule"] .hb.nb{border-color:transparent;background:transparent;box-shadow:none}[data-sim="schedule"] .hb svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-sim="schedule"] .sft{display:flex;align-items:center;justify-content:center;gap:8px;height:30px;border-radius:8px;border:1px solid rgba(255,255,255,.06);background:transparent;font-family:inherit;font-size:12px;color:#A4A8AF;cursor:pointer}[data-sim="schedule"] .sft svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}[data-sim="schedule"] .gsel{display:flex;align-items:center;justify-content:space-between;width:200px;height:36px;box-sizing:border-box;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:#0A0B0C;font-size:13px;color:#E8E9EA;cursor:pointer;font-family:inherit}[data-sim="schedule"] .gsel svg{width:14px;height:14px;fill:none;stroke:#8E939A;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}[data-sim="schedule"] .bverde{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:9px;border:0;background:#2FC468;color:#FFFFFF;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}[data-sim="schedule"] .bverde svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}[data-sim="schedule"] .grw{display:grid;grid-template-columns:62px 118px 150px 88px minmax(0,1fr) 120px 110px 120px;align-items:center;box-sizing:border-box;height:52px;border-top:1px solid rgba(255,255,255,.05);font-size:13px}[data-sim="schedule"] .grw.th{height:30px;border-top:0;font-size:11px;color:#6A6F76}[data-sim="schedule"] .grw>*{min-width:0}[data-sim="schedule"] .gnm{display:block;color:#F3F4F5;font-weight:560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}[data-sim="schedule"] .gsb{display:block;margin-top:3px;font-size:11px;color:#6A6F76;white-space:nowrap}[data-sim="schedule"] .ghr{display:block;color:#F3F4F5;font-variant-numeric:tabular-nums;font-weight:500}[data-sim="schedule"] .gdy{display:block;margin-top:3px;font-size:11px;color:#6A6F76}[data-sim="schedule"] .gdi{font-size:11px;color:#6A6F76;white-space:nowrap}[data-sim="schedule"] .gdi b{color:#A4A8AF;font-weight:500}[data-sim="schedule"] .fc{text-align:center;font-variant-numeric:tabular-nums;color:#C9CCD0}
+</style>
+</helmet>
+<div data-sim="schedule">
+<div class="{{mvCls}}" style="width: 1440px; height: 1984px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: {{marcaOp}}; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: {{dCase}}; --dvar: {{dVar}}; --dtrack: {{dTrack}}; --dlt: {{dLt}}; --dw: {{dW}}; position: relative; overflow: clip">
+  <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
+  <aside style="position: sticky; top: 0; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; box-sizing: border-box; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 10px">
+    <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; top: 560px; width: 200px; height: 330px"></div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
+      <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
+        <img src="/sim/img/lpt.png" alt="Loot Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
+      </div>
+      <div style="display: flex; flex-direction: column; min-width: 0">
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Loot Poker</span>
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Team</span>
+      </div>
+    </div>
+    <sc-for list="{{secoes}}" as="sec" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 1px">
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; font-weight: 500; color: #5B5F66; padding: 4px 10px 5px">
+          <span>{{sec.nome}}</span>
+          <svg viewBox="0 0 24 24" style="{{sec.chev}}"><path d="M9 6l6 6-6 6"></path></svg>
+        </div>
+        <sc-for list="{{sec.itens}}" as="it" hint-placeholder-count="9">
+          <button type="button" class="{{it.cls}}" onClick="{{it.go}}">
+            <span style="{{it.bar}}"></span>
+            <span style="display: flex; align-items: center; gap: 10px; min-width: 0"><svg viewBox="0 0 24 24" aria-hidden="true" style="{{it.ic}}"><path d="{{it.icd}}"></path></svg><span>{{it.nome}}</span></span>
+            <span class="betab" style="{{it.tagSt}}">BETA</span>
+          </button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div style="flex-grow: 1"></div>
+    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 40px; width: 120px; height: 90px; overflow: hidden; pointer-events: none; opacity: {{faixaOp}}">
+      <div style="position: absolute; left: 30px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .55"></div>
+      <div style="position: absolute; left: 48px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .35"></div>
+      <div style="position: absolute; left: 66px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .18"></div>
+    </div>
+    <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 2px 8px">
+      <button type="button" class="sft cs-nav"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"></path></svg>Feedback</button>
+      <button type="button" class="sft cs-nav"><svg viewBox="0 0 24 24"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"></path></svg>Ajuda</button>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 4px; padding: 0 6px">
+      <img src="/sim/img/loot.png" alt="Loot" style="height: 11px; width: auto; align-self: flex-start; opacity: .7">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 10px; color: #4A4E55">v3.0.1</span>
+    </div>
+  </aside>
+  <main style="position: relative; flex-grow: 1; min-width: 0; display: flex; flex-direction: column; {{panSt}}">
+    <header style="height: 60px; flex-shrink: 0; padding: 0 28px; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <button type="button" class="hb" aria-label="Recolher menu" style="width: 32px; height: 32px"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"></rect><path d="M9 4.5v15M13.5 10l2 2-2 2"></path></svg></button>
+        <h1 class="cs-disp" style="margin: 0; font-size: calc(22px * var(--ds)); line-height: 1">Schedule</h1>
+        <span style="display: inline-flex; align-items: center; height: 18px; padding: 0 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); font-size: 11px; color: #8E939A">beta</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button type="button" class="hb" aria-label="Buscar"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4 4"></path></svg></button>
+        <button type="button" class="hb" aria-label="Meu relatório"><svg viewBox="0 0 24 24"><path d="M6.5 3.5h8l4 4v13h-12z"></path><path d="M14.5 3.5v4h4M9.5 12h6M9.5 15.5h6"></path></svg></button>
+        <div style="width: 18px"></div>
+        <button type="button" aria-label="Sessão em andamento" style="height: 36px; padding: 0 12px 0 10px; border-radius: 9px; border: 1px solid rgba(82,192,199,.35); background: linear-gradient(180deg,#0A0A0B,#08090A); display: inline-flex; align-items: center; gap: 10px; color: #F3F4F5; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,.07); font-family: inherit">
+          <span style="animation: cronPulse_schedule 1.6s ease-in-out infinite; width: 7px; height: 7px; border-radius: 999px; background: #52C0C7"></span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.04em; font-variant-numeric: tabular-nums">{{cron}}</span>
+          <span style="font-size: 11px; color: #80858C; border-left: 1px solid rgba(255,255,255,.08); padding-left: 10px">sessão</span>
+        </button>
+        <button type="button" class="hb nb" aria-label="Caça-nicks"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"></circle><path d="M3.5 19c.8-3.2 3.4-5 6.5-5 1.2 0 2.3.3 3.2.8"></path><circle cx="17" cy="16" r="3"></circle><path d="M19.2 18.2 21 20"></path></svg></button>
+        <button type="button" class="hb nb" aria-label="Calendário do time"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></button>
+        <button type="button" class="hb" aria-label="Mensagens"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></button>
+        <button type="button" class="hb" aria-label="Notificações"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg></button>
+        <div style="width: 1px; height: 24px; background: rgba(255,255,255,.08); margin: 0 6px"></div>
+        <span style="font-size: 13px; color: #C9CCD0; letter-spacing: .02em; white-space: nowrap">RIVERKID</span>
+      </div>
+    </header>
+    <div style="height: 1px; margin: 0 28px; background: linear-gradient(90deg, {{corTime}} 0%, rgba(255,255,255,.06) 42%, rgba(255,255,255,.04) 100%); opacity: {{marcaOp}}"></div>
+    <div class="col" style="flex-grow: 1; min-height: 0; padding: 18px 28px 24px; display: flex; flex-direction: column; gap: 12px">
+      <section class="cs-card cs-fade" style="height: 64px; box-sizing: border-box; padding: 0 20px; display: flex; align-items: center; justify-content: space-between">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span class="cs-rot" style="font-size: calc(13px * var(--ds))">Grade ativa</span>
+          <button type="button" class="gsel"><span>Principal</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px">
+          <button type="button" class="bverde"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Criar grade</button>
+          <button type="button" class="hb" aria-label="Grade automática"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="15" height="15" rx="2.5"></rect><path d="M3.5 10h15M7.5 3v4M14.5 3v4M19.5 14v6M16.5 17h6"></path></svg></button>
+          <button type="button" class="hb" aria-label="Ficha do jogador"><svg viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.5"></circle><path d="M3 19.5c.7-3.4 3.3-5.3 6.5-5.3 1 0 1.9.2 2.7.5"></path><circle cx="17.5" cy="16.5" r="2.2"></circle><path d="M17.5 12.8v1.3M17.5 18.9v1.3M21.2 16.5h-1.3M15.1 16.5h-1.3"></path></svg></button>
+        </div>
+      </section>
+      <section class="cs-card cs-fade cs-f2" style="height: 44px; box-sizing: border-box; padding: 0 16px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: #A4A8AF">
+        <svg viewBox="0 0 24 24" style="width: 15px; height: 15px; fill: none; stroke: #8E939A; stroke-width: 1.7; stroke-linejoin: round"><rect x="4" y="4" width="6.5" height="6.5" rx="1"></rect><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"></rect><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"></rect><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"></rect></svg>
+        <span>Grade «<b style="color: #F3F4F5; font-weight: 600">Principal</b>»: <b style="color: #F3F4F5; font-weight: 600">{{nTorneios}}</b> torneio(s) · <b style="color: #F3F4F5; font-weight: 600">{{nAoVivo}}</b> ao vivo nas próximas 12h</span>
+      </section>
+      <section class="cs-card cs-fade cs-f3" style="padding: 16px 20px 6px; display: flex; flex-direction: column">
+        <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Grade completa <span style="color: #6A6F76">({{nTorneios}})</span></span></div>
+        <div style="display: flex; flex-direction: column; margin-top: 10px">
+          <div class="grw th"><span>Tier</span><span>Horário</span><span>Dias</span><span>Rede</span><span>Torneio</span><span style="text-align: right">Buy-in</span><span style="text-align: center">Field</span><span></span></div>
+          <sc-for list="{{linhas}}" as="r" hint-placeholder-count="32">
+            <div class="grw cs-row">
+              <span><span style="{{r.tierSt}}">{{r.tier}}</span></span>
+              <span><span class="ghr">{{r.hora}}</span><span class="gdy">{{r.dia}}</span></span>
+              <span class="gdi">{{r.dias}}</span>
+              <span><span class="av" data-lg="{{r.lg}}" style="width: 26px; height: 26px">{{r.lg}}</span></span>
+              <span style="padding-right: 16px"><span class="gnm">{{r.nome}}</span><span class="gsb">{{r.sub}}</span></span>
+              <span style="text-align: right; font-variant-numeric: tabular-nums; color: #F3F4F5; font-weight: 500">{{r.buyin}}</span>
+              <span class="fc">{{r.field}}</span>
+              <span></span>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onNav":{"editor":null},"tour":{"editor":null},"pan":{"editor":null}, "$preview": {"width": 1440, "height": 1984}}'>
+class Component extends DCLogic {
+  _rv0() {
+    var self = this;
+    var cor = '#3EBBC3';
+    function hex2rgb(h) { h = String(h).replace('#', ''); return [parseInt(h.slice(0, 2), 16) || 0, parseInt(h.slice(2, 4), 16) || 0, parseInt(h.slice(4, 6), 16) || 0]; }
+    var rgb = hex2rgb(cor);
+    function rgbaT(c, a) { var x = hex2rgb(c); return 'rgba(' + x[0] + ',' + x[1] + ',' + x[2] + ',' + a + ')'; }
+    function br(v, d) { var s = Math.abs(v).toFixed(d === undefined ? 2 : d).split('.'); s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.'); return s.join(','); }
+    var DP = { f: "'Pathway Gothic One', sans-serif", s: 1.32, c: 'uppercase', v: 'normal', t: '0.03em', lt: '0.09em', w: 400 };
+
+    var NAV = [
+      { nome: 'Líder', aberta: true, itens: ['Time','Gestão','Financeiro','Coaches','Jogadores','Transações','Performance','Torneios','Grades','Config.'] },
+      { nome: 'Coach', aberta: false, itens: [] },
+      { nome: 'Jogador', aberta: true, itens: ['Dashboard','Minha Folha','Schedule','Stats','Eq&ty','Hands','Performance','Torneios','Transações'] }
+    ];
+    var BETA = { 'Líder:Performance': true, 'Líder:Grades': true, 'Jogador:Schedule': true, 'Jogador:Stats': true, 'Jogador:Performance': true };
+    var IDS = { 'Líder:Time': 'time', 'Líder:Gestão': 'gestao', 'Líder:Financeiro': 'financeiro', 'Jogador:Dashboard': 'dashboard', 'Jogador:Minha Folha': 'folha', 'Jogador:Schedule': 'schedule', 'Jogador:Stats': 'stats', 'Jogador:Performance': 'performance' };
+    var ATIVO = 'Jogador:Schedule';
+    var ICP = {
+      'Time': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
+      'Gestão': 'M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4',
+      'Financeiro': 'M12 3v18M16.5 7.5c0-1.9-2-3-4.5-3s-4.5 1.2-4.5 3.2c0 4.6 9 2.4 9 7 0 2-2 3.3-4.5 3.3s-4.5-1.1-4.5-3',
+      'Coaches': 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
+      'Jogadores': 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5',
+      'Transações': 'M4 8h14l-4-4M20 16H6l4 4',
+      'Performance': 'M3 17l6-6 4 4 8-8M15 7h6v6',
+      'Torneios': 'M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20.5h7',
+      'Grades': 'M4 5h16v15H4zM4 10h16M9 5v15M15 5v15',
+      'Config.': 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      'Dashboard': 'M3.5 3.5h7v9h-7zM13.5 3.5h7v5h-7zM13.5 11.5h7v9h-7zM3.5 15.5h7v5h-7z',
+      'Minha Folha': 'M6 3.5h9l3 3v14H6zM9 11h6M9 15h6',
+      'Schedule': 'M4 5.5h16v15H4zM4 10h16M8.5 3v4M15.5 3v4M12 13v4M10 15h4',
+      'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+      'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3'
+    };
+    function ICD(n) { return ICP[n] || 'M12 12h0'; }
+    function ICO(n) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }
+    function goTo(id) { return function () { if (id && self.props.onNav) self.props.onNav(id); }; }
+    var secoes = NAV.map(function (s) {
+      return {
+        nome: s.nome,
+        chev: 'width: 12px; height: 12px; fill: none; stroke: #5B5F66; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transform: rotate(' + (s.aberta ? 90 : 0) + 'deg)',
+        itens: s.itens.map(function (n) {
+          var k = s.nome + ':' + n;
+          var at = k === ATIVO;
+          return {
+            nome: n,
+            cls: 'nvb cs-nav' + (at ? ' on' : ''),
+            go: goTo(IDS[k]),
+            ic: ICO(n), icd: ICD(n),
+            bar: at ? 'position: absolute; left: -4px; top: 7px; width: 3px; height: 15px; border-radius: 2px; background: ' + cor : 'display: none',
+            tagSt: BETA[k] ? '' : 'display: none'
+          };
+        })
+      };
+    });
+
+    var TCOR = { A: '#4CC38A', B: '#A8C94E', C: '#E8873A', D: '#E0605A' };
+    function tierSt(t, v) {
+      var c = TCOR[t];
+      var base = 'display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; box-sizing: border-box; border-radius: 7px; font-size: 13px; font-weight: 600; color: ' + c + '; ';
+      if (v === 'fraco') return base + 'background: transparent; border: 1px dashed ' + rgbaT(c, 0.6);
+      return base + 'background: ' + rgbaT(c, 0.12) + '; border: 1px solid ' + rgbaT(c, 0.45) + (v === 'tend' ? '; opacity: .45' : '');
+    }
+    // [dia, hora, dias, rede, nome, type, speed, buy-in, tier, variante, field]
+    var G = [
+      ['Seg', '13:00', '7 de 8 sem.', 'GG', 'Bounty Hunters Big Game $54', 'KO', 'Regular', 54, 'A', '', 1180],
+      ['Seg', '13:30', '8 de 8 sem.', 'PS', 'Big $22', 'Vanilla', 'Regular', 22, 'B', '', 3420],
+      ['Seg', '14:00', '6 de 8 sem.', 'WN', 'Winamax Monster Stack $50', 'Vanilla', 'Regular', 50, 'B', '', 2640],
+      ['Seg', '14:15', '8 de 8 sem.', 'GG', 'Speed Racer Bounty $33', 'KO', 'Turbo', 33, 'A', '', 1960],
+      ['Seg', '15:00', '7 de 8 sem.', 'PS', 'Bounty Builder $44', 'KO', 'Regular', 44, 'A', '', 1540],
+      ['Seg', '16:05', '5 de 8 sem.', 'WPN', 'WPN Nightly $33', 'Vanilla', 'Regular', 33, 'C', '', 610],
+      ['Seg', '17:30', '4 de 8 sem.', 'GG', 'Daily Hyper $22', 'Vanilla', 'Hyper', 22, 'D', 'tend', 880],
+      ['Seg', '18:00', '6 de 8 sem.', '88', '888 Mega Deep $55', 'Vanilla', 'Regular', 55, 'C', '', 1020],
+      ['Qua', '13:00', '8 de 8 sem.', 'GG', 'Bounty Hunters $54', 'KO', 'Turbo', 54, 'A', '', 1320],
+      ['Qua', '13:45', '7 de 8 sem.', 'PS', 'Hot $33 [Progressive KO]', 'KO', 'Turbo', 33, 'A', '', 1870],
+      ['Qua', '14:30', '6 de 8 sem.', 'WN', 'Winamax Space KO $50', 'KO', 'Regular', 50, 'B', '', 1450],
+      ['Qua', '15:00', '7 de 8 sem.', 'GG', 'Zodiac Bounty $25', 'KO', 'Regular', 25, 'B', '', 2210],
+      ['Qua', '15:30', 'sem evidência', 'WPN', 'WPN Midweek Bounty $55', 'KO', 'Turbo', 55, 'A', 'fraco', 540],
+      ['Qua', '16:30', '8 de 8 sem.', 'PS', 'Big $11', 'Vanilla', 'Regular', 11, 'C', '', 4980],
+      ['Qua', '18:00', '5 de 8 sem.', 'GG', 'Daily Hyper $22', 'Vanilla', 'Hyper', 22, 'D', '', 910],
+      ['Qua', '19:15', '3 de 8 sem.', '88', '888 Knockout $33', 'KO', 'Turbo', 33, 'B', 'tend', 760],
+      ['Sex', '13:00', '8 de 8 sem.', 'GG', 'Bounty Hunters $54', 'KO', 'Turbo', 54, 'A', '', 1290],
+      ['Sex', '13:30', '7 de 8 sem.', 'PS', 'Bounty Builder $33', 'KO', 'Regular', 33, 'B', '', 2040],
+      ['Sex', '14:00', '7 de 8 sem.', 'WN', 'Winamax Monster Stack $50', 'Vanilla', 'Regular', 50, 'B', '', 2710],
+      ['Sex', '15:00', '6 de 8 sem.', 'GG', 'Bounty Hunters Special $88', 'KO', 'Regular', 88, 'B', '', 980],
+      ['Sex', '16:00', '5 de 8 sem.', 'WPN', 'WPN Nightly $33', 'Vanilla', 'Regular', 33, 'C', '', 590],
+      ['Sex', '17:00', '8 de 8 sem.', 'PS', 'Hot $55 [Progressive KO]', 'KO', 'Turbo', 55, 'A', '', 1120],
+      ['Sex', '18:30', '2 de 8 sem.', 'GG', 'Daily Hyper $54', 'Vanilla', 'Hyper', 54, 'D', 'fraco', 420],
+      ['Sex', '20:00', 'sem evidência', 'WN', 'Winamax Hyper KO $20', 'KO', 'Hyper', 20, 'C', 'tend', 1380],
+      ['Dom', '13:00', '8 de 8 sem.', 'GG', 'Sunday Special Bounty $54', 'KO', 'Regular', 54, 'A', '', 2480],
+      ['Dom', '13:30', '8 de 8 sem.', 'PS', 'Sunday Million $109', 'Vanilla', 'Regular', 109, 'B', '', 37960],
+      ['Dom', '14:00', '7 de 8 sem.', 'PS', 'Sunday Storm $11', 'Vanilla', 'Regular', 11, 'C', '', 9870],
+      ['Dom', '14:30', '8 de 8 sem.', 'GG', 'Speed Racer Bounty $54', 'KO', 'Turbo', 54, 'A', '', 1740],
+      ['Dom', '15:00', '6 de 8 sem.', 'WN', 'Winamax Sunday Surprise $50', 'Vanilla', 'Regular', 50, 'B', '', 3120],
+      ['Dom', '16:00', 'sem evidência', 'WPN', 'WPN Sunday Special $55', 'KO', 'Regular', 55, 'A', 'fraco', 1090],
+      ['Dom', '17:30', '6 de 8 sem.', '88', '888 Sunday Challenge $55', 'Vanilla', 'Regular', 55, 'C', '', 1560],
+      ['Dom', '19:00', '4 de 8 sem.', 'GG', 'Daily Hyper $33', 'Vanilla', 'Hyper', 33, 'D', '', 760]
+    ];
+    var linhas = G.map(function (g) {
+      return {
+        dia: g[0], hora: g[1], dias: g[2], lg: g[3], nome: g[4],
+        sub: g[5] + ' · ' + g[6],
+        buyin: '$' + br(g[7]),
+        tier: g[8], tierSt: tierSt(g[8], g[9]),
+        field: g[10] ? br(g[10], 0) : '—'
+      };
+    });
+    var nSex = G.filter(function (g) { return g[0] === 'Sex'; }).length;
+
+    return {
+      mvCls: 'mv v6n',
+      faixaOp: 1, marcaOp: 0.9,
+      fDisp: DP.f, dScale: DP.s, dCase: DP.c, dVar: DP.v, dTrack: DP.t, dLt: DP.lt, dW: DP.w,
+      corTime: cor,
+      luz: 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.110)',
+      secoes: secoes,
+      linhas: linhas,
+      nTorneios: String(G.length),
+      nAoVivo: String(nSex)
+    };
+  }
+  renderVals() {
+    var o = this._rv0() || {};
+    var g = typeof window !== 'undefined' ? window : {};
+    if (!g.__lootSessaoT0) g.__lootSessaoT0 = Date.now();
+    var seg = 3734 + Math.floor((Date.now() - g.__lootSessaoT0) / 1000);
+    var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+    o.cron = p2(Math.floor(seg / 3600)) + ':' + p2(Math.floor(seg / 60) % 60) + ':' + p2(seg % 60);
+    var pan = Math.max(0, Number(this.props.pan) || 0);
+    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : '';
+    return o;
+  }
+  componentDidMount() {
+    if (this._cdm0) this._cdm0();
+    var self = this;
+    this.__relogio = setInterval(function () { self.forceUpdate(); }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.__relogio);
+    if (this._cwu0) this._cwu0();
+  }
+}
+</script>
+</body>
+</html>
