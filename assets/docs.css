@@ -1,0 +1,168 @@
+/* ============================================================================
+   Loot · documentação (guias e manuais)
+   A mesma identidade da landing v3 (index.html): preto automotivo, Pathway Gothic
+   nos títulos, Inter no texto, ciano do Loot só como marca e acento.
+   Âmbar é só cobrança no Loot: aviso de manual usa o filete da marca, nunca âmbar.
+   ============================================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --bg: #050506;
+  --tx: #EDEEF0;
+  --tx-1: #F3F4F5;
+  --mut: #8E939A;
+  --mut-2: #A4A8AF;
+  --dim: #5A5F66;
+  --time: #3EBBC3;
+  --borda: rgba(255,255,255,.06);
+  --borda-card: rgba(255,255,255,.075);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+  background: radial-gradient(ellipse min(1000px, 100vw) 440px at 50% 0, rgba(62,187,195,.10), rgba(62,187,195,0) 72%) no-repeat, var(--bg); color: var(--tx);
+  font-family: 'Inter', system-ui, sans-serif; font-feature-settings: 'cv11', 'ss01';
+  font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── nav (igual à landing) ───────────────────────────────────────────────── */
+.nav { position: sticky; top: 0; z-index: 20; height: 64px; background: rgba(5,5,6,.6); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,.05); }
+.nav .wrap { height: 64px; display: flex; align-items: center; gap: 32px; }
+.nav-links { display: flex; gap: 26px; flex-grow: 1; }
+.lnk { color: var(--mut-2); font-size: 14px; transition: color .2s; white-space: nowrap; }
+.lnk:hover, .lnk[aria-current="page"] { color: var(--tx-1); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 16px; border-radius: 10px; font-size: 14px; font-weight: 500; border: 1px solid transparent; transition: background .2s, border-color .2s; white-space: nowrap; }
+.btn-pri { background: var(--time); color: #041416; }
+.btn-pri:hover { background: #5CCBD2; }
+
+/* ── cabeçalho da página ─────────────────────────────────────────────────── */
+.doc { position: relative; z-index: 1; flex: 1; width: 100%; max-width: 768px; margin: 0 auto; padding: 88px 24px 96px; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 22px; font-size: 13px; color: var(--mut); }
+.eyebrow .mono { letter-spacing: .12em; color: var(--time); }
+.eyebrow i { width: 1px; height: 12px; background: rgba(255,255,255,.14); }
+.dp { font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .02em; font-weight: 400; }
+.mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+.doc h1 { margin: 0; font-size: clamp(48px, 10vw, 84px); line-height: .95; color: var(--tx-1); }
+.intro { margin: 22px 0 0; max-width: 60ch; font-size: 17px; line-height: 1.6; color: var(--mut-2); }
+.intro strong { color: var(--tx-1); font-weight: 500; }
+
+/* ── rótulo de seção (o .rot da landing e do app) ────────────────────────── */
+.rot { display: flex; align-items: center; margin: 72px 0 18px; font-weight: 400; font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: 15px; color: var(--mut); }
+.rot::before { content: ''; flex-shrink: 0; width: 10px; height: 3px; margin-right: 10px; background: var(--time); transform: skewX(-24deg); }
+.rot::after { content: ''; flex-grow: 1; height: 1px; margin-left: 14px; background: var(--borda); }
+.intro + .rot { margin-top: 56px; }
+
+/* ── card ────────────────────────────────────────────────────────────────── */
+.card { border-radius: 10px; background: linear-gradient(180deg, #101112 0%, #0A0A0B 18%, #08090A 100%); border: 1px solid var(--borda-card); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), inset 0 -1px 0 rgba(0,0,0,.6), 0 12px 28px -18px rgba(0,0,0,.95); }
+.guia { padding: 28px 30px; margin-bottom: 14px; }
+.guia h3 { margin: 0 0 18px; font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .03em; font-weight: 400; font-size: 26px; line-height: 1.1; color: var(--tx-1); }
+.guia p { margin: 0 0 14px; font-size: 15px; line-height: 1.65; color: var(--mut-2); }
+.guia p:last-child { margin-bottom: 0; }
+.guia strong { color: var(--tx-1); font-weight: 500; }
+.guia em { font-style: normal; color: var(--tx-1); }
+
+/* passos numerados */
+.guia ol { list-style: none; counter-reset: passo; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+/* sem flex no li: com flex, cada <strong> vira um item e a linha não quebra (vazava no celular) */
+.guia ol li { counter-increment: passo; position: relative; padding-left: 38px; min-height: 24px; font-size: 15px; line-height: 1.55; color: var(--tx); }
+.guia ol li::before { content: counter(passo); position: absolute; left: 0; top: -1px; width: 24px; height: 24px; border-radius: 7px; border: 1px solid rgba(62,187,195,.32); background: rgba(62,187,195,.07); color: var(--time); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; display: inline-flex; align-items: center; justify-content: center; }
+.guia ol:last-child { margin-bottom: 0; }
+
+/* lista de regras (não são passos) */
+.guia ul, .artigo ul { list-style: none; margin: 0 0 20px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.guia ul li, .artigo ul li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.55; color: var(--mut-2); }
+.guia ul li::before, .artigo ul li::before { content: ''; position: absolute; left: 2px; top: 10px; width: 8px; height: 2px; background: var(--time); transform: skewX(-24deg); opacity: .85; }
+.guia ul:last-child { margin-bottom: 0; }
+
+/* aviso: filete da marca, nunca âmbar */
+.aviso { position: relative; margin: 0 0 20px; padding: 14px 16px 14px 18px; border-radius: 8px; background: rgba(255,255,255,.028); border: 1px solid rgba(255,255,255,.06); font-size: 14px; line-height: 1.6; color: var(--mut-2); overflow: hidden; }
+.aviso::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--time); }
+.aviso strong { color: var(--tx-1); font-weight: 600; }
+.aviso:last-child { margin-bottom: 0; }
+
+/* rodapé do card */
+.guia .fecho { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--borda); font-size: 14px; line-height: 1.6; color: var(--mut); }
+.guia .fecho a { color: var(--time); }
+.guia .fecho a:hover { text-decoration: underline; }
+.guia .fecho .nota { margin-top: 8px; font-size: 13px; color: var(--mut); }
+
+code { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 1px 6px; border-radius: 5px; background: rgba(255,255,255,.05); border: 1px solid var(--borda); color: var(--tx-1); white-space: nowrap; }
+
+/* ── artigo longo (Eq&ty) ────────────────────────────────────────────────── */
+.artigo .lead { margin: 22px 0 14px; max-width: 62ch; font-size: 18px; line-height: 1.6; color: var(--mut-2); }
+.artigo .lead strong { color: var(--tx-1); font-weight: 500; }
+.artigo h2 { display: flex; align-items: center; margin: 64px 0 16px; font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .03em; font-weight: 400; font-size: 32px; line-height: 1.05; color: var(--tx-1); }
+.artigo h2::before { content: ''; flex-shrink: 0; width: 12px; height: 4px; margin-right: 12px; background: var(--time); transform: skewX(-24deg); }
+.artigo h3 { margin: 28px 0 10px; font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-weight: 400; font-size: 17px; color: var(--mut); }
+.artigo p { margin: 0 0 14px; font-size: 15.5px; line-height: 1.7; color: var(--mut-2); }
+.artigo p strong, .artigo li strong { color: var(--tx-1); font-weight: 500; }
+.artigo pre { margin: 0 0 18px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; background: #08090A; border: 1px solid var(--borda-card); }
+.artigo pre code { padding: 0; border: 0; background: none; font-size: 13px; line-height: 1.75; white-space: pre; color: var(--tx); }
+.artigo figure { margin: 8px 0 26px; }
+.artigo figure img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--borda-card); background: #08090A; }
+.artigo figcaption { margin-top: 10px; font-size: 12.5px; color: var(--dim); text-align: center; }
+.artigo table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 14.5px; }
+.artigo td { padding: 9px 10px; border-bottom: 1px solid var(--borda); color: var(--mut-2); vertical-align: top; }
+.artigo td:first-child { width: 1%; white-space: nowrap; padding-left: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--tx-1); }
+.artigo .aviso { margin-top: 32px; }
+
+/* manual completo, recolhido */
+details.completo { margin-top: 72px; overflow: hidden; }
+details.completo > summary { cursor: pointer; list-style: none; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+details.completo > summary::-webkit-details-marker { display: none; }
+details.completo > summary:focus-visible { outline: 2px solid var(--time); outline-offset: -2px; border-radius: 10px; }
+.sum-rot { font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .06em; font-size: 14px; color: var(--time); }
+.sum-tit { margin-top: 4px; font-family: 'Pathway Gothic One', sans-serif; text-transform: uppercase; letter-spacing: .03em; font-size: 28px; line-height: 1.05; color: var(--tx-1); }
+.sum-sub { margin-top: 4px; font-size: 14px; color: var(--mut); }
+.sum-mais { flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; border: 1px solid rgba(255,255,255,.12); display: inline-flex; align-items: center; justify-content: center; color: var(--mut-2); font-size: 20px; line-height: 1; transition: border-color .2s; }
+.sum-mais i { font-style: normal; display: inline-block; transition: transform .24s cubic-bezier(.2,.8,.2,1); }
+details.completo > summary:hover .sum-mais { border-color: rgba(255,255,255,.28); }
+details.completo[open] .sum-mais i { transform: rotate(45deg); }
+.completo-corpo { padding: 4px 28px 32px; border-top: 1px solid var(--borda); }
+.completo-corpo h2 { font-size: 26px; margin-top: 44px; }
+.completo-corpo > .lead:first-child { margin-top: 22px; font-size: 16px; }
+
+/* ── rodapé (igual à landing) ────────────────────────────────────────────── */
+footer { position: relative; z-index: 1; border-top: 1px solid var(--borda); }
+footer .wrap { padding-top: 40px; padding-bottom: 56px; display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; }
+.rodape-marca { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.rodape-marca span { font-size: 13px; color: var(--dim); }
+.rodape-cols { display: flex; gap: 64px; font-size: 13px; }
+.rodape-cols div { display: flex; flex-direction: column; gap: 10px; }
+.rodape-cols strong { color: var(--tx-1); font-weight: 400; }
+.rodape-cols .lnk { font-size: 13px; }
+
+/* ── entrada leve (SIS-Mov: uma vez, curta, sem mola) ────────────────────── */
+@keyframes sobe { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.doc > * { animation: sobe .24s cubic-bezier(.2,.8,.2,1) both; }
+.doc > *:nth-child(2) { animation-delay: .04s; }
+.doc > *:nth-child(3) { animation-delay: .08s; }
+.doc > *:nth-child(n+4) { animation-delay: .12s; }
+
+@media (max-width: 960px) {
+  footer .wrap { flex-direction: column; }
+}
+@media (max-width: 760px) {
+  .wrap { padding: 0 16px; }
+  .nav-links { display: none; }
+  .nav .wrap { justify-content: space-between; gap: 16px; }
+  .doc { padding: 56px 16px 72px; }
+  .intro { font-size: 16px; }
+  .rot { margin-top: 56px; }
+  .guia { padding: 22px 20px; }
+  .guia h3 { font-size: 24px; }
+  .artigo h2 { font-size: 28px; margin-top: 52px; }
+  details.completo > summary { padding: 20px; }
+  .completo-corpo { padding: 4px 20px 26px; }
+  .rodape-cols { flex-direction: column; gap: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .doc > * { animation: none; }
+  .sum-mais i { transition: none; }
+}
