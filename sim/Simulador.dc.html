@@ -14,8 +14,10 @@
 [data-host] .bola{width:10px;height:10px;border-radius:99px;background:rgba(255,255,255,.1)}
 [data-host] .url{height:22px;padding:0 12px;border-radius:6px;background:rgba(255,255,255,.04);display:inline-flex;align-items:center;gap:7px;font-family:'Geist Mono',monospace;font-size:11px;color:#80858C}
 [data-host] .area{position:relative;overflow:hidden}
-[data-host] .simvp{position:absolute;inset:0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.14) transparent;animation:hostIn .45s cubic-bezier(.2,0,0,1) both}
-[data-host] .simb{width:1440px}
+[data-host] .simvp{position:absolute;inset:0;overflow:hidden;animation:hostIn .45s cubic-bezier(.2,0,0,1) both}
+[data-host] .simb{position:absolute;left:0;top:0;width:1440px;transform-origin:0 0}
+[data-host] .trilho{position:absolute;right:3px;top:6px;bottom:6px;width:3px;border-radius:3px;background:rgba(255,255,255,.05);pointer-events:none}
+[data-host] .polegar{position:absolute;left:0;width:3px;border-radius:3px;background:rgba(255,255,255,.28)}
 [data-host] .fade{position:absolute;left:0;right:0;bottom:0;height:80px;pointer-events:none;background:linear-gradient(180deg,rgba(5,5,6,0),rgba(5,5,6,.8))}
 [data-host] .controles{display:flex;align-items:center;gap:22px;margin-top:18px;flex-wrap:wrap}
 [data-host] .grupo{display:flex;align-items:center;gap:6px}
@@ -51,31 +53,34 @@
     </div>
     <div class="area" style="height: {{vpH}}px">
       <sc-if value="{{isTime}}" hint-placeholder-val="{{true}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Time" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.time}}" hint-size="1440px,2335px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Time" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.time}}" hint-size="1440px,2335px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isGestao}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Gestao" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.gestao}}" hint-size="1440px,1692px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Gestao" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.gestao}}" hint-size="1440px,1692px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isFin}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Financeiro" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.financeiro}}" hint-size="1440px,2090px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Financeiro" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.financeiro}}" hint-size="1440px,2090px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isDash}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Dashboard" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.dashboard}}" hint-size="1440px,2162px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Dashboard" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.dashboard}}" hint-size="1440px,2162px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isFolha}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Folha" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.folha}}" hint-size="1440px,1112px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Folha" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.folha}}" hint-size="1440px,1112px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isStats}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Stats" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.stats}}" hint-size="1440px,3351px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Stats" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.stats}}" hint-size="1440px,3351px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isSched}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Schedule" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.schedule}}" hint-size="1440px,1984px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Schedule" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.schedule}}" hint-size="1440px,1984px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{isPerf}}" hint-placeholder-val="{{false}}">
-        <div class="simvp" style="{{vpSt}}"><div class="simb" style="zoom: {{z}}"><dc-import name="Sim-Performance" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.performance}}" hint-size="1440px,4385px"></dc-import></div></div>
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Performance" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.performance}}" hint-size="1440px,4385px"></dc-import></div></div>
       </sc-if>
       <sc-if value="{{auto}}" hint-placeholder-val="{{true}}">
         <div class="fade"></div>
+      </sc-if>
+      <sc-if value="{{mostraTrilho}}" hint-placeholder-val="{{false}}">
+        <div class="trilho"><div class="polegar" style="{{polegarSt}}"></div></div>
       </sc-if>
     </div>
   </div>
@@ -100,7 +105,8 @@
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { tela: 'time', auto: true, w: 1150 };
+    this.state = { tela: 'time', auto: true, w: 1150, off: 0 };
+    this.navFn = (id) => this.ir(id);
     this.ordem = ['time', 'gestao', 'financeiro', 'dashboard', 'folha', 'stats', 'schedule', 'performance'];
   }
   componentDidMount() {
@@ -126,18 +132,32 @@ class Component extends DCLogic {
   avisarTela(t) {
     if (window.parent !== window) window.parent.postMessage({ lootSim: 'tela', valor: t }, '*');
   }
+  maxOff() {
+    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    return Math.max(0, ALT[this.state.tela] - 952);
+  }
+  // desloca o conteúdo; devolve true se consumiu o movimento (para não rolar a página junto)
+  deslocar(dyTela) {
+    var z = (this.state.w - 2) / 1440;
+    if (this.state.auto) return false;
+    var atual = this.state.off;
+    var novo = Math.max(0, Math.min(this.maxOff(), atual + dyTela / z));
+    if (novo === atual) return false;
+    this.setState({ off: novo });
+    return true;
+  }
   iniciarTour() {
     clearInterval(this.tour);
     this.tour = setInterval(() => {
       if (!this.state.auto) return;
       var i = this.ordem.indexOf(this.state.tela);
-      this.setState({ tela: this.ordem[(i + 1) % this.ordem.length] });
+      this.setState({ tela: this.ordem[(i + 1) % this.ordem.length], off: 0 });
     }, 7000);
   }
   ir(t) {
     if (this.ordem.indexOf(t) < 0) return;
     clearInterval(this.tour);
-    this.setState({ tela: t, auto: false });
+    this.setState({ tela: t, auto: false, off: 0 });
     this.avisarTela(t);
   }
   renderVals() {
@@ -145,6 +165,9 @@ class Component extends DCLogic {
     var self = this;
     var largura = s.w - 2;
     var z = largura / 1440;
+    var ALT0 = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    var hTela = ALT0[s.tela];
+    var maxOff = Math.max(0, hTela - 952);
     var vpH = Math.round(largura * 760 / 1150);
     var ALT = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
     var pan = {};
@@ -168,16 +191,26 @@ class Component extends DCLogic {
       isTime: s.tela === 'time', isGestao: s.tela === 'gestao', isFin: s.tela === 'financeiro', isPerf: s.tela === 'performance',
       isDash: s.tela === 'dashboard', isFolha: s.tela === 'folha', isStats: s.tela === 'stats', isSched: s.tela === 'schedule',
       auto: s.auto, z: z.toFixed(5), vpH: vpH, pan: pan,
-      nav: function (id) { self.ir(id); },
-      vpSt: s.auto ? 'overflow: hidden' : 'overflow-y: auto; overscroll-behavior: contain',
+      nav: this.navFn,
+      simbSt: 'height: ' + hTela + 'px; transform: scale(' + z.toFixed(5) + '); --off: -' + Math.round(s.off) + 'px',
+      mostraTrilho: !s.auto && maxOff > 0,
+      polegarSt: 'height: ' + (952 / hTela * 100).toFixed(2) + '%; top: ' + (maxOff ? (s.off / hTela * 100) : 0).toFixed(2) + '%',
+      rodar: function (e) { if (self.deslocar(e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY)) e.preventDefault(); },
+      toqueIni: function (e) { self.toqueY = e.touches && e.touches[0] ? e.touches[0].clientY : null; },
+      toqueMove: function (e) {
+        if (self.toqueY === null || self.toqueY === undefined || !e.touches || !e.touches[0]) return;
+        var y = e.touches[0].clientY;
+        if (self.deslocar(self.toqueY - y)) e.preventDefault();
+        self.toqueY = y;
+      },
       chipsLider: ['time', 'gestao', 'financeiro'].map(chip),
       chipsJogador: ['dashboard', 'folha', 'stats', 'schedule', 'performance'].map(chip),
       capT: CAP[s.tela][0], capD: CAP[s.tela][1],
-      dica: s.auto ? '' : (s.w < 760 ? 'Role dentro da tela para ver mais.' : 'Role dentro da tela e use o menu lateral para navegar.'),
+      dica: s.auto ? '' : (s.w < 760 ? 'Arraste dentro da tela para ver mais.' : 'Role dentro da tela e use o menu lateral para navegar.'),
       tourTxt: s.auto ? 'Tour automático' : 'Retomar o tour', tourCor: s.auto ? '#34D399' : '#5A5F66',
       alternarTour: function () {
         if (s.auto) { clearInterval(self.tour); self.setState({ auto: false }); }
-        else { self.setState({ auto: true }); self.iniciarTour(); }
+        else { self.setState({ auto: true, off: 0 }); self.iniciarTour(); }
       }
     };
   }

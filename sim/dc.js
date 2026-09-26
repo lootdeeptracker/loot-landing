@@ -195,6 +195,14 @@
     var self = this;
     carrega(this.props.arquivo).then(function (C) { self.setState({ C: C }); })['catch'](function (e) { console.error(e); });
   };
+  Importado.prototype.shouldComponentUpdate = function (np, ns) {
+    if (ns.C !== this.state.C || np.arquivo !== this.props.arquivo) return true;
+    var a = this.props.props || {}, b = np.props || {};
+    var ka = Object.keys(a), kb = Object.keys(b);
+    if (ka.length !== kb.length) return true;
+    for (var i = 0; i < kb.length; i++) if (a[kb[i]] !== b[kb[i]]) return true;
+    return false;
+  };
   Importado.prototype.render = function () {
     var C = this.state.C;
     if (!C) {

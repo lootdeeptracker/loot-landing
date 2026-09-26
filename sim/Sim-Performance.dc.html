@@ -27,7 +27,7 @@
 <div data-sim="performance">
 <div class="{{mvCls}}" style="width: 1440px; height: 4385px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: {{marcaOp}}; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: {{dCase}}; --dvar: {{dVar}}; --dtrack: {{dTrack}}; --dlt: {{dLt}}; --dw: {{dW}}; position: relative; overflow: clip">
   <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
-  <aside style="position: sticky; top: 0; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; box-sizing: border-box; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 10px">
+  <aside style="position: relative; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; box-sizing: border-box; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 10px">
     <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; top: 560px; width: 200px; height: 330px"></div>
     <div style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
       <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
@@ -186,7 +186,7 @@ class Component extends DCLogic {
     var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
     o.cron = p2(Math.floor(seg / 3600)) + ':' + p2(Math.floor(seg / 60) % 60) + ':' + p2(seg % 60);
     var pan = Math.max(0, Number(this.props.pan) || 0);
-    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : '';
+    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : 'transform: translateY(var(--off, 0px))';
     return o;
   }
   componentDidMount() {
