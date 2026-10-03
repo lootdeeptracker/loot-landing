@@ -61,6 +61,12 @@
       <sc-if value="{{isFin}}" hint-placeholder-val="{{false}}">
         <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Financeiro" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.financeiro}}" hint-size="1440px,2090px"></dc-import></div></div>
       </sc-if>
+      <sc-if value="{{isReport}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Report" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.report}}" hint-size="1440px,2000px"></dc-import></div></div>
+      </sc-if>
+      <sc-if value="{{isAnalises}}" hint-placeholder-val="{{false}}">
+        <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Analises" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.analises}}" hint-size="1440px,1600px"></dc-import></div></div>
+      </sc-if>
       <sc-if value="{{isDash}}" hint-placeholder-val="{{false}}">
         <div class="simvp" onWheel="{{rodar}}" onTouchStart="{{toqueIni}}" onTouchMove="{{toqueMove}}"><div class="simb" style="{{simbSt}}"><dc-import name="Sim-Dashboard" on-nav="{{nav}}" tour="{{auto}}" pan="{{pan.dashboard}}" hint-size="1440px,2162px"></dc-import></div></div>
       </sc-if>
@@ -87,7 +93,7 @@
 
   <div class="controles">
     <div class="grupo"><span class="rot">Líder</span>
-      <sc-for list="{{chipsLider}}" as="c" hint-placeholder-count="3">
+      <sc-for list="{{chipsLider}}" as="c" hint-placeholder-count="5">
         <button type="button" class="{{c.cls}}" onClick="{{c.pick}}">{{c.rot}}<sc-if value="{{c.prog}}" hint-placeholder-val="{{false}}"><span class="prog"></span></sc-if></button>
       </sc-for>
     </div>
@@ -107,7 +113,7 @@ class Component extends DCLogic {
     super(props);
     this.state = { tela: 'time', auto: true, w: 1150, off: 0 };
     this.navFn = (id) => this.ir(id);
-    this.ordem = ['time', 'gestao', 'financeiro', 'dashboard', 'folha', 'stats', 'schedule', 'performance'];
+    this.ordem = ['time', 'gestao', 'financeiro', 'report', 'analises', 'dashboard', 'folha', 'stats', 'schedule', 'performance'];
   }
   componentDidMount() {
     var self = this;
@@ -133,7 +139,7 @@ class Component extends DCLogic {
     if (window.parent !== window) window.parent.postMessage({ lootSim: 'tela', valor: t }, '*');
   }
   maxOff() {
-    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, report: 2000, analises: 1600, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
     return Math.max(0, ALT[this.state.tela] - 952);
   }
   // desloca o conteúdo; devolve true se consumiu o movimento (para não rolar a página junto)
@@ -165,18 +171,20 @@ class Component extends DCLogic {
     var self = this;
     var largura = s.w - 2;
     var z = largura / 1440;
-    var ALT0 = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    var ALT0 = { time: 2335, gestao: 1692, financeiro: 2090, report: 2000, analises: 1600, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
     var hTela = ALT0[s.tela];
     var maxOff = Math.max(0, hTela - 952);
     var vpH = Math.round(largura * 760 / 1150);
-    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
+    var ALT = { time: 2335, gestao: 1692, financeiro: 2090, report: 2000, analises: 1600, dashboard: 2162, folha: 1112, stats: 3351, schedule: 1984, performance: 4385 };
     var pan = {};
     Object.keys(ALT).forEach(function (k) { pan[k] = Math.round(Math.max(0, Math.min(701, ALT[k] - 952))); });
-    var ROT = { time: 'Time', gestao: 'Gestão', financeiro: 'Financeiro', dashboard: 'Dashboard', folha: 'Minha Folha', stats: 'Stats', schedule: 'Schedule', performance: 'Performance' };
+    var ROT = { time: 'Time', gestao: 'Gestão', financeiro: 'Financeiro', report: 'Report', analises: 'Análises', dashboard: 'Dashboard', folha: 'Minha Folha', stats: 'Stats', schedule: 'Schedule', performance: 'Performance' };
     var CAP = {
       time: ['Time.', 'A performance agregada do time numa visão executiva.'],
       gestao: ['Gestão.', 'Reload, devolução, reset e makeup: decida o que mover agora.'],
       financeiro: ['Financeiro.', 'P&L, capital total e carteiras num lugar só.'],
+      report: ['Report.', 'O fechamento do mês do time, com as metas e o ranking de cada jogador.'],
+      analises: ['Análises.', 'Compare meses ou recortes do jogador lado a lado, escreva a leitura e publique para ele.'],
       dashboard: ['Dashboard do jogador.', 'Profit, makeup, dívida ativa e win rate do mês, com o histórico de performance.'],
       folha: ['Minha Folha.', 'O resultado de cada dia no calendário, com makeup e o P&L acumulado.'],
       stats: ['Stats de jogo.', 'Score por área e evolução mês a mês, calculado pelo Loot.'],
@@ -188,7 +196,7 @@ class Component extends DCLogic {
       return { rot: ROT[id], cls: on ? 'schip ativo' : 'schip', prog: on && s.auto, pick: function () { self.ir(id); } };
     };
     return {
-      isTime: s.tela === 'time', isGestao: s.tela === 'gestao', isFin: s.tela === 'financeiro', isPerf: s.tela === 'performance',
+      isTime: s.tela === 'time', isGestao: s.tela === 'gestao', isFin: s.tela === 'financeiro', isReport: s.tela === 'report', isAnalises: s.tela === 'analises', isPerf: s.tela === 'performance',
       isDash: s.tela === 'dashboard', isFolha: s.tela === 'folha', isStats: s.tela === 'stats', isSched: s.tela === 'schedule',
       auto: s.auto, z: z.toFixed(5), vpH: vpH, pan: pan,
       nav: this.navFn,
@@ -203,7 +211,7 @@ class Component extends DCLogic {
         if (self.deslocar(self.toqueY - y)) e.preventDefault();
         self.toqueY = y;
       },
-      chipsLider: ['time', 'gestao', 'financeiro'].map(chip),
+      chipsLider: ['time', 'gestao', 'financeiro', 'report', 'analises'].map(chip),
       chipsJogador: ['dashboard', 'folha', 'stats', 'schedule', 'performance'].map(chip),
       capT: CAP[s.tela][0], capD: CAP[s.tela][1],
       dica: s.auto ? '' : (s.w < 760 ? 'Arraste dentro da tela para ver mais.' : 'Role dentro da tela e use o menu lateral para navegar.'),

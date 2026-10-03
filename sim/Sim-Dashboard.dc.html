@@ -26,7 +26,7 @@
 <div data-sim="dashboard">
 <div class="{{mvCls}}" style="width: 1440px; height: 2162px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: {{marcaOp}}; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: {{dCase}}; --dvar: {{dVar}}; --dtrack: {{dTrack}}; --dlt: {{dLt}}; --dw: {{dW}}; position: relative; overflow: clip">
   <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
-  <aside style="position: relative; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 12px; box-sizing: border-box">
+  <aside style="position: relative; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 4px; box-sizing: border-box">
     <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; bottom: 70px; width: 200px; height: 330px"></div>
     <div style="display: flex; flex-direction: column; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
       <div style="display: flex; align-items: center; gap: 12px">
@@ -47,7 +47,7 @@
         </sc-for>
       </div>
     </sc-for>
-    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 40px; width: 120px; height: 90px; overflow: hidden; pointer-events: none; opacity: {{faixaOp}}">
+    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 0; width: 120px; height: 90px; overflow: hidden; pointer-events: none; opacity: {{faixaOp}}">
       <div style="position: absolute; left: 30px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .55"></div>
       <div style="position: absolute; left: 48px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .35"></div>
       <div style="position: absolute; left: 66px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .18"></div>
@@ -229,11 +229,11 @@ class Component extends DCLogic {
     function nav(id) { return function () { if (self.props.onNav) self.props.onNav(id); }; }
     function nada() {}
     var NAV = [
-      { nome: 'Líder', aberta: true, sec: 'L', itens: ['Time', 'Gestão', 'Financeiro', 'Coaches', 'Jogadores', 'Transações', 'Performance', 'Torneios', 'Grades', 'Config.'] },
+      { nome: 'Líder', aberta: true, sec: 'L', itens: ['Time', 'Gestão', 'Financeiro', 'Report', 'Coaches', 'Jogadores', 'Transações', 'Performance', 'Torneios', 'Análises', 'Grades', 'Config.'] },
       { nome: 'Coach', aberta: false, sec: 'C', itens: [] },
-      { nome: 'Jogador', aberta: true, sec: 'J', itens: ['Dashboard', 'Minha Folha', 'Schedule', 'Stats', 'Eq&ty', 'Hands', 'Performance', 'Torneios', 'Transações'] }
+      { nome: 'Jogador', aberta: true, sec: 'J', itens: ['Dashboard', 'Minha Folha', 'Report', 'Schedule', 'Stats', 'Eq&ty', 'Hands', 'Performance', 'Torneios', 'Análises', 'Transações'] }
     ];
-    var IDS = { 'L:Time': 'time', 'L:Gestão': 'gestao', 'L:Financeiro': 'financeiro', 'J:Dashboard': 'dashboard', 'J:Minha Folha': 'folha', 'J:Schedule': 'schedule', 'J:Stats': 'stats', 'J:Performance': 'performance' };
+    var IDS = { 'L:Time': 'time', 'L:Report': 'report', 'L:Análises': 'analises', 'L:Gestão': 'gestao', 'L:Financeiro': 'financeiro', 'J:Dashboard': 'dashboard', 'J:Minha Folha': 'folha', 'J:Schedule': 'schedule', 'J:Stats': 'stats', 'J:Performance': 'performance' };
     var BETA = { 'L:Performance': true, 'L:Grades': true, 'J:Schedule': true, 'J:Stats': true, 'J:Performance': true };
     var ATIVO = 'J:Dashboard';
     var ICP = {
@@ -252,7 +252,9 @@ class Component extends DCLogic {
       'Schedule': 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 3',
       'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
       'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
-      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3'
+      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3',
+      'Report': 'M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1zM21.21 15.89A10 10 0 1 1 8 2.83',
+      'Análises': 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7ZM14 2v4a2 2 0 0 0 2 2h4M8 18v-1M12 18v-6M16 18v-3'
     };
     function ICD(n) { return ICP[n] || 'M12 12h0'; }
     function ICO(n) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }
