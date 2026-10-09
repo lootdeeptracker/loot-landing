@@ -210,9 +210,9 @@ class Component extends DCLogic {
     function go(id) { return function () { if (self.props.onNav) self.props.onNav(id); }; }
     function nada() {}
     var NAV = [
-      { nome: 'Líder', aberta: true, itens: [['Time', 'time'], ['Gestão', 'gestao'], ['Financeiro', 'financeiro'], ['Report', 'report'], ['Coaches'], ['Jogadores'], ['Transações'], ['Performance', null, 1], ['Torneios'], ['Análises', 'analises'], ['Grades', null, 1], ['Config.']] },
+      { nome: 'Líder', aberta: true, itens: [['Time', 'time'], ['Gestão', 'gestao'], ['Financeiro', 'financeiro'], ['Report', 'report'], ['Coaches'], ['Jogadores'], ['Transações'], ['Performance', null], ['Torneios'], ['Análises', 'analises'], ['Grades', null, 1], ['Config.']] },
       { nome: 'Coach', aberta: false, itens: [] },
-      { nome: 'Jogador', aberta: true, itens: [['Dashboard', 'dashboard'], ['Minha Folha', 'folha'], ['Report'], ['Schedule', 'schedule', 1], ['Stats', 'stats', 1], ['Eq&ty'], ['Hands'], ['Performance', 'performance', 1], ['Torneios'], ['Análises'], ['Transações']] }
+      { nome: 'Jogador', aberta: true, itens: [['Dashboard', 'dashboard'], ['Minha Folha', 'folha'], ['Report'], ['Schedule', 'schedule'], ['Stats', 'stats'], ['Eq&ty'], ['Hands'], ['Performance', 'performance'], ['Torneios'], ['Análises'], ['Transações']] }
     ];
     var ICP = {
       'Time': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
