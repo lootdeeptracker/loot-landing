@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Player manual · Loot</title>
+  <meta name="description" content="How players use Loot: nicks, session, ledger, import, money, lessons, lineup and analysis." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, home"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html" aria-current="page">Player</a>
+        <a class="lnk" href="./manual-coach.html">Coach</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Import</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Language"><a href="/manual-jogador.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-jogador.html" hreflang="en" lang="en" data-idioma="en" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-jogador.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-jogador.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Language">EN</summary><div class="lista"><a href="/manual-jogador.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-jogador.html" hreflang="en" lang="en" data-idioma="en" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-jogador.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-jogador.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Sign in</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">DOCUMENTATION</span><i></i><span>Player</span></p>
+    <h1 class="dp">Player manual</h1>
+    <p class="intro">You only see your own data. The team's money doesn't show up for you. Your menu has Dashboard, My ledger, Schedule, Stats, Performance, Tournaments and Transactions. The bell at the top holds your alerts, and <strong>My profile</strong> is under your name, in the top corner.</p>
+
+    <h2 class="rot">Start here</h2>
+
+    <article class="card guia">
+      <h3>Add your nicks</h3>
+      <ol>
+        <li>Click your name at the top and open <strong>My profile</strong>.</li>
+        <li>Go to <strong>My nicknames on the networks</strong>.</li>
+        <li>Type your nick for each network, character by character, exactly as it is on the network.</li>
+        <li>Click <strong>Save nicknames</strong>.</li>
+      </ol>
+      <p><strong>A wrong nick means tournaments that don't show up in your analysis.</strong> Loot uses the nick to know a tournament is yours. Copy it from the network and paste it here. Don't type it from memory.</p>
+      <ul>
+        <li>underscore, hyphen and dot are different things: <code>Alfa_Um</code> is not <code>Alfa-Um</code></li>
+        <li>accents count: <code>Águia</code> is not <code>Aguia</code></li>
+        <li>zero is not the letter O: <code>Sh0ve</code> is not <code>Shove</code></li>
+        <li>a space in the middle counts: <code>Ficha Azul</code> is not <code>FichaAzul</code></li>
+        <li>upper and lower case: write it as it is on the network</li>
+      </ul>
+      <div class="fecho">
+        While you're there, fill in <strong>My wallets</strong>, with the currencies you use and your wallet address. Your manager needs that address to send you money.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Set up your session</h3>
+      <div class="aviso">
+        <strong>Without it, you can't import anything.</strong> The first time you open Tournaments, the screen is stuck on a notice: <em>"Set up your session to see your tournaments"</em>. You can't close it or skip it.
+      </div>
+      <ol>
+        <li>Go to <strong>Tournaments</strong>.</li>
+        <li>Click <strong>Session</strong>, at the top of the screen.</li>
+        <li>In <strong>Session start</strong>, type the time you start playing.</li>
+        <li>Check <strong>Your time zone</strong>. It's detected automatically. If it's wrong, click <strong>change</strong>.</li>
+        <li>Click <strong>Save</strong>.</li>
+      </ol>
+      <p><strong>What this time does.</strong> Loot uses it to decide which day each tournament belongs to. Your session runs from the time you picked until the same time the next day.</p>
+      <p>If you set 14:00, a tournament at 02:00 on Tuesday morning goes into Monday's session, because you're still in the session that started at 14:00 on Monday. That's how the turn of midnight stops splitting your night into two days.</p>
+      <p><strong>Use the earliest time you sit down to play.</strong> It's a floor, not an average. If you sometimes start at 12:00 and sometimes at 16:00, use 12:00. A tournament that runs before your start time lands on the wrong day.</p>
+      <div class="aviso">
+        <strong>A change applies from today onward.</strong> Old sessions don't change. You set it up once and Loot fixes the tournaments you had already imported. From the second time on, it doesn't. So get the time right before you import a big history.
+      </div>
+      <div class="fecho">
+        Did your grind routine change? Go back to the <strong>Session</strong> button and update it. If you now start at 18:00 and left 10:00 set, a night of tournaments shows up split across two days.
+      </div>
+    </article>
+
+    <h2 class="rot">Day to day</h2>
+
+    <article class="card guia">
+      <h3>Fill in your ledger</h3>
+      <ol>
+        <li>Go to <strong>My ledger</strong>.</li>
+        <li>Click the day on the calendar.</li>
+        <li>Type the day's final balance for each account.</li>
+        <li>Click <strong>Save</strong> and confirm with <strong>OK, save</strong>.</li>
+      </ol>
+      <p><strong>Type the raw balance, the number on the network's screen. Don't do any math.</strong> Loot never changes your number. It calculates on top of what you typed.</p>
+      <p><strong>If the "Already in your balance?" question appears.</strong> Sometimes Loot asks something like: <em>"Return of €600 created on 01 Jul. Already in the balance you entered? Yes / No."</em></p>
+      <p>Answer by looking at the balance you just typed. <strong>Yes</strong>, if that amount was already taken out on the network. <strong>No</strong>, if the balance still has the money in it.</p>
+      <div class="fecho">
+        There is no preselected answer, and your answer is saved. It's used to put the movement on the right day.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Import your tournaments</h3>
+      <ol>
+        <li>Go to <strong>Tournaments</strong>.</li>
+        <li>Click <strong>Import CSV</strong>.</li>
+        <li>Drag in the SharkScope CSV.</li>
+      </ol>
+      <p>The button is disabled until your session is set up.</p>
+      <p><strong>GG Fixer.</strong> If the button shows up in yellow with a number, those are GG tournament positions the CSV didn't include. Click it and upload the .zip of GG .txt summaries to fill them in.</p>
+      <div class="fecho">
+        The step-by-step for getting the CSV from SharkScope and the .zip from GG is in <a href="./guias.html">Data import</a>.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Import your hands</h3>
+      <ol>
+        <li>Go to <strong>Stats</strong>.</li>
+        <li>Click <strong>Import hand histories</strong>.</li>
+        <li>Upload the file your tracker exports.</li>
+      </ol>
+      <div class="fecho">
+        Processing runs in the background. You don't have to wait: you can close the screen and keep using Loot. A notification tells you when it's ready.
+      </div>
+    </article>
+
+    <h2 class="rot">Your money</h2>
+
+    <article class="card guia">
+      <h3>See your money</h3>
+      <p>Go to the <strong>Dashboard</strong>. The cards:</p>
+      <ul>
+        <li><strong>Current makeup:</strong> how far in the red you are with the team. It's a separate account from your profit.</li>
+        <li><strong>Profit:</strong> what you've accumulated. Once recorded, it doesn't change.</li>
+        <li><strong>Active debt:</strong> what you owe, if anything.</li>
+      </ul>
+      <div class="fecho">
+        You don't have to ask for a reload or a withdrawal. <strong>Loot alerts your manager on its own:</strong> a low balance shows up for them as a reload to make, withdrawable excess as an available withdrawal, and makeup at the split point as a reset.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>What the team owes you</h3>
+      <p>The <strong>"The team owes you"</strong> card only appears when there is a payout. If everything is settled, it shows <strong>all paid out</strong>.</p>
+      <p>The amount is <strong>split by currency</strong>. If you're owed euros and dollars, that's two numbers, never one total.</p>
+      <div class="aviso">
+        <strong>A payout is not makeup.</strong> Makeup is cleared at the moment of the split. What shows in this card is the part of the split that stayed with the team and hasn't been paid to you yet. Zero makeup doesn't mean you've been paid: it means the debt is over. The money may still be in the queue.
+      </div>
+      <p>Click <strong>"see which split it came from and what was already paid"</strong> to open the detail, one line per payout:</p>
+      <ul>
+        <li><strong>split on [date]</strong> is clickable and opens the withdrawal that generated that amount</li>
+        <li>if it was paid in full, the line says <strong>paid out</strong></li>
+        <li>if something is still missing, you see what's missing and, next to it, <strong>of [original amount]</strong>, showing it was paid in part</li>
+        <li>below are the payments: <strong>received [amount] on [date]</strong>, click to open</li>
+      </ul>
+      <div class="aviso">
+        <strong>The "no proof" tag.</strong> The team recorded that it paid you but didn't attach the proof. If you didn't receive that amount, or you want the proof, ask your manager. The tag is there so you notice, and the proof that's missing is yours.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Your transactions</h3>
+      <p>In <strong>Transactions</strong> you see the reloads you received, the returns and splits, the P2P transfers and the transfers between networks.</p>
+      <p>What you do here: <strong>attach the proof</strong>.</p>
+      <ol>
+        <li>Click <strong>Send proof</strong> or <strong>Attach proof</strong> on the line.</li>
+        <li>Paste the screenshot with <strong>Ctrl+V</strong> or choose the file.</li>
+      </ol>
+    </article>
+
+    <h2 class="rot">Routine and analysis</h2>
+
+    <article class="card guia">
+      <h3>Book a lesson</h3>
+      <ol>
+        <li>Open the calendar from the icon next to the bell.</li>
+        <li>Click <strong>Book a lesson</strong>.</li>
+        <li>Pick one of your coach's free slots.</li>
+      </ol>
+      <p>They confirm or decline, and you get an alert. After the lesson, the coach fills in the report and you see the topic, the focus for the next one, your progress and the recording.</p>
+      <div class="fecho">
+        The coach marks attendance.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Your lineup</h3>
+      <p>In <strong>Schedule</strong> you see the upcoming tournaments. Your active lineup filters the list.</p>
+      <div class="fecho">
+        Mark <strong>Playing</strong> on what you're going to play. Hide what you don't want to see: hide it once and it applies to every day of that tournament.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Your analysis</h3>
+      <p><strong>Performance</strong> is where your ROI and your real edge are. Two readings that get mixed up, and the difference between them:</p>
+      <ul>
+        <li><strong>Play profile</strong> is your report card. It shows where you're best compared to yourself.</li>
+        <li><strong>Custom analysis</strong> is your statement. It shows where you really make money.</li>
+      </ul>
+      <p>It's not a contradiction when one says "you're good here" and the other says "but there's no proven profit yet". They answer different questions.</p>
+      <p><strong>The edge probability colors:</strong> green above 90% is proven edge, yellow between 60 and 90% is likely, gray between 40 and 60% tells you nothing, red below 40% is a likely leak.</p>
+      <div class="fecho">
+        The more tournaments you have, the more reliable the number.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science and management for poker teams</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Product</strong><a class="lnk" href="./index.html#produto">Inside</a><a class="lnk" href="./index.html#recursos">Features</a><a class="lnk" href="https://app.lootdeep.com">Sign in</a></div>
+        <div><strong>Guides</strong><a class="lnk" href="./manual-jogador.html">Player</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Data import</a></div>
+        <div><strong>Contact</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

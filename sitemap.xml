@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.lootdeep.com/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.lootdeep.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lootdeep.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.lootdeep.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lootdeep.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lootdeep.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lootdeep.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.lootdeep.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lootdeep.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.lootdeep.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lootdeep.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lootdeep.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lootdeep.com/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.lootdeep.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lootdeep.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.lootdeep.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lootdeep.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lootdeep.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.lootdeep.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://www.lootdeep.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lootdeep.com/en/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.lootdeep.com/ru/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.lootdeep.com/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lootdeep.com/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual del Eq&amp;ty · Loot</title>
+  <meta name="description" content="Cómo leer el Eq&amp;ty de Loot: equity street a street contra el range del villano, el filtro de continuación y el all-in preflop multiway." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, inicio"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html">Jugador</a>
+        <a class="lnk" href="./manual-coach.html">Coach</a>
+        <a class="lnk" href="./manual-eqty.html" aria-current="page">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Importación</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Idioma"><a href="/manual-eqty.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-eqty.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-eqty.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-eqty.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Idioma">ES</summary><div class="lista"><a href="/manual-eqty.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-eqty.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-eqty.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-eqty.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Iniciar sesión</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">DOCUMENTACIÓN</span><i></i><span>Eq&amp;ty</span></p>
+    <h1 class="dp">Eq&amp;ty</h1>
+
+    <div class="artigo">
+      <p class="lead"><strong>Streets</strong> corre tu mano contra el range del villano street a street, y su range se va achicando a medida que marcas con qué sigue. La cuenta empieza en el preflop, antes de cualquier board. El otro modo es <strong>All-in preflop</strong>, hasta 6 jugadores.</p>
+
+      <p>Arma tu mano, pinta su range en la grilla o pega la notación, elige el board. El número sale solo, no hay botón de calcular.</p>
+
+      <figure><img src="/assets/eqty/05-first-number.png" alt="La pantalla en el flop" /><figcaption>La pantalla en el flop</figcaption></figure>
+
+      <h2>La base no es 1.326</h2>
+      <p>Tus cartas y el board salen del mazo antes de la cuenta. Por eso ves 1.225 en el preflop y 1.081 en el flop. Un range que daría 21,1% en un tracker común aparece aquí ya descontado de tus cartas, y el panel dice cuántos combos le quitaron.</p>
+      <p>No es un bug. Es la cuenta correcta: él no puede tener lo que tú tienes en la mano.</p>
+
+      <h2>Los dos números</h2>
+      <p>Cuando el filtro corta algo, aparecen dos:</p>
+      <pre><code>26,1%   contra todo lo que puede tener
+  7,2%   si no hace fold          −18,9   ·   77 combos</code></pre>
+      <p>El de abajo es el que vale cuando él apuesta, y cuando tú apuestas y él paga. El de arriba sirve para ver el tamaño del corte.</p>
+      <p>Un delta grande quiere decir range polarizado en el board: lo que él continúa es mucho mejor que su promedio.</p>
+
+      <figure><img src="/assets/eqty/06-two-lines.png" alt="Los dos números en el flop" /><figcaption>Los dos números en el flop</figcaption></figure>
+
+      <h2>El filtro es una cascada</h2>
+      <p>Cada street tiene el suyo, y el turn parte de lo que sobró del flop. Lo que él suelta en el flop no llega al turn. Si cambias el filtro del turn pensando que cambias el range entero, estás leyendo otro número.</p>
+      <p>Cada categoría marcada acepta una <strong>Freq</strong>: 50 quiere decir que él sigue con esa categoría la mitad de las veces. Clic derecho en la mano abre los palos, para quitar o poner un combo específico cuando la categoría agarra demasiado o muy poco.</p>
+
+      <figure><img src="/assets/eqty/07-continuation-filter.png" alt="El filtro del flop" /><figcaption>El filtro del flop</figcaption></figure>
+
+      <h2>Exacto y estimado</h2>
+      <p>El panel dice cuál de los dos estás leyendo, y eso cambia con la street elegida.</p>
+      <pre><code>1.081 runouts · exacto    heads-up con board: todos los runouts en la cuenta
+120.000 manos             preflop, multiway y all-in: muestreo</code></pre>
+      <p>Heads-up con board el número es cerrado, sin margen. El preflop, el multiway y el all-in preflop se muestrean: el multiway muestra el margen en el panel, y en el all-in es de unos 0,3 puntos. <strong>Recalcular</strong> sortea de nuevo y el valor se mueve medio punto.</p>
+      <p>No decidas nada por 0,2 o 0,3 puntos entre dos números estimados.</p>
+
+      <figure><img src="/assets/eqty/11-allin-multiway.png" alt="All-in preflop con tres jugadores" /><figcaption>All-in preflop, tres jugadores</figcaption></figure>
+
+      <h2>La grilla</h2>
+      <p>El color de cada mano es tu equity contra ella en ese board. Pasa el mouse y el pie muestra el número y qué es esa mano ahí.</p>
+      <p>Con más de un villano la grilla deja de colorear, porque no existe equity contra una sola mano. Y <code>tie</code> pasa a <code>split</code>: en multiway, un empate no es medio bote.</p>
+
+      <h2>Lo que no hace</h2>
+      <p>Sin ICM, sin stack, sin side pot, sin posición, sin rake. El número es en fichas y cuenta solo el showdown, sin fold equity.</p>
+      <p>El filtro es por street, no por acción. Con qué paga y con qué apuesta son recortes distintos, y solo cabe uno a la vez.</p>
+      <p>Las dead cards son solo tu mano y el board. No se puede quitar una carta de quien hizo fold.</p>
+
+      <h2>Atajos</h2>
+      <pre><code>H          tu mano
+B          board
+1 2 3      flop, turn, river
+Ctrl+Z     deshace en el range
+Del        limpia el range del villano activo</code></pre>
+
+      <div class="aviso">¿Número raro? Revisa el range y los filtros. Si persiste, usa el botón <strong>Feedback</strong> de Loot.</div>
+
+    </div>
+
+    <details class="card completo">
+      <summary>
+        <div>
+          <div class="sum-rot">Referencia</div>
+          <div class="sum-tit">Manual completo</div>
+          <div class="sum-sub">Paso a paso detallado, todos los modos y límites. Ábrelo si necesitas el detalle.</div>
+        </div>
+        <span class="sum-mais" aria-hidden="true"><i>+</i></span>
+      </summary>
+      <div class="completo-corpo artigo">
+        <p class="lead">El Eq&amp;ty calcula cuánto gana tu mano contra lo que el villano puede tener, street a street. Aparece en el menú de Loot para jugador y para coach. El manual sigue el orden de un análisis; las manos, los ranges y los escenarios son ejemplos. El <strong>?</strong> justo debajo de <strong>Reset</strong>, en la esquina de arriba de la pantalla, abre este manual en una pestaña nueva, sin tocar lo que hay en pantalla.</p>
+
+        <h2>1. Qué responde el Eq&amp;ty y qué no</h2>
+        <h3>Lo que responde</h3>
+        <ul>
+        <li><strong>Streets.</strong> Cuánto gana tu mano contra el range del villano antes del flop, en el flop, en el turn y en el river. Y cuánto gana contra la parte del range que sigue en la mano, después de que dices con qué sigue.</li>
+        <li><strong>All-in preflop.</strong> En un all-in antes del flop, con 2 a 6 jugadores, la porción del bote de cada range.</li>
+        </ul>
+        <h3>Lo que no responde</h3>
+        <ul>
+        <li><strong>Si debes pagar, apostar o hacer fold.</strong> El Eq&amp;ty da la equity. La decisión sale de compararla con el precio, y esa comparación la haces tú (sección 3).</li>
+        <li><strong>Cuánto apostar.</strong></li>
+        <li><strong>Cuánto rinde una línea contando los folds del villano.</strong> La equity es tu parte del bote si las cartas llegan hasta el final sin más apuestas.</li>
+        <li><strong>El valor de la mano en un torneo.</strong> El número es en fichas: no entra el ICM.</li>
+        <li><strong>Cómo juega de verdad el villano.</strong> El range es tu apuesta, y el Eq&amp;ty calcula sobre él.</li>
+        </ul>
+
+        <h2>2. Tu primer análisis, en 4 pasos</h2>
+        <p>La pantalla abre en el modo <strong>Streets</strong>, vacía. No se calcula nada hasta que indiques tu mano y el range de al menos un villano. Con los dos sale la equity preflop; con el flop salen las streets.</p>
+        <h3>Paso 1: tus cartas</h3>
+        <p>Haz clic en uno de los dos espacios de <strong>Tu mano</strong>, o aprieta <strong>H</strong>. Elige las dos cartas y haz clic en <strong>Usar</strong>.</p>
+        <h3>Paso 2: el range del villano</h3>
+        <p>Con la barra de arriba en <strong>Range</strong>, arma su range en la grilla. Haz clic en una mano para marcarla; arrastra para marcar varias. Si ya tienes el range escrito, pégalo en el campo <strong>Pega el range</strong> y haz clic en <strong>Aplicar</strong>.</p>
+        <p>El range que usa este manual es <code>AA-44, AKs-A2s, KQs-K7s, QJs-Q8s, JTs-J9s, T9s, AKo-A9o, KQo-KTo, QJo-QTo, JTo</code>.</p>
+        <p>Debajo de la grilla, la línea <strong>range</strong> dice cuántos combos tiene y qué porción es de todas las manos posibles: en el ejemplo, <strong>258 de 1.225 · 21,1%</strong>. Las manos que usan tus cartas ya salen de la cuenta, y el panel de la derecha avisa cuántas: <strong>Tus cartas quitan 40 combos de su range</strong>.</p>
+        <p>Con tu mano y el range, el panel <strong>Tu equity</strong> ya muestra la línea <strong>PREFLOP</strong>: <strong>44,7% contra todo lo que puede tener</strong>, tu equity antes del flop. La parte de arriba del panel dice <strong>120.000 manos</strong> porque el preflop es estimado (sección 5), y el número es el mismo del <strong>All-in preflop</strong> para la misma mano y el mismo range. El escalón <strong>Range</strong> de la barra de arriba muestra los mismos 258 combos: <strong>Range 258</strong>.</p>
+        <h3>Paso 3: el flop</h3>
+        <p>Haz clic en un espacio del <strong>Board</strong>, o aprieta <strong>B</strong>, y elige las tres cartas del flop de una vez. Como el range ya está armado, la barra pasa sola a <strong>Flop</strong> cuando haces clic en <strong>Usar</strong>.</p>
+        <h3>Paso 4: el número</h3>
+        <p>El número aparece solo. No existe botón de calcular: mientras calcula, la parte de arriba de la pantalla muestra <strong>calculando…</strong>, y después el tiempo que tardó. En el panel <strong>Tu equity</strong>:</p>
+        <ul>
+        <li><strong>26,1% contra todo lo que puede tener</strong> es tu equity contra su range entero en el flop.</li>
+        <li><strong>219 combos</strong> es el tamaño de ese range en el flop, ya sin las manos que usan tus cartas o las del board.</li>
+        <li><strong>win</strong> es la parte en que ganas solo; <strong>tie</strong> es la parte en que empatas.</li>
+        <li><strong>1.081 runouts · exacto</strong> dice que el número es exacto: todas las combinaciones de turn y river entraron en la cuenta.</li>
+        <li><strong>PREFLOP</strong> sigue arriba de <strong>FLOP</strong>, con el número de antes del flop.</li>
+        </ul>
+        <p>La grilla se colorea. Cada mano muestra tu equity contra ella, del rojo (<strong>Villano gana</strong>) al verde (<strong>Hero gana</strong>). Pasa el mouse sobre una mano para ver, debajo de la grilla, tu equity contra ella y qué es en ese board.</p>
+
+        <h2>3. Leyendo el número: equity contra pot odds</h2>
+        <p>La equity es tu parte del bote en el showdown. Para decidir un call, compara la equity con el precio del call.</p>
+        <p><strong>El precio (pot odds)</strong> es lo que pagas dividido por el bote después de tu call:</p>
+        <ul>
+        <li>El bote tiene 10 BB y el villano apuesta 5 BB.</li>
+        <li>Pagas 5 BB para disputar 10 + 5 + 5 = 20 BB.</li>
+        <li>El precio es 5 ÷ 20 = <strong>25%</strong>.</li>
+        </ul>
+        <p><strong>La regla:</strong> si tu equity contra las manos con que él apuesta pasa del precio, el call gana fichas a largo plazo, contando solo el showdown. Si queda por debajo, pierde.</p>
+        <p><strong>Cuál de las dos líneas usar.</strong> Cuando marcas con qué sigue él (sección 4), el panel muestra dos números en la misma street:</p>
+        <ul>
+        <li><strong>26,1% contra todo lo que puede tener</strong>: contra el range entero.</li>
+        <li><strong>7,2% si no hace fold</strong>: contra solo las manos que siguen. El <strong>−18,9</strong> de al lado es la diferencia, en puntos, con el número de arriba, y <strong>77 combos</strong> es el tamaño de lo que sigue.</li>
+        </ul>
+        <p>En el ejemplo, contra el range entero tienes 26,1%, por encima del 25% del precio. Si él solo apuesta con set, two pair o top pair, tienes 7,2%, muy por debajo. Cuando él apuesta, el número que vale es el de abajo, porque es contra esas manos que juegas. Lo mismo vale cuando quien apuesta eres tú: el número de abajo es el que tienes cuando él paga.</p>
+        <p>La segunda línea solo aparece cuando el filtro quita alguna mano. Una equity por encima del precio no garantiza ganancia: lee la sección 7 antes de decidir por un punto de diferencia.</p>
+
+        <h2>4. El range del villano</h2>
+        <h3>Armar el range</h3>
+        <ul>
+        <li><strong>Grilla:</strong> un clic marca una mano; arrastrar marca varias. Empezar el arrastre en una mano ya marcada la desmarca.</li>
+        <li><strong>Notación:</strong> pégala en el campo y haz clic en <strong>Aplicar</strong>. Acepta <code>77+</code>, <code>A2s+</code>, <code>KQo</code>, intervalos como <code>AKs-A2s</code>, combos exactos como <code>AcQc</code> y frecuencia como <code>AKs:50</code>. Si alguna parte no se puede leer, la pantalla dice cuál y no aplica nada.</li>
+        <li><strong>Top:</strong> la barra marca las manos más fuertes del preflop, hasta el porcentaje que elijas.</li>
+        <li><strong>Atajos de relleno:</strong> Todos, Pares, Suited, Broadway y Limpiar.</li>
+        <li><strong>Freq:</strong> es la frecuencia con que el villano tiene la mano. Freq 50% quiere decir que tiene esa mano la mitad de las veces. El número en <strong>Freq al marcar</strong>, al lado de la barra Top, vale para las manos que marques de ahí en adelante. La celda con Freq por debajo de 100 recibe un punto ámbar.</li>
+        <li><strong>Un solo combo:</strong> haz clic derecho en una mano para abrir los palos. Cada botón es un combo. El campo Freq de esa ventana cambia al instante la frecuencia de los combos encendidos de esa mano.</li>
+        <li><strong>Deshacer:</strong> Ctrl+Z. Del limpia el range del villano activo.</li>
+        <li><strong>Más de un villano:</strong> + villano agrega otro, hasta 3. Cada villano tiene su range y sus filtros.</li>
+        </ul>
+        <h3>El filtro de continuación, street a street</h3>
+        <p>Elige <strong>Flop</strong> en la barra de arriba. El panel <strong>En el flop, si Villano 1 no hace fold</strong> muestra lo que su range tiene en ese board: las manos hechas y, debajo, los draws. Cada categoría muestra la porción del range y el número de combos.</p>
+        <ul>
+        <li>Haz clic en una categoría para marcar que él sigue con ella. Las manos que siguen se encienden en la grilla y las otras se apagan.</li>
+        <li>Con la categoría marcada, el campo de al lado dice con cuánto de ella sigue: 100 es siempre; 50 es la mitad de las veces.</li>
+        <li>Abajo aparece cuánto del range sigue. Con set, two pair y top pair marcados: <strong>siguen 77 de los 219 combos · 35,2%</strong>.</li>
+        <li><strong>kicker del top pair</strong> divide el top pair por el kicker.</li>
+        <li>Sin nada marcado, él sigue con el range entero.</li>
+        </ul>
+        <p>El turn parte de lo que siguió en el flop: la mano que él suelta en el flop no llega al turn. Elige Turn y marca con qué sigue ahí; después, el River. Cada street tiene su filtro, y el panel muestra tu equity en las tres.</p>
+        <p>Cómo se cuentan las categorías:</p>
+        <ul>
+        <li>Cada combo tiene una sola mano hecha, y las manos hechas suman 100% del range.</li>
+        <li>Los draws suman por encima: el mismo combo puede tener flush draw y gutshot.</li>
+        <li>El par que está solo en el board no es par de nadie. A♥Q♥ en K♠7♦7♣ cuenta como ace high.</li>
+        <li>El draw exige al menos una carta de la mano, y en el river no existe draw.</li>
+        </ul>
+        <h3>Ajustar combo a combo</h3>
+        <p>Cuando la categoría agarra demasiadas manos, o muy pocas, ajusta a mano. Con la barra en una street:</p>
+        <ul>
+        <li><strong>Haz clic en una mano</strong> para alternar entre sigue y no sigue.</li>
+        <li><strong>Clic derecho</strong> abre los palos: encendido sigue, apagado no sigue. El combo que usa una carta del board queda oscuro y no se puede elegir.</li>
+        <li>En la street no hay Freq: cada combo sigue entero o no sigue.</li>
+        <li>La celda ajustada recibe una marca: tachada cuando quitaste un combo, con anillo cuando pusiste uno. El panel cuenta los <strong>combos ajustados a la mano</strong>, y <strong>limpiar</strong> deshace los ajustes de esa street.</li>
+        </ul>
+        <p>El ajuste vale solo para esa street y solo para ese villano, y sigue valiendo si después marcas o desmarcas categorías. Con la barra en Range, el clic en la grilla vuelve a mover el range base, y no el filtro.</p>
+
+        <h2>5. All-in preflop multiway</h2>
+        <h3>Cuándo usarlo</h3>
+        <p>Cuando el dinero entra antes del flop: shove y call de stack corto, con 2 a 6 jugadores. Aquí no hay board ni filtro. Es range contra range.</p>
+        <h3>Cómo usarlo</h3>
+        <p>Haz clic en <strong>All-in preflop</strong>, arriba en la pantalla; para volver, haz clic en <strong>Streets</strong>. En cada línea, escribe el range y aprieta Enter. La primera línea es el <strong>Hero</strong>, y acepta una mano exacta, como <code>AcQc</code>, o un range. <strong>+ jugador</strong> agrega jugadores, hasta 6. El número de cada uno aparece solo, y las porciones de la mesa suman 100%.</p>
+        <p>Para marcar un range en la grilla, haz clic en <strong>grilla</strong> en la línea del jugador. La ventana tiene la misma grilla, la barra Top, la <strong>Freq al marcar</strong> y los atajos de relleno de la sección 4.</p>
+        <h3>Por qué existe el margen</h3>
+        <p>Sin board, contar todas las combinaciones de cinco cartas para cada par de manos tardaría demasiado. El Eq&amp;ty sortea manos: 120.000 con hasta 3 jugadores y 80.000 con 4 a 6. El cuadro muestra cuántas manos entraron en la cuenta.</p>
+        <p>Por eso el número tiene margen, aunque no aparezca en la pantalla. En nuestras mediciones, cada porción queda a hasta unos 0,3 puntos del valor exacto, en 95 de cada 100 cuentas. La misma mesa da siempre el mismo número en la primera cuenta. <strong>Recalcular</strong> sortea de nuevo, y el número puede moverse unos 0,5 puntos entre una cuenta y otra: AcQc contra el range amplio de ejemplo quedó entre 60,9% y 61,3% en la primera cuenta y en los 9 Recalcular siguientes.</p>
+        <p>La línea <strong>PREFLOP</strong> de Streets hace la misma cuenta: para la misma mano y los mismos ranges, los dos modos dan el mismo número en la primera cuenta. Streets no tiene Recalcular; después de un Recalcular en el All-in, los dos pueden quedar a unos 0,5 puntos uno del otro.</p>
+        <p>En la práctica: no decidas por una diferencia de 0,2 o 0,3 puntos entre dos números del all-in.</p>
+
+        <h2>6. Guardar, reabrir y Reset</h2>
+        <h3>Guardar</h3>
+        <p>Haz clic en <strong>Guardar</strong>, ponle un nombre y confirma. El Eq&amp;ty guarda tu mano, el board, los ranges de los villanos, los filtros y los ajustes a la mano. El modo All-in preflop no se guarda.</p>
+        <ul>
+        <li>Tus escenarios son solo tuyos. Ni tu coach ni la gestión del equipo los ven.</li>
+        <li>Con un escenario abierto, el botón dice <strong>Guardar como nuevo</strong>. Guardar siempre crea otro escenario y nunca cambia el que abriste.</li>
+        <li>Si el escenario queda demasiado grande para guardar, casi siempre por demasiados ajustes a la mano, el panel avisa antes y dice qué limpiar para que quepa.</li>
+        </ul>
+        <h3>Reabrir</h3>
+        <p>Haz clic en <strong>Escenarios</strong> y elige de la lista. El escenario abre como fue guardado: lo que cambiaste después y no guardaste se queda atrás. La X al lado del nombre borra el escenario, después de que confirmes.</p>
+        <h3>Reset</h3>
+        <p><strong>Reset</strong> pone en cero el modo en que estás y deja la pantalla como abre. Antes, pide confirmación y dice qué se pierde. En Streets, pierdes la mano, el board, los villanos y sus ranges, los filtros y los ajustes. En All-in preflop, pierdes la mano del Hero, los ranges y los jugadores extra. El otro modo no cambia.</p>
+        <p>Para cambiar solo el board y mantener el resto, aprieta B y elige otro flop, o haz clic en <strong>Quitar el board</strong> en el mismo selector.</p>
+        <h3>Atajos</h3>
+        <table>
+        <tr><td>H</td><td>elegir tu mano</td></tr>
+        <tr><td>B</td><td>elegir el board</td></tr>
+        <tr><td>1, 2, 3</td><td>ir a Flop, Turn y River</td></tr>
+        <tr><td>Ctrl+Z</td><td>deshacer el último cambio en el range</td></tr>
+        <tr><td>Del</td><td>limpiar el range del villano activo</td></tr>
+        </table>
+
+        <h2>7. Los límites: lo que el número no dice</h2>
+        <p>Lee esta sección antes de sacar una conclusión de un número.</p>
+        <ul>
+        <li><strong>Equity no es ganancia.</strong> La equity es tu parte del bote si las cartas llegan hasta el river sin más apuestas. En la mesa todavía hay apuestas en el turn y en el river. Una equity por encima del precio puede perder fichas, y una por debajo puede ganar.</li>
+        <li><strong>El número es tan bueno como el range.</strong> Con el range equivocado, el número está bien y la conclusión está mal. El Eq&amp;ty no sabe cómo juega él.</li>
+        <li><strong>El filtro es por street, no por acción.</strong> "Con qué paga" y "con qué apuesta" son recortes distintos en la misma street, y cada street tiene un solo filtro.</li>
+        <li><strong>Las categorías siguen reglas fijas.</strong> Dos manos de la misma categoría pueden tener equities muy distintas. Revisa la mano en la grilla cuando la diferencia importe.</li>
+        <li><strong>Freq es frecuencia.</strong> Freq 50% dice con qué frecuencia el villano tiene la mano. No mide la importancia de la mano.</li>
+        <li><strong>Con 2 o 3 villanos, el número es estimado.</strong> El panel muestra cuántas manos se sortearon y el margen, cambia tie por split y muestra tu equity contra cada villano por separado. La grilla deja de mostrar la equity mano a mano. El máximo es 3 villanos.</li>
+        <li><strong>El preflop también es estimado,</strong> en el All-in y en la línea PREFLOP de Streets, con un margen de cerca de 0,3 puntos (sección 5).</li>
+        <li><strong>Solo tus cartas y el board salen del mazo.</strong> En Streets, no se pueden quitar las cartas de quien soltó la mano.</li>
+        <li><strong>Nada del torneo ni de la mesa entra en la cuenta.</strong> No entran ICM, tamaño de stack, side pot, posición ni rake.</li>
+        <li><strong>Si un número parece equivocado,</strong> revisa el range y los filtros. Si sigue raro, avísanos con el botón <strong>Feedback</strong> de Loot.</li>
+        </ul>
+      </div>
+    </details>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science y gestión para equipos de poker</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Producto</strong><a class="lnk" href="./index.html#produto">Por dentro</a><a class="lnk" href="./index.html#recursos">Recursos</a><a class="lnk" href="https://app.lootdeep.com">Iniciar sesión</a></div>
+        <div><strong>Manuales</strong><a class="lnk" href="./manual-jogador.html">Jugador</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Importación de datos</a></div>
+        <div><strong>Contacto</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

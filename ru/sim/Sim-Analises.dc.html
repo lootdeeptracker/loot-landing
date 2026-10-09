@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Аналитика</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&amp;family=Pathway+Gothic+One&amp;family=Oswald:wght@400&amp;family=Oswald:wght@400&amp;family=Oswald:wght@400&amp;family=Oswald:wght@400&amp;family=Oswald:wght@400&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>[data-sim="analises"] .lpt-mask{-webkit-mask:url(/sim/img/lpt-branco.png) center / contain no-repeat;mask:url(/sim/img/lpt-branco.png) center / contain no-repeat}[data-sim="analises"]{margin:0;background:#050506}[data-sim="analises"] a{color:inherit}[data-sim="analises"] .cs-card{border-radius:10px;background:linear-gradient(180deg,#101112 0%,#0A0A0B 18%,#08090A 100%);border:1px solid rgba(255,255,255,.075);box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.6),0 12px 28px -18px rgba(0,0,0,.95)}[data-sim="analises"] .cs-nav:hover{background:rgba(255,255,255,.04);color:#E8E9EA}[data-sim="analises"] .nvb{position:relative;width:100%;border:0;background:transparent;font-family:inherit;cursor:pointer;text-align:left}[data-sim="analises"] .cs-disp{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dtrack);color:var(--dc,#F3F4F5) !important}[data-sim="analises"] .cs-rot{font-family:var(--disp);font-weight:var(--dw);text-transform:var(--dcase);font-variant-caps:var(--dvar);letter-spacing:var(--dlt);color:#8E939A}[data-sim="analises"] .cs-rot::before{content:'';display:inline-block;width:10px;height:3px;margin-right:8px;vertical-align:middle;background:var(--time);transform:skewX(-24deg);opacity:var(--marca)}[data-sim="analises"] .cs-hl{color:#F3F4F5 !important;background-image:linear-gradient(rgba(232,233,234,.35),rgba(232,233,234,.35));background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;padding-bottom:1px}[data-sim="analises"] .mv .cs-fade{animation:csFade_analises .6s cubic-bezier(.2,0,0,1) both}[data-sim="analises"] .mv .cs-f2{animation-delay:.08s}[data-sim="analises"] .mv .cs-f3{animation-delay:.16s}[data-sim="analises"] .mv .cs-f4{animation-delay:.24s}[data-sim="analises"] .mv .cs-hl{background-size:0% 1px;animation:csHl_analises .6s ease-out .8s forwards}[data-sim="analises"] .mv .cs-luz{animation:csLuz_analises 1.6s ease-out both}[data-sim="analises"] .mv .v5-faixa{animation:csFaixa_analises .9s cubic-bezier(.2,0,0,1) .2s both}
+@keyframes csFade_analises{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes csHl_analises{to{background-size:100% 1px}}
+@keyframes csLuz_analises{from{opacity:0}to{opacity:1}}
+@keyframes csFaixa_analises{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:translateX(0)}}[data-sim="analises"] .v6n span[style*="tabular-nums"]{font-weight:560}[data-sim="analises"] .col>*{flex-shrink:0}[data-sim="analises"] .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}[data-sim="analises"] .cd{padding:18px 20px;display:flex;flex-direction:column;min-width:0}[data-sim="analises"] .hd{display:flex;justify-content:space-between;align-items:center;gap:12px;height:20px;flex-shrink:0;white-space:nowrap}[data-sim="analises"] .hd>.cs-rot{flex-shrink:0}[data-sim="analises"] .meta{font-size:12px;color:#6B7077;white-space:nowrap}[data-sim="analises"] .sh{display:flex;justify-content:space-between;align-items:center;height:34px}[data-sim="analises"] .shl{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#80858C}[data-sim="analises"] .big{font-size:calc(42px * var(--ds));line-height:1;font-variant-numeric:tabular-nums;margin-top:14px;white-space:nowrap}[data-sim="analises"] .lk{margin-top:auto;padding-top:14px;font-size:12px;color:#8E939A;cursor:pointer}[data-sim="analises"] .det{padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:12px;color:#8E939A;line-height:1.45}[data-sim="analises"] .det>span{display:flex;justify-content:space-between;gap:12px}[data-sim="analises"] .det b{font-weight:600;color:#F3F4F5;font-variant-numeric:tabular-nums}[data-sim="analises"] .num{font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="analises"] .leit1{margin:0;font-size:19px;line-height:1.45;letter-spacing:-0.01em;color:#F3F4F5}[data-sim="analises"] .ib{position:relative;width:36px;height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;flex-shrink:0;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);padding:0}[data-sim="analises"] .ib.lt{border-color:rgba(255,255,255,.14);background:linear-gradient(180deg,#17181A,#0E0F10)}[data-sim="analises"] .ib svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}[data-sim="analises"] .bdg{position:absolute;top:-5px;right:-5px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#F3F4F5;color:#050506;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #050506}[data-sim="analises"] .vsep{width:1px;height:24px;background:rgba(255,255,255,.08);margin:0 4px}[data-sim="analises"] .sq{width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#101112,#08090A);display:inline-flex;align-items:center;justify-content:center;color:#C9CCD0;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);padding:0;cursor:pointer}[data-sim="analises"] .sq svg, [data-sim="analises"] .selb svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}[data-sim="analises"] .selb{display:inline-flex;align-items:center;gap:10px;height:32px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#101112,#08090A);color:#F3F4F5;font-family:inherit;font-size:13px;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer}[data-sim="analises"] .selb svg{color:#6B7077;width:12px;height:12px}[data-sim="analises"] .lgd{display:flex;gap:12px;align-items:center;font-size:11px;color:#6B7077}[data-sim="analises"] .lgd>span{display:inline-flex;align-items:center;gap:6px}[data-sim="analises"] .lgd i{width:7px;height:7px;border-radius:2px;display:inline-block}[data-sim="analises"] .cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-top:12px}[data-sim="analises"] .wd{font-size:11px;color:#6B7077;padding:0 10px 8px}[data-sim="analises"] .dia{position:relative;height:88px;box-sizing:border-box;border-radius:8px;padding:9px 10px;display:flex;flex-direction:column;justify-content:space-between;cursor:default}[data-sim="analises"] .drow{display:flex;justify-content:space-between;align-items:center;gap:6px}[data-sim="analises"] .hch{display:inline-flex;align-items:center;gap:3px;height:16px;padding:0 5px;border-radius:4px;font-size:10px;color:#8E939A;border:1px solid rgba(255,255,255,.1);font-variant-numeric:tabular-nums;white-space:nowrap}[data-sim="analises"] .hch svg{width:9px;height:9px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}[data-sim="analises"] .dbot{display:flex;justify-content:space-between;align-items:center;gap:6px}[data-sim="analises"] .efb{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:16px;padding:0 4px;border-radius:4px;font-size:10px;font-variant-numeric:tabular-nums;box-sizing:border-box}[data-sim="analises"] .tipd{display:none;position:absolute;z-index:8;top:calc(100% + 6px);width:230px;flex-direction:column;gap:7px;padding:10px 12px;border-radius:8px;background:#17191C;border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 28px -6px rgba(0,0,0,.85);font-size:12px;color:#C9CCD0}[data-sim="analises"] .dia:hover{border-color:rgba(255,255,255,.16) !important}[data-sim="analises"] .dia:hover .tipd{display:flex}[data-sim="analises"] .tipd .tt{font-size:11px;color:#8E939A;padding-bottom:2px}[data-sim="analises"] .tipd .rr{display:flex;align-items:center;gap:8px}[data-sim="analises"] .tipd .rr>span:nth-child(2){flex-grow:1}[data-sim="analises"] .tipd .tot{display:flex;justify-content:space-between;padding-top:7px;border-top:1px solid rgba(255,255,255,.07);color:#8E939A}[data-sim="analises"] .av{width:28px;height:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;letter-spacing:.04em;color:#D5D7DA;background:linear-gradient(160deg,#222428,#131417);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)}[data-sim="analises"] .av.av-s{width:18px;height:18px;clip-path:none;border-radius:4px}[data-sim="analises"] /* data-lg-css */
+.av:not(.av-p)[data-lg="WN"]{background:#131417 url(/sim/img/rede-WN.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="GG"]{background:#fff url(/sim/img/rede-GG.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="PS"]{background:#131417 url(/sim/img/rede-PS.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="CP"]{background:#fff url(/sim/img/rede-CP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="IP"]{background:#fff url(/sim/img/rede-IP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="WP"]{background:#fff url(/sim/img/rede-WP.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="88"]{background:#131417 url(/sim/img/rede-88.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="CH"]{background:#fff url(/sim/img/rede-CH.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="WPN"]{background:#fff url(/sim/img/rede-WPN.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="PP"]{background:#131417 url(/sim/img/rede-PP.png) center/78% no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="LX"]{background:#fff url(/sim/img/rede-LX.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="SK"]{background:#fff url(/sim/img/rede-SK.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av:not(.av-p)[data-lg="RV"]{background:#fff url(/sim/img/rede-RV.png) center/cover no-repeat;color:transparent !important;font-size:0}[data-sim="analises"] .av-w{width:28px !important;height:28px !important;border-radius:50% !important;clip-path:none !important}[data-sim="analises"] /* fim-lg */
+@keyframes simPan_analises{0%,18%{transform:translateY(0)}88%,100%{transform:translateY(var(--pan))}}@keyframes cronPulse_analises{0%,100%{opacity:1}50%{opacity:.35}}
+[data-sim="analises"] .tb{display:flex;align-items:center;gap:12px}
+[data-sim="analises"] .seg{display:inline-flex;gap:2px;padding:3px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:#08090A}
+[data-sim="analises"] .seg button{height:26px;padding:0 11px;white-space:nowrap;border:0;border-radius:7px;background:transparent;color:#8E939A;font-family:inherit;font-size:12.5px;cursor:pointer}
+[data-sim="analises"] .seg button.on{background:rgba(255,255,255,.08);color:#F3F4F5;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+[data-sim="analises"] .btn{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#101112,#08090A);color:#C9CCD0;font-family:inherit;font-size:13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);cursor:pointer;position:relative}
+[data-sim="analises"] .btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+[data-sim="analises"] .chip{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:transparent;color:#C9CCD0;font-family:inherit;font-size:13px;white-space:nowrap}
+[data-sim="analises"] .chip.on{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#F3F4F5}
+[data-sim="analises"] .chip svg{width:12px;height:12px;fill:none;stroke:#6B7077;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+[data-sim="analises"] .chip .x{color:#5A5F66;font-size:12px}
+[data-sim="analises"] .dot{width:6px;height:6px;border-radius:99px;background:#D9A441;display:inline-block}
+[data-sim="analises"] .rotc{font-size:11px;color:#6B7077;margin-bottom:6px;display:block}
+[data-sim="analises"] .campo{display:flex;flex-direction:column}
+[data-sim="analises"] .grade{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:12px;align-items:start}
+[data-sim="analises"] .tab{display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr));column-gap:12px}
+[data-sim="analises"] .tab .cab{display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:8px 8px 12px;text-align:right}
+[data-sim="analises"] .tab .cnome{font-family:var(--disp);font-size:calc(15px * var(--ds));text-transform:uppercase;letter-spacing:.05em;color:#F3F4F5;line-height:1}
+[data-sim="analises"] .tab .csub{font-size:11px;color:#6B7077;white-space:nowrap}
+[data-sim="analises"] .tab .grp{grid-column:1 / -1;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#80858C;padding:14px 0 6px}
+[data-sim="analises"] .tab .rot{display:flex;align-items:center;font-size:13px;color:#C9CCD0;border-top:1px solid rgba(255,255,255,.04);padding:9px 0}
+[data-sim="analises"] .tab .cel{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;border-top:1px solid rgba(255,255,255,.04);padding:7px 8px;min-height:30px}
+[data-sim="analises"] .tab .v{font-size:13px;color:#F3F4F5;font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:560}
+[data-sim="analises"] .tab .d{font-size:11px;color:#6B7077;font-variant-numeric:tabular-nums;white-space:nowrap}
+[data-sim="analises"] .marca{width:24px;height:8px;border-radius:3px;border:1px solid rgba(255,255,255,.1);display:inline-flex;align-items:center;justify-content:center;margin-top:2px}
+[data-sim="analises"] .leit{font-size:13.5px;line-height:1.6;color:#C9CCD0}
+[data-sim="analises"] .leit p{margin:0 0 10px}
+[data-sim="analises"] .leit h3{margin:14px 0 6px;font-size:13px;font-weight:600;color:#F3F4F5}
+[data-sim="analises"] .leit ul{margin:0;padding-left:18px}
+[data-sim="analises"] .leit li{margin:0 0 4px}
+[data-sim="analises"] .ganho{color:#52C0C7}
+[data-sim="analises"] .lgd2{display:flex;gap:16px;align-items:center;font-size:12px;color:#A4A8AF;margin-top:6px}
+[data-sim="analises"] .lgd2>span{display:inline-flex;align-items:center;gap:7px}
+</style>
+</helmet>
+<div data-sim="analises">
+<div class="{{mvCls}}" style="width: 1440px; height: 1600px; display: flex; background: #050506; color: #EDEEF0; font-family: 'Inter', sans-serif; font-optical-sizing: auto; font-feature-settings: 'cv11', 'ss01'; --time: {{corTime}}; --marca: 0.9; --disp: {{fDisp}}; --ds: {{dScale}}; --dcase: uppercase; --dvar: normal; --dtrack: 0.03em; --dlt: 0.09em; --dw: 400; position: relative; overflow: clip">
+  <div class="cs-luz" style="position: absolute; left: 120px; top: -360px; width: 1100px; height: 760px; background: radial-gradient(ellipse 50% 50% at 40% 50%, {{luz}}, rgba(0,0,0,0) 70%); pointer-events: none"></div>
+  <aside style="position: relative; height: 952px; align-self: flex-start; width: 208px; flex-shrink: 0; border-right: 1px solid rgba(255,255,255,.05); background: #060607; display: flex; overflow: hidden; flex-direction: column; padding: 16px 12px 12px; gap: 4px; box-sizing: border-box">
+    <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; bottom: 70px; width: 200px; height: 330px"></div>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 4px 6px 14px">
+      <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
+        <img src="/sim/img/lpt.png" alt="Loot Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
+      </div>
+      <div style="display: flex; flex-direction: column; min-width: 0">
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Loot Poker</span>
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Team</span>
+      </div>
+    </div>
+    <sc-for list="{{secoes}}" as="sec" hint-placeholder-count="3">
+      <div style="display: flex; flex-direction: column; gap: 1px">
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; font-weight: 500; color: #5B5F66; padding: 4px 10px 5px">
+          <span>{{sec.nome}}</span>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="{{sec.chev}}"><path d="m9 6 6 6-6 6"></path></svg>
+        </div>
+        <sc-for list="{{sec.itens}}" as="it" hint-placeholder-count="9">
+          <button type="button" class="cs-nav nvb" style="{{it.estilo}}" onClick="{{it.go}}"><span style="{{it.barra}}"></span><span style="display: flex; align-items: center; gap: 10px; min-width: 0"><svg viewBox="0 0 24 24" aria-hidden="true" style="{{it.ic}}"><path d="{{it.icd}}"></path></svg><span>{{it.nome}}</span></span><span style="{{it.tagSt}}">{{it.tag}}</span></button>
+        </sc-for>
+      </div>
+    </sc-for>
+    <div class="v5-faixa" style="position: absolute; left: 0; bottom: 0; width: 120px; height: 90px; overflow: hidden; pointer-events: none">
+      <div style="position: absolute; left: 30px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .55"></div>
+      <div style="position: absolute; left: 48px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .35"></div>
+      <div style="position: absolute; left: 66px; top: -20px; width: 2px; height: 140px; background: {{corTime}}; transform: skewX(-28deg); opacity: .18"></div>
+    </div>
+    <div style="flex-grow: 1"></div>
+    <div style="position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 0 2px 8px">
+      <button type="button" class="cs-nav nvb" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,.08); background: rgba(6,6,7,.85); font-size: 12px; color: #A4A8AF"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg>Отзыв</button>
+      <button type="button" class="cs-nav nvb" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,.08); background: rgba(6,6,7,.85); font-size: 12px; color: #A4A8AF"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"></path></svg>Помощь</button>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 5px; padding: 0 6px">
+      <img src="/sim/img/loot.png" alt="Loot" style="height: 11px; width: auto; opacity: .7; align-self: flex-start">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 10px; color: #4A4E55">v3.0.1</span>
+    </div>
+  </aside>
+  <main style="position: relative; flex-grow: 1; min-width: 0; display: flex; flex-direction: column; {{panSt}}">
+    <header style="height: 60px; flex-shrink: 0; padding: 0 28px; display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <button type="button" class="ib" aria-label="Свернуть меню"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"></rect><path d="M9 4.5v15"></path><path d="m15.5 10-2 2 2 2"></path></svg></button>
+        <h1 class="cs-disp" style="margin: 0; font-size: calc(22px * var(--ds)); line-height: 1">Аналитика</h1>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button type="button" class="ib" aria-label="Поиск"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg></button>
+        <button type="button" class="ib lt" aria-label="Кошелёк"><svg viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H17v3"></path><rect x="4" y="8" width="16" height="11" rx="2.5"></rect><path d="M15.5 13.5h1.5"></path></svg></button>
+        <div class="vsep"></div>
+        <button type="button" aria-label="Сессия идёт" style="height: 36px; padding: 0 12px 0 10px; border-radius: 9px; border: 1px solid rgba(82,192,199,.35); background: linear-gradient(180deg,#0A0A0B,#08090A); display: inline-flex; align-items: center; gap: 10px; color: #F3F4F5; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,.07); font-family: inherit">
+          <span style="animation: cronPulse_analises 1.6s ease-in-out infinite; width: 7px; height: 7px; border-radius: 999px; background: #52C0C7"></span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.04em; font-variant-numeric: tabular-nums">{{cron}}</span>
+          <span style="font-size: 11px; color: #80858C; border-left: 1px solid rgba(255,255,255,.08); padding-left: 10px">сессия</span>
+        </button>
+        <button type="button" class="ib" aria-label="Поиск ников"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"></circle><path d="M3.5 19c.8-3.2 3.4-5 6.5-5 1.2 0 2.3.3 3.2.8"></path><circle cx="17" cy="16" r="3"></circle><path d="M19.2 18.2 21 20"></path></svg></button>
+        <button type="button" class="ib" aria-label="Календарь команды"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></button>
+        <button type="button" class="ib lt" aria-label="Сообщения"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></button>
+        <button type="button" class="ib" aria-label="Уведомления"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg><span class="bdg">1</span></button>
+        <div class="vsep"></div>
+        <span style="font-size: 13px; font-weight: 500; letter-spacing: .04em; color: #C9CCD0; padding: 0 4px">RIVERKID</span>
+      </div>
+    </header>
+    <div style="height: 1px; margin: 0 28px; background: linear-gradient(90deg, {{corTime}} 0%, rgba(255,255,255,.06) 28%, rgba(255,255,255,.04) 100%); opacity: .9"></div>
+    <div class="col" style="flex-grow: 1; min-height: 0; padding: 18px 28px 28px; display: flex; flex-direction: column; gap: 12px">
+      <div class="tb" style="height: 40px">
+        <button type="button" class="ib" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+        <span class="av">RI</span>
+        <span class="cs-disp" style="font-size: calc(20px * var(--ds)); line-height: 1">RiverKid</span>
+        <span style="font-size: 11px; color: #52C0C7; border: 1px solid rgba(82,192,199,.35); background: rgba(82,192,199,.06); padding: 2px 8px; border-radius: 5px">Опубликовано</span>
+        <span style="font-size: 12px; color: #6B7077">v3 · опубликовано 01.10 · читают игрок и ещё 2 человека</span>
+        <div style="margin-left: auto; display: flex; gap: 8px">
+          <button type="button" class="btn"><svg viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5"></path></svg>Аудитория<span style="font-size: 11px; color: #050506; background: #F3F4F5; border-radius: 99px; padding: 0 6px; font-weight: 600">2</span></button>
+          <button type="button" class="btn"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2M3.5 12a8.5 8.5 0 1 0 2.5-6M3 4v4h4"></path></svg>Версии</button>
+          <button type="button" class="btn"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19.5h14"></path></svg>PNG</button>
+        </div>
+      </div>
+      <div class="tb" style="height: 34px">
+        <span style="font-size: 12px; color: #6B7077">Отчёт</span>
+        <span style="font-size: 13px; color: #F3F4F5; font-weight: 600; margin-right: 8px">Квартальный анализ (3 кв. 2026)</span>
+        <sc-for list="{{abas}}" as="a" hint-placeholder-count="4">
+          <span class="{{a.cls}}" style="height: 30px">{{a.nome}}<span class="x">×</span></span>
+        </sc-for>
+        <span class="chip" style="height: 30px; color: #A4A8AF">+ Вкладка</span>
+      </div>
+      <section class="cs-card cs-fade cd" style="flex-direction: row; align-items: flex-end; gap: 14px; padding: 14px 20px">
+        <span class="campo"><span class="rotc">Анализ</span><span class="seg"><button type="button" class="on">Сравнение</button><button type="button">Динамика</button><button type="button">По сегментам</button></span></span>
+        <span class="campo"><span class="rotc">Срез</span><span class="seg"><button type="button">Объём</button><button type="button" class="on">Даты</button></span></span>
+        <span class="campo"><span class="rotc">Столбцы (до 8)</span><span style="display: flex; gap: 8px">
+          <span class="chip on">Сентябрь <span style="color: #6B7077">эталон</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span>
+          <span class="chip">Август<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span>
+          <span class="chip">Июль<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span>
+          <span class="chip" style="color: #A4A8AF">+ столбец</span>
+        </span></span>
+        <span class="campo" style="margin-left: auto"><span class="rotc">Фильтр</span><span class="chip">Сети <b style="font-weight: 600; color: #F3F4F5">все</b><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span></span>
+        <span class="campo"><span class="rotc">В таблице</span><span class="chip">Строки <b style="font-weight: 600; color: #F3F4F5">23 из 23</b><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></span></span>
+      </section>
+      <div class="grade">
+        <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+          <section class="cs-card cs-fade cs-f2 cd">
+            <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Накопленный профит</span><span class="meta">по входам</span></div>
+            <svg viewBox="0 0 760 250" style="width: 100%; height: 250px; margin-top: 12px; overflow: visible">
+              <sc-for list="{{gradeY}}" as="y" hint-placeholder-count="4">
+                <line x1="54" x2="756" y1="{{y.y}}" y2="{{y.y}}" stroke="rgba(255,255,255,.06)"></line>
+                <text x="46" y="{{y.ty}}" fill="#5B5F66" font-size="11" text-anchor="end">{{y.t}}</text>
+              </sc-for>
+              <sc-for list="{{linhas}}" as="l" hint-placeholder-count="3">
+                <path d="{{l.d}}" fill="none" stroke="{{l.cor}}" stroke-width="{{l.w}}" stroke-dasharray="{{l.tr}}" stroke-linejoin="round" stroke-linecap="round"></path>
+              </sc-for>
+              <sc-for list="{{gradeX}}" as="x" hint-placeholder-count="5">
+                <text x="{{x.x}}" y="246" fill="#5B5F66" font-size="11" text-anchor="middle">{{x.t}}</text>
+              </sc-for>
+            </svg>
+            <div class="lgd2">
+              <sc-for list="{{legenda}}" as="g" hint-placeholder-count="3">
+                <span><svg width="24" height="4" viewBox="0 0 24 4"><line x1="0" y1="2" x2="24" y2="2" stroke="{{g.cor}}" stroke-width="{{g.w}}" stroke-dasharray="{{g.tr}}" stroke-linecap="round"></line></svg>{{g.nome}}</span>
+              </sc-for>
+            </div>
+          </section>
+          <section class="cs-card cs-fade cs-f3 cd">
+            <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Сравнение</span><span class="meta">цифры так, как они были сыграны</span></div>
+            <div class="tab" style="margin-top: 10px">
+              <span></span>
+              <sc-for list="{{cabs}}" as="c" hint-placeholder-count="3">
+                <div class="cab" style="{{c.st}}">
+                  <span class="cnome">{{c.nome}}</span>
+                  <span class="csub">{{c.sub}}</span>
+                  <span class="marca"><svg width="18" height="4" viewBox="0 0 18 4"><line x1="1" y1="2" x2="17" y2="2" stroke="{{c.cor}}" stroke-width="{{c.w}}" stroke-dasharray="{{c.tr}}" stroke-linecap="round"></line></svg></span>
+                  <span class="csub">{{c.ref}}</span>
+                </div>
+              </sc-for>
+              <sc-for list="{{grupos}}" as="g" hint-placeholder-count="5">
+                <span class="grp">{{g.nome}}</span>
+                <sc-for list="{{g.linhas}}" as="r" hint-placeholder-count="3">
+                  <span class="rot">{{r.nome}}</span>
+                  <sc-for list="{{r.cels}}" as="c" hint-placeholder-count="3">
+                    <span class="cel" style="{{c.st}}"><span class="v" style="{{c.vSt}}">{{c.v}}</span><span class="d">{{c.d}}</span></span>
+                  </sc-for>
+                </sc-for>
+              </sc-for>
+            </div>
+          </section>
+        </div>
+        <section class="cs-card cs-fade cs-f2 cd">
+          <div class="hd"><span class="cs-rot" style="font-size: calc(13px * var(--ds))">Разбор</span><span class="meta">сохранено</span></div>
+          <div class="leit" style="margin-top: 14px">
+            <p>Сентябрь стал лучшим месяцем квартала: <span class="ganho">+$11 200,00</span> на 262 входа, ROI 39,6%.</p>
+            <p>ABI вырос второй месяц подряд, с $97,80 в июле до $108,00, вместе с ним вырос и ITM. Две трети профита дали три крупных выигрыша, поэтому шанс на профит, 88%, говорит о месяце больше, чем ROI.</p>
+            <h3>На октябрь</h3>
+            <ul><li>Держать ABI между $100 и $110.</li><li>Больше финальных столов в воскресных турбо.</li></ul>
+          </div>
+          <span class="btn" style="align-self: flex-start; margin-top: 14px; height: 28px; font-size: 12px"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h8"></path></svg>Вставить текст с цифрами</span>
+        </section>
+      </div>
+    </div>
+  </main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"onNav":{"editor":null},"tour":{"editor":null},"pan":{"editor":null}, "$preview": {"width": 1440, "height": 1600}}'>
+class Component extends DCLogic {
+  _rv0() {
+    var self = this;
+    var COR = '#3EBBC3';
+    var CY = '#52C0C7', CO = '#E0766E', W = '#F3F4F5';
+    function br(v, d) { var s = Math.abs(v).toFixed(d === undefined ? 2 : d).split('.'); s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, '\u00a0'); return s.length > 1 ? s.join(',') : s[0]; }
+    function usd(v) { return (v < 0 ? '−$' : '+$') + br(v); }
+    function usdU(v) { return '$' + br(v); }
+    function sinal(v, txt) { return (v > 0 ? '+' : v < 0 ? '−' : '') + txt; }
+    // as três colunas: Setembro (a referência), Agosto e Julho
+    var COLS = [
+      { nome: 'Сентябрь', insc: 262, abi: 108, field: 1180, ses: 21, itm: 19.8, ft: 9, vit: 2, profit: 11200, chance: 88, bh: 3, bhp: 7400, cor: '#C9CCD0', w: 2.6, tr: '' },
+      { nome: 'Август', insc: 248, abi: 102.4, field: 1240, ses: 22, itm: 17.3, ft: 6, vit: 1, profit: 5860, chance: 79, bh: 2, bhp: 4100, cor: '#3EBBC3', w: 2, tr: '' },
+      { nome: 'Июль', insc: 231, abi: 97.8, field: 1310, ses: 20, itm: 16.1, ft: 5, vit: 0, profit: 2140, chance: 61, bh: 1, bhp: 1900, cor: '#7C5CD6', w: 2, tr: '5 4' }
+    ];
+    COLS.forEach(function (c) { c.total = c.insc * c.abi; c.roi = c.profit / c.total * 100; c.porInsc = c.profit / c.insc; c.porSes = c.insc / c.ses; });
+    var R = COLS[0];
+    // tipo: d = dinheiro, i = inteiro, p = %, r = resultado (cor pelo sinal), x = decimal
+    function cel(tipo, v, ref, i, extra) {
+      var vt = tipo === 'r' ? usd(v) : tipo === 'd' ? usdU(v) : tipo === 'p' || tipo === 'pr' ? br(v, 1) + '%' : tipo === 'x' ? br(v, 1) : br(v, 0);
+      var d = ' ';
+      if (i > 0) {
+        var df = v - ref;
+        if (tipo === 'p' || tipo === 'pr') d = sinal(df, br(df, 1) + ' п.п.');
+        else if (tipo === 'r' || tipo === 'd') d = sinal(df, '$' + br(df)) + ' · ' + sinal(df, br(df / Math.abs(ref) * 100, 1) + '%');
+        else d = sinal(df, br(df, tipo === 'x' ? 1 : 0)) + ' · ' + sinal(df, br(df / Math.abs(ref) * 100, 1) + '%');
+      } else if (extra) d = extra;
+      var cor = tipo === 'r' || tipo === 'pr' ? (v > 0 ? CY : v < 0 ? CO : W) : W;
+      return { v: vt, d: d, vSt: 'color: ' + cor, st: '' };
+    }
+    function linha(nome, tipo, f, extra) {
+      return { nome: nome, cels: COLS.map(function (c, i) { return cel(tipo, f(c), f(R), i, extra ? extra(c) : null); }) };
+    }
+    var grupos = [
+      { nome: 'Инвестиции', linhas: [linha('Бай-ины всего', 'd', function (c) { return c.total; }), linha('ABI', 'd', function (c) { return c.abi; }), linha('Avg Field', 'i', function (c) { return c.field; })] },
+      { nome: 'Сессии', linhas: [linha('Сессии', 'i', function (c) { return c.ses; }), linha('Входы за сессию', 'x', function (c) { return c.porSes; })] },
+      { nome: 'Глубина', linhas: [linha('ITM', 'p', function (c) { return c.itm; }), linha('Финальные столы', 'i', function (c) { return c.ft; }), linha('Победы', 'i', function (c) { return c.vit; })] },
+      { nome: 'Результат', linhas: [linha('Профит', 'r', function (c) { return c.profit; }), linha('ROI', 'pr', function (c) { return c.roi; }), linha('$/inscrição', 'r', function (c) { return c.porInsc; })] },
+      { nome: 'Стабильность', linhas: [linha('Шанс профита', 'p', function (c) { return c.chance; }), linha('Крупные выигрыши', 'i', function (c) { return c.bh; }), linha('Профит от крупных выигрышей', 'r', function (c) { return c.bhp; })] }
+    ];
+    // a vitrine da iluminação: a célula do ROI de setembro acesa em verde
+    var roiSet = grupos[3].linhas[1].cels[0];
+    roiSet.st = 'background: color-mix(in srgb, #74C365 16%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, #74C365 70%, transparent); border-radius: 6px';
+    var cabs = COLS.map(function (c, i) {
+      return { nome: c.nome, cor: c.cor, w: c.w, tr: c.tr, ref: i === 0 ? 'эталон' : ' ', st: '',
+        sub: br(c.insc, 0) + ' ' + ((c.insc % 10 === 1 && c.insc % 100 !== 11) ? 'вход' : (c.insc % 10 >= 2 && c.insc % 10 <= 4 && (c.insc % 100 < 12 || c.insc % 100 > 14)) ? 'входа' : 'входов') + (i > 0 ? ' · ' + br(c.insc / R.insc * 100, 0) + '% от эталона' : '') };
+    });
+    // as curvas do profit acumulado, por inscrição (os big hits em degraus)
+    var X0 = 54, X1 = 756, Y0 = 222, Y1 = 10, LO = -2000, HI = 12000, NMAX = 262;
+    function px(n) { return X0 + n / NMAX * (X1 - X0); }
+    function py(v) { return Y0 - (v - LO) / (HI - LO) * (Y0 - Y1); }
+    var SALTOS = [[[64, 2600], [151, 3100], [214, 1700]], [[98, 2400], [190, 1700]], [[171, 1900]]];
+    var linhas = COLS.map(function (c, ci) {
+      var bruto = [0], v = 0;
+      for (var n = 1; n <= c.insc; n++) {
+        v += -c.abi * 0.55 + Math.sin(n * 0.37 + ci) * c.abi * 0.9 + (n % 23 === 0 ? c.abi * 4 : 0);
+        SALTOS[ci].forEach(function (s) { if (s[0] === n) v += s[1]; });
+        bruto.push(v);
+      }
+      var fim = bruto[c.insc];
+      var pts = bruto.map(function (b, n) { return [px(n), py(b + (c.profit - fim) * n / c.insc)]; });
+      return { d: pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' '), cor: c.cor, w: c.w, tr: c.tr };
+    });
+    var gradeY = [0, 4000, 8000, 12000].map(function (v) { return { y: py(v).toFixed(1), ty: (py(v) + 4).toFixed(1), t: v ? '$' + br(v / 1000, 0) + 'k' : '$0' }; });
+    var gradeX = [0, 50, 100, 150, 200, 262].map(function (n) { return { x: px(n).toFixed(1), t: String(n) }; });
+    var legenda = COLS.map(function (c) { return { nome: c.nome, cor: c.cor, w: c.w, tr: c.tr }; });
+    var abas = [
+      { nome: 'Сравнение', cls: 'chip on' }, { nome: 'Динамика', cls: 'chip' }, { nome: 'По скорости', cls: 'chip' }, { nome: 'По сетям', cls: 'chip' }
+    ];
+    function go(id) { return function () { if (self.props.onNav) self.props.onNav(id); }; }
+    function nada() {}
+    var NAV = [
+      { nome: 'Руководитель', aberta: true, itens: [['Команда', 'time'], ['Менеджмент', 'gestao'], ['Финансы', 'financeiro'], ['Report', 'report'], ['Тренеры'], ['Игроки'], ['Транзакции'], ['Performance', null, 1], ['Турниры'], ['Аналитика', 'analises'], ['Сетки', null, 1], ['Настройки']] },
+      { nome: 'Тренер', aberta: false, itens: [] },
+      { nome: 'Игрок', aberta: true, itens: [['Дашборд', 'dashboard'], ['Мой учёт', 'folha'], ['Report'], ['Schedule', 'schedule', 1], ['Stats', 'stats', 1], ['Eq&ty'], ['Hands'], ['Performance', 'performance', 1], ['Турниры'], ['Аналитика'], ['Транзакции']] }
+    ];
+    var ICP = {
+      'Команда': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
+      'Менеджмент': 'M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4',
+      'Финансы': 'M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H3zM3 7l12-3v3M16 14h2',
+      'Тренеры': 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
+      'Игроки': 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5',
+      'Транзакции': 'M4 8h14l-4-4M20 16H6l4 4',
+      'Performance': 'M3 17l6-6 4 4 8-8M15 7h6v6',
+      'Турниры': 'M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20.5h7',
+      'Сетки': 'M4 5h16v15H4zM4 10h16M9 5v15M15 5v15',
+      'Настройки': 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      'Дашборд': 'M3.5 3.5h7v9h-7zM13.5 3.5h7v5h-7zM13.5 11.5h7v9h-7zM3.5 15.5h7v5h-7z',
+      'Мой учёт': 'M6 3.5h9l3 3v14H6zM9 11h6M9 15h6',
+      'Schedule': 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 3',
+      'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+      'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3',
+      'Report': 'M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1zM21.21 15.89A10 10 0 1 1 8 2.83',
+      'Аналитика': 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7ZM14 2v4a2 2 0 0 0 2 2h4M8 18v-1M12 18v-6M16 18v-3'
+    };
+    function ICD(nm) { return ICP[nm] || 'M12 12h0'; }
+    function ICO(nm) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }
+    var ATIVO = 'Руководитель:Аналитика';
+    var secoes = NAV.map(function (s) {
+      return {
+        nome: s.nome,
+        chev: 'transform: rotate(' + (s.aberta ? 90 : 0) + 'deg); opacity: .8',
+        itens: s.itens.map(function (it) {
+          var at = (s.nome + ':' + it[0]) === ATIVO;
+          return {
+            nome: it[0], ic: ICO(it[0]), icd: ICD(it[0]), go: it[1] ? go(it[1]) : nada,
+            tag: it[2] ? 'BETA' : '',
+            tagSt: it[2] ? 'font-size: 9px; font-weight: 600; letter-spacing: .06em; line-height: 12px; padding: 1px 5px; border-radius: 4px; color: #D9A441; border: 1px solid rgba(217,164,65,.4); background: rgba(217,164,65,.06)' : 'display: none',
+            barra: at ? 'position: absolute; left: -10px; top: 7px; bottom: 7px; width: 3px; border-radius: 2px; background: ' + COR : 'display: none',
+            estilo: 'display: flex; align-items: center; justify-content: space-between; height: 29px; padding: 0 10px; border-radius: 8px; font-size: 13px; ' + (at ? 'color: #EDEEF0; background: rgba(255,255,255,.07); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);' : 'color: #A4A8AF;')
+          };
+        })
+      };
+    });
+
+    return {
+      mvCls: 'mv v6n',
+      corTime: COR,
+      fDisp: "'Pathway Gothic One', 'Oswald', sans-serif",
+      dScale: 1.32,
+      luz: 'rgba(62,187,195,0.110)',
+      secoes: secoes,
+      abas: abas, cabs: cabs, grupos: grupos, linhas: linhas, gradeY: gradeY, gradeX: gradeX, legenda: legenda,
+    };
+  }
+  renderVals() {
+    var o = this._rv0() || {};
+    var g = typeof window !== 'undefined' ? window : {};
+    if (!g.__lootSessaoT0) g.__lootSessaoT0 = Date.now();
+    var seg = 3734 + Math.floor((Date.now() - g.__lootSessaoT0) / 1000);
+    var p2 = function (n) { return (n < 10 ? '0' : '') + n; };
+    o.cron = p2(Math.floor(seg / 3600)) + ':' + p2(Math.floor(seg / 60) % 60) + ':' + p2(seg % 60);
+    var pan = Math.max(0, Number(this.props.pan) || 0);
+    o.panSt = this.props.tour && pan > 0 ? 'animation: simPan 7s cubic-bezier(.45,0,.2,1) both; --pan: -' + pan + 'px' : 'transform: translateY(var(--off, 0px))';
+    return o;
+  }
+  componentDidMount() {
+    if (this._cdm0) this._cdm0();
+    var self = this;
+    this.__relogio = setInterval(function () { self.forceUpdate(); }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.__relogio);
+    if (this._cwu0) this._cwu0();
+  }
+}
+</script>
+</body>
+</html>

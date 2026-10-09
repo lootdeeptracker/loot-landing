@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual del coach · Loot</title>
+  <meta name="description" content="Cómo usa Loot el coach: dashboard, clases, informes, jugadores, la regla de las stats y los límites de lo que ve." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, inicio"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html">Jugador</a>
+        <a class="lnk" href="./manual-coach.html" aria-current="page">Coach</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Importación</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Idioma"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Idioma">ES</summary><div class="lista"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Entrar</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">DOCUMENTACIÓN</span><i></i><span>Coach</span></p>
+    <h1 class="dp">Manual del coach</h1>
+    <p class="intro">Ves y trabajas solo con los jugadores que te asignaron. Los jugadores de afuera no aparecen en ninguna de tus pantallas, y no ves el dinero del equipo. Tu menú tiene <strong>Dashboard</strong>, <strong>Jugadores</strong>, <strong>Torneos</strong>, <strong>Grillas</strong> y <strong>Performance</strong>.</p>
+
+    <h2 class="rot">Tu pantalla</h2>
+
+    <article class="card guia">
+      <h3>Dashboard</h3>
+      <p>Tu pantalla de entrada. Cuatro bloques:</p>
+      <ul>
+        <li><strong>Cola de atención:</strong> quién te necesita hoy.</li>
+        <li><strong>Ranking (overall):</strong> tus jugadores por nota.</li>
+        <li><strong>Datos desactualizados:</strong> quién dejó de subir manos o torneos.</li>
+        <li><strong>Calendario:</strong> solicitudes de clase pendientes y las próximas clases confirmadas.</li>
+      </ul>
+    </article>
+
+    <h2 class="rot">Clases</h2>
+
+    <article class="card guia">
+      <h3>Publicar tus horarios</h3>
+      <ol>
+        <li>En el Dashboard, haz clic en la tarjeta <strong>Calendario</strong>.</li>
+        <li>Haz clic en <strong>Mi disponibilidad</strong>.</li>
+        <li>Elige los días y haz clic en <strong>Añadir franja</strong> para cada horario libre.</li>
+        <li>Guarda.</li>
+      </ol>
+      <p>Puedes marcar varios días a la vez con <strong>Lun a Vie</strong>.</p>
+      <div class="fecho">
+        Mientras no publiques horarios, el jugador no tiene dónde hacer clic para agendar.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Confirmar una clase</h3>
+      <p><strong>Quien agenda es el jugador.</strong> Elige uno de tus horarios libres y la solicitud te llega a ti.</p>
+      <ol>
+        <li>En el calendario, abre la clase.</li>
+        <li>Haz clic en <strong>Confirmar</strong> o <strong>Rechazar</strong>.</li>
+      </ol>
+      <p>Para cambiar el horario: <strong>Proponer nuevo horario</strong>. La otra parte responde con <strong>Aceptar</strong> o <strong>Rechazar</strong>. También existen <strong>Cancelar propuesta</strong> y <strong>Cancelar clase</strong>.</p>
+      <div class="fecho">
+        Cada paso notifica a los dos lados.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Registrar la clase dada</h3>
+      <div class="aviso">
+        <strong>Tú eres la fuente de la verdad.</strong> El jugador no marca asistencia.
+      </div>
+      <ol>
+        <li>Abre la clase en el calendario.</li>
+        <li>En el bloque <strong>¿Se dio la clase?</strong>, haz clic en <strong>Se hizo</strong>, <strong>Con retraso</strong> o <strong>No asistió</strong>.</li>
+      </ol>
+      <div class="fecho">
+        La clase cuenta en su propio día, no en el día en que la confirmaste.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Completar el informe</h3>
+      <ol>
+        <li>En la misma clase, haz clic en <strong>Informe de la clase</strong>.</li>
+        <li>Completa <strong>Tu informe</strong>.</li>
+        <li>Haz clic en <strong>Guardar informe</strong>. Para cambiarlo después, usa <strong>Editar</strong>.</li>
+      </ol>
+      <p>La plantilla cambia según el vínculo: técnico o mental.</p>
+      <div class="aviso">
+        <strong>El jugador ve solo el lado constructivo:</strong> tema, foco de la siguiente, evolución y la grabación de su clase. La evaluación cruda, las notas internas y el estado mental quedan contigo y con la gestión.
+      </div>
+      <div class="fecho">
+        Un jugador puede tener un coach técnico y uno mental al mismo tiempo. Cada clase hereda el tipo del vínculo.
+      </div>
+    </article>
+
+    <h2 class="rot">Tus jugadores</h2>
+
+    <article class="card guia">
+      <h3>Seguir a los jugadores</h3>
+      <ul>
+        <li><strong>Jugadores:</strong> las tarjetas de los tuyos, con nivel, ABI, rendimiento de 30 días y las notas. Cada tarjeta tiene atajos a las stats, el registro, el dashboard y los torneos de ese jugador.</li>
+        <li><strong>Torneos:</strong> el agregado de torneos, solo de los tuyos.</li>
+        <li><strong>Performance:</strong> ROI real, ROI forense y el análisis de edge, solo de los tuyos.</li>
+      </ul>
+    </article>
+
+    <article class="card guia">
+      <h3>Ajustar la regla de las stats</h3>
+      <p>La nota de cada estadística sale de un rango ideal, y lo defines tú.</p>
+      <ol>
+        <li>En el Dashboard, haz clic en <strong>Config Stats</strong>.</li>
+        <li>Elige el nivel.</li>
+        <li>Ajusta el rango ideal de cada stat, y su <strong>peso</strong>.</li>
+      </ol>
+      <p><strong>El peso decide cuánto tira la stat de la nota y cuánto sube en la lista de "Enfocarte en".</strong> El peso por defecto es 1, todas pesan igual. Un peso mayor es decir que esa stat importa más para el nivel de ese jugador.</p>
+      <p>El peso no cambia el rango ideal. Cambia solo cuánto cuenta en el total.</p>
+      <div class="fecho">
+        Puedes sobrescribir la regla para un jugador específico.
+      </div>
+    </article>
+
+    <h2 class="rot">Comunicación y límites</h2>
+
+    <article class="card guia">
+      <h3>Enviar un mensaje</h3>
+      <p>Envías un mensaje interno, y llega <strong>solo a tus jugadores</strong>. Un coach nunca llega a todo el equipo.</p>
+      <div class="fecho">
+        El envío está en <strong>Notificaciones</strong>, en la pestaña <strong>Mensajes</strong>.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Lo que no ves</h3>
+      <p>El capital del equipo, las billeteras, los costos, los pagos a jugadores y el registro de quien no es tuyo.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science y gestión para equipos de poker</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Producto</strong><a class="lnk" href="./index.html#produto">Por dentro</a><a class="lnk" href="./index.html#recursos">Recursos</a><a class="lnk" href="https://app.lootdeep.com">Entrar</a></div>
+        <div><strong>Manuales</strong><a class="lnk" href="./manual-jogador.html">Jugador</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Importación de datos</a></div>
+        <div><strong>Contacto</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

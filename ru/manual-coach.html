@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Руководство тренера · Loot</title>
+  <meta name="description" content="Как тренер пользуется Loot: дашборд, занятия, отчёты, игроки, шкала статов и границы того, что он видит." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&amp;display=swap" />
+  <style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Главное">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, главная"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html">Игрок</a>
+        <a class="lnk" href="./manual-coach.html" aria-current="page">Тренер</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Импорт</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Язык"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Язык">RU</summary><div class="lista"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Войти</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">ДОКУМЕНТАЦИЯ</span><i></i><span>Тренер</span></p>
+    <h1 class="dp">Руководство тренера</h1>
+    <p class="intro">Вы видите и работаете только с игроками, закреплёнными за вами. Игроки вне вашей группы не появляются ни на одном вашем экране, и деньги команды вы не видите. В вашем меню: <strong>Дашборд</strong>, <strong>Игроки</strong>, <strong>Турниры</strong>, <strong>Сетки</strong> и <strong>Performance</strong>.</p>
+
+    <h2 class="rot">Ваш экран</h2>
+
+    <article class="card guia">
+      <h3>Дашборд</h3>
+      <p>Ваш стартовый экран. Четыре блока:</p>
+      <ul>
+        <li><strong>Требуют внимания:</strong> кому вы нужны сегодня.</li>
+        <li><strong>Рейтинг (overall):</strong> ваши игроки по оценке.</li>
+        <li><strong>Устаревшие данные:</strong> кто перестал загружать раздачи или турниры.</li>
+        <li><strong>Календарь:</strong> ожидающие запросы на занятия и ближайшие подтверждённые занятия.</li>
+      </ul>
+    </article>
+
+    <h2 class="rot">Занятия</h2>
+
+    <article class="card guia">
+      <h3>Опубликовать своё время</h3>
+      <ol>
+        <li>На дашборде нажмите на карточку <strong>Календарь</strong>.</li>
+        <li>Нажмите <strong>Моя доступность</strong>.</li>
+        <li>Выберите дни и для каждого свободного времени нажмите <strong>Добавить интервал</strong>.</li>
+        <li>Сохраните.</li>
+      </ol>
+      <p>Можно отметить сразу несколько дней кнопкой <strong>Пн-Пт</strong>.</p>
+      <div class="fecho">
+        Пока вы не опубликуете время, игроку негде нажать, чтобы записаться.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Подтвердить занятие</h3>
+      <p><strong>Записывается игрок.</strong> Он выбирает одно из ваших свободных времён, и запрос приходит вам.</p>
+      <ol>
+        <li>В календаре откройте занятие.</li>
+        <li>Нажмите <strong>Подтвердить</strong> или <strong>Отклонить</strong>.</li>
+      </ol>
+      <p>Чтобы изменить время: <strong>Предложить новое время</strong>. Другая сторона отвечает <strong>Принять</strong> или <strong>Отклонить</strong>. Есть также <strong>Отозвать предложение</strong> и <strong>Отменить занятие</strong>.</p>
+      <div class="fecho">
+        Каждый шаг уведомляет обе стороны.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Отметить проведённое занятие</h3>
+      <div class="aviso">
+        <strong>Источник правды это вы.</strong> Игрок посещаемость не отмечает.
+      </div>
+      <ol>
+        <li>Откройте занятие в календаре.</li>
+        <li>В блоке <strong>Занятие состоялось?</strong> нажмите <strong>Состоялось</strong>, <strong>Опоздание</strong> или <strong>Не пришёл</strong>.</li>
+      </ol>
+      <div class="fecho">
+        Занятие считается по своему дню, а не по дню, когда вы его подтвердили.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Заполнить отчёт</h3>
+      <ol>
+        <li>В том же занятии нажмите <strong>Отчёт о занятии</strong>.</li>
+        <li>Заполните <strong>Ваш отчёт</strong>.</li>
+        <li>Нажмите <strong>Сохранить отчёт</strong>. Чтобы изменить позже, используйте <strong>Изменить</strong>.</li>
+      </ol>
+      <p>Шаблон зависит от связки: технический или ментальный.</p>
+      <div class="aviso">
+        <strong>Игрок видит только конструктивную часть:</strong> тему, фокус следующего занятия, прогресс и запись своего занятия. Прямая оценка, внутренние заметки и ментальное состояние остаются у вас и у менеджмента.
+      </div>
+      <div class="fecho">
+        У игрока могут быть одновременно технический и ментальный тренер. Каждое занятие наследует тип связки.
+      </div>
+    </article>
+
+    <h2 class="rot">Ваши игроки</h2>
+
+    <article class="card guia">
+      <h3>Следить за игроками</h3>
+      <ul>
+        <li><strong>Игроки:</strong> карточки ваших игроков с уровнем, ABI, результатом за 30 дней и заметками. В каждой карточке есть быстрые ссылки на статы, учёт, дашборд и турниры этого игрока.</li>
+        <li><strong>Турниры:</strong> сводка по турнирам, только по вашим игрокам.</li>
+        <li><strong>Performance:</strong> реальный ROI, форензик-ROI и анализ edge, только по вашим игрокам.</li>
+      </ul>
+    </article>
+
+    <article class="card guia">
+      <h3>Настроить шкалу статов</h3>
+      <p>Оценка каждого стата берётся из идеального диапазона, и задаёте его вы.</p>
+      <ol>
+        <li>На дашборде нажмите <strong>Настройки статов</strong>.</li>
+        <li>Выберите уровень.</li>
+        <li>Настройте идеальный диапазон каждого стата и его <strong>вес</strong>.</li>
+      </ol>
+      <p><strong>Вес определяет, насколько стат влияет на оценку и насколько высоко он поднимается в списке «Над чем работать».</strong> Вес по умолчанию равен 1, все статы весят одинаково. Больший вес значит, что для уровня этого игрока данный стат важнее.</p>
+      <p>Вес не меняет идеальный диапазон. Он меняет только то, сколько стат значит в общей оценке.</p>
+      <div class="fecho">
+        Шкалу можно переопределить для конкретного игрока.
+      </div>
+    </article>
+
+    <h2 class="rot">Общение и границы</h2>
+
+    <article class="card guia">
+      <h3>Отправить сообщение</h3>
+      <p>Вы отправляете внутреннее сообщение, и оно доходит <strong>только до ваших игроков</strong>. Тренер никогда не доходит до всей команды.</p>
+      <div class="fecho">
+        Отправка находится в разделе <strong>Уведомления</strong>, на вкладке <strong>Сообщения</strong>.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Чего вы не видите</h3>
+      <p>Капитал команды, кошельки, расходы, выплаты и учёт тех, кто не ваш игрок.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science и управление для покерных команд</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Продукт</strong><a class="lnk" href="./index.html#produto">Что внутри</a><a class="lnk" href="./index.html#recursos">Возможности</a><a class="lnk" href="https://app.lootdeep.com">Войти</a></div>
+        <div><strong>Руководства</strong><a class="lnk" href="./manual-jogador.html">Игрок</a><a class="lnk" href="./manual-coach.html">Тренер</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Импорт данных</a></div>
+        <div><strong>Контакты</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

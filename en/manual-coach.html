@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coach manual · Loot</title>
+  <meta name="description" content="How coaches use Loot: dashboard, lessons, reports, players, the stats ruler and the limits of what they see." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, home"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html">Player</a>
+        <a class="lnk" href="./manual-coach.html" aria-current="page">Coach</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Import</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Language"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Language">EN</summary><div class="lista"><a href="/manual-coach.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-coach.html" hreflang="en" lang="en" data-idioma="en" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-coach.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-coach.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Sign in</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">DOCUMENTATION</span><i></i><span>Coach</span></p>
+    <h1 class="dp">Coach manual</h1>
+    <p class="intro">You see and work only with the players assigned to you. Players outside your group don't appear on any of your screens, and you don't see the team's money. Your menu has <strong>Dashboard</strong>, <strong>Players</strong>, <strong>Tournaments</strong>, <strong>Lineups</strong> and <strong>Performance</strong>.</p>
+
+    <h2 class="rot">Your screen</h2>
+
+    <article class="card guia">
+      <h3>Dashboard</h3>
+      <p>Your landing screen. Four blocks:</p>
+      <ul>
+        <li><strong>Needs attention:</strong> who needs you today.</li>
+        <li><strong>Ranking (overall):</strong> your players by score.</li>
+        <li><strong>Outdated data:</strong> who stopped uploading hands or tournaments.</li>
+        <li><strong>Calendar:</strong> pending lesson requests and the next confirmed lessons.</li>
+      </ul>
+    </article>
+
+    <h2 class="rot">Lessons</h2>
+
+    <article class="card guia">
+      <h3>Publish your hours</h3>
+      <ol>
+        <li>On the Dashboard, click the <strong>Calendar</strong> card.</li>
+        <li>Click <strong>My availability</strong>.</li>
+        <li>Pick the days and click <strong>Add window</strong> for each free slot.</li>
+        <li>Save.</li>
+      </ol>
+      <p>You can mark several days at once with <strong>Mon to Fri</strong>.</p>
+      <div class="fecho">
+        Until you publish hours, the player has nowhere to click to book.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Confirm a lesson</h3>
+      <p><strong>The player books.</strong> They pick one of your free slots and the request comes to you.</p>
+      <ol>
+        <li>On the calendar, open the lesson.</li>
+        <li>Click <strong>Confirm</strong> or <strong>Decline</strong>.</li>
+      </ol>
+      <p>To change the time: <strong>Propose a new time</strong>. The other side answers with <strong>Accept</strong> or <strong>Decline</strong>. There are also <strong>Cancel proposal</strong> and <strong>Cancel lesson</strong>.</p>
+      <div class="fecho">
+        Every step notifies both sides.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Record the lesson you gave</h3>
+      <div class="aviso">
+        <strong>You are the source of truth.</strong> The player doesn't mark attendance.
+      </div>
+      <ol>
+        <li>Open the lesson on the calendar.</li>
+        <li>In the <strong>Did the lesson happen?</strong> block, click <strong>Happened</strong>, <strong>Late</strong> or <strong>Absent</strong>.</li>
+      </ol>
+      <div class="fecho">
+        The lesson counts on its own day, not the day you confirmed it.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Fill in the report</h3>
+      <ol>
+        <li>On the same lesson, click <strong>Lesson report</strong>.</li>
+        <li>Fill in <strong>Your report</strong>.</li>
+        <li>Click <strong>Save report</strong>. To change it later, use <strong>Edit</strong>.</li>
+      </ol>
+      <p>The template changes with the link: technical or mental.</p>
+      <div class="aviso">
+        <strong>The player only sees the constructive side:</strong> topic, focus for the next lesson, progress and the recording of their lesson. Raw evaluation, internal notes and mental state stay with you and with management.
+      </div>
+      <div class="fecho">
+        A player can have a technical coach and a mental coach at the same time. Each lesson inherits the type of the link.
+      </div>
+    </article>
+
+    <h2 class="rot">Your players</h2>
+
+    <article class="card guia">
+      <h3>Follow your players</h3>
+      <ul>
+        <li><strong>Players:</strong> cards for your players, with level, ABI, 30-day performance and notes. Each card has shortcuts to that player's stats, ledger, dashboard and tournaments.</li>
+        <li><strong>Tournaments:</strong> the tournament aggregate, only for your players.</li>
+        <li><strong>Performance:</strong> real ROI, forensic ROI and the edge analysis, only for your players.</li>
+      </ul>
+    </article>
+
+    <article class="card guia">
+      <h3>Adjust the stats ruler</h3>
+      <p>Each stat's score comes from an ideal range, and you define it.</p>
+      <ol>
+        <li>On the Dashboard, click <strong>Stats settings</strong>.</li>
+        <li>Pick the level.</li>
+        <li>Adjust each stat's ideal range, and its <strong>weight</strong>.</li>
+      </ol>
+      <p><strong>The weight decides how much the stat pulls the score and how high it rises in the "Focus on" list.</strong> The default weight is 1, so everything counts the same. A higher weight is you saying that stat matters more for that player's level.</p>
+      <p>Weight doesn't change the ideal range. It only changes how much it counts in the total.</p>
+      <div class="fecho">
+        You can override the ruler for a specific player.
+      </div>
+    </article>
+
+    <h2 class="rot">Communication and limits</h2>
+
+    <article class="card guia">
+      <h3>Send a message</h3>
+      <p>You send an internal message, and it reaches <strong>only your players</strong>. A coach never reaches the whole team.</p>
+      <div class="fecho">
+        Sending is under <strong>Notifications</strong>, in the <strong>Messages</strong> tab.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>What you don't see</h3>
+      <p>Team capital, wallets, costs, payouts and the ledger of anyone who isn't yours.</p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science and management for poker teams</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Product</strong><a class="lnk" href="./index.html#produto">Inside</a><a class="lnk" href="./index.html#recursos">Features</a><a class="lnk" href="https://app.lootdeep.com">Sign in</a></div>
+        <div><strong>Guides</strong><a class="lnk" href="./manual-jogador.html">Player</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Data import</a></div>
+        <div><strong>Contact</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Руководство игрока · Loot</title>
+  <meta name="description" content="Как игрок пользуется Loot: ники, сессия, учёт, импорт, деньги, занятия, сетка и аналитика." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&amp;display=swap" />
+  <style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Главное">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, главная"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html" aria-current="page">Игрок</a>
+        <a class="lnk" href="./manual-coach.html">Тренер</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html">Импорт</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Язык"><a href="/manual-jogador.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/manual-jogador.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/manual-jogador.html" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/manual-jogador.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Язык">RU</summary><div class="lista"><a href="/manual-jogador.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/manual-jogador.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/manual-jogador.html" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/manual-jogador.html" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Войти</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">ДОКУМЕНТАЦИЯ</span><i></i><span>Игрок</span></p>
+    <h1 class="dp">Руководство игрока</h1>
+    <p class="intro">Вы видите только свои данные. Деньги команды вам не показываются. В вашем меню: Дашборд, Мой учёт, Schedule, Stats, Performance, Турниры и Транзакции. Колокольчик сверху: это ваши уведомления, а <strong>Мой профиль</strong> находится под вашим именем, в верхнем углу.</p>
+
+    <h2 class="rot">Начните здесь</h2>
+
+    <article class="card guia">
+      <h3>Добавьте свои ники</h3>
+      <ol>
+        <li>Нажмите на своё имя сверху и откройте <strong>Мой профиль</strong>.</li>
+        <li>Перейдите в <strong>Мои ники в сетях</strong>.</li>
+        <li>Впишите свой ник для каждой сети, символ в символ, как он записан в сети.</li>
+        <li>Нажмите <strong>Сохранить ники</strong>.</li>
+      </ol>
+      <p><strong>Неверный ник значит турниры, которых нет в вашей аналитике.</strong> Loot по нику определяет, что турнир ваш. Скопируйте ник из сети и вставьте сюда. Не печатайте по памяти.</p>
+      <ul>
+        <li>подчёркивание, дефис и точка это разные символы: <code>Alfa_Um</code> не равно <code>Alfa-Um</code></li>
+        <li>диакритика важна: <code>Águia</code> не равно <code>Aguia</code></li>
+        <li>ноль не буква O: <code>Sh0ve</code> не равно <code>Shove</code></li>
+        <li>пробел внутри важен: <code>Ficha Azul</code> не равно <code>FichaAzul</code></li>
+        <li>заглавные и строчные: пишите так, как в сети</li>
+      </ul>
+      <div class="fecho">
+        Заодно заполните <strong>Мои кошельки</strong>: валюты, которыми вы пользуетесь, и адрес кошелька. Менеджеру нужен этот адрес, чтобы отправить вам деньги.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Настройте сессию</h3>
+      <div class="aviso">
+        <strong>Без неё импортировать ничего не получится.</strong> При первом открытии раздела «Турниры» экран застревает на сообщении: <em>«Настройте сессию, чтобы увидеть свои турниры»</em>. Закрыть его или пропустить нельзя.
+      </div>
+      <ol>
+        <li>Перейдите в <strong>Турниры</strong>.</li>
+        <li>Нажмите <strong>Сессия</strong> вверху экрана.</li>
+        <li>В поле <strong>Начало сессии</strong> введите время, когда вы садитесь играть.</li>
+        <li>Проверьте <strong>Ваш часовой пояс</strong>. Он определяется сам. Если он неверный, нажмите <strong>изменить</strong>.</li>
+        <li>Нажмите <strong>Сохранить</strong>.</li>
+      </ol>
+      <p><strong>Что делает это время.</strong> По нему Loot решает, в какой день попадает каждый турнир. Ваша сессия идёт от выбранного времени до того же времени на следующий день.</p>
+      <p>Если вы указали 14:00, турнир в 02:00 ночи со вторника на среду попадёт в сессию понедельника, потому что вы всё ещё в сессии, которая началась в 14:00 в понедельник. Так полночь перестаёт разрезать вашу ночь на два дня.</p>
+      <p><strong>Укажите самое раннее время, когда вы садитесь играть.</strong> Это нижняя граница, а не среднее. Если вы то начинаете в 12:00, то в 16:00, ставьте 12:00. Турнир, который идёт раньше вашего времени, попадёт не в тот день.</p>
+      <div class="aviso">
+        <strong>Изменение действует с сегодняшнего дня.</strong> Старые сессии не меняются. Первый раз вы настраиваете время, и Loot исправляет уже импортированные турниры. Со второго раза этого не происходит. Поэтому укажите правильное время до импорта большой истории.
+      </div>
+      <div class="fecho">
+        Изменился график игры? Вернитесь к кнопке <strong>Сессия</strong> и обновите время. Если вы стали начинать в 18:00, а в настройках осталось 10:00, турниры одной ночи окажутся разорваны на два дня.
+      </div>
+    </article>
+
+    <h2 class="rot">Каждый день</h2>
+
+    <article class="card guia">
+      <h3>Заполнить учёт</h3>
+      <ol>
+        <li>Перейдите в <strong>Мой учёт</strong>.</li>
+        <li>Нажмите на день в календаре.</li>
+        <li>Введите итоговый баланс дня по каждому аккаунту.</li>
+        <li>Нажмите <strong>Сохранить</strong> и подтвердите в <strong>OK, сохранить</strong>.</li>
+      </ol>
+      <p><strong>Вводите баланс как есть, число с экрана сети. Ничего не считайте.</strong> Loot никогда не меняет ваше число. Он считает поверх того, что вы ввели.</p>
+      <p><strong>Если появится вопрос «Уже отражено в балансе?».</strong> Иногда Loot спрашивает что-то вроде: <em>«Возврат €600, созданный 01.07. Уже отражён в введённом вами балансе? Да / Нет».</em></p>
+      <p>Отвечайте, глядя на баланс, который вы только что ввели. <strong>Да</strong>, если эта сумма уже списана в сети. <strong>Нет</strong>, если деньги ещё в балансе.</p>
+      <div class="fecho">
+        Заранее выбранного ответа нет, а ваш ответ сохраняется. Он нужен, чтобы отнести движение денег к правильному дню.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Импорт турниров</h3>
+      <ol>
+        <li>Перейдите в <strong>Турниры</strong>.</li>
+        <li>Нажмите <strong>Импорт CSV</strong>.</li>
+        <li>Перетащите CSV из SharkScope.</li>
+      </ol>
+      <p>Пока сессия не настроена, кнопка недоступна.</p>
+      <p><strong>GG Fixer.</strong> Если кнопка стала жёлтой с числом, это места в турнирах GG, которых нет в CSV. Нажмите на неё и загрузите .zip с резюме .txt из GG, чтобы дополнить данные.</p>
+      <div class="fecho">
+        Пошаговая инструкция, как получить CSV из SharkScope и .zip из GG, есть в разделе <a href="./guias.html">Импорт данных</a>.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Импорт раздач</h3>
+      <ol>
+        <li>Перейдите в <strong>Stats</strong>.</li>
+        <li>Нажмите <strong>Импорт Hand History</strong>.</li>
+        <li>Загрузите файл, который экспортирует ваш трекер.</li>
+      </ol>
+      <div class="fecho">
+        Обработка идёт в фоне. Ждать не нужно: можно закрыть экран и продолжать пользоваться Loot. Когда всё будет готово, придёт уведомление.
+      </div>
+    </article>
+
+    <h2 class="rot">Ваши деньги</h2>
+
+    <article class="card guia">
+      <h3>Посмотреть свои деньги</h3>
+      <p>Откройте <strong>Дашборд</strong>. Карточки:</p>
+      <ul>
+        <li><strong>Текущий мейкап:</strong> насколько вы в минусе перед командой. Это отдельный счёт, не ваш профит.</li>
+        <li><strong>Профит:</strong> то, что вы накопили. После записи не меняется.</li>
+        <li><strong>Активный долг:</strong> сколько вы должны, если должны.</li>
+      </ul>
+      <div class="fecho">
+        Просить пополнение или вывод не нужно. <strong>Loot сам уведомляет вашего менеджера:</strong> низкий баланс появляется у него как пополнение, которое надо сделать, излишек, доступный к выводу, как доступный вывод, а мейкап в точке сплита как reset.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Что команда должна вам выплатить</h3>
+      <p>Карточка <strong>«Команда должна вам выплатить»</strong> появляется только когда есть выплата. Если всё в порядке, в ней написано <strong>всё выплачено</strong>.</p>
+      <p>Сумма <strong>разбита по валютам</strong>. Если вам причитаются евро и доллары, это два числа, а не один итог.</p>
+      <div class="aviso">
+        <strong>Выплата это не мейкап.</strong> Мейкап закрывается в момент сплита. В этой карточке показана часть сплита, которая осталась у команды и ещё не выплачена вам. Нулевой мейкап не значит, что вы уже получили деньги: он значит, что долг закончился. Деньги ещё могут стоять в очереди.
+      </div>
+      <p>Нажмите <strong>«показать, из какого сплита и что уже выплачено»</strong>, чтобы открыть детали, по строке на каждую выплату:</p>
+      <ul>
+        <li><strong>сплит от [дата]</strong> кликабелен и открывает вывод, из которого получилась эта сумма</li>
+        <li>если выплачено полностью, в строке написано <strong>выплачено</strong></li>
+        <li>если чего-то не хватает, видно остаток и рядом <strong>из [исходная сумма]</strong>: значит, выплата была частичной</li>
+        <li>ниже идут платежи: <strong>получено [сумма] ([дата])</strong>, нажмите, чтобы открыть</li>
+      </ul>
+      <div class="aviso">
+        <strong>Метка «без подтверждения».</strong> Команда записала, что заплатила вам, но не приложила подтверждение. Если вы не получали эту сумму или хотите подтверждение, спросите менеджера. Метка нужна, чтобы вы это заметили: не хватает именно вашего подтверждения.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Ваши транзакции</h3>
+      <p>В разделе <strong>Транзакции</strong> вы видите полученные пополнения, возвраты и сплиты, P2P и переводы между сетями.</p>
+      <p>Что вы делаете здесь: <strong>прикрепляете подтверждение</strong>.</p>
+      <ol>
+        <li>Нажмите <strong>Отправить подтверждение</strong> или <strong>Прикрепить подтверждение</strong> в нужной строке.</li>
+        <li>Вставьте скриншот через <strong>Ctrl+V</strong> или выберите файл.</li>
+      </ol>
+    </article>
+
+    <h2 class="rot">Рутина и аналитика</h2>
+
+    <article class="card guia">
+      <h3>Записаться на занятие</h3>
+      <ol>
+        <li>Откройте календарь по значку рядом с колокольчиком.</li>
+        <li>Нажмите <strong>Записаться на занятие</strong>.</li>
+        <li>Выберите одно из свободных времён вашего тренера.</li>
+      </ol>
+      <p>Тренер подтверждает или отклоняет, и вам приходит уведомление. После занятия тренер заполняет отчёт, а вы видите тему, фокус следующего занятия, свой прогресс и запись.</p>
+      <div class="fecho">
+        Посещаемость отмечает тренер.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Ваша сетка</h3>
+      <p>В разделе <strong>Schedule</strong> вы видите ближайшие турниры. Ваша активная сетка фильтрует список.</p>
+      <div class="fecho">
+        Отметьте <strong>Играю</strong> на том, что собираетесь играть. Скройте то, что не хотите видеть: скрыли один раз, и это действует на все дни этого турнира.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Ваша аналитика</h3>
+      <p>В <strong>Performance</strong> лежат ваш ROI и ваш реальный edge. Два экрана, которые часто путают, и разница между ними:</p>
+      <ul>
+        <li><strong>Профиль игры</strong> это ваш табель. Он показывает, где вы сильнее всего в сравнении с самим собой.</li>
+        <li><strong>Персональный анализ</strong> это ваша выписка. Он показывает, где вы на самом деле зарабатываете деньги.</li>
+      </ul>
+      <p>Это не противоречие, когда один говорит «здесь вы сильны», а другой «но доказанной прибыли пока нет». Это ответы на разные вопросы.</p>
+      <p><strong>Цвета вероятности edge:</strong> зелёный выше 90% означает доказанный edge, жёлтый от 60 до 90% вероятный, серый от 40 до 60% ничего не говорит, красный ниже 40% вероятный leak.</p>
+      <div class="fecho">
+        Чем больше у вас турниров, тем надёжнее число.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science и управление для покерных команд</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Продукт</strong><a class="lnk" href="./index.html#produto">Что внутри</a><a class="lnk" href="./index.html#recursos">Возможности</a><a class="lnk" href="https://app.lootdeep.com">Войти</a></div>
+        <div><strong>Руководства</strong><a class="lnk" href="./manual-jogador.html">Игрок</a><a class="lnk" href="./manual-coach.html">Тренер</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Импорт данных</a></div>
+        <div><strong>Контакты</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Importación de datos · Loot</title>
+  <meta name="description" content="Cómo sacar los datos de SharkScope, GG Poker y tu tracker para importarlos en Loot." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#050506" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Pathway+Gothic+One&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/docs.css" />
+<!-- idiomas:cabecalho --><style>.idiomas{display:flex;align-items:center;gap:2px;padding:2px;border-radius:8px;border:1px solid rgba(255,255,255,.08);font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.04em;flex-shrink:0}.idiomas a{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 6px;border-radius:6px;color:#80858C;text-decoration:none;transition:color .15s,background .15s}.idiomas a:hover{color:#EDEEF0}.idiomas a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.08)}.idiomas-m{display:none;position:relative;flex-shrink:0;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}.idiomas-m summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:#EDEEF0}.idiomas-m summary::-webkit-details-marker{display:none}.idiomas-m summary::after{content:"";width:6px;height:6px;border-right:1.5px solid #80858C;border-bottom:1.5px solid #80858C;transform:translateY(-2px) rotate(45deg)}.idiomas-m[open] summary::after{transform:translateY(1px) rotate(225deg)}.idiomas-m .lista{position:absolute;top:calc(100% + 6px);right:0;min-width:120px;display:flex;flex-direction:column;padding:4px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0B0C0D;box-shadow:0 12px 32px rgba(0,0,0,.6);z-index:30}.idiomas-m .lista a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;color:#80858C;text-decoration:none}.idiomas-m .lista a[aria-current="true"]{color:#EDEEF0;background:rgba(255,255,255,.06)}.nav .btn{white-space:nowrap}@media (max-width:640px){.idiomas{display:none}.idiomas-m{display:block}}</style>
+  <script>document.addEventListener('click',function(e){var d=document.querySelector('details.idiomas-m[open]');if(d&&!d.contains(e.target))d.removeAttribute('open')});</script><!-- /idiomas:cabecalho -->
+  </head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="wrap">
+      <a href="./index.html" aria-label="Loot, inicio"><img src="/assets/loot_green.png" alt="Loot" width="57" height="20" style="height: 20px; width: auto" /></a>
+      <div class="nav-links">
+        <a class="lnk" href="./manual-jogador.html">Jugador</a>
+        <a class="lnk" href="./manual-coach.html">Coach</a>
+        <a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a>
+        <a class="lnk" href="./guias.html" aria-current="page">Importación</a>
+      </div>
+      <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Idioma"><a href="/guias.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/guias.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/guias.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/guias.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Idioma">ES</summary><div class="lista"><a href="/guias.html" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/guias.html" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/guias.html" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/guias.html" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
+      <a class="btn btn-pri" href="https://app.lootdeep.com">Entrar</a>
+    </div>
+  </nav>
+
+  <main class="doc">
+    <p class="eyebrow"><span class="mono">DOCUMENTACIÓN</span><i></i><span>Importación</span></p>
+    <h1 class="dp">Importación de datos</h1>
+
+    <h2 class="rot">Tres importaciones</h2>
+
+    <article class="card guia">
+      <h3>Importar torneos desde SharkScope</h3>
+      <ol>
+        <li>Selecciona "Búsqueda básica" o "Búsqueda avanzada" para filtrar por período.</li>
+        <li>Selecciona tu grupo de jugadores (Player Group).</li>
+        <li>Haz clic en el nombre del jugador en la tabla y abre la pestaña "Torneos".</li>
+        <li>Haz clic en "Descargar todos como CSV", justo encima de la lista.</li>
+      </ol>
+      <div class="fecho">
+        Sube el archivo en <strong>Importar CSV</strong> en Loot.
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Importar datos al GG Fixer</h3>
+      <ol>
+        <li>Abre la app de GG Poker.</li>
+        <li>Entra en PokerCraft y ve a "My Tournaments".</li>
+        <li>Selecciona el período y haz clic en "SHOW".</li>
+        <li>Descarga "Game Summaries" (botón verde).</li>
+      </ol>
+      <div class="fecho">
+        Sube los archivos .zip en <strong>GG Fixer</strong> en Loot. Loot corrige en masa los errores que SharkScope trae en los torneos de GG Poker.
+        <p class="nota">Puedes enviar varios archivos a la vez.</p>
+      </div>
+    </article>
+
+    <article class="card guia">
+      <h3>Importar stats de juego</h3>
+      <ol>
+        <li>En tu tracker (HM3, PT4 o H2N), selecciona las manos del período.</li>
+        <li>Exporta el historial de manos (hand histories).</li>
+        <li>En Loot, abre Stats y haz clic en Importar.</li>
+        <li>Selecciona o suelta los archivos. Loot calcula tus stats; si el volumen es grande, entra en una cola y corre en segundo plano.</li>
+      </ol>
+      <div class="fecho">
+        Funciona con cualquier red. El cálculo lo hace el propio Loot.
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="rodape-marca">
+        <img src="/assets/loot_clear.png" alt="Loot" width="52" height="18" style="height: 18px; width: auto" />
+        <span>Data science y gestión para equipos de poker</span>
+      </div>
+      <div class="rodape-cols">
+        <div><strong>Producto</strong><a class="lnk" href="./index.html#produto">Por dentro</a><a class="lnk" href="./index.html#recursos">Funciones</a><a class="lnk" href="https://app.lootdeep.com">Entrar</a></div>
+        <div><strong>Manuales</strong><a class="lnk" href="./manual-jogador.html">Jugador</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a><a class="lnk" href="./guias.html">Importación de datos</a></div>
+        <div><strong>Contacto</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
