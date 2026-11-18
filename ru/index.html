@@ -272,6 +272,14 @@
     .planos-rodape a { color: var(--mut-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.22); }
     .planos-rodape a:hover { color: var(--tx-1); }
 
+    /* aviso de cookies (o Meta Pixel só carrega depois do aceite) */
+    .cookies { position: fixed; z-index: 40; left: 50%; bottom: 20px; transform: translateX(-50%); width: min(760px, calc(100% - 32px)); display: flex; align-items: center; gap: 20px; padding: 14px 14px 14px 22px; border-radius: 12px; background: rgba(12,13,14,.94); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.1); box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 24px 60px -24px rgba(0,0,0,.95); }
+    .cookies[hidden] { display: none; }
+    .cookies p { margin: 0; flex: 1 1 auto; min-width: 0; font-size: 13px; line-height: 1.5; color: var(--mut-2); }
+    .cookies p a { color: var(--tx-1); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.25); white-space: nowrap; }
+    .cookies-botoes { display: flex; gap: 8px; flex-shrink: 0; }
+    .cookies .btn { height: 36px; padding: 0 16px; font-size: 14px; font-family: inherit; cursor: pointer; }
+    .lnk-bt { background: none; border: 0; padding: 0; font-family: inherit; text-align: left; cursor: pointer; }
     @keyframes vt { 0% { transform: scaleX(.1); } 35%, 75% { transform: scaleX(1); } 100% { transform: scaleX(.1); } }
     @keyframes lv { 0% { transform: scaleY(.15); } 35%, 75% { transform: scaleY(1); } 100% { transform: scaleY(.15); } }
     @keyframes ld { 0% { stroke-dashoffset: 1; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
@@ -326,6 +334,8 @@
       .plano .trilho { min-width: 24px; }
       .plano .cap { width: auto; flex-shrink: 0; }
       .planos { padding: 80px 0 10px; }
+      .cookies { flex-direction: column; align-items: stretch; gap: 12px; bottom: 12px; padding: 16px; }
+      .cookies-botoes .btn { flex: 1 1 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -624,14 +634,73 @@
         <div><strong>Продукт</strong><a class="lnk" href="#produto">Изнутри</a><a class="lnk" href="#recursos">Возможности</a><a class="lnk" href="#planos">Тарифы</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Войти</a></div>
         <div><strong>Руководства</strong><a class="lnk" href="./manual-jogador.html">Игрок</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a></div>
         <div><strong>Контакты</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
-        <div><strong>Документы</strong><a class="lnk" href="./privacidade.html">Конфиденциальность</a><a class="lnk" href="./termos.html">Условия</a></div>
+        <div><strong>Документы</strong><a class="lnk" href="./privacidade.html">Конфиденциальность</a><a class="lnk" href="./termos.html">Условия</a><button type="button" class="lnk lnk-bt" data-cookies-abrir>Cookie</button></div>
       </div>
     </div>
   </footer>
 
+  <div id="cookies" class="cookies" role="region" aria-label="Cookie" hidden>
+    <p>Мы используем cookie Meta, чтобы измерять нашу рекламу в Instagram и Facebook. Ничего не загружается, пока вы не согласитесь. <a href="./privacidade.html#analitika">Политика конфиденциальности</a></p>
+    <div class="cookies-botoes"><button type="button" class="btn btn-gh" data-cookies="nao">Отклонить</button><button type="button" class="btn btn-pri" data-cookies="sim">Принять</button></div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
+    // cookies e Meta Pixel: o pixel só carrega depois do aceite (RGPD e LGPD). A escolha fica no navegador e muda em "Cookies",
+    // no rodapé. Eventos: PageView; ViewContent quando os Planos aparecem; Lead no clique em WhatsApp ou e-mail.
+    (function () {
+      var PIXEL = '1348033667338222', CHAVE = 'loot_cookies';
+      var caixa = document.getElementById('cookies');
+      var carregado = false;
+      function ler() { try { return localStorage.getItem(CHAVE); } catch (e) { return null; } }
+      function gravar(v) { try { localStorage.setItem(CHAVE, v); } catch (e) {} }
+      function mostra(v) { if (caixa) caixa.hidden = !v; }
+      function pixel() {
+        if (carregado) return;
+        carregado = true;
+        !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', PIXEL);
+        window.fbq('track', 'PageView');
+        var planos = document.getElementById('planos');
+        if (planos && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (es) {
+            if (es[0].isIntersecting) { window.fbq('track', 'ViewContent', { content_name: 'planos' }); io.disconnect(); }
+          }, { threshold: .35 });
+          io.observe(planos);
+        }
+      }
+      // recusar depois de ter aceito: apaga os cookies da Meta e recarrega a página sem o pixel
+      function apagaMeta() {
+        ['_fbp', '_fbc'].forEach(function (n) {
+          document.cookie = n + '=; Max-Age=0; path=/';
+          document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname.replace(/^www\./, '');
+        });
+      }
+      document.addEventListener('click', function (ev) {
+        var a = ev.target.closest && ev.target.closest('a[href^="https://wa.me/"], a[href^="mailto:"]');
+        if (!a || !carregado || !window.fbq) return;
+        var origem = a.closest('.planos') ? 'valor_do_time' : (a.href.indexOf('mailto:') === 0 ? 'email' : 'whatsapp');
+        window.fbq('track', 'Lead', { content_name: origem });
+      });
+      var escolha = ler();
+      if (escolha === 'sim') pixel(); else if (escolha !== 'nao') mostra(true);
+      if (caixa) caixa.addEventListener('click', function (ev) {
+        var b = ev.target.closest('[data-cookies]');
+        if (!b) return;
+        var v = b.getAttribute('data-cookies');
+        gravar(v);
+        mostra(false);
+        if (v === 'sim') pixel();
+        else if (carregado) { apagaMeta(); location.reload(); }
+      });
+      [].slice.call(document.querySelectorAll('[data-cookies-abrir]')).forEach(function (b) {
+        b.addEventListener('click', function () { mostra(true); });
+      });
+    })();
+
     // limpa utm/fbclid da barra de endereço (depois do analytics)
     (function () {
       function limpa() {
