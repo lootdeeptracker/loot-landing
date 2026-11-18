@@ -15,5 +15,14 @@ automática ao idioma do navegador na primeira visita (só nas páginas em portu
 inglês; robô de busca nunca é redirecionado), os caminhos de `/assets/`, a fonte Oswald para os títulos em russo e o
 `sitemap.xml`.
 
-Página nova: crie as quatro versões e acrescente o nome em `PAGINAS` no `tools/idiomas.py`.
+Página nova: crie as quatro versões e acrescente o nome em `PAGINAS` no `tools/idiomas.py`. Página legal (como
+`privacidade.html` e `termos.html`) entra também em `LEGAIS`: vai ao sitemap mensal, com prioridade baixa e a data da
+linha "Versão de dd/mm/aaaa" da própria página (sem essa linha o script para e avisa).
+
+**Mudou o menu do app?** O menu e o header das telas do simulador, nos quatro idiomas, saem de
+`tools/menu_do_sim.py` (espelho de `lib/services/menuDoLoot.ts` do app). Ajuste as listas lá e rode:
+
+```
+python3 tools/menu_do_sim.py
+```
 Glossário dos termos: `docs/i18n-glossario.md` do repositório do app.

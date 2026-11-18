@@ -21,7 +21,9 @@ SITE = 'https://www.lootdeep.com'
 IDIOMAS = ['pt', 'en', 'ru', 'es']
 OG_LOCALE = {'pt': 'pt_BR', 'en': 'en_US', 'ru': 'ru_RU', 'es': 'es_ES'}
 ROTULO = {'pt': 'Idioma', 'en': 'Language', 'ru': 'Язык', 'es': 'Idioma'}
-PAGINAS = ['index.html', 'guias.html', 'manual-jogador.html', 'manual-coach.html', 'manual-eqty.html']
+PAGINAS = ['index.html', 'guias.html', 'manual-jogador.html', 'manual-coach.html', 'manual-eqty.html', 'privacidade.html', 'termos.html']
+# as páginas legais mudam pouco: no sitemap vão mensais, com prioridade baixa e a data da "Versão de dd/mm/aaaa" da página
+LEGAIS = {'privacidade.html', 'termos.html'}
 
 
 def caminho(lang, pagina):
@@ -135,14 +137,15 @@ def processar_pagina(lang, pagina):
     s = re.sub(r'(<meta property="og:url" content=")[^"]*(")', rf'\g<1>{SITE}{caminho(lang, pagina)}\g<2>', s)
     s = re.sub(r'(<meta property="og:locale" content=")[^"]*(")', rf'\g<1>{OG_LOCALE[lang]}\g<2>', s)
     s = trocar_bloco(s, 'cabecalho', cabecalho(lang, pagina, indexavel), '</head>')
-    # o seletor entra no menu, logo antes do botão de entrar/falar (o último item do menu)
-    nav = re.search(r'<nav class="nav"[\s\S]*?</nav>', s).group(0)
-    if '<!-- idiomas:seletor -->' in nav:
-        nav_novo = re.sub(r'<!-- idiomas:seletor -->[\s\S]*?<!-- /idiomas:seletor -->', bloco('seletor', seletor(lang, pagina)), nav)
+    # o seletor: onde já estiver, só se atualiza (as páginas legais o têm no `header.topo`, não no menu); na primeira
+    # vez entra no menu, logo antes do botão de entrar/falar (o último item do menu)
+    if '<!-- idiomas:seletor -->' in s:
+        s = re.sub(r'<!-- idiomas:seletor -->[\s\S]*?<!-- /idiomas:seletor -->', lambda _: bloco('seletor', seletor(lang, pagina)), s, count=1)
     else:
+        nav = re.search(r'<nav class="nav"[\s\S]*?</nav>', s).group(0)
         ultimo = list(re.finditer(r'\n(\s*)<a class="btn', nav))[-1]
         nav_novo = nav[:ultimo.start()] + '\n' + ultimo.group(1) + bloco('seletor', seletor(lang, pagina)) + nav[ultimo.start():]
-    s = s.replace(nav, nav_novo)
+        s = s.replace(nav, nav_novo)
     if lang != 'pt':
         s = s.replace('"./assets/', '"/assets/')
     if lang == 'ru':
@@ -164,7 +167,10 @@ def processar_simulador(lang):
                 p = os.path.join(RAIZ, 'ru', 'sim', nome)
                 t = open(p, encoding='utf-8').read()
                 t = t.replace("'Pathway Gothic One', sans-serif", "'Pathway Gothic One', 'Oswald', sans-serif")
-                t = t.replace('family=Pathway+Gothic+One&amp;', 'family=Pathway+Gothic+One&amp;family=Oswald:wght@400&amp;')
+                # 🔒 só uma vez: rodar de novo não pode empilhar outra Oswald no link das fontes (empilhou 5 até 18/11/2026)
+                if 'family=Oswald' not in t:
+                    t = t.replace('family=Pathway+Gothic+One&amp;', 'family=Pathway+Gothic+One&amp;family=Oswald:wght@400&amp;')
+                t = re.sub(r'(family=Oswald:wght@400&amp;)+', r'\1', t)
                 open(p, 'w', encoding='utf-8').write(t)
 
 
@@ -174,9 +180,15 @@ def sitemap():
         alternativas = ''.join(
             f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{caminho(l, pagina)}" />' for l in IDIOMAS
         ) + f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{caminho("pt", pagina)}" />'
+        if pagina in LEGAIS:
+            versao = re.search(r'Versão de (\d{2})/(\d{2})/(\d{4})', open(os.path.join(RAIZ, pagina), encoding='utf-8').read())
+            if not versao:
+                raise SystemExit(f'{pagina}: sem a linha "Versão de dd/mm/aaaa" (é dela que sai o lastmod do sitemap)')
+            extra = f'\n    <lastmod>{versao.group(3)}-{versao.group(2)}-{versao.group(1)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>'
+        else:
+            extra = f'\n    <changefreq>weekly</changefreq>\n    <priority>{"1.0" if pagina == "index.html" else "0.6"}</priority>'
         for l in IDIOMAS:
-            prioridade = '1.0' if pagina == 'index.html' else '0.6'
-            urls.append(f'  <url>\n    <loc>{SITE}{caminho(l, pagina)}</loc>{alternativas}\n    <changefreq>weekly</changefreq>\n    <priority>{prioridade}</priority>\n  </url>')
+            urls.append(f'  <url>\n    <loc>{SITE}{caminho(l, pagina)}</loc>{alternativas}{extra}\n  </url>')
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
            + '\n'.join(urls) + '\n</urlset>\n')
