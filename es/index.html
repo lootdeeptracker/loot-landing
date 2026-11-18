@@ -155,7 +155,7 @@
     /* para quem */
     .para-quem { padding: 130px 0 60px; }
     .para-quem h2 { margin: 0 0 40px; font-size: clamp(40px, 6vw, 64px); line-height: 1; color: var(--tx-1); }
-    .lados { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .lados { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .lado { padding: 32px; display: flex; flex-direction: column; gap: 14px; }
     .lado h3 { margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -.01em; }
     .lado p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--mut); }
@@ -185,16 +185,113 @@
     .rodape-cols strong { color: var(--tx-1); font-weight: 400; }
     .rodape-cols .lnk { font-size: 13px; }
 
+    /* recursos novos (v3.8): discussões, videoteca, candidaturas, chat */
+    .disc-mao { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+    .carta { display: inline-flex; align-items: center; justify-content: center; gap: 1px; width: 30px; height: 40px; border-radius: 6px; background: #EDEEF0; color: #0A0A0B; font-size: 15px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(0,0,0,.9); }
+    .carta i { font-style: normal; font-size: 13px; }
+    .carta.vm { color: #C2433B; }
+    .disc-sit { margin-left: 8px; font-size: 13px; color: var(--mut-2); }
+    .voto { display: flex; align-items: center; gap: 12px; height: 30px; font-size: 13px; }
+    .voto .n { width: 40px; }
+    .voto .trilho { flex-grow: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,.06); overflow: hidden; }
+    .voto .trilho span { display: block; height: 6px; border-radius: 3px; background: var(--time); transform-origin: left center; animation: vt 4.8s cubic-bezier(.4,0,.2,1) infinite; }
+    .voto .trilho.b span { background: rgba(255,255,255,.22); }
+    .voto .p { width: 40px; text-align: right; color: var(--mut-2); }
+    .disc-conc { margin-top: 12px; padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(62,187,195,.25); background: rgba(62,187,195,.05); font-size: 13px; line-height: 1.5; }
+    .disc-conc b { display: block; margin-bottom: 2px; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; color: var(--time); }
+    .video { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .video .thumb { width: 64px; height: 38px; flex-shrink: 0; border-radius: 6px; background: linear-gradient(135deg, #1A1C1F, #0E0F11); border: 1px solid rgba(255,255,255,.08); display: inline-flex; align-items: center; justify-content: center; color: var(--mut-2); }
+    .video .thumb svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .video .vt { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .video .vt .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .video .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .video .tags .chip { height: 18px; padding: 0 7px; font-size: 11px; }
+    .video .tags .chip.duv { color: var(--amb); border-color: rgba(217,164,65,.35); }
+    .video .vd { flex-shrink: 0; font-size: 12px; color: var(--dim); }
+    .video.bloq .thumb, .video.bloq .t { opacity: .45; }
+    .video .abre { font-size: 11px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cand { padding: 16px 18px; }
+    .cand-top { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; }
+    .cand-top .av { width: 36px; height: 36px; border-radius: 10px; font-size: 12px; }
+    .cand-top .nm { display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0; }
+    .cand-top .nm b { font-size: 15px; font-weight: 500; color: var(--tx-1); }
+    .cand-top .nm span { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+    .chip.prom { color: var(--pos); border-color: rgba(82,192,199,.35); background: rgba(82,192,199,.06); }
+    .cand-linha { display: flex; align-items: center; gap: 12px; height: 34px; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .cand-linha .m { flex-grow: 1; min-width: 0; color: var(--mut-2); }
+    .cand-linha .v { width: 52px; text-align: right; }
+    .cand-linha .s { width: 92px; text-align: right; font-size: 12px; }
+    .cand-linha .s.ok { color: var(--pos); }
+    .cand-linha .s.ac { color: var(--amb); }
+    .cand-pe { padding-top: 12px; border-top: 1px solid rgba(255,255,255,.05); font-size: 12px; color: var(--mut); }
+    .cand-pe b { color: var(--tx-1); font-weight: 500; }
+    .msgs { display: flex; flex-direction: column; gap: 12px; }
+    .msg { display: flex; align-items: flex-end; gap: 10px; max-width: 90%; }
+    .msg.eu { align-self: flex-end; }
+    .msg .av { width: 30px; height: 30px; border-radius: 9px; font-size: 11px; }
+    .bolha { display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border-radius: 12px 12px 12px 4px; background: #15161A; border: 1px solid rgba(255,255,255,.07); font-size: 13px; line-height: 1.5; }
+    .msg.eu .bolha { border-radius: 12px 12px 4px 12px; background: rgba(62,187,195,.1); border-color: rgba(62,187,195,.25); }
+    .bolha .quem { font-size: 11px; color: var(--mut); }
+    .bolha .trad { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--dim); }
+    .bolha .trad svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* planos */
+    .planos { padding: 110px 0 20px; }
+    .planos > .wrap { display: flex; flex-direction: column; gap: 14px; }
+    .planos > .wrap > .rot { margin-bottom: 8px; }
+    .buyin { position: relative; overflow: hidden; border-radius: 16px; padding: 44px 48px 36px; background: linear-gradient(135deg, #3EBBC3 0%, #2A8F96 100%); color: #041416; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 30px 40px; align-items: end; }
+    .buyin > svg { position: absolute; right: -130px; top: -190px; width: 380px; height: 380px; opacity: .14; pointer-events: none; }
+    .buyin-esq, .buyin-dir, .buyin-pe { position: relative; }
+    .buyin-rot { font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: .12em; opacity: .7; }
+    .buyin-valor { margin: 14px 0 0; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .buyin-valor .de { font-size: 20px; font-weight: 500; }
+    .buyin-valor .dp { font-size: clamp(76px, 11vw, 136px); line-height: .82; }
+    .buyin-por { display: block; margin-top: 12px; font-size: 16px; font-weight: 500; opacity: .78; }
+    .buyin-dir { margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.02; text-align: right; }
+    .buyin-pe { grid-column: 1 / -1; margin: 0; padding-top: 22px; border-top: 1px solid rgba(4,20,22,.18); font-size: 17px; font-weight: 500; }
+    .planos-grade { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+    .plano { padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 14px; }
+    .plano .nome { font-size: 30px; line-height: 1; color: var(--tx-1); }
+    .plano .cap { font-size: 14px; color: var(--mut); white-space: nowrap; }
+    .plano .cap b { color: var(--tx-1); font-weight: 500; }
+    .plano .trilho { height: 3px; border-radius: 2px; background: rgba(255,255,255,.06); overflow: hidden; }
+    .plano .trilho span { display: block; height: 3px; background: var(--time); }
+    .planos-nota { margin: 6px 0 0; font-size: 14px; color: var(--mut-2); }
+    .planos-nota b { color: var(--time); font-weight: 500; }
+    .incluso { margin-top: 30px; padding: 32px; }
+    .incluso-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 32px; margin-top: 24px; }
+    .incluso h4 { margin: 0 0 12px; font-size: 15px; font-weight: 500; color: var(--tx-1); }
+    .incluso ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .incluso li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.45; color: var(--mut); }
+    .incluso li::before { content: ''; position: absolute; left: 2px; top: 5px; width: 8px; height: 4px; border-left: 1.5px solid var(--time); border-bottom: 1.5px solid var(--time); transform: rotate(-45deg); }
+    .planos-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 34px; text-align: center; }
+    .planos-rodape { margin: 0; font-size: 13px; color: var(--dim); }
+    .planos-rodape a { color: var(--mut-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.22); }
+    .planos-rodape a:hover { color: var(--tx-1); }
+
+    @keyframes vt { 0% { transform: scaleX(.1); } 35%, 75% { transform: scaleX(1); } 100% { transform: scaleX(.1); } }
     @keyframes lv { 0% { transform: scaleY(.15); } 35%, 75% { transform: scaleY(1); } 100% { transform: scaleY(.15); } }
     @keyframes ld { 0% { stroke-dashoffset: 1; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
     @keyframes ce { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
     .loopdraw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ld 5s cubic-bezier(.4,0,.2,1) infinite; }
 
+    /* menu do topo: os links saem antes de espremer (o mais largo, em espanhol, aperta em 970px) */
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .nav .wrap > .lnk { margin-left: auto; }
+    }
     @media (max-width: 960px) {
       .pilares-grade { grid-template-columns: minmax(0, 1fr); border-top: 0; }
       .pilar, .pilar:first-child, .pilar:last-child { padding: 28px 0; border-right: 0; border-top: 1px solid var(--borda); }
       .pilar svg { height: 200px; }
-      .recursos-grade, .lados { grid-template-columns: minmax(0, 1fr); }
+      .recursos-grade { grid-template-columns: minmax(0, 1fr); }
+      .lados { grid-template-columns: minmax(0, 1fr); }
+      .planos-grade { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .plano { flex-direction: row; align-items: center; gap: 18px; padding: 16px 20px; }
+      .plano .nome { width: 96px; flex-shrink: 0; font-size: 26px; }
+      .plano .trilho { order: 2; flex-grow: 1; }
+      .plano .cap { order: 3; width: 130px; text-align: right; }
+      .incluso-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .recurso { min-height: 0; }
       .recurso .visual { margin-top: 18px; }
       footer .wrap { flex-direction: column; }
@@ -215,10 +312,19 @@
       .depo { padding: 36px 26px; }
       .cta { padding: 110px 0 100px; }
       .rodape-cols { flex-direction: column; gap: 28px; }
+      .buyin { grid-template-columns: minmax(0, 1fr); padding: 32px 26px 28px; gap: 24px; }
+      .buyin-dir { text-align: left; }
+      .incluso { padding: 24px; }
+      .incluso-grade { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .plano { gap: 14px; padding: 14px 16px; }
+      .plano .nome { width: 72px; flex-shrink: 0; font-size: 24px; }
+      .plano .trilho { min-width: 24px; }
+      .plano .cap { width: auto; flex-shrink: 0; }
+      .planos { padding: 80px 0 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .barras span, .dias span, .loopdraw { animation: none; }
+      .barras span, .dias span, .loopdraw, .voto .trilho span { animation: none; }
       .loopdraw { stroke-dashoffset: 0; }
     }
   </style>
@@ -242,6 +348,7 @@
         <a class="lnk" href="#recursos">Funciones</a>
         <a class="lnk" href="#times">Para quién</a>
         <a class="lnk" href="#depoimento">Testimonio</a>
+        <a class="lnk" href="#planos">Planes</a>
       </div>
       <a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a>
       <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Idioma"><a href="/" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Idioma">ES</summary><div class="lista"><a href="/" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/" hreflang="ru" lang="ru" data-idioma="ru" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/" hreflang="es" lang="es" data-idioma="es" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
@@ -252,7 +359,7 @@
   <main>
     <header id="top" class="hero">
       <div class="wrap" data-hero>
-        <span class="eyebrow"><span class="mono">RUN DEEP</span><i></i><a href="#produto" class="lnk" style="font-size: 13px">Nuevo · Loot 3.0 <span class="apagado">→</span></a></span>
+        <span class="eyebrow"><span class="mono">RUN DEEP</span><i></i><a href="#novidades" class="lnk" style="font-size: 13px">Nuevo · Postulaciones y Videoteca <span class="apagado">→</span></a></span>
         <h1 class="dp">Gestión y datos.<br /><span class="apagado">Todo en un solo lugar.</span></h1>
         <p>Data science para equipos de poker. Menos corazonadas, más decisiones basadas en datos.</p>
       </div>
@@ -328,7 +435,7 @@
           <article class="card recurso" data-reveal>
             <span class="etiqueta">STATS DE JUEGO</span>
             <h3>La radiografía del juego, calculada por Loot.</h3>
-            <p>Importa las hand histories de cualquier red. Loot calcula las stats con score por área y evolución mes a mes. Sin depender de un tracker abierto.</p>
+            <p>Loot Collect envía solo las hand histories de las redes del equipo. Loot calcula las stats con score por área y evolución mes a mes. Sin depender de un tracker abierto.</p>
             <div class="visual">
               <div class="barras"><span style="height: 84%; animation-delay: 0.00s"></span><span style="height: 86%; animation-delay: 0.18s"></span><span style="height: 88%; animation-delay: 0.36s"></span><span style="height: 74%; animation-delay: 0.54s"></span><span style="height: 90%; animation-delay: 0.72s"></span></div>
               <div class="barras-rot"><span>Preflop</span><span>Enfrentamiento</span><span>Postflop · IP</span><span>Postflop · OOP</span><span>Blind war</span></div>
@@ -367,23 +474,74 @@
             <div class="visual"><div class="grade-linha"><span class="h mono num">14:05</span><span class="t">Bounty Hunters $54</span><span class="tier" style="color: rgb(76,195,138); border: 1px solid rgba(76,195,138,.45); background: rgba(76,195,138,.12)">A</span><span class="roi num" style="color: var(--pos)">+41%</span></div><div class="grade-linha"><span class="h mono num">16:30</span><span class="t">Winamax Monster Stack $50</span><span class="tier" style="color: rgb(168,201,78); border: 1px solid rgba(168,201,78,.45); background: rgba(168,201,78,.12)">B</span><span class="roi num" style="color: var(--pos)">+26%</span></div><div class="grade-linha"><span class="h mono num">18:00</span><span class="t">WPN Nightly $33</span><span class="tier" style="color: rgb(232,135,58); border: 1px solid rgba(232,135,58,.45); background: rgba(232,135,58,.12)">C</span><span class="roi num" style="color: var(--pos)">+9%</span></div><div class="grade-linha"><span class="h mono num">21:10</span><span class="t">Daily Hyper $22</span><span class="tier" style="color: rgb(224,96,90); border: 1px solid rgba(224,96,90,.45); background: rgba(224,96,90,.12)">D</span><span class="roi num" style="color: var(--neg)">−4%</span></div></div>
           </article>
 
+          <article id="novidades" class="card recurso" data-reveal>
+            <span class="etiqueta">DISCUSIONES</span>
+            <h3>La mano difícil se vuelve estudio del equipo.</h3>
+            <p>Cualquier persona del equipo envía una mano para discutir. El equipo vota la línea, comenta y arma el rango del villano. El coach cierra con la conclusión.</p>
+            <div class="visual">
+              <div class="disc-mao"><span class="carta">A<i>♠</i></span><span class="carta vm">K<i>♦</i></span><span class="disc-sit">BTN abre · BB shove 18 bb</span></div>
+              <div class="voto"><span class="n">Call</span><span class="trilho"><span style="width: 64%"></span></span><span class="p num">64%</span></div>
+              <div class="voto"><span class="n">Fold</span><span class="trilho b"><span style="width: 36%; animation-delay: .15s"></span></span><span class="p num">36%</span></div>
+              <div class="disc-conc"><b>Conclusión</b>Call. AK va muy por delante del rango de shove del BB.</div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">VIDEOTECA</span>
+            <h3>Las clases del equipo en un solo estante.</h3>
+            <p>Videos con tags, orden de estudio y quién puede ver cada uno. La duda del jugador queda en el video y cae en la fila del coach.</p>
+            <div class="visual">
+              <div class="video"><span class="thumb"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"></path></svg></span><span class="vt"><span class="t">ICM en la burbuja</span><span class="tags"><span class="chip">MTT</span><span class="chip">ICM</span><span class="chip duv">2 dudas</span></span></span><span class="vd mono num">18:42</span></div>
+              <div class="video"><span class="thumb"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"></path></svg></span><span class="vt"><span class="t">Rangos de 3-bet en el BTN</span><span class="tags"><span class="chip">Preflop</span></span></span><span class="vd mono num">24:10</span></div>
+              <div class="video bloq"><span class="thumb"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span><span class="vt"><span class="t">Postflop OOP</span><span class="abre">Se abre después de: Rangos de 3-bet en el BTN</span></span><span class="vd mono num">31:05</span></div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">POSTULACIONES</span>
+            <h3>El postulante llega ya medido.</h3>
+            <p>El postulante envía sus manos por el link del equipo. Con el historial de Shark, Loot mide el juego con la vara de cada nivel y muestra a qué jugador del equipo se parece.</p>
+            <div class="visual card cand">
+              <div class="cand-top"><span class="av">LV</span><span class="nm"><b>Lucas_V</b><span>Preselección</span></span><span class="chip prom">prometedor</span></div>
+              <div class="cand-linha"><span class="m">Overall de stats</span><span class="v num">74</span><span class="s ok">Dentro</span></div>
+              <div class="cand-linha"><span class="m">ROI · Shark</span><span class="v num">+18%</span><span class="s ok">Dentro</span></div>
+              <div class="cand-linha"><span class="m">ABI · Shark</span><span class="v num">$27</span><span class="s ac">Por encima</span></div>
+              <div class="cand-pe">Parecido a <b>RiverKid</b> · estilo 82%</div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">CHAT DEL EQUIPO</span>
+            <h3>La conversación del equipo, en cualquier idioma.</h3>
+            <p>Conversaciones, grupos, el mural de la gestión y los resultados del día. El mensaje llega traducido al idioma de cada uno.</p>
+            <div class="visual msgs">
+              <div class="msg"><span class="av">IK</span><span class="bolha"><span class="quem">Ivan_K</span>Terminé 3º en el Bounty Hunters. El estudio de ayer ayudó.<span class="trad"><svg viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"></path></svg>Traducido del ruso</span></span></div>
+              <div class="msg eu"><span class="bolha">¡Bien! Manda la mano de la mesa final a Discusiones.</span></div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
     <section id="times" class="para-quem">
       <div class="wrap">
-        <h2 class="dp" data-reveal>Hecho para los dos lados del equipo.</h2>
+        <h2 class="dp" data-reveal>Hecho para todo el equipo.</h2>
         <div class="lados" data-reveal-grupo>
           <div class="card lado">
             <span class="rot">Líder de equipo</span>
             <h3>Gestión del equipo</h3>
-            <p>Saldo por jugador, makeup, deudas, buscador de nicks, alertas de makeup, control de infracciones y permisos de buy-in. La visión consolidada de performance del equipo. El resultado del grupo sin depender de hojas de cálculo.</p>
+            <p>Saldo por jugador, makeup, deudas, buscador de nicks, alertas de makeup, infracciones y permisos de buy-in, grillas y postulaciones. La visión consolidada de performance del equipo y el Report del mes sin armar hojas de cálculo.</p>
+          </div>
+          <div class="card lado">
+            <span class="rot">Coach</span>
+            <h3>Los alumnos en datos</h3>
+            <p>El panel con los jugadores de cada coach: manos, stats, torneos y performance. Clases en el calendario del equipo, análisis publicados para el alumno y la meta de stats de cada uno.</p>
           </div>
           <div class="card lado">
             <span class="rot">Jugador</span>
             <h3>La carrera en datos</h3>
-            <p>Estadísticas de torneos, sesiones, stats de juego, calendario de eventos del equipo, tendencia del edge en el tiempo y herramientas de estudio. Dónde ganas, dónde pierdes y qué te está escondiendo la varianza.</p>
+            <p>Torneos, sesiones, stats de juego, Eq&amp;ty, la grilla del día y el calendario del equipo. Tendencia del edge en el tiempo, el Report del mes y el Battle con el equipo. Dónde ganas, dónde pierdes y qué te está escondiendo la varianza.</p>
           </div>
         </div>
       </div>
@@ -396,6 +554,45 @@
           <blockquote>“Nos permite tomar decisiones mejor informadas, basadas en datos y no solo en percepciones. Más que mostrar números, Loot nos ayuda a entender qué hacer con ellos y cuál debe ser el siguiente paso.”</blockquote>
           <figcaption><span class="ini">JO</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">José Oliveira</span><span style="font-size: 13px; opacity: .75">socio, BigHit Poker Team (Portugal)</span></span></figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section id="planos" class="planos">
+      <div class="wrap">
+        <span class="rot" data-reveal>Planes</span>
+        <div class="buyin" data-reveal>
+          <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="60" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="30" fill="none" stroke="#041416" stroke-width="1"></circle></svg>
+          <div class="buyin-esq">
+            <span class="buyin-rot">BUY-IN</span>
+            <p class="buyin-valor"><span class="de">desde</span><span class="dp num">$5,10</span></p>
+            <span class="buyin-por">por jugador/mes*</span>
+          </div>
+          <p class="buyin-dir dp">Rake fijo.<br />Sin tarifas ocultas.</p>
+          <p class="buyin-pe">Todo Loot en todos los planes. Solo cambia el tamaño del equipo.</p>
+        </div>
+        <div class="planos-grade" data-reveal-grupo>
+          <div class="card plano"><span class="nome dp">Starter</span><span class="cap">hasta <b class="num">15</b> jugadores</span><span class="trilho"><span style="width: 15%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Growth</span><span class="cap">hasta <b class="num">25</b> jugadores</span><span class="trilho"><span style="width: 25%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Pro</span><span class="cap">hasta <b class="num">50</b> jugadores</span><span class="trilho"><span style="width: 50%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Scale</span><span class="cap">hasta <b class="num">75</b> jugadores</span><span class="trilho"><span style="width: 75%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Elite</span><span class="cap">hasta <b class="num">100</b> jugadores</span><span class="trilho"><span style="width: 100%"></span></span></div>
+        </div>
+        <p class="planos-nota"><b>15%</b> de descuento en el plan anual</p>
+        <div class="card incluso" data-reveal>
+          <span class="rot">Todo incluido</span>
+          <div class="incluso-grade">
+            <div><h4>Dinero</h4><ul><li>Registro diario por red</li><li>Makeup</li><li>Billeteras y transacciones</li><li>Reloads y retiros</li><li>Contratos digitales</li></ul></div>
+            <div><h4>Juego</h4><ul><li>Grillas y schedule</li><li>Fidelidad a la grilla</li><li>Agenda del equipo</li><li>Cronómetro de sesión</li><li>Loot en el celular</li></ul></div>
+            <div><h4>Resultados</h4><ul><li>Torneos y performance</li><li>Stats con motor propio</li><li>Loot Collect: manos enviadas solas</li><li>Manos y rango del equipo</li><li>Eq&amp;ty</li></ul></div>
+            <div><h4>Equipo y estudio</h4><ul><li>Coach y clases</li><li>Videoteca</li><li>Discusión de manos</li><li>Chat del equipo</li><li>Battle</li></ul></div>
+            <div><h4>Inteligencia</h4><ul><li>Report mensual automático</li><li>Análisis comparativos</li><li>Postulaciones: el postulante llega ya medido</li></ul></div>
+            <div><h4>Idiomas</h4><ul><li>Portugués, inglés, español y ruso</li><li>Traducción automática del chat y de los mensajes de la gestión</li></ul></div>
+          </div>
+        </div>
+        <div class="planos-cta" data-reveal>
+          <a class="btn btn-gh" href="https://wa.me/5512988098957?text=%C2%A1Hola%21%20Quiero%20saber%20el%20valor%20de%20Loot%20para%20un%20equipo%20de%20__%20jugadores." target="_blank" rel="noopener" onclick="window.va&amp;&amp;window.va('event',{name:'cta_planos'})">Ver el valor de mi equipo →</a>
+          <p class="planos-rodape">* En el plan anual del Elite. <a href="https://wa.me/5512988098957?text=%C2%A1Hola%21%20Quiero%20ver%20las%20reglas%20de%20contrataci%C3%B3n%20de%20Loot." target="_blank" rel="noopener" onclick="window.va&amp;&amp;window.va('event',{name:'cta_regras'})">Consulta las reglas de contratación.</a></p>
+        </div>
       </div>
     </section>
 
@@ -418,7 +615,7 @@
         <span>Data science y gestión para equipos de poker</span>
       </div>
       <div class="rodape-cols">
-        <div><strong>Producto</strong><a class="lnk" href="#produto">Por dentro</a><a class="lnk" href="#recursos">Funciones</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a></div>
+        <div><strong>Producto</strong><a class="lnk" href="#produto">Por dentro</a><a class="lnk" href="#recursos">Funciones</a><a class="lnk" href="#planos">Planes</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Entrar</a></div>
         <div><strong>Manuales</strong><a class="lnk" href="./manual-jogador.html">Jugador</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a></div>
         <div><strong>Contacto</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
         <div><strong>Legal</strong><a class="lnk" href="./privacidade.html">Privacidad</a><a class="lnk" href="./termos.html">Términos</a></div>

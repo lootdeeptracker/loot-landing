@@ -33,10 +33,10 @@
     <div class="lpt-mask" aria-hidden="true" style="position: absolute; pointer-events: none; opacity: 0.03; background: #FFFFFF; right: -58px; top: 560px; width: 200px; height: 330px"></div>
     <div style="display: flex; align-items: center; gap: 12px; padding: 6px 6px 14px; border-bottom: 1px solid rgba(255,255,255,.05)">
       <div style="position: relative; width: 48px; height: 48px; flex-shrink: 0">
-        <img src="/sim/img/lpt.png" alt="Loot Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
+        <img src="/sim/img/lpt.png" alt="Poker Team" style="position: absolute; left: 50%; top: 50%; height: 46px; width: auto; transform: translate(-50%, -50%)">
       </div>
       <div style="display: flex; flex-direction: column; min-width: 0">
-        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Loot Poker</span>
+        <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Poker</span>
         <span class="cs-disp" style="font-size: calc(17px * var(--ds)); line-height: 1.05">Team</span>
       </div>
     </div>
@@ -90,8 +90,9 @@
           <span style="font-size: 11px; color: #80858C; border-left: 1px solid rgba(255,255,255,.08); padding-left: 10px">sesión</span>
         </button>
         <button type="button" class="hb nb" aria-label="Buscador de nicks"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"></circle><path d="M3.5 19c.8-3.2 3.4-5 6.5-5 1.2 0 2.3.3 3.2.8"></path><circle cx="17" cy="16" r="3"></circle><path d="M19.2 18.2 21 20"></path></svg></button>
+        <button type="button" class="hb nb" aria-label="Battle"><svg viewBox="0 0 24 24"><path d="M3.5 8.5 8 12l4-6.5 4 6.5 4.5-3.5-1.8 10H5.3z"></path></svg></button>
         <button type="button" class="hb nb" aria-label="Calendario del equipo"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg></button>
-        <button type="button" class="hb" aria-label="Mensajes" style="background: linear-gradient(180deg,#17191C,#111214)"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m3.8 7 8.2 6 8.2-6"></path></svg></button>
+        <button type="button" class="hb" aria-label="Chat" style="background: linear-gradient(180deg,#17191C,#111214)"><svg viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"></path></svg></button>
         <button type="button" class="hb" aria-label="Notificaciones"><svg viewBox="0 0 24 24"><path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"></path><path d="M10 20.5a2 2 0 0 0 4 0"></path></svg></button>
         <div style="width: 1px; height: 24px; background: rgba(255,255,255,.08); margin: 0 6px"></div>
         <span style="font-size: 13px; color: #C9CCD0; letter-spacing: .02em; white-space: nowrap">RIVERKID</span>
@@ -356,32 +357,36 @@ class Component extends DCLogic {
     var DP = { f: "'Pathway Gothic One', sans-serif", s: 1.32, c: 'uppercase', v: 'normal', t: '0.03em', lt: '0.09em', w: 400 };
 
     var NAV = [
-      { nome: 'Líder', aberta: true, itens: ['Equipo','Gestión','Finanzas','Report','Coaches','Jugadores','Transacciones','Performance','Torneos','Análisis','Grillas','Configuración'] },
+      { nome: 'Líder', aberta: false, itens: [] },
       { nome: 'Coach', aberta: false, itens: [] },
-      { nome: 'Jugador', aberta: true, itens: ['Dashboard','Mi registro','Report','Schedule','Stats','Eq&ty','Hands','Performance','Torneos','Análisis','Transacciones'] }
+      { nome: 'Jugador', aberta: true, itens: ['Dashboard', 'Mi registro', 'Report', 'Schedule', 'Stats', 'Eq&ty', 'Hands', 'Discusiones', 'Videoteca', 'Performance', 'Torneos', 'Análisis', 'Battle', 'Transacciones'] }
     ];
-    var BETA = { 'Líder:Grillas': true };
-    var IDS = { 'Líder:Equipo': 'time', 'Líder:Report': 'report', 'Líder:Análisis': 'analises', 'Líder:Gestión': 'gestao', 'Líder:Finanzas': 'financeiro', 'Jugador:Dashboard': 'dashboard', 'Jugador:Mi registro': 'folha', 'Jugador:Schedule': 'schedule', 'Jugador:Stats': 'stats', 'Jugador:Performance': 'performance' };
+    var BETA = { 'Líder:Grillas': true, 'Jugador:Schedule': true };
+    var IDS = { 'Líder:Equipo': 'time', 'Líder:Gestión': 'gestao', 'Líder:Finanzas': 'financeiro', 'Líder:Report': 'report', 'Líder:Análisis': 'analises', 'Jugador:Dashboard': 'dashboard', 'Jugador:Mi registro': 'folha', 'Jugador:Schedule': 'schedule', 'Jugador:Stats': 'stats', 'Jugador:Performance': 'performance' };
     var ATIVO = 'Jugador:Stats';
     var ICP = {
-      'Equipo': 'M3 8l4 4 5-7 5 7 4-4-2 11H5z',
-      'Gestión': 'M4 7h9M17 7h3M4 17h3M11 17h9M15 5v4M9 15v4',
-      'Finanzas': 'M12 3v18M16.5 7.5c0-1.9-2-3-4.5-3s-4.5 1.2-4.5 3.2c0 4.6 9 2.4 9 7 0 2-2 3.3-4.5 3.3s-4.5-1.1-4.5-3',
-      'Coaches': 'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
-      'Jugadores': 'M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M17 11a3 3 0 1 0 0-6M22 21c0-3-2-5-5-5',
-      'Transacciones': 'M4 8h14l-4-4M20 16H6l4 4',
-      'Performance': 'M3 17l6-6 4 4 8-8M15 7h6v6',
-      'Torneos': 'M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20.5h7',
-      'Grillas': 'M4 5h16v15H4zM4 10h16M9 5v15M15 5v15',
-      'Configuración': 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
-      'Dashboard': 'M3.5 3.5h7v9h-7zM13.5 3.5h7v5h-7zM13.5 11.5h7v9h-7zM3.5 15.5h7v5h-7z',
-      'Mi registro': 'M6 3.5h9l3 3v14H6zM9 11h6M9 15h6',
-      'Schedule': 'M4 5.5h16v15H4zM4 10h16M8.5 3v4M15.5 3v4M12 13v4M10 15h4',
-      'Stats': 'M4 20V10M10 20V4M16 20v-7M22 20H2',
-      'Eq&ty': 'M19 5L5 19M7 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
-      'Hands': 'M9 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM4 7v11a3 3 0 0 0 3 3',
+      'Equipo': 'M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294zM5 21h14',
+      'Gestión': 'M4 3h5a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1ZM15 3h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1ZM15 12h5a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1ZM4 16h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1Z',
+      'Finanzas': 'M12 2L12 22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6',
       'Report': 'M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1zM21.21 15.89A10 10 0 1 1 8 2.83',
-      'Análisis': 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7ZM14 2v4a2 2 0 0 0 2 2h4M8 18v-1M12 18v-6M16 18v-3'
+      'Coaches': 'M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0zM22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5',
+      'Jugadores': 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.128a4 4 0 0 1 0 7.744M22 21v-2a4 4 0 0 0-3-3.87M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0',
+      'Postulaciones': 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M5 7a4 4 0 1 0 8 0a4 4 0 1 0 -8 0M19 8L19 14M22 11L16 11',
+      'Discusiones': 'M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2zM20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1',
+      'Videoteca': 'M12.296 3.464l3.02 3.956M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3zM3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM6.18 5.276l3.1 3.899',
+      'Transacciones': 'M8 3 4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4',
+      'Performance': 'M16 7h6v6M22 7l-8.5 8.5-5-5L2 17',
+      'Torneos': 'M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978M18 9h1.5a1 1 0 0 0 0-5H18M4 22h16M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zM6 9H4.5a1 1 0 0 1 0-5H6',
+      'Análisis': 'M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M8 18v-1M12 18v-6M16 18v-3',
+      'Battle': 'M14.5 17.5L3 6L3 3L6 3L17.5 14.5M13 19L19 13M16 16L20 20M19 21L21 19M14.5 6.5L18 3L21 3L21 6L17.5 9.5M5 14L9 18M7 17L4 20M3 19L5 21',
+      'Grillas': 'M16 19h6M16 2v4M19 16v6M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5M3 10h18M8 2v4',
+      'Configuración': 'M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0',
+      'Dashboard': 'M4 3h5a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1ZM15 3h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1ZM15 12h5a1 1 0 0 1 1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1ZM4 16h5a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1Z',
+      'Mi registro': 'M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2zM14 2v5a1 1 0 0 0 1 1h5M8 13h2M14 13h2M8 17h2M14 17h2',
+      'Schedule': 'M8 2v4M16 2v4M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2ZM3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01',
+      'Stats': 'M3 3v16a2 2 0 0 0 2 2h16M18 17V9M13 17V5M8 17v-3',
+      'Eq&ty': 'M12 18v4M2 14.499a5.5 5.5 0 0 0 9.591 3.675.6.6 0 0 1 .818.001A5.5 5.5 0 0 0 22 14.5c0-2.29-1.5-4-3-5.5l-5.492-5.312a2 2 0 0 0-3-.02L5 8.999c-1.5 1.5-3 3.2-3 5.5',
+      'Hands': 'M9 6.4 5.1 7.1a2 2 0 0 0-1.6 2.3l1.9 10.8a2 2 0 0 0 2.3 1.6l3.3-.6M11 3h8a2 2 0 0 1 2 2v13a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-13a2 2 0 0 1 2 -2ZM15 8.6 17.2 11.5 15 14.4 12.8 11.5z'
     };
     function ICD(n) { return ICP[n] || 'M12 12h0'; }
     function ICO(n) { return 'width: 16px; height: 16px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; opacity: .85'; }

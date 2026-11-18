@@ -155,7 +155,7 @@
     /* para quem */
     .para-quem { padding: 130px 0 60px; }
     .para-quem h2 { margin: 0 0 40px; font-size: clamp(40px, 6vw, 64px); line-height: 1; color: var(--tx-1); }
-    .lados { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .lados { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .lado { padding: 32px; display: flex; flex-direction: column; gap: 14px; }
     .lado h3 { margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -.01em; }
     .lado p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--mut); }
@@ -185,16 +185,113 @@
     .rodape-cols strong { color: var(--tx-1); font-weight: 400; }
     .rodape-cols .lnk { font-size: 13px; }
 
+    /* recursos novos (v3.8): discussões, videoteca, candidaturas, chat */
+    .disc-mao { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+    .carta { display: inline-flex; align-items: center; justify-content: center; gap: 1px; width: 30px; height: 40px; border-radius: 6px; background: #EDEEF0; color: #0A0A0B; font-size: 15px; font-weight: 600; box-shadow: 0 6px 14px -8px rgba(0,0,0,.9); }
+    .carta i { font-style: normal; font-size: 13px; }
+    .carta.vm { color: #C2433B; }
+    .disc-sit { margin-left: 8px; font-size: 13px; color: var(--mut-2); }
+    .voto { display: flex; align-items: center; gap: 12px; height: 30px; font-size: 13px; }
+    .voto .n { width: 40px; }
+    .voto .trilho { flex-grow: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,.06); overflow: hidden; }
+    .voto .trilho span { display: block; height: 6px; border-radius: 3px; background: var(--time); transform-origin: left center; animation: vt 4.8s cubic-bezier(.4,0,.2,1) infinite; }
+    .voto .trilho.b span { background: rgba(255,255,255,.22); }
+    .voto .p { width: 40px; text-align: right; color: var(--mut-2); }
+    .disc-conc { margin-top: 12px; padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(62,187,195,.25); background: rgba(62,187,195,.05); font-size: 13px; line-height: 1.5; }
+    .disc-conc b { display: block; margin-bottom: 2px; font-family: 'Geist Mono', monospace; font-size: 11px; font-weight: 400; letter-spacing: .06em; text-transform: uppercase; color: var(--time); }
+    .video { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .video .thumb { width: 64px; height: 38px; flex-shrink: 0; border-radius: 6px; background: linear-gradient(135deg, #1A1C1F, #0E0F11); border: 1px solid rgba(255,255,255,.08); display: inline-flex; align-items: center; justify-content: center; color: var(--mut-2); }
+    .video .thumb svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .video .vt { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .video .vt .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .video .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .video .tags .chip { height: 18px; padding: 0 7px; font-size: 11px; }
+    .video .tags .chip.duv { color: var(--amb); border-color: rgba(217,164,65,.35); }
+    .video .vd { flex-shrink: 0; font-size: 12px; color: var(--dim); }
+    .video.bloq .thumb, .video.bloq .t { opacity: .45; }
+    .video .abre { font-size: 11px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cand { padding: 16px 18px; }
+    .cand-top { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; }
+    .cand-top .av { width: 36px; height: 36px; border-radius: 10px; font-size: 12px; }
+    .cand-top .nm { display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0; }
+    .cand-top .nm b { font-size: 15px; font-weight: 500; color: var(--tx-1); }
+    .cand-top .nm span { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); }
+    .chip.prom { color: var(--pos); border-color: rgba(82,192,199,.35); background: rgba(82,192,199,.06); }
+    .cand-linha { display: flex; align-items: center; gap: 12px; height: 34px; border-top: 1px solid rgba(255,255,255,.05); font-size: 13px; }
+    .cand-linha .m { flex-grow: 1; min-width: 0; color: var(--mut-2); }
+    .cand-linha .v { width: 52px; text-align: right; }
+    .cand-linha .s { width: 92px; text-align: right; font-size: 12px; }
+    .cand-linha .s.ok { color: var(--pos); }
+    .cand-linha .s.ac { color: var(--amb); }
+    .cand-pe { padding-top: 12px; border-top: 1px solid rgba(255,255,255,.05); font-size: 12px; color: var(--mut); }
+    .cand-pe b { color: var(--tx-1); font-weight: 500; }
+    .msgs { display: flex; flex-direction: column; gap: 12px; }
+    .msg { display: flex; align-items: flex-end; gap: 10px; max-width: 90%; }
+    .msg.eu { align-self: flex-end; }
+    .msg .av { width: 30px; height: 30px; border-radius: 9px; font-size: 11px; }
+    .bolha { display: flex; flex-direction: column; gap: 4px; padding: 10px 14px; border-radius: 12px 12px 12px 4px; background: #15161A; border: 1px solid rgba(255,255,255,.07); font-size: 13px; line-height: 1.5; }
+    .msg.eu .bolha { border-radius: 12px 12px 4px 12px; background: rgba(62,187,195,.1); border-color: rgba(62,187,195,.25); }
+    .bolha .quem { font-size: 11px; color: var(--mut); }
+    .bolha .trad { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--dim); }
+    .bolha .trad svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* planos */
+    .planos { padding: 110px 0 20px; }
+    .planos > .wrap { display: flex; flex-direction: column; gap: 14px; }
+    .planos > .wrap > .rot { margin-bottom: 8px; }
+    .buyin { position: relative; overflow: hidden; border-radius: 16px; padding: 44px 48px 36px; background: linear-gradient(135deg, #3EBBC3 0%, #2A8F96 100%); color: #041416; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 30px 40px; align-items: end; }
+    .buyin > svg { position: absolute; right: -130px; top: -190px; width: 380px; height: 380px; opacity: .14; pointer-events: none; }
+    .buyin-esq, .buyin-dir, .buyin-pe { position: relative; }
+    .buyin-rot { font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: .12em; opacity: .7; }
+    .buyin-valor { margin: 14px 0 0; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .buyin-valor .de { font-size: 20px; font-weight: 500; }
+    .buyin-valor .dp { font-size: clamp(76px, 11vw, 136px); line-height: .82; }
+    .buyin-por { display: block; margin-top: 12px; font-size: 16px; font-weight: 500; opacity: .78; }
+    .buyin-dir { margin: 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.02; text-align: right; }
+    .buyin-pe { grid-column: 1 / -1; margin: 0; padding-top: 22px; border-top: 1px solid rgba(4,20,22,.18); font-size: 17px; font-weight: 500; }
+    .planos-grade { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+    .plano { padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 14px; }
+    .plano .nome { font-size: 30px; line-height: 1; color: var(--tx-1); }
+    .plano .cap { font-size: 14px; color: var(--mut); white-space: nowrap; }
+    .plano .cap b { color: var(--tx-1); font-weight: 500; }
+    .plano .trilho { height: 3px; border-radius: 2px; background: rgba(255,255,255,.06); overflow: hidden; }
+    .plano .trilho span { display: block; height: 3px; background: var(--time); }
+    .planos-nota { margin: 6px 0 0; font-size: 14px; color: var(--mut-2); }
+    .planos-nota b { color: var(--time); font-weight: 500; }
+    .incluso { margin-top: 30px; padding: 32px; }
+    .incluso-grade { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 32px; margin-top: 24px; }
+    .incluso h4 { margin: 0 0 12px; font-size: 15px; font-weight: 500; color: var(--tx-1); }
+    .incluso ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+    .incluso li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.45; color: var(--mut); }
+    .incluso li::before { content: ''; position: absolute; left: 2px; top: 5px; width: 8px; height: 4px; border-left: 1.5px solid var(--time); border-bottom: 1.5px solid var(--time); transform: rotate(-45deg); }
+    .planos-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 34px; text-align: center; }
+    .planos-rodape { margin: 0; font-size: 13px; color: var(--dim); }
+    .planos-rodape a { color: var(--mut-2); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,.22); }
+    .planos-rodape a:hover { color: var(--tx-1); }
+
+    @keyframes vt { 0% { transform: scaleX(.1); } 35%, 75% { transform: scaleX(1); } 100% { transform: scaleX(.1); } }
     @keyframes lv { 0% { transform: scaleY(.15); } 35%, 75% { transform: scaleY(1); } 100% { transform: scaleY(.15); } }
     @keyframes ld { 0% { stroke-dashoffset: 1; } 45%, 80% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
     @keyframes ce { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
     .loopdraw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ld 5s cubic-bezier(.4,0,.2,1) infinite; }
 
+    /* menu do topo: os links saem antes de espremer (o mais largo, em espanhol, aperta em 970px) */
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .nav .wrap > .lnk { margin-left: auto; }
+    }
     @media (max-width: 960px) {
       .pilares-grade { grid-template-columns: minmax(0, 1fr); border-top: 0; }
       .pilar, .pilar:first-child, .pilar:last-child { padding: 28px 0; border-right: 0; border-top: 1px solid var(--borda); }
       .pilar svg { height: 200px; }
-      .recursos-grade, .lados { grid-template-columns: minmax(0, 1fr); }
+      .recursos-grade { grid-template-columns: minmax(0, 1fr); }
+      .lados { grid-template-columns: minmax(0, 1fr); }
+      .planos-grade { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .plano { flex-direction: row; align-items: center; gap: 18px; padding: 16px 20px; }
+      .plano .nome { width: 96px; flex-shrink: 0; font-size: 26px; }
+      .plano .trilho { order: 2; flex-grow: 1; }
+      .plano .cap { order: 3; width: 130px; text-align: right; }
+      .incluso-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .recurso { min-height: 0; }
       .recurso .visual { margin-top: 18px; }
       footer .wrap { flex-direction: column; }
@@ -215,10 +312,19 @@
       .depo { padding: 36px 26px; }
       .cta { padding: 110px 0 100px; }
       .rodape-cols { flex-direction: column; gap: 28px; }
+      .buyin { grid-template-columns: minmax(0, 1fr); padding: 32px 26px 28px; gap: 24px; }
+      .buyin-dir { text-align: left; }
+      .incluso { padding: 24px; }
+      .incluso-grade { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .plano { gap: 14px; padding: 14px 16px; }
+      .plano .nome { width: 72px; flex-shrink: 0; font-size: 24px; }
+      .plano .trilho { min-width: 24px; }
+      .plano .cap { width: auto; flex-shrink: 0; }
+      .planos { padding: 80px 0 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .barras span, .dias span, .loopdraw { animation: none; }
+      .barras span, .dias span, .loopdraw, .voto .trilho span { animation: none; }
       .loopdraw { stroke-dashoffset: 0; }
     }
   </style>
@@ -243,6 +349,7 @@
         <a class="lnk" href="#recursos">Возможности</a>
         <a class="lnk" href="#times">Для кого</a>
         <a class="lnk" href="#depoimento">Отзыв</a>
+        <a class="lnk" href="#planos">Тарифы</a>
       </div>
       <a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Войти</a>
       <!-- idiomas:seletor --><div class="idiomas" role="group" aria-label="Язык"><a href="/" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">PT</a><a href="/en/" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">EN</a><a href="/ru/" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">RU</a><a href="/es/" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">ES</a></div><details class="idiomas-m"><summary aria-label="Язык">RU</summary><div class="lista"><a href="/" hreflang="pt" lang="pt" data-idioma="pt" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Português<span>PT</span></a><a href="/en/" hreflang="en" lang="en" data-idioma="en" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">English<span>EN</span></a><a href="/ru/" hreflang="ru" lang="ru" data-idioma="ru" aria-current="true" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Русский<span>RU</span></a><a href="/es/" hreflang="es" lang="es" data-idioma="es" onclick="try{localStorage.setItem('loot_idioma',this.dataset.idioma)}catch(e){}">Español<span>ES</span></a></div></details><!-- /idiomas:seletor -->
@@ -253,7 +360,7 @@
   <main>
     <header id="top" class="hero">
       <div class="wrap" data-hero>
-        <span class="eyebrow"><span class="mono">RUN DEEP</span><i></i><a href="#produto" class="lnk" style="font-size: 13px">Новое · Loot 3.0 <span class="apagado">→</span></a></span>
+        <span class="eyebrow"><span class="mono">RUN DEEP</span><i></i><a href="#novidades" class="lnk" style="font-size: 13px">Новое · Заявки и Видеотека <span class="apagado">→</span></a></span>
         <h1 class="dp">Управление и данные.<br /><span class="apagado">Всё в одном месте.</span></h1>
         <p>Data science для покерных команд. Меньше догадок, больше решений на основе данных.</p>
       </div>
@@ -329,7 +436,7 @@
           <article class="card recurso" data-reveal>
             <span class="etiqueta">STATS ИГРЫ</span>
             <h3>Рентген игры, посчитанный в Loot.</h3>
-            <p>Загрузите hand histories из любой сети. Loot считает stats с оценкой по каждой зоне и динамикой по месяцам. Открытый трекер не нужен.</p>
+            <p>Loot Collect сам отправляет hand histories из сетей команды. Loot считает stats с оценкой по каждой зоне и динамикой по месяцам. Открытый трекер не нужен.</p>
             <div class="visual">
               <div class="barras"><span style="height: 84%; animation-delay: 0.00s"></span><span style="height: 86%; animation-delay: 0.18s"></span><span style="height: 88%; animation-delay: 0.36s"></span><span style="height: 74%; animation-delay: 0.54s"></span><span style="height: 90%; animation-delay: 0.72s"></span></div>
               <div class="barras-rot"><span>Префлоп</span><span>Конфронт.</span><span>Пост · IP</span><span>Пост · OOP</span><span>Блайнды</span></div>
@@ -368,23 +475,74 @@
             <div class="visual"><div class="grade-linha"><span class="h mono num">14:05</span><span class="t">Bounty Hunters $54</span><span class="tier" style="color: rgb(76,195,138); border: 1px solid rgba(76,195,138,.45); background: rgba(76,195,138,.12)">A</span><span class="roi num" style="color: var(--pos)">+41%</span></div><div class="grade-linha"><span class="h mono num">16:30</span><span class="t">Winamax Monster Stack $50</span><span class="tier" style="color: rgb(168,201,78); border: 1px solid rgba(168,201,78,.45); background: rgba(168,201,78,.12)">B</span><span class="roi num" style="color: var(--pos)">+26%</span></div><div class="grade-linha"><span class="h mono num">18:00</span><span class="t">WPN Nightly $33</span><span class="tier" style="color: rgb(232,135,58); border: 1px solid rgba(232,135,58,.45); background: rgba(232,135,58,.12)">C</span><span class="roi num" style="color: var(--pos)">+9%</span></div><div class="grade-linha"><span class="h mono num">21:10</span><span class="t">Daily Hyper $22</span><span class="tier" style="color: rgb(224,96,90); border: 1px solid rgba(224,96,90,.45); background: rgba(224,96,90,.12)">D</span><span class="roi num" style="color: var(--neg)">−4%</span></div></div>
           </article>
 
+          <article id="novidades" class="card recurso" data-reveal>
+            <span class="etiqueta">РАЗБОРЫ</span>
+            <h3>Сложная раздача становится разбором для всей команды.</h3>
+            <p>Любой в команде может отправить раздачу на разбор. Команда голосует за линию, комментирует и собирает диапазон оппонента. Тренер подводит итог.</p>
+            <div class="visual">
+              <div class="disc-mao"><span class="carta">A<i>♠</i></span><span class="carta vm">K<i>♦</i></span><span class="disc-sit">BTN открывает · BB олл-ин 18 bb</span></div>
+              <div class="voto"><span class="n">Call</span><span class="trilho"><span style="width: 64%"></span></span><span class="p num">64%</span></div>
+              <div class="voto"><span class="n">Fold</span><span class="trilho b"><span style="width: 36%; animation-delay: .15s"></span></span><span class="p num">36%</span></div>
+              <div class="disc-conc"><b>Итог</b>Колл. AK сильно впереди диапазона олл-ина BB.</div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">ВИДЕОТЕКА</span>
+            <h3>Все уроки команды на одной полке.</h3>
+            <p>Видео с тегами, порядком изучения и доступом для каждого. Вопрос игрока остаётся под видео и попадает в очередь тренера.</p>
+            <div class="visual">
+              <div class="video"><span class="thumb"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"></path></svg></span><span class="vt"><span class="t">ICM на баббле</span><span class="tags"><span class="chip">MTT</span><span class="chip">ICM</span><span class="chip duv">2 вопроса</span></span></span><span class="vd mono num">18:42</span></div>
+              <div class="video"><span class="thumb"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"></path></svg></span><span class="vt"><span class="t">Диапазоны 3-бета на BTN</span><span class="tags"><span class="chip">Префлоп</span></span></span><span class="vd mono num">24:10</span></div>
+              <div class="video bloq"><span class="thumb"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg></span><span class="vt"><span class="t">Постфлоп OOP</span><span class="abre">Откроется после: Диапазоны 3-бета на BTN</span></span><span class="vd mono num">31:05</span></div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">ЗАЯВКИ</span>
+            <h3>Кандидат приходит уже измеренным.</h3>
+            <p>Кандидат отправляет раздачи по ссылке команды. По истории из SharkScope Loot оценивает игру по меркам каждого уровня и показывает, на какого игрока команды он похож.</p>
+            <div class="visual card cand">
+              <div class="cand-top"><span class="av">LV</span><span class="nm"><b>Lucas_V</b><span>Предварительный отбор</span></span><span class="chip prom">перспективен</span></div>
+              <div class="cand-linha"><span class="m">Overall по статам</span><span class="v num">74</span><span class="s ok">В диапазоне</span></div>
+              <div class="cand-linha"><span class="m">ROI · Shark</span><span class="v num">+18%</span><span class="s ok">В диапазоне</span></div>
+              <div class="cand-linha"><span class="m">ABI · Shark</span><span class="v num">$27</span><span class="s ac">Выше</span></div>
+              <div class="cand-pe">Похож на <b>RiverKid</b> · стиль 82%</div>
+            </div>
+          </article>
+
+          <article class="card recurso" data-reveal>
+            <span class="etiqueta">ЧАТ КОМАНДЫ</span>
+            <h3>Общение команды на любом языке.</h3>
+            <p>Личные сообщения, группы, доска менеджмента и результаты дня. Сообщение приходит переведённым на язык каждого.</p>
+            <div class="visual msgs">
+              <div class="msg"><span class="av">MA</span><span class="bolha"><span class="quem">Malu_88</span>Закончила 3-й в Bounty Hunters. Вчерашний разбор помог.<span class="trad"><svg viewBox="0 0 24 24"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"></path></svg>Переведено с португальского</span></span></div>
+              <div class="msg eu"><span class="bolha">Отлично! Скинь раздачу с финального стола в Разборы.</span></div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
     <section id="times" class="para-quem">
       <div class="wrap">
-        <h2 class="dp" data-reveal>Для обеих сторон команды.</h2>
+        <h2 class="dp" data-reveal>Для всей команды.</h2>
         <div class="lados" data-reveal-grupo>
           <div class="card lado">
             <span class="rot">Руководитель команды</span>
             <h3>Управление командой</h3>
-            <p>Баланс по каждому игроку, мейкап, долги, поиск ников, оповещения о мейкапе, учёт нарушений и разрешения на бай-ины. Сводная картина результатов команды. Итог группы без таблиц.</p>
+            <p>Баланс по каждому игроку, мейкап, долги, поиск ников, оповещения о мейкапе, нарушения и разрешения на бай-ины, сетки и заявки. Сводная картина результатов команды и Report за месяц без таблиц.</p>
+          </div>
+          <div class="card lado">
+            <span class="rot">Тренер</span>
+            <h3>Ученики в данных</h3>
+            <p>Панель с игроками каждого тренера: раздачи, stats, турниры и результаты. Уроки в календаре команды, аналитика для ученика и цель по stats для каждого.</p>
           </div>
           <div class="card lado">
             <span class="rot">Игрок</span>
             <h3>Карьера в данных</h3>
-            <p>Статистика турниров, сессии, stats игры, календарь событий команды, тренд edge во времени и инструменты для учёбы. Где вы выигрываете, где проигрываете и что скрывает дисперсия.</p>
+            <p>Турниры, сессии, stats игры, Eq&amp;ty, сетка на день и календарь команды. Тренд edge во времени, Report за месяц и Battle с командой. Где вы выигрываете, где проигрываете и что скрывает дисперсия.</p>
           </div>
         </div>
       </div>
@@ -397,6 +555,45 @@
           <blockquote>«Он позволяет нам принимать более взвешенные решения на основе данных, а не одних впечатлений. Кроме цифр, Loot помогает понять, что с ними делать и каким должен быть следующий шаг.»</blockquote>
           <figcaption><span class="ini">JO</span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">José Oliveira</span><span style="font-size: 13px; opacity: .75">партнёр, BigHit Poker Team (Португалия)</span></span></figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section id="planos" class="planos">
+      <div class="wrap">
+        <span class="rot" data-reveal>Тарифы</span>
+        <div class="buyin" data-reveal>
+          <svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="60" fill="none" stroke="#041416" stroke-width="1"></circle><circle cx="100" cy="100" r="30" fill="none" stroke="#041416" stroke-width="1"></circle></svg>
+          <div class="buyin-esq">
+            <span class="buyin-rot">БАЙ-ИН</span>
+            <p class="buyin-valor"><span class="de">от</span><span class="dp num">$5,10</span></p>
+            <span class="buyin-por">за игрока в месяц*</span>
+          </div>
+          <p class="buyin-dir dp">Фиксированный рейк.<br />Без скрытых комиссий.</p>
+          <p class="buyin-pe">Весь Loot в каждом тарифе. Меняется только размер команды.</p>
+        </div>
+        <div class="planos-grade" data-reveal-grupo>
+          <div class="card plano"><span class="nome dp">Starter</span><span class="cap">до <b class="num">15</b> игроков</span><span class="trilho"><span style="width: 15%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Growth</span><span class="cap">до <b class="num">25</b> игроков</span><span class="trilho"><span style="width: 25%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Pro</span><span class="cap">до <b class="num">50</b> игроков</span><span class="trilho"><span style="width: 50%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Scale</span><span class="cap">до <b class="num">75</b> игроков</span><span class="trilho"><span style="width: 75%"></span></span></div>
+          <div class="card plano"><span class="nome dp">Elite</span><span class="cap">до <b class="num">100</b> игроков</span><span class="trilho"><span style="width: 100%"></span></span></div>
+        </div>
+        <p class="planos-nota">Скидка <b>15%</b> на годовой тариф</p>
+        <div class="card incluso" data-reveal>
+          <span class="rot">Всё включено</span>
+          <div class="incluso-grade">
+            <div><h4>Деньги</h4><ul><li>Ежедневный учёт по сетям</li><li>Мейкап</li><li>Кошельки и транзакции</li><li>Релоады и выводы</li><li>Электронные контракты</li></ul></div>
+            <div><h4>Игра</h4><ul><li>Сетки и schedule</li><li>Соблюдение сетки</li><li>Календарь команды</li><li>Таймер сессии</li><li>Loot в телефоне</li></ul></div>
+            <div><h4>Результаты</h4><ul><li>Турниры и результаты</li><li>Stats на собственном движке</li><li>Loot Collect: раздачи отправляются сами</li><li>Раздачи и диапазоны команды</li><li>Eq&amp;ty</li></ul></div>
+            <div><h4>Команда и учёба</h4><ul><li>Тренер и уроки</li><li>Видеотека</li><li>Разборы раздач</li><li>Чат команды</li><li>Battle</li></ul></div>
+            <div><h4>Аналитика</h4><ul><li>Автоматический Report за месяц</li><li>Сравнительная аналитика</li><li>Заявки: кандидат приходит уже измеренным</li></ul></div>
+            <div><h4>Языки</h4><ul><li>Португальский, английский, испанский и русский</li><li>Автоперевод чата и сообщений менеджмента</li></ul></div>
+          </div>
+        </div>
+        <div class="planos-cta" data-reveal>
+          <a class="btn btn-gh" href="https://wa.me/5512988098957?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20Loot%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B%20%D0%B8%D0%B7%20__%20%D0%B8%D0%B3%D1%80%D0%BE%D0%BA%D0%BE%D0%B2." target="_blank" rel="noopener" onclick="window.va&amp;&amp;window.va('event',{name:'cta_planos'})">Узнать цену для моей команды →</a>
+          <p class="planos-rodape">* В годовом тарифе Elite. <a href="https://wa.me/5512988098957?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20Loot." target="_blank" rel="noopener" onclick="window.va&amp;&amp;window.va('event',{name:'cta_regras'})">Уточните условия подключения.</a></p>
+        </div>
       </div>
     </section>
 
@@ -419,7 +616,7 @@
         <span>Data science и управление для покерных команд</span>
       </div>
       <div class="rodape-cols">
-        <div><strong>Продукт</strong><a class="lnk" href="#produto">Изнутри</a><a class="lnk" href="#recursos">Возможности</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Войти</a></div>
+        <div><strong>Продукт</strong><a class="lnk" href="#produto">Изнутри</a><a class="lnk" href="#recursos">Возможности</a><a class="lnk" href="#planos">Тарифы</a><a class="lnk" href="https://app.lootdeep.com" onclick="window.va&&window.va('event',{name:'cta_entrar'})">Войти</a></div>
         <div><strong>Руководства</strong><a class="lnk" href="./manual-jogador.html">Игрок</a><a class="lnk" href="./manual-coach.html">Coach</a><a class="lnk" href="./manual-eqty.html">Eq&amp;ty</a></div>
         <div><strong>Контакты</strong><a class="lnk" href="mailto:contato@lootdeep.com">contato@lootdeep.com</a><a class="lnk" href="https://www.instagram.com/loot.deep/" target="_blank" rel="noopener">@loot.deep</a></div>
         <div><strong>Документы</strong><a class="lnk" href="./privacidade.html">Конфиденциальность</a><a class="lnk" href="./termos.html">Условия</a></div>
